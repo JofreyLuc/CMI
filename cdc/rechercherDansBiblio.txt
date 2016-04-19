@@ -1,0 +1,16 @@
+Rechercher un ePub dans sa bibliothèque
+
+Résumé : L'utilisateur connecté et sur la page d'acceuil recherche un ePub particulier dans la liste de ceux qu'il a téléchargés.
+Création : 19/04/2016
+Dernière version : 19/04/2016
+Version : alpha
+Acteurs : Utilisateur connecté
+
+Scénario nominal :
+1. L'utilisateur se place dans la barre de recherche et tape sa requête
+2. L'application recherche les résultats correspondants et les affiche (en cachant les autres)
+
+Scénario alternatif :
+2a : Pas de résultats
+   1. L'application n'a pas pu trouver de résultats correspondant à la requête de l'utilisateur, et affiche une page indiquant qu'aucun résultat n'a pu être trouvé
+   2. L'utilisateur reprend au point 1.

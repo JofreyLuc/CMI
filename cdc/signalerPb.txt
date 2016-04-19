@@ -1,0 +1,19 @@
+Signaler un problème
+
+Résumé : L'utilisateur a rencontré un problème au cours de l'execution de l'application et souhaite l'indiquer au développeur.
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs : Utilisateurs connectés
+
+Scénario nominal :
+1. L'utilisateur accède à la page de signalement dans le menu
+2. L'utilisateur remplit les champs de signalement et le valide
+3. L'application enregistre le signalement, en notifie l'utilisateur et le renvoie sur l'écran d'acceuil
+
+Scénarios alternatifs :
+2a : Champ(s) vide(s)
+   1. L'utilisateur n'a pas rempli tous les champs nécéssaires au signalement mais le soumet tout de même
+   2. L'application réaffiche la page en indiquant les données manquantes
+   3. L'utilisateur reprend au point 2.
+ 
