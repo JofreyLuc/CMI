@@ -1,0 +1,130 @@
+﻿Liste des fonctionnalités (Alpha)
+
+Inscription
+Désinscription
+Connexion (avec Facebook / G+)
+Déconnexion
+Modifier son profil / ses paramètres
+Consulter les conditions d'utilisation / mentions légales
+Consulter l'aide
+Rechercher un ePub libre
+Importer un ePub libre
+Importer un ePub personnel
+Consulter sa bibliothèque
+Trier sa bibliothèque
+Rechercher un ePub dans sa bibliothèque
+Consulter les informations d'un ePub
+	Lancer le mode lecture
+	Tourner une page
+	Accéder à une page donnée / au début / à la fin
+	Créer un signet
+	Accéder à un signet
+	Créer une note (Et suivre un lien ?..)
+	Synchroniser ses notes / signets
+	Rechercher dans l'ePub
+	Changer les paramètres d'affichage
+	Quitter le mode lecture
+Evaluer / Commenter un ePub
+Consulter ses propositions
+
+
+Inscription
+
+Résumé : Permet à un utilisateur non enregistré de créer un profil, en renseignant un certain nombre d'informations personnelles, ainsi qu'un mot de passe, afin de pouvoir accéder à l'application.
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs anonymes
+
+Scénario nominal :
+1. L'utilisateur (anonyme) accède à la page d'acceuil
+2. L'utilisateur accède à la page de création de compte
+3. L'utilisateur remplit les champs de création de compte et valide son inscription
+4. L'application vérifie la conformité des informations fournies
+5. L'application envoie un mail de confirmation à l'adresse fournie et l'indique à l'utilisateur
+6. L'utilisateur accède au lien contenu dans le mail de confirmation
+7. L'application valide la confimation, enregistre le nouvel utilisateur et le renvoie sur la page d'acceuil
+
+Scénarios alternatifs :
+5a : Information non valide
+1. L'application notifie l'utilisateur qu'un champ
+
+
+Désinscription
+
+Résumé : Permet à un utilisateur enregistré de supprimer son profil en accédant, une fois connecté, à son profil et en saisissant son mot de passe afin de confirmer la désinscription. Une fois la désinscription faite, il ne pourra plus se connecter et toutes les données de son ancien profil seront supprimées.
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés, site
+
+Scénario nominal :
+1. L'utilisateur (enregistré) accède à la page d'accueil et se connecte
+2. L'utilisateur accède à la page de son profil
+3. L'utilisateur valide sa désinscription en saisissant son mot de passe
+4. L'application vérifie le mot de passe saisi
+5. L'application envoie un mail de confirmation à l'adresse que l’utilisateur avait renseigné
+6. L’utilisateur accède au lien dans le mail reçu
+7. L’utilisateur est renvoyé sur une page contenant un sondage qu’il peut remplir ou non
+8. L'application supprime toutes les informations qui concerne l’ancien utilisateur et le renvoie sur la page d'accueil en tant qu’utilisateur anonyme
+
+Scénarios alternatifs :
+5a : Champ vide/Mot de passe non valide
+	1. L’application notifie l’utilisateur que le champ n’est pas rempli
+5b : Mot de passe non valide
+	1. L'application notifie l'utilisateur que le mot de passe saisi n’est pas valide
+6a : Mail non reçu
+	1. Aucun mail reçu au bout de 24 heures
+	2. L’utilisateur informe l’administrateur de son problème
+	3. L’utilisateur reprend le scénario à l’étape 6
+Consulter l’aide
+
+Résumé : Permet à un utilisateur enregistré ou anonyme de consulter l’aide du site, les questions les plus fréquemment posées par les utilisateurs et les réponses associées
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés et anonyme, site
+
+Scénario nominal :
+1. L’utilisateur demande l’accès l’aide du site
+2. L’utilisateur est renvoyé sur la page d’aide
+
+
+Télécharger un ePub libre
+
+Résumé : Permet à un utilisateur enregistré de stocker sur sa propre machine un ePub libre présent la bibliothèque du site. Cela lui permettra d’avoir accès au livre sans accéder au site.
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés, site
+
+Scénario nominal :
+1. L’utilisateur (enregistré) accède à la page d’accueil et se connecte
+2. L’utilisateur effectue une recherche dans sa propre bibliothèque ou sur la bibliothèque du site
+3. L’utilisateur est renvoyé sur la page des résultats et sélectionne le livre à télécharger
+4. L’application vérifie l’espace disponible sur la machine
+5. L’application lance le téléchargement et ajoute le livre téléchargé dans le profil de l’utilisateur
+
+Scénarios alternatifs :
+4a : L’espace vide sur la machine n’est pas suffisant
+	1. L’application informe l’utilisateur qu’il n’a plus assez d’espace libre sur sa machine
+
+PAS ENCORE FAIT
+Supprimer un ePub libre
+
+Résumé : Permet à un utilisateur enregistré de supprimer un ePub présent sur sa machine et sa 
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés, site
+
+Scénario nominal :
+1. L’utilisateur (enregistré) accède à la page d’accueil et se connecte
+2. L’utilisateur effectue une recherche dans sa propre bibliothèque ou sur la bibliothèque du site
+3. L’utilisateur est renvoyé sur la page des résultats et sélectionne le livre à télécharger
+4. L’application vérifie l’espace disponible sur la machine
+5. L’application lance le téléchargement et ajoute le livre téléchargé dans le profil de l’utilisateur
+
+Scénarios alternatifs :
+4a : L’espace vide sur la machine n’est pas suffisant
+	1. L’application informe l’utilisateur qu’il n’a plus assez d’espace libre sur sa machine
