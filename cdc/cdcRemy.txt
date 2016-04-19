@@ -50,81 +50,148 @@ Scénarios alternatifs :
 1. L'application notifie l'utilisateur qu'un champ
 
 
+
+
+
+
+
 Désinscription
 
-Résumé : Permet à un utilisateur enregistré de supprimer son profil en accédant, une fois connecté, à son profil et en saisissant son mot de passe afin de confirmer la désinscription. Une fois la désinscription faite, il ne pourra plus se connecter et toutes les données de son ancien profil seront supprimées.
+Résumé : Permet à un utilisateur enregistré de supprimer son profil en accédant, une fois connecté, à son profil et en saisissant son mot de passe afin de confirmer la désinscription. Une fois la désinscription faite, il ne pourra plus se connecter et toutes les données de son ancien profil seront supprimées. L'utilisateur doit préalablement être connecté.
 Création : 19/04/2016
 Dernière modification : 19/04/2016
 Version : alpha
-Acteurs concernés : Utilisateurs enregistrés, site
+Acteurs concernés : Utilisateurs enregistrés
 
 Scénario nominal :
-1. L'utilisateur (enregistré) accède à la page d'accueil et se connecte
-2. L'utilisateur accède à la page de son profil
-3. L'utilisateur valide sa désinscription en saisissant son mot de passe
-4. L'application vérifie le mot de passe saisi
-5. L'application envoie un mail de confirmation à l'adresse que l’utilisateur avait renseigné
-6. L’utilisateur accède au lien dans le mail reçu
-7. L’utilisateur est renvoyé sur une page contenant un sondage qu’il peut remplir ou non
-8. L'application supprime toutes les informations qui concerne l’ancien utilisateur et le renvoie sur la page d'accueil en tant qu’utilisateur anonyme
+1. L'utilisateur accède à la page de son profil
+2. L'utilisateur valide sa désinscription en saisissant son mot de passe
+3. L'application vérifie le mot de passe saisi
+4. L'application envoie un mail de confirmation à l'adresse que l’utilisateur avait renseigné
+5. L’utilisateur accède au lien dans le mail reçu
+6. L’utilisateur est renvoyé sur une page contenant un sondage qu’il peut remplir ou non
+7. L'application supprime toutes les informations qui concerne l’ancien utilisateur et le renvoie sur la page d'accueil en tant qu’utilisateur anonyme
 
 Scénarios alternatifs :
-5a : Champ vide/Mot de passe non valide
+4a : Champ vide/Mot de passe non valide
 	1. L’application notifie l’utilisateur que le champ n’est pas rempli
-5b : Mot de passe non valide
+4b : Mot de passe non valide
 	1. L'application notifie l'utilisateur que le mot de passe saisi n’est pas valide
-6a : Mail non reçu
+5a : Mail non reçu
 	1. Aucun mail reçu au bout de 24 heures
 	2. L’utilisateur informe l’administrateur de son problème
 	3. L’utilisateur reprend le scénario à l’étape 6
+
+
+
+
+
+
 Consulter l’aide
 
 Résumé : Permet à un utilisateur enregistré ou anonyme de consulter l’aide du site, les questions les plus fréquemment posées par les utilisateurs et les réponses associées
 Création : 19/04/2016
 Dernière modification : 19/04/2016
 Version : alpha
-Acteurs concernés : Utilisateurs enregistrés et anonyme, site
+Acteurs concernés : Utilisateurs enregistrés et anonymes
 
 Scénario nominal :
-1. L’utilisateur demande l’accès l’aide du site
+1. L’utilisateur demande l’accès à l’aide du site
 2. L’utilisateur est renvoyé sur la page d’aide
+
+
+
+
+
+
 
 
 Télécharger un ePub libre
 
-Résumé : Permet à un utilisateur enregistré de stocker sur sa propre machine un ePub libre présent la bibliothèque du site. Cela lui permettra d’avoir accès au livre sans accéder au site.
+Résumé : Permet à un utilisateur enregistré de stocker sur sa propre machine un ePub libre présent la bibliothèque du site. Cela lui permettra d’avoir accès au livre sans accéder au site. L'utilisateur est connecté et se trouve sur la page d'un livre.
 Création : 19/04/2016
 Dernière modification : 19/04/2016
 Version : alpha
 Acteurs concernés : Utilisateurs enregistrés, site
 
+
 Scénario nominal :
-1. L’utilisateur (enregistré) accède à la page d’accueil et se connecte
-2. L’utilisateur effectue une recherche dans sa propre bibliothèque ou sur la bibliothèque du site
-3. L’utilisateur est renvoyé sur la page des résultats et sélectionne le livre à télécharger
-4. L’application vérifie l’espace disponible sur la machine
-5. L’application lance le téléchargement et ajoute le livre téléchargé dans le profil de l’utilisateur
+1. L'utilisateur demande le téléchargement depuis la page du livre.
+2. L’application vérifie l’espace disponible sur la machine
+3. L’application lance le téléchargement et ajoute le livre téléchargé dans le profil de l’utilisateur
 
 Scénarios alternatifs :
-4a : L’espace vide sur la machine n’est pas suffisant
+2a : L’espace vide sur la machine n’est pas suffisant
 	1. L’application informe l’utilisateur qu’il n’a plus assez d’espace libre sur sa machine
 
-PAS ENCORE FAIT
+
+
+
+
+
+
+
+
+
+
 Supprimer un ePub libre
 
-Résumé : Permet à un utilisateur enregistré de supprimer un ePub présent sur sa machine et sa 
+Résumé : Permet à un utilisateur enregistré de supprimer un ePub présent sur sa machine et dans sa bibliothèque
 Création : 19/04/2016
 Dernière modification : 19/04/2016
 Version : alpha
-Acteurs concernés : Utilisateurs enregistrés, site
+Acteurs concernés : Utilisateurs enregistrés
+Pré-conditions : L’utilisateur doit être connecté
 
 Scénario nominal :
-1. L’utilisateur (enregistré) accède à la page d’accueil et se connecte
-2. L’utilisateur effectue une recherche dans sa propre bibliothèque ou sur la bibliothèque du site
-3. L’utilisateur est renvoyé sur la page des résultats et sélectionne le livre à télécharger
-4. L’application vérifie l’espace disponible sur la machine
-5. L’application lance le téléchargement et ajoute le livre téléchargé dans le profil de l’utilisateur
+1. L'utilisateur demande la suppression d’un livre depuis la page du livre présent dans sa bibliothèque
+2. L’application vérifie que le livre est stocké sur la machine
+3. L’application supprime le livre de la machine et de la bibliothèque
 
 Scénarios alternatifs :
-4a : L’espace vide sur la machine n’est pas suffisant
-	1. L’application informe l’utilisateur qu’il n’a plus assez d’espace libre sur sa machine
+2a : Le livre n’est pas présent sur la machine
+	1. L’application informe l’utilisateur qu’il n’a plus l’oeuvre sur sa machine et supprime l’oeuvre de sa bibliothèque personnelle.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Trier sa bibliothèque
+
+Résumé : Permet à un utilisateur enregistré se situant dans sa bibliothèque de trier ses œuvres par certains critères (auteurs, titres, genre, etc...)
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés
+Pré-conditions : L’utilisateur doit être connecté
+
+Scénario nominal :
+1. L’utilisateur demande le trie de sa bibliothèque selon différents critères
+2. L’application retourne le résultat de la bibliothèque triée selon le critère renseigné
+
+
+
+
+Lancer le mode lecture
+
+Résumé : Permet à un utilisateur enregistré se situant sur la page d’un livre d’ouvrir un lecteur afin de lire le livre.
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés
+Pré-conditions : L’utilisateur doit être connecté
+
+Scénario nominal :
+1. L’utilisateur demande la lecture du livre selectionné
+2. L’application affiche le lecteur
