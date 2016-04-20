@@ -258,3 +258,25 @@ Pré-conditions : L’utilisateur doit être connecté
 Scénario nominal :
 1. L’utilisateur demande l’affichage de la dernière page du livre
 2. L’application affiche la dernière page dans le lecteur
+
+
+
+Recherche la définition d’un mot ou d’une expression
+
+Résumé : Permet à un utilisateur enregistré se situant sur le lecteur d’un livre de rechercher la définition d’un mot ou d’une expression sur un internet (Wikipédia, Google, dictionnaire en ligne, ...)
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés
+Pré-conditions : L’utilisateur doit être connecté
+
+Scénario nominal :
+1. L’utilisateur sélectionne un mot ou une expression sur le lecteur
+2. L’utilisateur demande la recherche d’une définition
+3. L’application effectue une recherche sur les différentes sources disponibles
+4. L’application affiche sur une fenêtre pop-up les différents résultats trouvés dans les différentes sources utilisées.
+
+
+Scénarios alternatifs :
+3a : L’utilisateur n’a pas de connexion internet
+	1. L’application informe l’utilisateur qu’il n’a pas de connexion internet
