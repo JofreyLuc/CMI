@@ -280,3 +280,24 @@ Scénario nominal :
 Scénarios alternatifs :
 3a : L’utilisateur n’a pas de connexion internet
 	1. L’application informe l’utilisateur qu’il n’a pas de connexion internet
+
+
+
+Gestion des tickets d’assistance
+
+Résumé : Permet à un utilisateur enregistré administrateur de traiter un ou plusieurs tickets qui ont été générés par les utilisateurs.
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateur enregistré administrateur
+Pré-conditions : L’utilisateur doit être connecté
+
+Scénario nominal :
+1. L’administrateur accède à la page des tickets
+2. L’application affiche tous les tickets qui n’ont pas été traités
+3. L’administrateur sélectionne alors le ticket qu’il veut traiter
+4. L’application affiche alors les informations du ticket (titre, utilisateur qui a généré le ticket, sujet, …)
+5. L’administrateur traite le ticket
+6. L’application met alors à jour le ticket et le met dans l’état traité, l’administrateur est alors retourné sur la page des tickets
+
+
