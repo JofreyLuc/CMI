@@ -195,3 +195,66 @@ Pré-conditions : L’utilisateur doit être connecté
 Scénario nominal :
 1. L’utilisateur demande la lecture du livre selectionné
 2. L’application affiche le lecteur
+
+
+
+Tourner une page
+
+Résumé : Permet à un utilisateur enregistré si situant sur le lecteur d’un livre d’avancer ou de reculer page par page.
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés
+Pré-conditions : L’utilisateur doit être connecté
+
+Scénario nominal :
+1. L’utilisateur demande le changement de page
+2. L’application affiche la page suivante ou précedente
+
+
+Accéder à une page donnée
+
+Résumé : Permet à un utilisateur enregistré se situant sur le lecteur d’un livre d’accéder à une page précise qui n’est pas nécessairement la suivante ou la précédente par rapport à la page courante.
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés
+Pré-conditions : L’utilisateur doit être connecté
+
+Scénario nominal :
+1. L’utilisateur demande l’affichage d’une page donnée en remplissant le champ correspondant
+2. L’application affiche la page demandée dans le lecteur
+
+Scénarios alternatifs :
+1a : Champ vide
+	1. L’application notifie l’utilisateur qu’il n’a pas rempli le champ
+1b : Caractères non numérique
+	1. L’application notifie l’utilisateur de son erreur
+
+
+Accéder à la première page
+
+Résumé : Permet à un utilisateur enregistré se situant sur le lecteur d’un livre d’accéder à la première page.
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés
+Pré-conditions : L’utilisateur doit être connecté
+
+Scénario nominal :
+1. L’utilisateur demande l’affichage de la première page du livre
+2. L’application affiche la première page dans le lecteur
+
+
+Accéder à la dernière page
+
+Résumé : Permet à un utilisateur enregistré se situant sur le lecteur d’un livre d’accéder à la dernière page.
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs concernés : Utilisateurs enregistrés
+Pré-conditions : L’utilisateur doit être connecté
+
+Scénario nominal :
+1. L’utilisateur demande l’affichage de la dernière page du livre
+2. L’application affiche la dernière page dans le lecteur
