@@ -1,0 +1,20 @@
+Modérer une évaluation
+
+Résumé : Permet à un administrateur de modifier / supprimer une évaluation (qui pourrait être contraire aux règles d'utilisation).
+Création : 20/04/2016
+Dernière modification : 20/04/2016
+Version : alpha
+Acteurs : Administrateur connecté
+
+
+Scénario nominal :
+1. L'administrateur en train de consulter une évaluation accède à l'interface de gestion de cette évaluation
+2. Il peut décider de supprimer tout ou partie de l'évaluation
+3. L'administarteur valide la modification
+4. L'application enregistre la modification
+
+Scénarios alternatifs :
+3a : Annulation
+   1. L'administrateur décide d'annuler ses modifications et de restaurer l'évaluation dans son état précédent
+   2. L'application ne valide pas les modifications
+   3. L'administrateur reprend au point 1.

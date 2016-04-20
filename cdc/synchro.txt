@@ -1,7 +1,7 @@
 Synchroniser ses notes / signets
 
 Résumé : Permet à l'utilisateur connecté et en mode lecture de synchroniser ses notes et signets avec ses autres appareils.
-Création : 19/04/2016
+Création : 20/04/2016
 Dernière modification : 20/04/2016
 Version : alpha
 Acteurs : Utilisateur connecté en mode lecture
