@@ -1,0 +1,25 @@
+Rechercher dans l'ePub
+
+Résumé : L'utilisateur, connecté et en mode lecture, lance la recherche d'un où plusieurs mots dans l'ePub en cours de lecture.
+Création : 20/04/2016
+Dernière modification : 20/04/2016
+Version : alpha
+Acteurs : Utilisateur connecté en mode lecture
+
+Scénario nominal :
+1. L'utilisateur lance une recherche
+2. L'application affiche une barre de recherche
+3. L'utilisateur tape sa requête et valide
+4. L'application recherche dans l'ePub toutes les occurences de la requête tapée, les met en évidence graphiquement et avance la lecture sur la première de ces occurences par rapport à la page de lecture actuelle
+5. L'utilisateur utilise les fonctions "Suivant / Précédent" pour atteindre l'emplacement qu'il désire
+6. L'utilisateur ferme la recherche
+7. L'application repasse en mode lecture classique
+
+Scénarios alternatifs :
+4a : Requête vide
+   1. L'utilisateur n'a rien entré dans la barre de recherche
+   2. L'application ferme la recherche et repasse en mode lecture classique
+
+4b : Aucun résultat
+   1. L'application n'a pas pu trouver d'occurrences de la requête dans l'ePub actuel
+   2. L'application en notifie l'utilisateur puis repasse en mode lecture classique
