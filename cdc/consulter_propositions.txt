@@ -1,0 +1,24 @@
+Consulter les propositions:
+
+Résumé : Un utilisateur connecté peut consulter une liste d'oeuvre que l'application lui propose. Cette liste est choisie en fonction des choix précédents de l'utilisateur : par exemple si il lit frequement des polars, l'application lui proposera des livres de Fred Vargas.
+
+Création : 19/04/2016
+Dernière modification : 19/04/2016
+Version : alpha
+Acteurs : Utilisateurs enregistrés et connectés.
+
+
+
+
+SCENARIO NOMINAL
+
+	1 - L'utilisateur sur la page d'accueil à dirrectement accès à cette section : il peut voir trois des livres qui lui sont proposés, en cliquant sur 'voir d'avantage', il est redirigé vers une page qui liste des oeuvres qui pourrait l'intérésser.
+
+
+SCENARIO FACULTATIF
+
+	1a - L'utilisateur n'a pas encore lu de livre , cette liste est donc vide.
+
+
+
+
