@@ -1,0 +1,23 @@
+Signaler une évaluation ou un utilisateur
+
+Résumé : Un utilisateur peut signaler une évaluation ou un utilisateur qui pourraient être contraires aux conditions d'utilisation (pseudonyme ou avatar choquant, etc.)
+Création : 20/04/2016
+Dernière modification : 20/04/2016
+Version : alpha
+Acteurs : Utilisateurs connectés
+
+Scénario nominal :
+1. L'utilisateur (en train de consulter une évaluation) utilise l'option "Signaler un utilisateur" / "Signaler une évaluation" disponible
+2. L'application affiche un formulaire demandant les raisons du signalement
+3. L'utilisateur entre les informations requises et valide
+4. L'application enregistre le signalement et renvoie l'utilisateur sur la page des évaluations
+
+Scénarios alternatifs :
+3a : Champ(s) vide(s)
+   1. L'utilisateur n'a pas rempli l'un des champs obligatoires requis par le formulaire
+   2. L'application réaffiche la page en indiquant les champs manquants
+   3. L'utilisateur reprend au point 3.
+
+3b : Annulation
+   1. L'utilisateur décide d'annuler le signalement
+   2. L'application n'enregistre pas le signalement et réaffiche la page des évaluations
