@@ -1,0 +1,26 @@
+Créer un signet 
+Resumé: Une fois en mode lecture l'utilisateur peut créer un signet en utilisant l'option adapté dans la barre de menu.
+Scénario nominale:
+1)L'utilisateur utilise l'option créer un signet.
+2)Le signet est créer et le numéro de la page est enregistré dans la liste des signets.
+
+Créer une note
+Résumé: Une fois en mode lecture l'utilisateur peut créer une note en utilisant l'option adapté dans la barre de menu.  
+Scénario nominale:
+1)L'utilisateur selectionne du texte.
+2)L'utilisateur utilise l'option créer une note.
+3)L'utilisateur écrit sa note.
+4)Le texte devient surligné, la note est créée et consultable en cliquant sur le texte préalablement selectionné par l'utilisateur.
+
+Scénation alternatif:
+1a)L'utilisateur utilise l'option créer une note sans avoir selectionné de texte.
+2a)L'application envoie un message d'erreur a l'utilisateur. 
+
+Accéder à un signet 
+Résumé: une fois en mode lecture l'utilisateur peut accéder à un signet depuis la liste des signets
+Scénario nominale:
+1)L'utilisateur utilise l'option accéder à un signet, et la liste des signets apparaît.
+2)L'utilisateur selectionne le signet qu'il souhaite et est redirigé sur la page associée.
+
+Scénario alternatif:
+?
