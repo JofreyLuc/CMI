@@ -1,0 +1,14 @@
+- Modifier lecture pour pouvoir lire sans compte
+- Refaire les préconditions et postconditions de tous les cas (et enlver ça des acteurs)
+- Préciser ce que fait l'application (renvoie les formulaires, etc.)
+- Séparer confirmation d'inscription (par mail) et inscription
+- Rajouter un cas pour lier son compte facebook au compte de l'appli
+- Faire commencer le lecteur là où il a arrêté
+- Scénario altenatif de lancer la lecture (si nouquin pas téléchargé)
+- + de détails sur Bibliothèque/Acceu (ce que l'utilisateur voit)
+- Pareil pour lancer lecture
+- Voire + de propositions sur l'aceuuil -> Scénario alternatif
+- Cas alternatif de retour à l'acceuil : sauvegarder la page
+- Préciser les popups (créer une note etc.)
+- Remettre dans l'ordre les cas
+
