@@ -1,3 +1,3 @@
-# Cahier des charges
+# Call Me Ishmael
 
-Cahier des charges presque complété
+Lecteur d'ePub libres.

@@ -1,0 +1,87 @@
+class "Utilisateur" {
+String pseudonyme
+String adresseMail
+String prenom
+String nom
+String mdp
+Date ddn
+String sexe
+Booleen actif
+Booleen public
+String avatar
+}
+
+class "Livre" {
+String titre
+String auteur
+String genre
+String langue
+Date publication
+String resume
+String couverture
+Int nbPages
+}
+
+class "Notification"{
+int IDnotif
+String type
+Date date
+String contenu
+}
+
+class "FAQ"{
+Date dateMAJ
+String faq
+}
+
+class "CGU"{
+Date dateMAJ
+String cgu
+}
+
+class "LivreImporte"{
+Date importation
+}
+
+class "Evaluation"{
+Int note
+String commentaire
+Date date
+}
+
+class "Annotation"{
+Int page
+String texte
+}
+
+class "Possede"{
+Int pageActuelle
+Booleen notesMasquees
+Booleen termine
+}
+
+class "Suit"{
+Booleen afficherNotifs
+}
+
+Utilisateur "0,n" -- "0,n" Livre
+(Livre, Utilisateur) .. Possede
+
+Possede "0,n" -- "1,1" Annotation : estAnnoté
+
+Utilisateur "0,n" -right- "0,0" Utilisateur
+
+(Utilisateur, Utilisateur) .. Suit
+
+Utilisateur "1,1" -left- "0,n" Notification : créé
+
+class "LivreGutemberg"{
+Int IDGutemberg
+Date miseenLigne
+}
+
+LivreImporte -up-> Livre
+LivreGutemberg -up-> Livre
+
+Evaluation "0,n" -- "1,1" Utilisateur : rédige
+Evaluation "0,n" -- "1,1" Livre : estEvaluéPar
