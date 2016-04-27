@@ -1,4 +1,5 @@
 class "Utilisateur" {
+Int id
 String pseudonyme
 String adresseMail
 String prenom
@@ -9,6 +10,8 @@ String sexe
 Booleen actif
 Booleen public
 String avatar
+URL url_Google+
+URL url_facebook
 }
 
 class "Livre" {
@@ -23,10 +26,9 @@ Int nbPages
 }
 
 class "Notification"{
-int IDnotif
-String type
+Int IDnotif
+String message
 Date date
-String contenu
 }
 
 class "FAQ"{
@@ -40,16 +42,20 @@ String cgu
 }
 
 class "LivreImporte"{
+Int id
 Date importation
 }
 
 class "Evaluation"{
+Int idEval
 Int note
 String commentaire
-Date date
+Date dateCreation
+Date dateModification
 }
 
 class "Annotation"{
+Int idAnnotation
 Int page
 String texte
 }
