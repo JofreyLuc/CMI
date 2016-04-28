@@ -1,0 +1,57 @@
+@startuml
+
+title "Poser une réclamation"
+
+actor Utilisateur
+database ECommerce
+hide footbox
+skinparam sequence {
+	ArrowColor #046380
+	ActorBorderColor #046380
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+	
+	GroupBorderColor #80064B
+	ActorBackgroundColor #01B0F0
+	ActorFontColor #046380
+	ActorFontSize 17
+	ActorFontName Aapex
+}
+
+Utilisateur -> ECommerce : Authentification
+ECommerce -> ECommerce : Vérification
+group Authentification 
+ECommerce -[#green]> Utilisateur: Authentification réussie 
+
+Utilisateur -> ECommerce : Consultation du profil
+ECommerce -> ECommerce : Effectue une requete
+ECommerce -> Utilisateur : Page profil
+
+Utilisateur -> ECommerce : Consulte la liste des achats
+group Achats
+ECommerce -> ECommerce : Effectue une requete
+ECommerce -[#green]> Utilisateur : Retourne la liste des achats
+
+Utilisateur -> ECommerce : Choisit l'achat concerné
+ECommerce -> ECommerce : Effectue une requete
+ECommerce -> Utilisateur : Retourne la page du détail de l'achat
+
+Utilisateur -> ECommerce : Pose une réclamation
+
+group Réclamation
+ECommerce -> ECommerce : Verification du délai
+ECommerce -[#green]> Utilisateur : Confirmation de la réclamation
+ECommerce -> ECommerce : Ajout de la réclamation dans la bdd
+else Echec
+ECommerce -[#red]> Utilisateur : Réclamation échouée
+end
+
+else Aucun achats
+ECommerce -[#red]> Utilisateur : Liste d'achats vide
+end
+else Echec
+ECommerce -[#red]> Utilisateur: Echec de l'authentification
+
+
+end
+@enduml
