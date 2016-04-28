@@ -1,0 +1,46 @@
+title Modifier un commentaire 
+
+skinparam sequence {
+	ArrowColor #046380
+	ActorBorderColor #046380
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+	
+	GroupBorderColor #80064B
+	ActorBackgroundColor #01B0F0
+	ActorFontColor #046380
+	ActorFontSize 17
+	ActorFontName Aapex
+}
+
+actor User
+actor Système
+database CMI
+
+hide footbox
+
+
+User -> Système : demandeModificationEvaluation()
+activate User
+activate Système
+
+Système -> User : affichageFenetreModif()
+User -> Système : modificationEvaluation()
+Système -> Système : verificationInformations()
+alt Conditions non remplies
+Système -[#red]> User : ErreurModification()
+else Conditions remplies
+Système -> CMI : enregistrementModifications()
+activate CMI
+CMI -> Système : validationModifications()
+deactivate CMI
+Système -[#green]> User : rafraîchissement()
+Système -> Utilisateur : creationNotification()
+activate Utilisateur
+create Notification
+Utilisateur -->  Notification : <<create notification>>
+Utilisateur -[#green]> CMI : sauvegardeModification()
+deactivate Utilisateur
+activate CMI
+deactivate CMI
+end

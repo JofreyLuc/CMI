@@ -1,0 +1,47 @@
+title Connexion standard
+
+skinparam sequence {
+	ArrowColor #046380
+	ActorBorderColor #046380
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+	
+	GroupBorderColor #80064B
+	ActorBackgroundColor #01B0F0
+	ActorFontColor #046380
+	ActorFontSize 17
+	ActorFontName Aapex
+}
+
+actor User
+actor Système
+database CMI
+hide footbox
+
+
+User -> Système : authentification()
+activate User
+activate Système
+group Champ vide
+Système -[#red]> User : erreurChampVide()
+else Champ non vide
+
+Système -> CMI : getDonnees()
+activate CMI
+CMI -> Système : reponseDonnees()
+
+
+Système -> Système : verifDonnees()
+activate Système #DarkSalmon
+deactivate Système #DarkSalmon
+
+group Infos Erronées
+Système -[#red]> User : erreurInfos()
+else Infos valides
+
+group Authentification réussie
+create Utilisateur
+Système -[#green]> Utilisateur : new Utilisateur
+end
+end
+end

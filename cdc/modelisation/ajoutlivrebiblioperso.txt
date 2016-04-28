@@ -1,0 +1,40 @@
+title Ajouter un livre à sa bibliothèque personnelle
+
+skinparam sequence {
+	ArrowColor #046380
+	ActorBorderColor #046380
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+	
+	GroupBorderColor #80064B
+	ActorBackgroundColor #01B0F0
+	ActorFontColor #046380
+	ActorFontSize 17
+	ActorFontName Aapex
+}
+
+actor User
+actor Système
+database CMI
+
+hide footbox
+activate User
+User -> Système : ajoutBiblioPerso()
+activate Système
+Système -> Utilisateur : ajoutBiblioPerso()
+activate Utilisateur
+Utilisateur -> CMI : ajoutBiblioPerso()
+deactivate Utilisateur
+activate CMI
+CMI -[#green]> Système : Ajout Effectué
+deactivate CMI
+Système -> Utilisateur : creationNotification()
+deactivate Système
+activate Utilisateur
+create Notification
+Utilisateur -->  Notification : <<create notification>>
+Utilisateur -[#green]> CMI : sauvegardeModification()
+deactivate Utilisateur
+activate CMI
+deactivate CMI
+deactivate User
