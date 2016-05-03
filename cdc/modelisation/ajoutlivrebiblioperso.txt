@@ -1,3 +1,4 @@
+@startuml
 title Ajouter un livre à sa bibliothèque personnelle
 
 skinparam sequence {
@@ -14,27 +15,102 @@ skinparam sequence {
 }
 
 actor User
-actor Système
-database CMI
+
 
 hide footbox
+activate VueLivre
 activate User
-User -> Système : ajoutBiblioPerso()
-activate Système
-Système -> Utilisateur : ajoutBiblioPerso()
-activate Utilisateur
-Utilisateur -> CMI : ajoutBiblioPerso()
-deactivate Utilisateur
-activate CMI
-CMI -[#green]> Système : Ajout Effectué
-deactivate CMI
-Système -> Utilisateur : creationNotification()
-deactivate Système
-activate Utilisateur
-create Notification
-Utilisateur -->  Notification : <<create notification>>
-Utilisateur -[#green]> CMI : sauvegardeModification()
-deactivate Utilisateur
-activate CMI
-deactivate CMI
-deactivate User
+User -> VueLivre : Clique sur ajouter
+note right : l'utilisateur clique sur le bouton \n"ajouter ce livre à ma bibliothèque"
+VueLivre -> script.js : onclick()
+activate script.js
+script.js -> UtilisateurController : POST('..UtilisateurController@ajoutLivre, Livre)
+deactivate script.js
+activate UtilisateurController
+note right : le controlleur récupère les \n informations du livre à ajouter 
+UtilisateurController -> UtilisateurController : ajoutLivre($livre)
+note right : ajout d'un nouveau livre (stocké dans $livre)
+note left : On récupère les informations de l'utilisateur via une variable de cession \n instanciée lors de la connexion
+UtilisateurController -> BDD : $livre -> save()
+activate BDD
+deactivate BDD 
+note right : Ajout de la relation Utilisateur / Livre
+create Notification 
+UtilisateurController -> Notification: $notif = new Notification(id,type,contenu)
+UtilisateurController -> BDD : $notif->save()
+activate BDD
+deactivate BDD
+note left : Création et sauvegarde d'une notification
+deactivate UtilisateurController
+deactivate VueLivre
+
+
+legend center
+Frameworks utilisés : slim (développement), cordova (portabilité mobile)
+
+
+User : l'utilisateur (physique) de l'application
+VueLivre : page php sur laquelle se trouve les informtions relativse au livre, l'utilisateur choisit ici de l'ajouter à sa bibliothèque
+UtilisateurController : Un contrôleur php gérant l'ajout des livres de la BDD Gutemberg dans la bibliothèque de l'utilisateur
+script.js : Fichier JS permettant d'exécuter les requêtes AJAX et les appels aux contrôleurs
+BDD : Base de données MySql de l'application. On communiquera avec elle en utilisant l'ORM Eloquent
+Notification : Une notification est une entité créée à différents moments lors de la navigation sur le site, elle est stockée dans la liste des notification de l'utilisateur
+end legend
+@enduml@startuml
+title Ajouter un livre à sa bibliothèque personnelle
+
+skinparam sequence {
+	ArrowColor #046380
+	ActorBorderColor #046380
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+	
+	GroupBorderColor #80064B
+	ActorBackgroundColor #01B0F0
+	ActorFontColor #046380
+	ActorFontSize 17
+	ActorFontName Aapex
+}
+
+actor User
+
+
+hide footbox
+activate VueLivre
+activate User
+User -> VueLivre : Clique sur ajouter
+note right : l'utilisateur clique sur le bouton \n"ajouter ce livre à ma bibliothèque"
+VueLivre -> script.js : onclick()
+activate script.js
+script.js -> UtilisateurController : POST('..UtilisateurController@ajoutLivre, Livre)
+deactivate script.js
+activate UtilisateurController
+note right : le controlleur récupère les \n informations du livre à ajouter 
+UtilisateurController -> UtilisateurController : ajoutLivre($livre)
+note right : ajout d'un nouveau livre (stocké dans $livre)
+UtilisateurController -> BDD : $livre -> save()
+activate BDD
+deactivate BDD 
+note right : Ajout de la relation Utilisateur / Livre
+create Notification 
+UtilisateurController -> Notification: $notif = new Notification(id,type,contenu)
+UtilisateurController -> BDD : $notif->save()
+activate BDD
+deactivate BDD
+note left : Création et sauvegarde d'une notification
+deactivate UtilisateurController
+deactivate VueLivre
+
+
+legend center
+Frameworks utilisés : slim (développement), cordova (portabilité mobile)
+
+
+User : l'utilisateur (physique) de l'application
+VueLivre : page php sur laquelle se trouve les informtions relativse au livre, l'utilisateur choisit ici de l'ajouter à sa bibliothèque
+UtilisateurController : Un contrôleur php gérant l'ajout des livres de la BDD Gutemberg dans la bibliothèque de l'utilisateur
+script.js : Fichier JS permettant d'exécuter les requêtes AJAX et les appels aux contrôleurs
+BDD : Base de données MySql de l'application. On communiquera avec elle en utilisant l'ORM Eloquent
+Notification : Une notification est une entité créée à différents moments lors de la navigation sur le site, elle est stockée dans la liste des notification de l'utilisateur
+end legend
+@enduml

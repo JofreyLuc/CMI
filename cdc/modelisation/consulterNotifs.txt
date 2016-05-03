@@ -15,29 +15,50 @@ skinparam sequence {
 }
 
 actor User
-actor Système
-database CMI
 
 hide footbox
 
-User -> Système : consulterListeSuivi()
+User -> vueNotification : arrive sur l'onglet notification des utilisateurs suivis
 activate User
-Système -> Utilisateur : recupererListeNotifs()
-activate Système
-activate Utilisateur
-loop Sur la liste d'utilisateurs suivis,\ndéjà connue par Utilisateur
-Utilisateur -> CMI : recupererNotifs()
-activate CMI
-activate Utilisateur #red
-CMI -> Utilisateur : retournerNotifs()
-deactivate CMI
-deactivate Utilisateur #red
+vueNotification -> script.js : function:onload()
+activate vueNotification
+activate script.js
+
+script.js -> NotificationController : GET('../NotificationController@affichageNotifications')
+deactivate script.js
+activate NotificationController
+
+
+NotificationController -> BDD : $listUser = Utilisateur::find($userCourant)->listUtilisateur 
+activate BDD
+
+note right : $userCourant est récupéré \ngrâce à la variable de Session \nOn récupère la liste des utilisateurs \nde l'utilisateur courant grâce à la fonction listUtilisateur
+BDD --> NotificationController : resultat de find
+deactivate BDD
+loop $user : $listUser
+NotificationController -> BDD : $listNotif = Notification::find($user,true)->recupererFollowed
+activate BDD
+
+BDD -> NotificationController : resultat de find
+note left : chaque resultat est ajouté \nà la suite des résultats précédents ($notifications)
+deactivate BDD
+
 end
-Utilisateur -> Système : retournerListeNotifs()
-deactivate Utilisateur
-Système -> Système : filtrerListeNotifs()
-note right : On filtre les notifications des Utilisateurs\n dont on ne veut pas voir l'activité
-Système -[#green]> User : afficherListeNotifs()
-deactivate Système
-deactivate User
+
+NotificationController -> vueNotification : render('vueNotification')
+note left : Le controller demande à l'application \nd'afficher la liste des notifications récupérées 
+deactivate NotificationController
+
+
+
+legend center
+Frameworks utilisés : slim (développement), cordova (portabilité mobile)
+
+
+User : l'utilisateur (physique) de l'application
+VueNotification : page php sur laquelle se trouve les notifications des utilisateurs que celui-ci suit
+NotificationController : Un contrôleur php permettant récupérer les informations concernant les notifications
+script.js : Fichier JS permettant d'exécuter les requêtes AJAX et les appels aux contrôleurs
+BDD : Base de données MySql de l'application. On communiquera avec elle en utilisant l'ORM Eloquent
+end legend
 @enduml

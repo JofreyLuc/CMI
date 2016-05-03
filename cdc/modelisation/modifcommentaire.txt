@@ -1,3 +1,4 @@
+@startuml
 title Modifier un commentaire 
 
 skinparam sequence {
@@ -14,33 +15,54 @@ skinparam sequence {
 }
 
 actor User
-actor Système
-database CMI
-
+activate User
+activate vueLivre
 hide footbox
 
+User -> vueLivre : clique sur modifier
+vueLivre -> User : afficherEditionCommentaire()
+note right : Fonction JS faisant apparaître une\nzone d'édition de commentaire
+User -> vueLivre : remplit formulaire
 
-User -> Système : demandeModificationEvaluation()
-activate User
-activate Système
+vueLivre -> script.js : function:onclick()
+activate script.js
+script.js -> commentaireController : POST('../commentaireController@setCommentaire', IDcommentaire, note, texte)
+deactivate script.js
+activate commentaireController
+commentaireController ->commentaireController : vérification du commentaire
+note right : Le contrôleur vérifie que le commentaire remplit \nles conditions nécéssaires pour être posté
+commentaireController -> BDD : $eval = Evaluation::find(IDcommentaire)
+note right : find effectue une requête select \n on stock l'évaluation dans $eval \n (find est une fonction de l'ORM eloquent)
+activate BDD
+BDD --> commentaireController : résultat de find
+deactivate BDD
+commentaireController -> commentaireController : modification de $eval
+commentaireController -> BDD : $eval->save()
+activate BDD
+deactivate BDD
+note right : save equivaut à une requête update , \n elle est propre à l'ORM eloquent
 
-Système -> User : affichageFenetreModif()
-User -> Système : modificationEvaluation()
-Système -> Système : verificationInformations()
-alt Conditions non remplies
-Système -[#red]> User : ErreurModification()
-else Conditions remplies
-Système -> CMI : enregistrementModifications()
-activate CMI
-CMI -> Système : validationModifications()
-deactivate CMI
-Système -[#green]> User : rafraîchissement()
-Système -> Utilisateur : creationNotification()
-activate Utilisateur
-create Notification
-Utilisateur -->  Notification : <<create notification>>
-Utilisateur -[#green]> CMI : sauvegardeModification()
-deactivate Utilisateur
-activate CMI
-deactivate CMI
-end
+commentaireController -> vueLivre : render('vueLivre')
+note right : Le controlleur demande à l'application d'afficher la zone de commentaire modifiée
+
+create Notification 
+commentaireController -> Notification: $notif = new Notification(id,type,contenu)
+commentaireController -> BDD : $notif->save()
+deactivate commentaireController
+activate BDD
+deactivate BDD
+note left : Création et sauvegarde d'une notification
+
+
+legend center
+Frameworks utilisés : slim (développement), cordova (portabilité mobile)
+
+
+User : l'utilisateur (physique) de l'application
+VueLivre : page php sur laquelle se trouve les informtions relativse au livre, l'utilisateur choisit ici de l'ajouter à sa bibliothèque
+CommentaireController : Un contrôleur php permettant de crééer / modifier un commentaire.
+script.js : Fichier JS permettant d'exécuter les requêtes AJAX et les appels aux contrôleurs
+BDD : Base de données MySql de l'application. On communiquera avec elle en utilisant l'ORM Eloquent
+Notification : Une notification est une entité créée à différents moments lors de la navigation sur le site, elle est stockée dans la liste des notification de l'utilisateur
+end legend
+@enduml
