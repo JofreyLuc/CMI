@@ -1,0 +1,43 @@
+@startuml
+title Consulter les notifications de sa liste de suivi
+
+skinparam sequence {
+	ArrowColor #046380
+	ActorBorderColor #046380
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+	
+	GroupBorderColor #80064B
+	ActorBackgroundColor #01B0F0
+	ActorFontColor #046380
+	ActorFontSize 17
+	ActorFontName Aapex
+}
+
+actor User
+actor Système
+database CMI
+
+hide footbox
+
+User -> Système : consulterListeSuivi()
+activate User
+Système -> Utilisateur : recupererListeNotifs()
+activate Système
+activate Utilisateur
+loop Sur la liste d'utilisateurs suivis,\ndéjà connue par Utilisateur
+Utilisateur -> CMI : recupererNotifs()
+activate CMI
+activate Utilisateur #red
+CMI -> Utilisateur : retournerNotifs()
+deactivate CMI
+deactivate Utilisateur #red
+end
+Utilisateur -> Système : retournerListeNotifs()
+deactivate Utilisateur
+Système -> Système : filtrerListeNotifs()
+note right : On filtre les notifications des Utilisateurs\n dont on ne veut pas voir l'activité
+Système -[#green]> User : afficherListeNotifs()
+deactivate Système
+deactivate User
+@enduml
