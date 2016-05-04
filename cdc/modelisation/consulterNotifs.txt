@@ -20,34 +20,40 @@ hide footbox
 
 User -> vueNotification : arrive sur l'onglet notification des utilisateurs suivis
 activate User
-vueNotification -> script.js : function:onload()
+vueNotification -> script.js : onload()
 activate vueNotification
 activate script.js
 
-script.js -> NotificationController : GET('../NotificationController@affichageNotifications')
+script.js -> Slim : GET('../NotificationController@affichageNotifications')
 deactivate script.js
+note right : Slim fait le lien entre vue et contrôleur
+activate Slim
+Slim -> NotificationController : affichageNotifications()
+deactivate Slim
 activate NotificationController
 
 
-NotificationController -> BDD : $listUser = Utilisateur::find($userCourant)->listUtilisateur 
-activate BDD
+NotificationController -> Eloquent : $listUser = Utilisateur::find($userCourant)->listUtilisateur 
+activate Eloquent
 
-note right : $userCourant est récupéré \ngrâce à la variable de Session \nOn récupère la liste des utilisateurs \nde l'utilisateur courant grâce à la fonction listUtilisateur
-BDD --> NotificationController : resultat de find
-deactivate BDD
+note left : $userCourant est récupéré \ngrâce à la variable de Session \nOn récupère la liste des utilisateurs \nde l'utilisateur courant grâce à la fonction listUtilisateur
+deactivate Eloquent
 loop $user : $listUser
-NotificationController -> BDD : $listNotif = Notification::find($user,true)->recupererFollowed
-activate BDD
+NotificationController -> Eloquent : $listNotif = Notification::find($user,true)->recupererFollowed
+activate Eloquent
 
-BDD -> NotificationController : resultat de find
 note left : chaque resultat est ajouté \nà la suite des résultats précédents ($notifications)
-deactivate BDD
+deactivate Eloquent
 
 end
 
-NotificationController -> vueNotification : render('vueNotification')
-note left : Le controller demande à l'application \nd'afficher la liste des notifications récupérées 
+NotificationController -> Slim : setData($listNotif)
 deactivate NotificationController
+activate Slim
+Slim -> vueNotification : render('vueNotification')
+note left : Le controller demande à l'application \nd'afficher la liste des notifications récupérées 
+
+deactivate Slim
 
 
 
@@ -57,8 +63,9 @@ Frameworks utilisés : slim (développement), cordova (portabilité mobile)
 
 User : l'utilisateur (physique) de l'application
 VueNotification : page php sur laquelle se trouve les notifications des utilisateurs que celui-ci suit
+Slim : composantes du framework, utilisées pour simplifier les appels aux fonctions des contrôleurs depuis les vues
 NotificationController : Un contrôleur php permettant récupérer les informations concernant les notifications
 script.js : Fichier JS permettant d'exécuter les requêtes AJAX et les appels aux contrôleurs
-BDD : Base de données MySql de l'application. On communiquera avec elle en utilisant l'ORM Eloquent
+Eloquent : ORM utilisé pour faire le lien entre la BDD et les classes du modèle, afin de simplifier les requêtes sur la BDD
 end legend
 @enduml

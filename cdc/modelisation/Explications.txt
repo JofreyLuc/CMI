@@ -1,2 +1,0 @@
-Nous allons utiliser Cordova
-
