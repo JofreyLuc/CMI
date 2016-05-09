@@ -20,14 +20,15 @@ SET time_zone = "+00:00";
 -- Base de données :  `CallMeIshmael`
 --
 
+DROP DATABASE IF EXISTS cmidb;
+CREATE DATABASE cmidb;
+USE cmidb;
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `annotation`
 --
-DROP DATABASE cmidb;
-CREATE DATABASE cmidb;
-USE cmidb;
 
 CREATE TABLE `annotation` (
   `idAnnotation` int(10) NOT NULL,
