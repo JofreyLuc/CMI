@@ -29,12 +29,11 @@ $router = new app\Router($app);
 
 //get
 $router->get('/', "app\Controller\HomeController@index");
-$router->get('/fac', "app\Controller\FacController@afficherFac");
-$router->get('/fac/users', "app\Controller\FacController@afficherUser")->name("users");
-$router->get('/users', "app\Controller\FacController@getUsers");
-
+$router->get('/users', "app\Controller\UtilisateurController@afficherUser")->name("users");
+//$router->get('/users', "app\Controller\UtilisateurController@getUsers");
+$router->get('/livres', "app\Controller\LivreController@afficherLivre");
 //post
-$router->post('/user/new', "app\Controller\FacController@create");
+$router->post('/user/new', "app\Controller\UtilisateurController@create");
 
 //ex
 $app->get('/hello', function () {

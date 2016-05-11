@@ -11,7 +11,7 @@ fac.modules.app = (function () {
         post: function(url, data, callback) {
             $.ajax({
                 url: url,
-                data: data,
+                data: JSON.stringify(data),
                 type: 'POST',
                 dataType: 'json',
                 success: callback,
@@ -48,7 +48,7 @@ fac.modules.users = (function(){
 	return {
 	init: function() {
 		$('#btn-users').click(function(){
-			fac.modules.app.get('http://localhost/CMI/projet/src/users', function(data) {
+			fac.modules.app.get('http://localhost:8888/CMI/projet/src/users', function(data) {
 				console.log(data);
 			})
 		});
@@ -59,10 +59,10 @@ fac.modules.users = (function(){
                 password: 'dsfdgd',
                 nom: "dago",
                 prenom: "rom" 
-			}
+			};
 			var json = JSON.stringify(name);
 			console.log(json);
-				fac.modules.app.post('http://localhost/CMI/projet/src/user/new', json, function(data) {
+				fac.modules.app.post('http://localhost:8888/CMI/projet/src/user/new', json, function(data) {
 					console.log(data);
 				});
 		});
