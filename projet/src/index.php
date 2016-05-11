@@ -13,7 +13,6 @@ try {
         $db->setAsGlobal();
         $db->bootEloquent();
     }
-
 } catch (Exception $e) {
     $e->getMessage();
 }

@@ -1,0 +1,10 @@
+# Slim Example
+Slim Example
+
+###Installation : 
+1. composer install
+2. Create mysql database
+3. Configure db.config.ini file
+
+[a link](http://www.slimframework.com)
+Enjoy !

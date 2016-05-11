@@ -1,7 +1,7 @@
 <h1> BONJOUR LA FAC !!!! </h1>
 <?php
 foreach($users as $user) {
-	echo "<h3> $user->nom </h3>";
+	echo "<h3> $user->name </h3>";
 }?>
 
 <button id="btn-users"> GET USERS !!</button>

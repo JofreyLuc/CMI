@@ -26,7 +26,8 @@ class FacController extends Controller {
 		$id =  json_decode($_POST['id']);
 		$name =  json_decode($_POST['name']);
 		$usr = User();
-		$usr->nom = $name;
+		$usr->id = $id;
+		$usr->name = $name;
 		$usr->save();
 	}
 }

@@ -6,5 +6,5 @@ namespace app\model;
 class User extends \Illuminate\Database\Eloquent\Model
 {
     //Attributs
-    protected $table = 'utilisateur';
+    protected $table = 'users';
 }
