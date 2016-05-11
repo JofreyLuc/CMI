@@ -708,7 +708,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v3.0.5",
+            "version": "v3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
