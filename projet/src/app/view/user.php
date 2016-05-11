@@ -1,7 +1,8 @@
-<h1> BONJOUR LA FAC !!!! </h1>
+
 <?php
+// CSS ne fonctionne pas 
 foreach($users as $user) {
-	echo "<h3> $user->name </h3>";
+	echo "<h3> $user->nom </h3>";
 }?>
 
 <button id="btn-users"> GET USERS !!</button>

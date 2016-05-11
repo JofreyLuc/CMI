@@ -1,6 +1,6 @@
 <?php
 namespace app\controller;
-use app\model\User;
+use app\model\Utilisateur;
 class FacController extends Controller {
 	
 	public function afficherFac() {
@@ -11,23 +11,24 @@ class FacController extends Controller {
 	
 	public function afficherUser() {
 		echo 'coucou';
-		$users = User::all();
+		$users = Utilisateur::all();
 		$this->app->view->setData('users', $users);
 		$this->app->render('user.php');
 	}
 	
 	//Ajax response example
 	public function getUsers() {
-		$users = User::all();
+		$users = Utilisateur::all();
 		echo json_encode($users);
 	}
 	
 	public function create() {
-		$id =  json_decode($_POST['id']);
+		// MODIFIER POUR AVOIR LE BON CODE
+		/*$id =  json_decode($_POST['id']);
 		$name =  json_decode($_POST['name']);
 		$usr = User();
 		$usr->id = $id;
 		$usr->name = $name;
-		$usr->save();
+		$usr->save();*/
 	}
 }
