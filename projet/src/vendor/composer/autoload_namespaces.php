@@ -7,6 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'app' => array($baseDir . '/'),
-    'Pimple' => array($vendorDir . '/pimple/pimple/src'),
+    'Slim' => array($vendorDir . '/slim/slim'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
 );
