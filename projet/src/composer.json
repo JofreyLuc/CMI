@@ -1,12 +1,11 @@
 {
     "require": {
-        "slim/slim": "^3.4",
-	"illuminate/database": "*",
-	"components/jquery": "*"
+        "slim/slim": "^2.6",
+		"illuminate/database": "*"
     },
     "autoload": {
-	"classmap": [
-	    "models"
-	]
+      "psr-0": {
+        "app": "."
+      }
     }
 }
