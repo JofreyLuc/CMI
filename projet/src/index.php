@@ -30,7 +30,7 @@ $router = new app\Router($app);
 //get
 $router->get('/', "app\Controller\HomeController@index");
 $router->get('/users', "app\Controller\UtilisateurController@afficherUser")->name("users");
-//$router->get('/users', "app\Controller\UtilisateurController@getUsers");
+$router->get('/users1', "app\Controller\UtilisateurController@getUsers");
 $router->get('/livres', "app\Controller\LivreController@afficherLivre");
 //post
 $router->post('/user/new', "app\Controller\UtilisateurController@create");
