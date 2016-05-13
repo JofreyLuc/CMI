@@ -1,10 +1,12 @@
 <?php
 namespace app\controller;
 use app\model\Utilisateur;
+
+
 class UtilisateurController extends Controller {
 	
 	public function afficherUser() {
-		$users = Utilisateur::all();
+	$users = Utilisateur::all();
 		$this->app->view->setData('users', $users);
 		$this->app->render('user.php');
 	}

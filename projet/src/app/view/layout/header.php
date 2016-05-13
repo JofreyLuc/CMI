@@ -19,3 +19,13 @@
 </div>
 
 </header>
+
+<!-- Menu des différents boutons qui doivent être alignés et entourés -->
+<section>
+ <div id="bibli"> <input type="button" value="Consulter sa bibliothèque"/></div>
+ <div id="rechercher"> <input type="button"  value="Rechercher"/> </div>
+ <div id="liste"> <input type="button" value="Liste de suivi"/> </div>
+ <div id="suggestion"> <input type="button" value="Suggestion"/> </div>
+ <div id="top"> <input type="button" value="Top 10"/> </div>
+</section>
+
