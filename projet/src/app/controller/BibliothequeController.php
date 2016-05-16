@@ -8,7 +8,7 @@ class BibliothequeController extends Controller {
     public function afficherBibliotheque() {
         $biblio = Bibliotheque::all();
         $this->app->view->setData('bibliotheque', $biblio);
-        $this->app->render('bibliotheque.php');
+        $this->app->render('consulter_bibli.php');
     }
 
     //Ajax response example

@@ -39,8 +39,10 @@ $router->get('/bibliotheque', "app\Controller\BibliothequeController@afficherBib
 $router->post('/user/new', "app\Controller\UtilisateurController@create");
 
 
-// Add a new car
-$app->post('/new', "app\Controller\Utilisateurcontroller@ajouterUser");
+// Add
+//$app->post('/new', "app\Controller\Utilisateurcontroller@ajouterUser");
+
+
 /*
 $app->post('/new', function() use($app, $db){
     $app->response()->header("Content-Type", "application/json");
@@ -51,7 +53,8 @@ $app->post('/new', function() use($app, $db){
 */
 
 
-// Update a car
+// Update
+/*
 $app->put('/car/:id', function($id) use($app, $db){
     $app->response()->header("Content-Type", "application/json");
     $car = $db->utilisateur();//->where("id", $id);
@@ -70,7 +73,7 @@ $app->put('/car/:id', function($id) use($app, $db){
         ));
     }
 });
-
+*/
 
 
 
@@ -82,4 +85,4 @@ $app->get('/hello', function () {
 
 $app->render('layout/header.php', compact('app'));
 $app->run();
-$app->render('layout/footer.php', compact('app'));
+//$app->render('layout/footer.php', compact('app'));

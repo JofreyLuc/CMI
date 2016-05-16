@@ -2,11 +2,10 @@
 <html>
  <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="conf/css/file.css" />
+  <link rel="stylesheet" href="conf/css/file2.css" />
   <title>Callme Ishmael </title>
  </head>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
  <body>
 
 <header>
@@ -25,14 +24,14 @@
 
 <div id="menu">
  <div id="bibli"> <input type="button" value="Consulter sa bibliothèque"
-                         onclick="document.location.href='consulter_bibli';"/></div>
+                         onclick="document.location.href='/CMI/projet/src/bibliotheque';" /></div>
  <div id="rechercher"> <input type="button"  value="Rechercher"
-                              onclick="document.location.href='rechercher.php';"/> </div>
+                              onclick="document.location.href='/CMI/projet/src/bibliotheque';"/> </div>
  <div id="liste"> <input type="button" value="Liste de suivi"
-                         onclick="document.location.href='liste_suivi.php';"/> </div>
+                         onclick="document.location.href='/CMI/projet/src/users';"/> </div>
  <div id="suggestion"> <input type="button" value="Suggestion"
-                              onclick="document.location.href='suggestion.php';"/> </div>
+                              onclick="document.location.href='/CMI/projet/src/';"/> </div>
  <div id="top"> <input type="button" value="Top 10"
-                       onclick="document.location.href='accueil.php';"/> </div>
+                       onclick="document.location.href='/CMI/projet/src/';"/> </div>
 
-
+</div>

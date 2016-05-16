@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="file.css" />
+     <link rel="stylesheet" href="conf/css/file2.css" />
   <title>Callme Ishmael </title>
  </head>
 
