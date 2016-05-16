@@ -16,21 +16,21 @@ class HomeController extends Controller {
 
 
 		//afficher les evaluations
-		$affichageEval = new EvaluationController($this->app);
-		$affichageEval->afficherEvaluation();
+		//$affichageEval = new EvaluationController($this->app);
+		//$affichageEval->afficherEvaluation();
 
 
 
 		//affichage des users
-		$affichageUser = new UtilisateurController($this->app);
-		$affichageUser->afficherUser();
+		//$affichageUser = new UtilisateurController($this->app);
+		//$affichageUser->afficherUser();
 
 
 
 
 		// affichage du test pour recup les user dans la bdd
 		//var_dump(compact($this->app));
-	//	$this->app->view->setData(['app' => $this->app]);
+		//$this->app->view->setData(['app' => $this->app]);
 		//$this->app->render('home.php');
 	}
 }	

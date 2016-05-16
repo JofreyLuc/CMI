@@ -31,4 +31,18 @@ class UtilisateurController extends Controller {
 		var_dump($usr);
 		//$usr->save();
 	}
+/*
+$app->post('/new', function() use($app, $db){
+    $app->response()->header("Content-Type", "application/json");
+    $car = $app->request()->post();
+    $result = $db->utilisateur->insert($car);
+    echo json_encode(array('id' => $result['id']));
+});*/
+
+
+
+	public function ajouterUser(){
+
+
+	}
 }

@@ -23,7 +23,7 @@
 <section>
 <div id="menu">
 <div id="bibli"> <input type="button" value="Consulter sa bibliothèque"
- onclick="document.location.href='consulter_bibli.php';"/></div>
+ onclick="document.location.href='../consulter_bibli.php';"/></div>
 <div id="rechercher"> <input type="button"  value="Rechercher" 
 onclick="document.location.href='rechercher.php';"/> </div>
 <div id="liste"> <input type="button" value="Liste de suivi"
@@ -47,7 +47,7 @@ for( $i = 1 ; $i <= 10 ; $i++ )
      <td rowspan="20" bgcolor="#FFFFFF">
      <img src="Couverture_test.jpg" width="200" height="300" style="float:left;margin-left:5%;"/>
       </td> 
-</div>' ;
+</div>';
   } 
 ?>
 </div>

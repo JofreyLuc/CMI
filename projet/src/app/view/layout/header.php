@@ -20,12 +20,19 @@
 
 </header>
 
-<!-- Menu des différents boutons qui doivent être alignés et entourés -->
-<section>
- <div id="bibli"> <input type="button" value="Consulter sa bibliothèque"/></div>
- <div id="rechercher"> <input type="button"  value="Rechercher"/> </div>
- <div id="liste"> <input type="button" value="Liste de suivi"/> </div>
- <div id="suggestion"> <input type="button" value="Suggestion"/> </div>
- <div id="top"> <input type="button" value="Top 10"/> </div>
-</section>
+
+
+
+<div id="menu">
+ <div id="bibli"> <input type="button" value="Consulter sa bibliothèque"
+                         onclick="document.location.href='consulter_bibli';"/></div>
+ <div id="rechercher"> <input type="button"  value="Rechercher"
+                              onclick="document.location.href='rechercher.php';"/> </div>
+ <div id="liste"> <input type="button" value="Liste de suivi"
+                         onclick="document.location.href='liste_suivi.php';"/> </div>
+ <div id="suggestion"> <input type="button" value="Suggestion"
+                              onclick="document.location.href='suggestion.php';"/> </div>
+ <div id="top"> <input type="button" value="Top 10"
+                       onclick="document.location.href='accueil.php';"/> </div>
+
 
