@@ -6,6 +6,7 @@ class BibliothequeController extends Controller {
 
     
 
+    // fonction qui affiche tous les livres presents dans notre biblio perso
     public function afficherBibliotheque() {
         $afficheLivre = new LivreController($this->app);
 
@@ -17,7 +18,7 @@ class BibliothequeController extends Controller {
 	            <div id=\"titreT\"> <h3> Bibliotheque perso </h3> </div>
 	                <div id=\"top10\">
 			          <table>';
-        
+
         // parcours de la biblio, on recupere les livres qui correspondent aux id
         foreach ($biblio as $b){
             $livres = Livre::all()->where('idLivre', $b->idLivre);

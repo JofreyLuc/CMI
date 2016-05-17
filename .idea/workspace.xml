@@ -5,9 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php" afterPath="$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" afterPath="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/view/consulter_bibli.php" afterPath="$PROJECT_DIR$/projet/src/app/view/consulter_bibli.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/script_livre.php" afterPath="$PROJECT_DIR$/projet/src/script_livre.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script_insert_qques_data.sql" afterPath="$PROJECT_DIR$/script_insert_qques_data.sql" />
     </list>
     <ignored path="CMI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,15 +84,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BibliothequeController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BibliothequeController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+            <state relative-caret-position="120">
+              <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
               <folding>
                 <element signature="e#32#59#0#PHP" expanded="true" />
-                <marker date="1463495102000" expanded="true" signature="437:564" placeholder="..." />
-                <marker date="1463495102000" expanded="true" signature="543:564" placeholder="..." />
+                <marker date="1463495483000" expanded="true" signature="514:641" placeholder="..." />
+                <marker date="1463495483000" expanded="true" signature="620:641" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -121,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LivreController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LivreController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <state relative-caret-position="150">
+              <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
               <folding>
                 <element signature="e#32#52#0#PHP" expanded="true" />
               </folding>
@@ -186,8 +183,8 @@
         <option value="$PROJECT_DIR$/projet/src/script_livre.php" />
         <option value="$PROJECT_DIR$/script_insert_qques_data.sql" />
         <option value="$PROJECT_DIR$/projet/src/app/view/consulter_bibli.php" />
-        <option value="$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
+        <option value="$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php" />
       </list>
     </option>
   </component>
@@ -490,12 +487,12 @@
       <workItem from="1463136781068" duration="906000" />
       <workItem from="1463317687523" duration="2572000" />
       <workItem from="1463394523471" duration="8307000" />
-      <workItem from="1463477649699" duration="14989000" />
+      <workItem from="1463477649699" duration="15272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35948000" />
+    <option name="totallyTimeSpent" value="36231000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
@@ -930,24 +927,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php">
+    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+        <state relative-caret-position="150">
+          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
           <folding>
-            <element signature="e#32#59#0#PHP" expanded="true" />
-            <marker date="1463495102000" expanded="true" signature="437:564" placeholder="..." />
-            <marker date="1463495102000" expanded="true" signature="543:564" placeholder="..." />
+            <element signature="e#32#52#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
+    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
           <folding>
-            <element signature="e#32#52#0#PHP" expanded="true" />
+            <element signature="e#32#59#0#PHP" expanded="true" />
+            <marker date="1463495483000" expanded="true" signature="514:641" placeholder="..." />
+            <marker date="1463495483000" expanded="true" signature="620:641" placeholder="..." />
           </folding>
         </state>
       </provider>
