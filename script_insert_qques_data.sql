@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 11 Mai 2016 à 16:00
+-- Généré le :  Mar 17 Mai 2016 à 12:58
 -- Version du serveur :  5.5.42
 -- Version de PHP :  7.0.0
 
@@ -57,7 +57,7 @@ CREATE TABLE `bibliotheque` (
 
 INSERT INTO `bibliotheque` (`idBibliotheque`, `idUtilisateur`, `idLivre`, `numeroPage`, `dateModification`) VALUES
 (1, 1, 1, 50, '2016-05-11 13:57:19'),
-(145, 1, 1, 50, '2016-05-11 13:57:36'),
+(145, 1, 3, 50, '2016-05-11 13:57:36'),
 (14, 4, 2, 54, '2016-05-11 13:57:36');
 
 -- --------------------------------------------------------
@@ -93,8 +93,13 @@ CREATE TABLE `livre` (
   `idLivre` int(10) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `auteur` varchar(255) NOT NULL,
+  `aliasAuteur` int(11) NOT NULL,
+  `infoAuteur` varchar(256) DEFAULT NULL,
+  `dateNaissanceAuteur` date DEFAULT NULL,
+  `DateMortAuteur` date DEFAULT NULL,
   `langue` varchar(255) NOT NULL,
   `genre` varchar(255) DEFAULT NULL,
+  `tags` varchar(256) NOT NULL,
   `dateParution` date DEFAULT NULL,
   `resume` varchar(1000) DEFAULT NULL,
   `nombrePages` int(10) DEFAULT NULL,
@@ -107,11 +112,11 @@ CREATE TABLE `livre` (
 -- Contenu de la table `livre`
 --
 
-INSERT INTO `livre` (`idLivre`, `titre`, `auteur`, `langue`, `genre`, `dateParution`, `resume`, `nombrePages`, `noteMoyenne`, `lienEpub`, `lienCouverture`) VALUES
-(1, 'petit prince', 'St exup', 'francais', 'fiction', '2016-05-04', 'dessine moi un mouton', 2, 5, 'www.myspace.com', 'www.couv.com'),
-(2, 'zaedrsgfdfgh', 'St exup', 'francais', 'fiction', '2016-05-04', 'azerghjklmù', 1, 15, 'www.myspace.com', 'www.couv.com'),
-(3, 'dsfghjklm', 'St exup', 'francais', 'fiction', '2016-05-04', 'bla bla', 20, 5, 'www.myspace.com', 'www.couv.com'),
-(4, 'vacances dans le coma', 'St exup', 'francais', 'fiction', '2016-04-04', 'azeazeazeazeaze', 2, 5, 'www.myspace.com', 'www.couv.com');
+INSERT INTO `livre` (`idLivre`, `titre`, `auteur`, `aliasAuteur`, `infoAuteur`, `dateNaissanceAuteur`, `DateMortAuteur`, `langue`, `genre`, `tags`, `dateParution`, `resume`, `nombrePages`, `noteMoyenne`, `lienEpub`, `lienCouverture`) VALUES
+(1, 'petit prince', 'St exup', 0, NULL, NULL, NULL, 'francais', 'fiction', '', '2016-05-04', 'dessine moi un mouton', 2, 5, 'www.myspace.com', 'www.couv.com'),
+(2, 'zaedrsgfdfgh', 'St exup', 0, NULL, NULL, NULL, 'francais', 'fiction', '', '2016-05-04', 'azerghjklmù', 1, 15, 'www.myspace.com', 'www.couv.com'),
+(3, 'dsfghjklm', 'St exup', 0, NULL, NULL, NULL, 'francais', 'fiction', '', '2016-05-04', 'bla bla', 20, 5, 'www.myspace.com', 'www.couv.com'),
+(4, 'vacances dans le coma', 'St exup', 0, NULL, NULL, NULL, 'francais', 'fiction', '', '2016-04-04', 'azeazeazeazeaze', 2, 5, 'www.myspace.com', 'www.couv.com');
 
 -- --------------------------------------------------------
 
