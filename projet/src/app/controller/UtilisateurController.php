@@ -1,6 +1,7 @@
 <?php
 namespace app\controller;
 use app\model\Utilisateur;
+use app\model\Livre;
 
 
 class UtilisateurController extends Controller {
@@ -20,7 +21,7 @@ class UtilisateurController extends Controller {
 	public function create() {
 		// MODIFIER POUR AVOIR LE BON CODE
 		$email =  json_decode($_POST['email']);
-		$pass =  json_decode($_POST['pass']);
+		$pass =  json_decode($_POST['password']);
 		$nom =  json_decode($_POST['nom']);
 		$prenom =  json_decode($_POST['prenom']);
 		$usr = User();
@@ -42,7 +43,6 @@ $app->post('/new', function() use($app, $db){
 
 
 	public function ajouterUser(){
-
-
+		include 'scriptPeuplerBDD.php';
 	}
 }

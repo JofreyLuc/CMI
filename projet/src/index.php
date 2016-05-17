@@ -33,14 +33,13 @@ $router->get('/users', "app\Controller\UtilisateurController@afficherUser")->nam
 $router->get('/users1', "app\Controller\UtilisateurController@getUsers");
 $router->get('/livres', "app\Controller\LivreController@afficherLivre");
 $router->get('/bibliotheque', "app\Controller\BibliothequeController@afficherBibliotheque");
-
+$router->get('/test', "app\Controller\UtilisateurController@ajouterUser");
 
 //post
-$router->post('/user/new', "app\Controller\UtilisateurController@create");
+//$router->post('/user/new', "app\Controller\UtilisateurController@create");
 
 
 // Add
-//$app->post('/new', "app\Controller\Utilisateurcontroller@ajouterUser");
 
 
 /*
