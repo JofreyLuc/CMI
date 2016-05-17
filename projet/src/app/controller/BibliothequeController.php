@@ -28,6 +28,8 @@ class BibliothequeController extends Controller {
             $this->app->render('consulter_bibli.php');
         }
 
+        echo'</table>';
+
     }
 
     //Ajax response example
