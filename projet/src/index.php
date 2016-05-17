@@ -32,8 +32,51 @@ $router->get('/', "app\Controller\HomeController@index");
 $router->get('/users', "app\Controller\UtilisateurController@afficherUser")->name("users");
 $router->get('/users1', "app\Controller\UtilisateurController@getUsers");
 $router->get('/livres', "app\Controller\LivreController@afficherLivre");
+$router->get('/bibliotheque', "app\Controller\BibliothequeController@afficherBibliotheque");
+
+
 //post
 $router->post('/user/new', "app\Controller\UtilisateurController@create");
+
+
+// Add
+//$app->post('/new', "app\Controller\Utilisateurcontroller@ajouterUser");
+
+
+/*
+$app->post('/new', function() use($app, $db){
+    $app->response()->header("Content-Type", "application/json");
+    $car = $app->request()->post();
+    $result = $db->utilisateur->insert($car);
+    echo json_encode(array('id' => $result['id']));
+});
+*/
+
+
+// Update
+/*
+$app->put('/car/:id', function($id) use($app, $db){
+    $app->response()->header("Content-Type", "application/json");
+    $car = $db->utilisateur();//->where("id", $id);
+    if ($car->fetch()) {
+        $post = $app->request()->put();
+        $result = $car->update($post);
+        echo json_encode(array(
+            "status" => (bool)$result,
+            "message" => "Car updated successfully"
+        ));
+    }
+    else{
+        echo json_encode(array(
+            "status" => false,
+            "message" => "Car id $id does not exist"
+        ));
+    }
+});
+*/
+
+
+
 
 //ex
 $app->get('/hello', function () {
@@ -42,4 +85,4 @@ $app->get('/hello', function () {
 
 $app->render('layout/header.php', compact('app'));
 $app->run();
-$app->render('layout/footer.php', compact('app'));
+//$app->render('layout/footer.php', compact('app'));

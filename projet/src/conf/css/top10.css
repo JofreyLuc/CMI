@@ -1,0 +1,76 @@
+
+header
+{
+    background-color: black;
+    display:block;
+}
+
+body
+{
+    background-color: silver;
+}
+
+
+h1{
+    height:100%;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+
+input{
+    max-width:100%;
+}
+
+#bibli input
+{
+    height: 50px;
+    width: 300px;
+    border-radius:20px;
+
+}
+#rechercher input
+{
+    height:50px;
+    width: 300px;
+    border-radius:20px;
+}
+
+#suggestion input
+{
+    height:50px;
+    width: 300px;
+    border-radius:20px;
+}
+
+#liste input
+{
+    height:50px;
+    width: 300px;
+    border-radius:20px;
+}
+
+#top input
+{
+    height:50px;
+    width: 300px;
+    border-radius:20px;
+}
+
+/* Uniquement pour la page d'accueil et de recherche*/
+#titreT
+{
+    padding-top: 50;
+    margin : 25;
+    font-size: 20px;
+}
+#test
+{
+    line-height: 50px;
+    height:50px;
+}
+
+#top10
+{
+    padding-bottom: 25px;
+}

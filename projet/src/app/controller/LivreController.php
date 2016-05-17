@@ -4,7 +4,6 @@ use app\model\Livre;
 class LivreController extends Controller {
 	
 	public function afficherLivre() {
-		echo 'coucou';
 		$livres = Livre::all();
 		$this->app->view->setData('livres', $livres);
 		$this->app->render('livre.php');

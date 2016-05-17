@@ -1,10 +1,12 @@
 <?php
 namespace app\controller;
 use app\model\Utilisateur;
+
+
 class UtilisateurController extends Controller {
 	
 	public function afficherUser() {
-		$users = Utilisateur::all();
+	$users = Utilisateur::all();
 		$this->app->view->setData('users', $users);
 		$this->app->render('user.php');
 	}
@@ -28,5 +30,19 @@ class UtilisateurController extends Controller {
 		$usr->prenom = $prenom;
 		var_dump($usr);
 		//$usr->save();
+	}
+/*
+$app->post('/new', function() use($app, $db){
+    $app->response()->header("Content-Type", "application/json");
+    $car = $app->request()->post();
+    $result = $db->utilisateur->insert($car);
+    echo json_encode(array('id' => $result['id']));
+});*/
+
+
+
+	public function ajouterUser(){
+
+
 	}
 }
