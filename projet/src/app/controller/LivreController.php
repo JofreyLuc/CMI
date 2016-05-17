@@ -1,6 +1,7 @@
 <?php
 namespace app\controller;
 use app\model\Livre;
+use app\model\Bibliotheque;
 class LivreController extends Controller {
 	
 	public function afficherLivre() {
@@ -8,6 +9,14 @@ class LivreController extends Controller {
 		$this->app->view->setData('livres', $livres);
 		$this->app->render('livre.php');
 	}
+
+
+
+
+	
+
+	
+	
 	
 	//Ajax response example
 	public function getLivres() {
