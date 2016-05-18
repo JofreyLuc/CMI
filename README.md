@@ -35,6 +35,7 @@ Lecteur d'ePub libres.
 
 # Script BDD
 
+Lien pour le dossier epub : https://www.gutenberg.org/cache/epub/feeds/rdf-files.tar.zip
 Pour peupler la BDD, il faut avoir un dossier 'epub' dans le répertoire /src sous l'arborescence suivante
 epub/
 	0/
