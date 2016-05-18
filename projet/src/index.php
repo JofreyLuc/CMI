@@ -59,15 +59,15 @@ $router->get('/books/:titre/:auteur', "app\Controller\LivreController@afficherLi
 
 
 
-
-
+//appel test commentaire
+$router->get('/test0', "app\Controller\UtilisateurController@test0");
 
 
 
 
 // test
 //
-
+/*
 $app->get('/test1', function () use($app){
    
     echo 'aze';
@@ -75,8 +75,10 @@ $app->get('/test1', function () use($app){
     echo $app->request()->params('kaka');
      $afficheLivre = new \app\controller\UtilisateurController($this->app);
      $afficheLivre->test();
+
     
 });
+*/
 
 
 /*

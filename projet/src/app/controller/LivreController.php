@@ -62,6 +62,35 @@ class LivreController extends Controller {
 
 
 
+	public function test0(){
+
+		//$this->app->request()->params('id');
+		//$this->app->request()->params('kaka');
+
+		// on récupère le tab de param dans l'url
+		$tab = $this->app->request()->params();
+		$tabIndice = array_keys($tab);
+
+		echo "tabindice"."<br>";
+		var_dump($tabIndice);
+
+		echo "<br>"."tab"."<br>";
+		var_dump($tab);
+
+
+
+
+		//echo count($tab);
+		$livres = Livre::all();
+		for($i=0;$i< count($tab);$i++){
+			$livres->where($tabIndice[$i],'=',$tab[$tabIndice[$i]]);
+			//echo $tabIndice[$i]." ".$tab[$i]."<br>";
+		}
+		
+		$this->app->view->setData('livres', $livres);
+		$this->app->render('livre.php');
+	}
+
 
 
 

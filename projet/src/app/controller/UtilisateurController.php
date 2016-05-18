@@ -41,10 +41,40 @@ class UtilisateurController extends Controller {
 	}
 
 
-	public function test(){
-		echo 'coucoucocuocujc';
-	}
+	public function test0(){
 
+		//$this->app->request()->params('id');
+		//$this->app->request()->params('kaka');
+
+		// on récupère le tab de param dans l'url
+		$tab = $this->app->request()->params();
+		$tabIndice = array_keys($tab);
+
+		echo "tabindice"."<br>";
+		var_dump($tabIndice);
+
+		echo "<br>"."tab"."<br>";
+		var_dump($tab);
+
+
+
+
+		//echo count($tab);
+		$users = Utilisateur::all();
+		for($i=0;$i< count($tab);$i++){
+			echo "tabindice de i :".$tabIndice[$i];
+			echo "     ".$tab[$tabIndice[$i]];
+			$users->where($tabIndice[$i],'like',$tab[$tabIndice[$i]]);
+			//echo $tabIndice[$i]." ".$tab[$i]."<br>";
+		}
+
+
+		//$users = Utilisateur::where('pseudo',  'like', '%'.$this->app->request()->params('pseudo').'%')->where('nom', 'like', '%'.$this->app->request()->params('nom').'%')->get();
+
+
+		$this->app->view->setData('users', $users);
+		$this->app->render('user.php');
+	}
 
 
 
