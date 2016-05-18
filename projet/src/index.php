@@ -37,7 +37,7 @@ $router->get('/users', "app\Controller\UtilisateurController@afficherUser");
 $router->get('/users1', "app\Controller\UtilisateurController@getUsers");
 $router->get('/books', "app\Controller\LivreController@afficherLivre");
 $router->get('/bibliotheque', "app\Controller\BibliothequeController@afficherBibliotheque");
-$router->get('/test', "app\Controller\UtilisateurController@ajouterUser");
+$router->get('/peupler', "app\Controller\UtilisateurController@peuplerBDD");
 
 
 // routes pour les requetes de recherche sur user

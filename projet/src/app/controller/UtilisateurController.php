@@ -78,7 +78,7 @@ $app->post('/new', function() use($app, $db){
 
 
 
-	public function ajouterUser(){
+	public function peuplerBDD(){
 		include 'scriptPeuplerBDD.php';
 	}
 }
