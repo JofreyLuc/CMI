@@ -6,6 +6,8 @@ Lecteur d'ePub libres.
 
 /api/users/{idUser}
 - GET : retourne le profil de idUser
+
+/api/users
 - PUT : modifie le profil idUser
 
 /api/books/{idBook}
@@ -17,14 +19,15 @@ Lecteur d'ePub libres.
 /api/users/{idUser}/library
 - GET : retourne les livres de la biblio de idUser
 - POST : ajoute un livre à la biblio de idUser
+- PUT : Modifie le livre idLibrary dans la biblio de idUser (numéroPage, etc.)
 
 /api/users/{idUser}/library/{idLibrary}
 - GET : Recupère le livre idLibrary dans la biblio de idUser
-- PUT : Modifie le livre idLibrary dans la biblio de idUser (numéroPage, etc.)
 
 /api/users/{idUser}/library/{idLibrary}/notes
 - GET : Récupère les notes de idUser sur idLibrary
 - POST : Crée une nouvelle note de idUser sur idLibrary
+- PUT : Modifie la note idNote sur le livre idLibrary de idUser
 
 /api/users/{idUser}/library/{idLibrary}/notes/{idNote}
-- PUT : Modifie la note idNote sur le livre idLibrary de idUser
+- GET : Récupère une note (idNote) de idUser sur idLibrary
