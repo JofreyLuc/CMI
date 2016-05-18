@@ -18,7 +18,7 @@ $nbLivre = count($epub) - 3;
 
 // On instancie un dom xml
 $dom = new DOMDocument();
-for($i = 1; $i < $nbLivre;$i++){
+for($i = 51266; $i < $nbLivre;$i++){
 	// Chemin de l'epub
     $chemin = 'epub/'.$i.'/pg'.$i.'.rdf';
     $dom->load($chemin);

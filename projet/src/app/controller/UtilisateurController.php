@@ -49,6 +49,7 @@ class UtilisateurController extends Controller {
 		// on récupère le tab de param dans l'url
 		$tab = $this->app->request()->params();
 		$tabIndice = array_keys($tab);
+		$count = count($tab);
 
 		echo "tabindice"."<br>";
 		var_dump($tabIndice);
@@ -61,18 +62,30 @@ class UtilisateurController extends Controller {
 
 		//echo count($tab);
 		$users = Utilisateur::all();
+		$clone = $users;
 		for($i=0;$i< count($tab);$i++){
-			echo "tabindice de i :".$tabIndice[$i];
-			echo "     ".$tab[$tabIndice[$i]];
+			//echo "tabindice de i :".$tabIndice[$i];
+			//echo "     ".$tab[$tabIndice[$i]];
 			$users->where($tabIndice[$i],'like',$tab[$tabIndice[$i]]);
+			var_dump($users);
 			//echo $tabIndice[$i]." ".$tab[$i]."<br>";
 		}
 
 
+
+
+
+
 		//$users = Utilisateur::where('pseudo',  'like', '%'.$this->app->request()->params('pseudo').'%')->where('nom', 'like', '%'.$this->app->request()->params('nom').'%')->get();
 
+		// on encode nos données
+		// deux fonctions le font :
+		//var_dump($users);
+		$reponse = json_encode($users);
+		//$a = $users->toJson();
+		//var_dump($a);
 
-		$this->app->view->setData('users', $users);
+		$this->app->view->setData('users', $reponse);
 		$this->app->render('user.php');
 	}
 

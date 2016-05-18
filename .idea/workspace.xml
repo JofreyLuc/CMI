@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43ad07f4-9c29-4a66-895e-b8a7ec949a1a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projet/src/epub/0/pg0.rdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projet/src/epub/1/pg1.rdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projet/src/epub/2/pg2.rdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projet/src/epub/3/pg3.rdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projet/src/epub/4/pg4.rdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projet/src/epub/5/pg5.rdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projet/src/epub/6/pg6.rdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projet/src/epub/7/pg7.rdf" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" afterPath="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php" afterPath="$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/index.php" afterPath="$PROJECT_DIR$/projet/src/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/view/user.php" afterPath="$PROJECT_DIR$/projet/src/app/view/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/scriptPeuplerBDD.php" afterPath="$PROJECT_DIR$/projet/src/scriptPeuplerBDD.php" />
     </list>
     <ignored path="CMI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,22 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="consulter_bibli.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projet/src/app/view/consulter_bibli.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-              <folding>
-                <marker date="1463496703000" expanded="true" signature="90:95" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BibliothequeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
+            <state relative-caret-position="45">
               <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
                 <element signature="e#32#59#0#PHP" expanded="true" />
@@ -85,8 +65,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+            <state relative-caret-position="276">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -105,7 +85,7 @@
       <file leaf-file-name="scriptPeuplerBDD.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/scriptPeuplerBDD.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="315">
               <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
@@ -115,7 +95,7 @@
       <file leaf-file-name="LivreController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
+            <state relative-caret-position="795">
               <caret line="54" column="113" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="113" />
               <folding>
                 <element signature="e#32#52#0#PHP" expanded="true" />
@@ -127,7 +107,7 @@
       <file leaf-file-name="pg318.rdf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/pg318.rdf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
+            <state relative-caret-position="2790">
               <caret line="186" column="84" selection-start-line="186" selection-start-column="84" selection-end-line="186" selection-end-column="84" />
               <folding />
             </state>
@@ -137,12 +117,24 @@
       <file leaf-file-name="UtilisateurController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="63" column="39" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
+            <state relative-caret-position="339">
+              <caret line="68" column="47" selection-start-line="68" selection-start-column="47" selection-end-line="68" selection-end-column="47" />
               <folding>
                 <element signature="e#32#58#0#PHP" expanded="true" />
-                <marker date="1463586387000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
-                <marker date="1463586387000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
+                <marker date="1463599593000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
+                <marker date="1463599593000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projet/src/app/view/user.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+              <folding>
+                <marker date="1463598097000" expanded="true" signature="695:1050" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -167,7 +159,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/accueil.php" />
-        <option value="$PROJECT_DIR$/projet/src/app/view/user.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/Suivi.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/AnnotationController.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/EvaluationController.php" />
@@ -193,6 +184,7 @@
         <option value="$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
         <option value="$PROJECT_DIR$/projet/src/index.php" />
+        <option value="$PROJECT_DIR$/projet/src/app/view/user.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php" />
       </list>
     </option>
@@ -236,7 +228,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -349,9 +343,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files" />
-      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -429,12 +421,14 @@
       <workItem from="1463497881201" duration="1473000" />
       <workItem from="1463501948372" duration="682000" />
       <workItem from="1463503160916" duration="4362000" />
-      <workItem from="1463560265036" duration="15695000" />
+      <workItem from="1463560265036" duration="15989000" />
+      <workItem from="1463587711537" duration="38000" />
+      <workItem from="1463597506990" duration="2045000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59154000" />
+    <option name="totallyTimeSpent" value="61531000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
@@ -620,13 +614,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/conf/js/fac.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/conf/js/fac.js" />
     <entry file="file://$PROJECT_DIR$/projet/src/conf/css/top10.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -696,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/view/user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="33" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/app/view/home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -714,7 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -722,7 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4215">
           <caret line="281" column="75" selection-start-line="281" selection-start-column="75" selection-end-line="281" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -731,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,7 +741,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
+        <state relative-caret-position="45">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="e#32#59#0#PHP" expanded="true" />
@@ -773,10 +751,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/scriptPeuplerBDD.php">
+    <entry file="file://$PROJECT_DIR$/projet/src/app/Router.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
+          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/scriptPeuplerBDD.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="54" column="113" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="113" />
+          <folding>
+            <element signature="e#32#52#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/pg318.rdf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2790">
+          <caret line="186" column="84" selection-start-line="186" selection-start-column="84" selection-end-line="186" selection-end-column="84" />
           <folding />
         </state>
       </provider>
@@ -789,48 +793,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/pg318.rdf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="186" column="84" selection-start-line="186" selection-start-column="84" selection-end-line="186" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/Router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+        <state relative-caret-position="276">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
+    <entry file="file://$PROJECT_DIR$/projet/src/app/view/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="54" column="113" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="113" />
+        <state relative-caret-position="330">
+          <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
           <folding>
-            <element signature="e#32#52#0#PHP" expanded="true" />
+            <marker date="1463598097000" expanded="true" signature="695:1050" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="63" column="39" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
+        <state relative-caret-position="339">
+          <caret line="68" column="47" selection-start-line="68" selection-start-column="47" selection-end-line="68" selection-end-column="47" />
           <folding>
             <element signature="e#32#58#0#PHP" expanded="true" />
-            <marker date="1463586387000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
-            <marker date="1463586387000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
+            <marker date="1463599593000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
+            <marker date="1463599593000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
           </folding>
         </state>
       </provider>
