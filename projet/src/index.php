@@ -28,15 +28,58 @@ $app = new \Slim\Slim(array(
 $router = new app\Router($app);
 
 //get
+
+
+
+
 $router->get('/', "app\Controller\HomeController@index");
 $router->get('/users', "app\Controller\UtilisateurController@afficherUser");
 $router->get('/users1', "app\Controller\UtilisateurController@getUsers");
-$router->get('/livres', "app\Controller\LivreController@afficherLivre");
+$router->get('/books', "app\Controller\LivreController@afficherLivre");
 $router->get('/bibliotheque', "app\Controller\BibliothequeController@afficherBibliotheque");
 $router->get('/test', "app\Controller\UtilisateurController@ajouterUser");
 
 
+// routes pour les requetes de recherche sur user
+$router->get('/users/:id', "app\Controller\UtilisateurController@afficherUserId");
 
+
+// routes pour les requetes de recherche sur livre
+$router->get('/books/:id', "app\Controller\LivreController@afficherLivreId")->conditions(array('id' => '[0-9]*'));
+$router->get('/books/:titre', "app\Controller\LivreController@afficherLivreTitre");
+$router->get('/books/:auteur', "app\Controller\LivreController@afficherLivreAuteur");
+
+
+$router->get('/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpe");
+
+
+
+//$router->get('/books?titre:titre&auteur:auteur' ,"app\Controller\LivreController@test");
+
+
+
+
+
+
+
+
+
+
+// test
+//
+
+$app->get('/test1', function () use($app){
+   
+    echo 'aze';
+    echo $app->request()->params('id');
+    echo $app->request()->params('kaka');
+     $afficheLivre = new \app\controller\UtilisateurController($this->app);
+     $afficheLivre->test();
+    
+});
+
+
+/*
 
 
 //post

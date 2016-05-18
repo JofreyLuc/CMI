@@ -22,6 +22,7 @@ class UtilisateurController extends Controller {
 		//$users = Utilisateur::all()->games()->take(3)->skip(2)->get();
 
 		$users = Utilisateur::all();
+		//$users = Utilisateur::where('idUtilisateur', 4)->get();
 		$this->app->view->setData('users', $users);
 		$this->app->render('user.php');
 	}
@@ -29,9 +30,25 @@ class UtilisateurController extends Controller {
 
 
 
+	// fonction qui afficher l'user avec une certaine user
+	public function afficherUserIds($id)
+	{
+		echo "id :".$id;
+		$users = Utilisateur::where('idUtilisateur', $id)->get();
+		$this->app->view->setData('users', $users);
+		$this->app->render('user.php');
+
+	}
 
 
-	//Ajax response example
+	public function test(){
+		echo 'coucoucocuocujc';
+	}
+
+
+
+
+		//Ajax response example
 	public function getUsers() {
 		$users = Utilisateur::all();
 		echo json_encode($users);

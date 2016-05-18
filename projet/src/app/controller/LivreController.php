@@ -17,10 +17,54 @@ class LivreController extends Controller {
 
 
 
+	// affiche un livre avec une id précise
+	public function afficherLivreId($id){
+		$livres = Livre::where('idLivre', $id)->get();
+		$this->app->view->setData('livres', $livres);
+		$this->app->render('livre.php');
+	}
 
-	
 
-	
+
+
+	// affiche un livre avec un mot clé en recherche
+	public function afficherLivreTitre($titre){
+		$livres = Livre::where('titre', 'like', '%'.$titre.'%')->get();
+
+			//->contains($titre)->get();
+	//	$livres = Livre::where('titre', $titre)->get();
+		$this->app->view->setData('livres', $livres);
+		$this->app->render('livre.php');
+	}
+
+
+
+
+	public function afficherLivreAuteur($auteur){
+		$livres = Livre::where('auteur', 'like', '%'.$auteur.'%')->get();
+
+		//->contains($titre)->get();
+		//	$livres = Livre::where('titre', $titre)->get();
+		$this->app->view->setData('livres', $livres);
+		$this->app->render('livre.php');
+	}
+
+
+	// affiche un livre recherché avec un auteur et un livre
+	public function afficherLivreSpe($titre, $auteur){
+		$livres = Livre::where('auteur', 'like', '%'.$auteur.'%')->where('titre', 'like', '%'.$titre.'%')->get();
+		//->contains($titre)->get();
+		//	$livres = Livre::where('titre', $titre)->get();
+		$this->app->view->setData('livres', $livres);
+		$this->app->render('livre.php');
+	}
+
+
+
+
+
+
+
 	
 	
 	//Ajax response example
