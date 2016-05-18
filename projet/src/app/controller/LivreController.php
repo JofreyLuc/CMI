@@ -9,8 +9,8 @@ class LivreController extends Controller {
 
 
 	// fonction qui affiche tous les livres dans la table livre
-	public function afficherLivre() {
-		$livres = Livre::all();
+	public function afficherLivre() { // juste pour afficher qques livres tant qu'on arrive pas la pagination
+		$livres = Livre::all()->whereInLoose('idLivre', [100,101,102,103,104,105,106,107,108,109,110,1941,156,5768,873,1235,87987,65,5468,46487,7868,7897,464,654,87,654,687]);
 		$this->app->view->setData('livres', $livres);
 		$this->app->render('livre.php');
 	}

@@ -2,16 +2,35 @@
 namespace app\controller;
 use app\model\Utilisateur;
 use app\model\Livre;
+use Illuminate\Contracts\Pagination;
 
 
 class UtilisateurController extends Controller {
 	
 	public function afficherUser() {
-	$users = Utilisateur::all();
+
+
+		$count= Utilisateur::all()->count();
+		// nombre de data total
+		$pages = 1; // nb de data par page a afficher (je veux 1 truc par page)
+		$dataParPage = 20;
+		$pageCourante = 1;
+		$total = ceil($count/$dataParPage);
+
+	//	$a = Utilisateur::query("SELECT * from utilisateur")->find(1);
+
+		//$users = Utilisateur::all()->games()->take(3)->skip(2)->get();
+
+		$users = Utilisateur::all();
 		$this->app->view->setData('users', $users);
 		$this->app->render('user.php');
 	}
-	
+
+
+
+
+
+
 	//Ajax response example
 	public function getUsers() {
 		$users = Utilisateur::all();
