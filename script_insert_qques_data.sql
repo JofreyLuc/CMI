@@ -2,10 +2,10 @@
 -- version 4.4.10
 -- http://www.phpmyadmin.net
 --
--- Client :  localhost
--- Généré le :  Mar 17 Mai 2016 à 12:58
+-- Client :  localhost:8889
+-- Généré le :  Mer 18 Mai 2016 à 17:18
 -- Version du serveur :  5.5.42
--- Version de PHP :  7.0.0
+-- Version de PHP :  5.6.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -24,7 +24,6 @@ CREATE TABLE `annotation` (
   `idAnnotation` int(10) NOT NULL,
   `idBibliotheque` int(10) NOT NULL,
   `numeroPage` int(10) NOT NULL,
-  `numero` int(10) NOT NULL,
   `texte` varchar(1000) DEFAULT NULL,
   `dateModification` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
@@ -33,9 +32,9 @@ CREATE TABLE `annotation` (
 -- Contenu de la table `annotation`
 --
 
-INSERT INTO `annotation` (`idAnnotation`, `idBibliotheque`, `numeroPage`, `numero`, `texte`, `dateModification`) VALUES
-(1, 1, 1, 1, 'qsdfghjklmù`', '2016-05-11 13:56:42'),
-(2, 4, 456, 22, 'gregregre', '2016-05-11 13:56:42');
+INSERT INTO `annotation` (`idAnnotation`, `idBibliotheque`, `numeroPage`, `texte`, `dateModification`) VALUES
+(1, 1, 1, 'qsdfghjklmù`', '2016-05-11 13:56:42'),
+(2, 4, 456, 'gregregre', '2016-05-11 13:56:42');
 
 -- --------------------------------------------------------
 
@@ -93,30 +92,18 @@ CREATE TABLE `livre` (
   `idLivre` int(10) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `auteur` varchar(255) NOT NULL,
-  `aliasAuteur` int(11) NOT NULL,
+  `aliasAuteur` int(11) DEFAULT NULL,
   `infoAuteur` varchar(256) DEFAULT NULL,
   `dateNaissanceAuteur` date DEFAULT NULL,
   `DateMortAuteur` date DEFAULT NULL,
   `langue` varchar(255) NOT NULL,
   `genre` varchar(255) DEFAULT NULL,
-  `tags` varchar(256) NOT NULL,
   `dateParution` date DEFAULT NULL,
   `resume` varchar(1000) DEFAULT NULL,
-  `nombrePages` int(10) DEFAULT NULL,
   `noteMoyenne` float DEFAULT NULL,
   `lienEpub` varchar(255) NOT NULL,
   `lienCouverture` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `livre`
---
-
-INSERT INTO `livre` (`idLivre`, `titre`, `auteur`, `aliasAuteur`, `infoAuteur`, `dateNaissanceAuteur`, `DateMortAuteur`, `langue`, `genre`, `tags`, `dateParution`, `resume`, `nombrePages`, `noteMoyenne`, `lienEpub`, `lienCouverture`) VALUES
-(1, 'petit prince', 'St exup', 0, NULL, NULL, NULL, 'francais', 'fiction', '', '2016-05-04', 'dessine moi un mouton', 2, 5, 'www.myspace.com', 'www.couv.com'),
-(2, 'zaedrsgfdfgh', 'St exup', 0, NULL, NULL, NULL, 'francais', 'fiction', '', '2016-05-04', 'azerghjklmù', 1, 15, 'www.myspace.com', 'www.couv.com'),
-(3, 'dsfghjklm', 'St exup', 0, NULL, NULL, NULL, 'francais', 'fiction', '', '2016-05-04', 'bla bla', 20, 5, 'www.myspace.com', 'www.couv.com'),
-(4, 'vacances dans le coma', 'St exup', 0, NULL, NULL, NULL, 'francais', 'fiction', '', '2016-04-04', 'azeazeazeazeaze', 2, 5, 'www.myspace.com', 'www.couv.com');
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -178,8 +165,8 @@ CREATE TABLE `utilisateur` (
   `pseudo` varchar(255) NOT NULL,
   `nom` varchar(255) DEFAULT NULL,
   `prenom` varchar(255) DEFAULT NULL,
-  `dateNaissance` date NOT NULL,
-  `sexe` enum('H','F') NOT NULL,
+  `dateNaissance` date DEFAULT NULL,
+  `sexe` enum('H','F') DEFAULT NULL,
   `possibiliteSuivi` tinyint(1) NOT NULL DEFAULT '1',
   `inscriptionValidee` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
@@ -274,7 +261,7 @@ ALTER TABLE `evaluation`
 -- AUTO_INCREMENT pour la table `livre`
 --
 ALTER TABLE `livre`
-  MODIFY `idLivre` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `idLivre` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `notification`
 --
