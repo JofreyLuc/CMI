@@ -31,3 +31,18 @@ Lecteur d'ePub libres.
 
 /api/users/{idUser}/library/{idLibrary}/notes/{idNote}
 - GET : Récupère une note (idNote) de idUser sur idLibrary
+
+
+# Script BDD
+
+Pour peupler la BDD, il faut avoir un dossier 'epub' dans le répertoire /src sous l'arborescence suivante
+epub/
+	0/
+		pg0.rdf
+	1/
+		pg1.rdf
+	2/
+		pg2.rdf
+	...
+
+Ensuite il suffit d'executer le script en utilisant la route peupler, par exemple : http://localhost:8888/CMI/projet/src/peupler
