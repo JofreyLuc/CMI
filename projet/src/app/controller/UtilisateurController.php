@@ -6,7 +6,8 @@ use Illuminate\Contracts\Pagination;
 
 
 class UtilisateurController extends Controller {
-	
+
+
 	public function afficherUser() {
 
 
@@ -79,14 +80,40 @@ class UtilisateurController extends Controller {
 		//var_dump($users);
 		$reponse = json_encode($users);
 		//$a = $users->toJson();
-		//var_dump($a);
+		//var_dump($reponse);
 
-		$this->app->view->setData('users', $this->getUsers());
+
+		//echo $this->getUsers();
+		//echo $this->app->request->getBody();
+
+		//echo $this->getUsers();//->getBody();//->app->response->getBody();
+
+
+		//$this->app->response->headers->set('Content-Type', 'text/html');
+
+		$caca = $this->getUsers();
+
+
+		//var_dump($caca);
+
+/*
+
+		$this->app->view->setData('users', $caca);//$this->getUsers());
+
 		$this->app->render('layout/header.php', compact('app'));
 
-		$this->app->render('user.php');
+		$this->app->render('user.php');*/
 	}
 
+
+
+
+
+
+
+	public function oui(){
+
+	}
 
 
 
@@ -95,10 +122,27 @@ class UtilisateurController extends Controller {
 		//$users = Utilisateur::where('pseudo', 'like', 'USER1')->get();
 		$users = Utilisateur::all();
 		//$this->app->header("Content-Type: application/json");
+
+
+
+
 		$a = json_encode($users);
+
+
+		//echo $this->app->response->headers->get('Content-Type');
+		$this->app->response->headers->set('Content-Type', 'application/json');
+
+
 		//var_dump( $a);
-		echo $a;
-		return $a;
+
+		$this->app->response->body($a);//->write($a);
+		//$this->app->request->post($a);
+
+
+		//echo $a;
+		//return $a;
+		//exit;
+		//die;
 	}
 
 

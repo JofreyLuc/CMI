@@ -65,6 +65,8 @@ $router->get('/test0', "app\Controller\UtilisateurController@test0");
 
 
 
+$router->get('/oui', "app\Controller\UtilisateurController@oui");
+
 
 // test
 //

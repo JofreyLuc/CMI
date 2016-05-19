@@ -26,6 +26,7 @@
 				// on recupère du json , faut donc le décoder 
 				$users = json_decode($users);
 				// CSS ne fonctionne pas
+
 				foreach($users as $user) {
 					echo "<tr>
 						<th>$user->idUtilisateur</th>
