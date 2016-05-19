@@ -60,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="63" column="69" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
+            <state relative-caret-position="443">
+              <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -112,15 +112,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UtilisateurController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UtilisateurController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="91" column="32" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+            <state relative-caret-position="296">
+              <caret line="94" column="33" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
               <folding>
                 <element signature="e#32#58#0#PHP" expanded="true" />
-                <marker date="1463659511000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
-                <marker date="1463659511000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
+                <marker date="1463659736000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
+                <marker date="1463659736000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
               </folding>
             </state>
           </provider>
@@ -182,8 +182,8 @@
         <option value="$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
         <option value="$PROJECT_DIR$/projet/src/app/view/user.php" />
-        <option value="$PROJECT_DIR$/projet/src/index.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php" />
+        <option value="$PROJECT_DIR$/projet/src/index.php" />
       </list>
     </option>
   </component>
@@ -422,12 +422,12 @@
       <workItem from="1463560265036" duration="15989000" />
       <workItem from="1463587711537" duration="38000" />
       <workItem from="1463597506990" duration="2793000" />
-      <workItem from="1463651123112" duration="1449000" />
+      <workItem from="1463651123112" duration="1657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63728000" />
+    <option name="totallyTimeSpent" value="63936000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
@@ -799,23 +799,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/index.php">
+    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="63" column="69" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
-          <folding />
+        <state relative-caret-position="296">
+          <caret line="94" column="33" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
+          <folding>
+            <element signature="e#32#58#0#PHP" expanded="true" />
+            <marker date="1463659736000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
+            <marker date="1463659736000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
+    <entry file="file://$PROJECT_DIR$/projet/src/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="91" column="32" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
-          <folding>
-            <element signature="e#32#58#0#PHP" expanded="true" />
-            <marker date="1463659511000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
-            <marker date="1463659511000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
-          </folding>
+        <state relative-caret-position="443">
+          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

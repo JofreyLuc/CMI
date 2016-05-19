@@ -91,6 +91,7 @@ class UtilisateurController extends Controller {
 		//Ajax response example
 	public function getUsers() {
 		$users = Utilisateur::where('pseudo', 'like', 'USER1')->get();
+		//$this->app->header("Content-Type: application/json");
 		$a = json_encode($users);
 		//var_dump( $a);
 		echo $a;
