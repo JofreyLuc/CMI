@@ -97,6 +97,7 @@ class UtilisateurController extends Controller {
 		//$this->app->header("Content-Type: application/json");
 		$a = json_encode($users);
 		//var_dump( $a);
+		echo $a;
 		return $a;
 	}
 

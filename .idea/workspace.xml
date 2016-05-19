@@ -115,11 +115,11 @@
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
-              <caret line="99" column="14" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
+              <caret line="99" column="16" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="16" />
               <folding>
                 <element signature="e#32#58#0#PHP" expanded="true" />
-                <marker date="1463660082000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
-                <marker date="1463660082000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
+                <marker date="1463660213000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
+                <marker date="1463660213000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
               </folding>
             </state>
           </provider>
@@ -421,12 +421,12 @@
       <workItem from="1463560265036" duration="15989000" />
       <workItem from="1463587711537" duration="38000" />
       <workItem from="1463597506990" duration="2793000" />
-      <workItem from="1463651123112" duration="1913000" />
+      <workItem from="1463651123112" duration="2048000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64192000" />
+    <option name="totallyTimeSpent" value="64327000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
@@ -809,11 +809,11 @@
     <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
-          <caret line="99" column="14" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
+          <caret line="99" column="16" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="16" />
           <folding>
             <element signature="e#32#58#0#PHP" expanded="true" />
-            <marker date="1463660082000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
-            <marker date="1463660082000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
+            <marker date="1463660213000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
+            <marker date="1463660213000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
           </folding>
         </state>
       </provider>
