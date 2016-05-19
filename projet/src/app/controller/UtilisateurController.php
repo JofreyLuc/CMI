@@ -51,11 +51,11 @@ class UtilisateurController extends Controller {
 		$tabIndice = array_keys($tab);
 		$count = count($tab);
 
-		echo "tabindice"."<br>";
-		var_dump($tabIndice);
+		//echo "tabindice"."<br>";
+		//var_dump($tabIndice);
 
-		echo "<br>"."tab"."<br>";
-		var_dump($tab);
+		//echo "<br>"."tab"."<br>";
+		//var_dump($tab);
 
 
 
@@ -63,13 +63,13 @@ class UtilisateurController extends Controller {
 		//echo count($tab);
 		$users = Utilisateur::all();
 		$clone = $users;
-		for($i=0;$i< count($tab);$i++){
+		/*for($i=0;$i< count($tab);$i++){
 			//echo "tabindice de i :".$tabIndice[$i];
 			//echo "     ".$tab[$tabIndice[$i]];
 			$users->where($tabIndice[$i],'like',$tab[$tabIndice[$i]]);
-			var_dump($users);
+			//var_dump($users);
 			//echo $tabIndice[$i]." ".$tab[$i]."<br>";
-		}
+		}*/
 
 
 		//$users = Utilisateur::where('pseudo',  'like', '%'.$this->app->request()->params('pseudo').'%')->where('nom', 'like', '%'.$this->app->request()->params('nom').'%')->get();
@@ -82,6 +82,8 @@ class UtilisateurController extends Controller {
 		//var_dump($a);
 
 		$this->app->view->setData('users', $this->getUsers());
+		$this->app->render('layout/header.php', compact('app'));
+
 		$this->app->render('user.php');
 	}
 
@@ -90,11 +92,12 @@ class UtilisateurController extends Controller {
 
 		//Ajax response example
 	public function getUsers() {
-		$users = Utilisateur::where('pseudo', 'like', 'USER1')->get();
+		//$users = Utilisateur::where('pseudo', 'like', 'USER1')->get();
+		$users = Utilisateur::all();
 		//$this->app->header("Content-Type: application/json");
 		$a = json_encode($users);
 		//var_dump( $a);
-		echo $a;
+		return $a;
 	}
 
 
