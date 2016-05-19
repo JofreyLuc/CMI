@@ -9,15 +9,17 @@ class LivreController extends Controller {
 
 
 	// fonction qui affiche tous les livres dans la table livre
-	public function afficherLivre() { // juste pour afficher qques livres tant qu'on arrive pas la pagination
-		$livres = Livre::all()->whereInLoose('idLivre', [100,101,102,103,104,105,106,107,108,109,110,1941,156,5768,873,1235,87987,65,5468,46487,7868,7897,464,654,87,654,687]);
+	public function top10() { // juste pour afficher qques livres tant qu'on arrive pas la pagination
+		//$livres = Livre::all()->sortBy('noteMoyenne')->take(10);
+		$livres = Livre::all()->sortBy("noteMoyenne")->take(10);
 		$this->app->view->setData('livres', $livres);
 		$this->app->render('livre.php');
 	}
 
 
-	public function afficherLivreJson() { // juste pour afficher qques livres tant qu'on arrive pas la pagination
-		$livres = Livre::all()->whereInLoose('idLivre', [100,101,102,103,104,105,106,107,108,109,110,1941,156,5768,873,1235,87987,65,5468,46487,7868,7897,464,654,87,654,687]);
+	public function top10Json() { // juste pour afficher qques livres tant qu'on arrive pas la pagination
+		//$livres = Livre::all()->whereInLoose('idLivre', [100,101,102,103,104,105,106,107,108,109,110,1941,156,5768,873,1235,87987,65,5468,46487,7868,7897,464,654,87,654,687]);
+		$livres = Livre::all()->sortBy('note')->take(10);
 		$a = json_encode($livres);
 		$this->app->response->headers->set('Content-Type', 'application/json');
 		$this->app->response->body($a);
@@ -90,13 +92,38 @@ class LivreController extends Controller {
 
 
 
+	/**
+	 * fonction qui va retourner les livres (en json)
+	 * dans l'ur faut mettre /api/books?titre&auteur
+	 */
 	public function afficherLivreAuteurTitreJson(){
-		//$livres = Livre::where('titre', 'like', $this->app->request()->params('titre'))->where('auteur', 'like', $this->app->request()->params('auteur'))->get();
-		$livres = Livre::where('titre',  'like', '%'.$this->app->request()->params('titre').'%')->where('auteur', 'like', '%'.$this->app->request()->params('auteur').'%')->get();
-		$a = json_encode($livres);
-		$this->app->response->headers->set('Content-Type', 'application/json');
-		$this->app->response->body($a);
+
+		// on récupère le tab de param dans l'url
+		$tab = $this->app->request()->params();
+		$tabIndice = array_keys($tab);
+		$count = count($tab);
+
+		echo "tabindice"."<br>";
+		var_dump($tabIndice);
+
+		echo "<br>"."tab"."<br>";
+		var_dump($tab);
+
+		$livres = Livre::all();
+
+		for($i=0;$i< $count;$i++) {
+			$livres->where($tabIndice[$i], 'like', $tab[$tabIndice[$i]]);
+		}
+		var_dump($livres);
+
+		//$livres = Livre::where('titre',  'like', '%'.$this->app->request()->params('titre').'%')->where('auteur', 'like', '%'.$this->app->request()->params('auteur').'%')->get();
+		//$a = json_encode($livres);
+		//$this->app->response->headers->set('Content-Type', 'application/json');
+		//$this->app->response->body($a);
 	}
+
+
+
 
 
 
