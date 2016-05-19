@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43ad07f4-9c29-4a66-895e-b8a7ec949a1a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php" afterPath="$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/index.php" afterPath="$PROJECT_DIR$/projet/src/index.php" />
     </list>
@@ -61,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="58" column="72" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
+            <state relative-caret-position="366">
+              <caret line="63" column="69" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -113,15 +112,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UtilisateurController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UtilisateurController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
-              <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+            <state relative-caret-position="491">
+              <caret line="91" column="32" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
               <folding>
                 <element signature="e#32#58#0#PHP" expanded="true" />
-                <marker date="1463658903000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
-                <marker date="1463658903000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
+                <marker date="1463659511000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
+                <marker date="1463659511000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
               </folding>
             </state>
           </provider>
@@ -423,12 +422,12 @@
       <workItem from="1463560265036" duration="15989000" />
       <workItem from="1463587711537" duration="38000" />
       <workItem from="1463597506990" duration="2793000" />
-      <workItem from="1463651123112" duration="919000" />
+      <workItem from="1463651123112" duration="1449000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63198000" />
+    <option name="totallyTimeSpent" value="63728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
@@ -800,23 +799,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
+    <entry file="file://$PROJECT_DIR$/projet/src/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
-          <folding>
-            <element signature="e#32#58#0#PHP" expanded="true" />
-            <marker date="1463658903000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
-            <marker date="1463658903000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
-          </folding>
+        <state relative-caret-position="366">
+          <caret line="63" column="69" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/index.php">
+    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="58" column="72" selection-start-line="58" selection-start-column="72" selection-end-line="58" selection-end-column="72" />
-          <folding />
+        <state relative-caret-position="491">
+          <caret line="91" column="32" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+          <folding>
+            <element signature="e#32#58#0#PHP" expanded="true" />
+            <marker date="1463659511000" expanded="true" signature="455:480" placeholder="SELECT * fro... utilisateur" />
+            <marker date="1463659511000" expanded="true" signature="455:482" placeholder="SELECT * fro... utilisateur" />
+          </folding>
         </state>
       </provider>
     </entry>

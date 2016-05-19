@@ -92,8 +92,8 @@ class UtilisateurController extends Controller {
 	public function getUsers() {
 		$users = Utilisateur::where('pseudo', 'like', 'USER1')->get();
 		$a = json_encode($users);
-		//echo $a;
-		return $a;
+		//var_dump( $a);
+		echo $a;
 	}
 
 

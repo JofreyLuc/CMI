@@ -45,7 +45,7 @@ $router->get('/users/:id', "app\Controller\UtilisateurController@afficherUserId"
 
 
 // routes pour les requetes de recherche sur livre
-$router->get('/books/:id', "app\Controller\LivreController@afficherLivreId")->conditions(array('id' => '[0-9]*'));
+$router->get('/books/:id', "app\Controller\LivreController@afficherLivreId")->conditions(array('id' => '[0-9]*')); // faut que l'id soit un nombre 
 $router->get('/books/:titre', "app\Controller\LivreController@afficherLivreTitre");
 $router->get('/books/:auteur', "app\Controller\LivreController@afficherLivreAuteur");
 
