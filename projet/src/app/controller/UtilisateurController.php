@@ -72,10 +72,6 @@ class UtilisateurController extends Controller {
 		}
 
 
-
-
-
-
 		//$users = Utilisateur::where('pseudo',  'like', '%'.$this->app->request()->params('pseudo').'%')->where('nom', 'like', '%'.$this->app->request()->params('nom').'%')->get();
 
 		// on encode nos données
@@ -85,17 +81,24 @@ class UtilisateurController extends Controller {
 		//$a = $users->toJson();
 		//var_dump($a);
 
-		$this->app->view->setData('users', $reponse);
+		$this->app->view->setData('users', $this->getUsers());
 		$this->app->render('user.php');
 	}
 
 
 
+
 		//Ajax response example
 	public function getUsers() {
-		$users = Utilisateur::all();
-		echo json_encode($users);
+		$users = Utilisateur::where('pseudo', 'like', 'USER1')->get();
+		$a = json_encode($users);
+		//echo $a;
+		return $a;
 	}
+
+
+
+
 	
 	public function create() {
 		// MODIFIER POUR AVOIR LE BON CODE

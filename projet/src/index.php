@@ -56,6 +56,7 @@ $router->get('/books/:titre/:auteur', "app\Controller\LivreController@afficherLi
 
 //$router->get('/books?titre:titre&auteur:auteur' ,"app\Controller\LivreController@test");
 
+$router->get('/testJ', "app\Controller\UtilisateurController@getUsers");
 
 
 
