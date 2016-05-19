@@ -35,22 +35,33 @@ $router = new app\Router($app);
 $router->get('/', "app\Controller\HomeController@index");
 $router->get('/users', "app\Controller\UtilisateurController@afficherUser");
 $router->get('/users1', "app\Controller\UtilisateurController@getUsers");
-$router->get('/books', "app\Controller\LivreController@afficherLivre");
 $router->get('/bibliotheque', "app\Controller\BibliothequeController@afficherBibliotheque");
 $router->get('/peupler', "app\Controller\UtilisateurController@peuplerBDD");
+
 
 
 // routes pour les requetes de recherche sur user
 $router->get('/users/:id', "app\Controller\UtilisateurController@afficherUserId");
 
 
-// routes pour les requetes de recherche sur livre
-$router->get('/books/:id', "app\Controller\LivreController@afficherLivreId")->conditions(array('id' => '[0-9]*')); // faut que l'id soit un nombre
-$router->get('/books/:titre', "app\Controller\LivreController@afficherLivreTitre");
-$router->get('/books/:auteur', "app\Controller\LivreController@afficherLivreAuteur");
 
+// routes pour les requetes de recherche sur livre
+$router->get('/books', "app\Controller\LivreController@afficherLivre");
+$router->get('/api/books', "app\Controller\LivreController@afficherLivreJson");
+
+$router->get('/books/:id', "app\Controller\LivreController@afficherLivreId")->conditions(array('id' => '[0-9]*')); // faut que l'id soit un nombre
+$router->get('/api/books/:id', "app\Controller\LivreController@afficherLivreIdJson")->conditions(array('id' => '[0-9]*')); // faut que l'id soit un nombre
+
+$router->get('/books/:titre', "app\Controller\LivreController@afficherLivreTitre");
+$router->get('/api/books/:titre', "app\Controller\LivreController@afficherLivreTitreJson");
+
+$router->get('/books/:auteur', "app\Controller\LivreController@afficherLivreAuteur");
+$router->get('/api/books/:auteur', "app\Controller\LivreController@afficherLivreAuteurJson");
 
 $router->get('/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpe");
+$router->get('/api/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpeJson");
+
+$router->get('/api/book', "app\Controller\LivreController@afficherLivreAuteurTitreJson");
 
 
 

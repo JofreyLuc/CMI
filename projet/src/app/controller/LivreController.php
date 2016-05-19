@@ -16,6 +16,18 @@ class LivreController extends Controller {
 	}
 
 
+	public function afficherLivreJson() { // juste pour afficher qques livres tant qu'on arrive pas la pagination
+		$livres = Livre::all()->whereInLoose('idLivre', [100,101,102,103,104,105,106,107,108,109,110,1941,156,5768,873,1235,87987,65,5468,46487,7868,7897,464,654,87,654,687]);
+		$a = json_encode($livres);
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$this->app->response->body($a);
+	}
+
+
+
+
+
+
 
 	// affiche un livre avec une id précise
 	public function afficherLivreId($id){
@@ -23,6 +35,16 @@ class LivreController extends Controller {
 		$this->app->view->setData('livres', $livres);
 		$this->app->render('livre.php');
 	}
+
+	public function afficherLivreIdJson($id){
+		$livres = Livre::where('idLivre', $id)->get();
+		$a = json_encode($livres);
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$this->app->response->body($a);
+	}
+
+
+
 
 
 
@@ -37,6 +59,16 @@ class LivreController extends Controller {
 		$this->app->render('livre.php');
 	}
 
+	public function afficherLivreTitreJson($titre){
+		$livres = Livre::where('titre', 'like', '%'.$titre.'%')->get();
+		$a = json_encode($livres);
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$this->app->response->body($a);
+	}
+
+
+
+
 
 
 
@@ -49,6 +81,25 @@ class LivreController extends Controller {
 		$this->app->render('livre.php');
 	}
 
+	public function afficherLivreAuteurJson($auteur){
+		$livres = Livre::where('auteur', 'like', '%'.$auteur.'%')->get();
+		$a = json_encode($livres);
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$this->app->response->body($a);
+	}
+
+
+
+	public function afficherLivreAuteurTitreJson(){
+		//$livres = Livre::where('titre', 'like', $this->app->request()->params('titre'))->where('auteur', 'like', $this->app->request()->params('auteur'))->get();
+		$livres = Livre::where('titre',  'like', '%'.$this->app->request()->params('titre').'%')->where('auteur', 'like', '%'.$this->app->request()->params('auteur').'%')->get();
+		$a = json_encode($livres);
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$this->app->response->body($a);
+	}
+
+
+
 
 	// affiche un livre recherché avec un auteur et un livre
 	public function afficherLivreSpe($titre, $auteur){
@@ -58,6 +109,15 @@ class LivreController extends Controller {
 		$this->app->view->setData('livres', $livres);
 		$this->app->render('livre.php');
 	}
+
+	public function afficherLivreSpeJson($titre, $auteur){
+		$livres = Livre::where('auteur', 'like', '%'.$auteur.'%')->where('titre', 'like', '%'.$titre.'%')->get();
+		$a = json_encode($livres);
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$this->app->response->body($a);
+	}
+
+
 
 
 

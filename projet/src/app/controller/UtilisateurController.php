@@ -163,6 +163,9 @@ class UtilisateurController extends Controller {
 		var_dump($usr);
 		//$usr->save();
 	}
+
+
+
 /*
 $app->post('/new', function() use($app, $db){
     $app->response()->header("Content-Type", "application/json");
