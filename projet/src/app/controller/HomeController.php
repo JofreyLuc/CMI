@@ -11,7 +11,8 @@ class HomeController extends Controller {
 
 		// affichage des livre sur la page d'accueil
 		$afficheLivre = new LivreController($this->app);
-		$afficheLivre->afficherLivre();
+		$afficheLivre->top10();
+
 
 
 
@@ -22,8 +23,8 @@ class HomeController extends Controller {
 
 
 		//affichage des users
-		//$affichageUser = new UtilisateurController($this->app);
-		//$affichageUser->afficherUser();
+		$affichageUser = new UtilisateurController($this->app);
+		$affichageUser->afficherUserPourAccueil();
 
 
 

@@ -9,18 +9,20 @@ class BibliothequeController extends Controller {
 
     // fonction qui affiche tous les livres presents dans notre biblio perso
     public function afficherBibliotheque() {
-        $afficheLivre = new LivreController($this->app);
+        $this->app->render('layout/header.php', compact('app'));
+
 
         // on récupère tous les livres de la biblio -----> c'est des ID
         $biblio = Bibliotheque::all();
 
         // partie du code qui n'esdt pas a répété pour l'html
-        echo '<section>
-	            <div id=\"titreT\"> <h3> Bibliotheque perso </h3> </div>
-	                <div id=\"top10\">
-			          <table>';
+        echo '	<section>
+				<div id="titreT"> <h3>Bibliothèque personnelle </h3> </div>
+				<div id="top10">
+				<div style="border:black solid medium">';
 
         // parcours de la biblio, on recupere les livres qui correspondent aux id
+
         foreach ($biblio as $b){
             $livres = Livre::all()->where('idLivre', $b->idLivre);
 
@@ -29,7 +31,9 @@ class BibliothequeController extends Controller {
             $this->app->render('consulter_bibli.php');
         }
 
-        echo'</table>';
+            echo '</div>
+				</div>
+			</section>';
 
     }
 

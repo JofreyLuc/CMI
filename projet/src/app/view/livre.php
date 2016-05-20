@@ -1,31 +1,35 @@
 
-<section>
-	<div id="titreT"> <h3> Top 10 </h3> </div>
-	<div id="top10">
 
-			<table>
+
+
+
+<!-- Top 10 des livres, faire les cadres plus grands et les remplir -->
+<section>
+	<div id="titreT"> <h3>Bibliothèque personnelle </h3> </div>
+	<div id="top10">
+		<div style="border:black solid medium">
 			<?php
 			foreach($livres as $livre)
 			{
-				echo '<tr>
-			<div id="test">
-     		<td><img src="conf/img/Couverture_test.jpg" height="150px" width="100px"/></div></td>
+				echo '<div id="test">
+   	<img src="conf/img/Couverture_test.jpg" height="150px" width="100px"/>
      		<div id="description">
-     		<td><h2>'.$livre->titre.'</h2>
+     		<h2>'.$livre->titre.'</h2>
      		<p>'.$livre->auteur.'</p>
-     		</td><td width="20%"><p>Résumé : '.$livre->resume.'</p></td>
+     		<p>'.$livre->resume.'</p>
      		</br>
      		</div>
      		<div id="note">
-     			<td><p>Note : '.$livre->noteMoyenne.'</p></br></br></br></br></br></td>
+     			<p>Note : '.$livre->noteMoyenne.'</p></br></br></br></br></br>
      		</div>
      		<div id="boutons">
-     			<td width="10%"><input type="button"value="Consulter détails livre"></br></br></br>
-     			<input type="button"value="Ajouter a sa bibliothèque"></br></br></br></br></td></tr>
+     			<input type="button"value="Consulter détails livre"></br></br></br>
+     			<input type="button"value="Ajouter a sa bibliothèque"></br></br></br>
+  <input type="button" value="Commencer lecture">
      		</div>
-		</div>';
+</div>' ;
 			}
 			?>
-
+		</div>
 	</div>
 </section>

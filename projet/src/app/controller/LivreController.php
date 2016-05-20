@@ -13,6 +13,7 @@ class LivreController extends Controller {
 		//$livres = Livre::all()->sortBy('noteMoyenne')->take(10);
 		$livres = Livre::all()->sortBy("noteMoyenne")->take(10);
 		$this->app->view->setData('livres', $livres);
+		$this->app->render('layout/header.php', compact('app'));
 		$this->app->render('livre.php');
 	}
 
@@ -121,6 +122,19 @@ class LivreController extends Controller {
 		//$this->app->response->headers->set('Content-Type', 'application/json');
 		//$this->app->response->body($a);
 	}
+
+
+
+	public function afficherLivreAuteurTitre(){
+		$livres = Livre::where('titre',  'like', '%'.$this->app->request()->params('titre').'%')->where('auteur', 'like', '%'.$this->app->request()->params('auteur').'%')->get();
+		$this->app->view->setData('livres', $livres);
+		$this->app->render('layout/header.php', compact('app'));
+		$this->app->render('livre.php');
+	}
+
+
+
+
 
 
 

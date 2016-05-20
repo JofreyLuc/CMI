@@ -62,7 +62,7 @@ $router->get('/books/:titre/:auteur', "app\Controller\LivreController@afficherLi
 $router->get('/api/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpeJson");
 
 $router->get('/api/books', "app\Controller\LivreController@afficherLivreAuteurTitreJson");
-
+$router->get('/books', "app\Controller\LivreController@afficherLivreAuteurTitre");
 
 
 //$router->get('/books?titre:titre&auteur:auteur' ,"app\Controller\LivreController@test");

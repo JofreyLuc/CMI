@@ -25,9 +25,32 @@ class UtilisateurController extends Controller {
 		$users = Utilisateur::all();
 		//$users = Utilisateur::where('idUtilisateur', 4)->get();
 		$this->app->view->setData('users', $users);
+		$this->app->render('layout/header.php', compact('app'));
+
 		$this->app->render('user.php');
 	}
 
+
+
+	function afficherUserPourAccueil(){
+		$count= Utilisateur::all()->count();
+		// nombre de data total
+		$pages = 1; // nb de data par page a afficher (je veux 1 truc par page)
+		$dataParPage = 20;
+		$pageCourante = 1;
+		$total = ceil($count/$dataParPage);
+
+		//	$a = Utilisateur::query("SELECT * from utilisateur")->find(1);
+
+		//$users = Utilisateur::all()->games()->take(3)->skip(2)->get();
+
+		$users = Utilisateur::all();
+		//$users = Utilisateur::where('idUtilisateur', 4)->get();
+		$this->app->view->setData('users', $users);
+
+
+		$this->app->render('user.php');
+	}
 
 
 
