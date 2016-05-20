@@ -57,6 +57,8 @@ $router->get('/users/:id', "app\Controller\UtilisateurController@afficherUserId"
 $router->get('/top10', "app\Controller\LivreController@top10");
 $router->get('/api/top10', "app\Controller\LivreController@top10Json");
 
+// les routes du dessous commentés ne sont pas utilisées actuellement , et pas vraiment la bonne façon de faire
+/*
 $router->get('/books/:id', "app\Controller\LivreController@afficherLivreId")->conditions(array('id' => '[0-9]*')); // faut que l'id soit un nombre
 $router->get('/api/books/:id', "app\Controller\LivreController@afficherLivreIdJson")->conditions(array('id' => '[0-9]*')); // faut que l'id soit un nombre
 
@@ -68,9 +70,12 @@ $router->get('/api/books/:auteur', "app\Controller\LivreController@afficherLivre
 
 $router->get('/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpe");
 $router->get('/api/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpeJson");
-
+*/
 $router->get('/api/books', "app\Controller\LivreController@afficherLivreAuteurTitreJson");
 $router->get('/books', "app\Controller\LivreController@afficherLivreAuteurTitre");
+
+
+
 
 
 //$router->get('/books?titre:titre&auteur:auteur' ,"app\Controller\LivreController@test");

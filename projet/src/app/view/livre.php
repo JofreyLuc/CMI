@@ -5,7 +5,7 @@
 
 <!-- Top 10 des livres, faire les cadres plus grands et les remplir -->
 <section>
-	<div id="titreT"> <h3>Bibliothèque personnelle </h3> </div>
+
 	<div id="top10">
 		<div style="border:black solid medium">
 			<?php

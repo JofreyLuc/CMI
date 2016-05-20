@@ -124,16 +124,51 @@ class LivreController extends Controller {
 	}
 
 
-
+	/**
+	 * fonction qui :
+	 * affiche les livres normalement si on met pas de param dans l'url
+	 * sinon ça affiche le resultat de recherche
+	 */
 	public function afficherLivreAuteurTitre(){
-		$livres = Livre::where('titre',  'like', '%'.$this->app->request()->params('titre').'%')->where('auteur', 'like', '%'.$this->app->request()->params('auteur').'%')->get();
-		$this->app->view->setData('livres', $livres);
-		$this->app->render('layout/header.php', compact('app'));
-		$this->app->render('livre.php');
+		//récupération des param passés dans l'url
+		$tab = $this->app->request()->params();
+		$tabIndice = array_keys($tab);
+		$count = count($tab);
+
+		// si on passe des param dans l'url alros on fait la query correspondant
+		// sinon on affiche les livrse narmol
+		if($count == 0){
+			$livres = Livre::all()->take(20)->forpage(1,20);
+			$this->app->view->setData('livres', $livres);
+			$this->app->render('layout/header.php', compact('app'));
+			$this->app->render('layout/recherche.php', compact('app'));
+			$this->app->render('livre.php');
+		}else {
+			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->get();
+			$this->app->view->setData('livres', $livres);
+			$this->app->render('layout/header.php', compact('app'));
+			$this->app->render('layout/recherche.php', compact('app'));
+			$this->app->render('livre.php');
+		}
+
 	}
 
 
 
+
+
+
+
+/*
+	// utile pour la recherche
+	public function afficherLivreRecherche(){
+		$livres = Livre::where('titre',  'like', '%'.$this->app->request()->params('titre').'%')->where('auteur', 'like', '%'.$this->app->request()->params('auteur').'%')->get();
+		$this->app->view->setData('livres', $livres);
+		$this->app->render('layout/header.php', compact('app'));
+		$this->app->render('layout/recherche.php', compact('app'));
+		$this->app->render('livre.php');
+	}
+*/
 
 
 

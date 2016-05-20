@@ -83,7 +83,7 @@
   <div id="test1"> <input type="button" value="Consulter sa bibliothèque"
                           onclick="document.location.href='/CMI/projet/src/bibliotheque';"/></div>
   <div id="test1"> <input type="button"  value="Rechercher"
-                          onclick="document.location.href='/CMI/projet/src/books?titre=mob&auteur=mel';"/> </div>
+                          onclick="document.location.href='/CMI/projet/src/books';"/> </div>
   <div id="test1"> <input type="button" value="Liste de suivi"
                           onclick="document.location.href='/CMI/projet/src/users';"/> </div>
   <div id="test1"> <input type="button" value="Suggestion"
