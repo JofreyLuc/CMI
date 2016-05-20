@@ -35,8 +35,16 @@ $router = new app\Router($app);
 $router->get('/', "app\Controller\HomeController@index");
 $router->get('/users', "app\Controller\UtilisateurController@afficherUser");
 $router->get('/users1', "app\Controller\UtilisateurController@getUsers");
-$router->get('/bibliotheque', "app\Controller\BibliothequeController@afficherBibliotheque");
 $router->get('/peupler', "app\Controller\UtilisateurController@peuplerBDD");
+
+
+
+
+// routes sur la biblio
+$router->get('/bibliotheque', "app\Controller\BibliothequeController@afficherBibliotheque");
+$router->get('/api/bibliotheque', "app\Controller\BibliothequeController@afficherBibliothequeJson");
+
+
 
 
 

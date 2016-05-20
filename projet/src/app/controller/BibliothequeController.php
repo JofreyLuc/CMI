@@ -37,6 +37,50 @@ class BibliothequeController extends Controller {
 
     }
 
+
+
+
+    public function afficherBibliothequeJson() {
+      //  $this->app->render('layout/header.php', compact('app'));
+
+
+        // on récupère tous les livres de la biblio -----> c'est des ID
+        $biblio = Bibliotheque::all();
+
+
+        // parcours de la biblio, on recupere les livres qui correspondent aux id
+
+        foreach ($biblio as $b){
+            $livres = Livre::all()->where('idLivre', $b->idLivre);
+
+            //on fait passer les données une par une à la vue
+           // $this->app->view->setData('livres', $livres);
+            //$this->app->render('consulter_bibli.php');
+            $a = json_encode($livres);
+            $this->app->response->headers->set('Content-Type', 'application/json');
+            $this->app->response->body($a);
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //Ajax response example
     public function getBibliotheque() {
         $biblio = Bibliotheque::all();
