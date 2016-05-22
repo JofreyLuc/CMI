@@ -71,7 +71,7 @@ $router->get('/api/books/:auteur', "app\Controller\LivreController@afficherLivre
 $router->get('/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpe");
 $router->get('/api/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpeJson");
 */
-$router->get('/api/books', "app\Controller\LivreController@afficherLivreAuteurTitreJson");
+$router->get('/api/books', "app\Controller\LivreController@afficherLivreAuteurTitreGenreJson");
 $router->get('/books', "app\Controller\LivreController@afficherLivreAuteurTitreGenre");
 
 

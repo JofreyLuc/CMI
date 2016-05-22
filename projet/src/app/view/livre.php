@@ -7,7 +7,7 @@
 <section>
 
 	<div id="top10">
-		<div style="border:black solid medium">
+		<div >
 			<?php
 			foreach($livres as $livre)
 			{

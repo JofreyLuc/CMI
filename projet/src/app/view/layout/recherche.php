@@ -52,8 +52,30 @@ script pour cacher / afficher recherche avancée
 
 
 
+<!-- script validation formulaire de recherche -->
+<script type="text/javascript">
+        function valider ( )
+    {
+        //alert(document.getElementById('titre').value);
+        //alert(document.getElementById('genre').value);
+       // alert(document.getElementById('auteur').value)
+        if ( document.getElementById('titre').value.length == 0){
+            if ( document.getElementById('auteur').value.length == 0){
+                if ( document.getElementById('genre').value.length == 0){
+                    valid = false;
+                    document.getElementById("titre").focus();
+                    document.getElementById("erreurForm").style.visibility = "visible";
+                    return valid;
+                }
+            }
+        }
+    }
+</script>
 
-<!-- script de redirrection -->
+
+
+
+<!-- script useless
 <script>
     // Shorthand for $(document).ready();
     $(function() {
@@ -69,45 +91,46 @@ script pour cacher / afficher recherche avancée
                             if (document.getElementById('date') != '') {
                                 var date = $('#date').val();
                                 // rien n'est vide
-                                document.location.href = "http://localhost:8888/CMI/projet/src/books?titre=" + title + "&auteur=" + auteur + "&genre=" + genre + "langue=" + langue + "date=" + date;
+                                // document.location.href = "http://localhost:8888/CMI/projet/src/books?titre=" + title + "&auteur=" + auteur + "&genre=" + genre + "langue=" + langue + "date=" + date;
                             } else {
                                 //la date est vide
-                                document.location.href = "http://localhost:8888/CMI/projet/src/books?titre=" + title + "&auteur=" + auteur + "&genre=" + genre + "langue=" + langue;
+                                //document.location.href = "http://localhost:8888/CMI/projet/src/books?titre=" + title + "&auteur=" + auteur + "&genre=" + genre + "langue=" + langue;
                             }
                         }else{
-                          // la date et la langue sont vide
-                            document.location.href = "http://localhost:8888/CMI/projet/src/books?titre=" + title + "&auteur=" + auteur + "&genre=" + genre;
+                            // la date et la langue sont vide
+                            // document.location.href = "http://localhost:8888/CMI/projet/src/books?titre=" + title + "&auteur=" + auteur + "&genre=" + genre;
                         }
                     }else{
-                       // le genre la date et la langue sont vide
-                        document.location.href = "http://localhost:8888/CMI/projet/src/books?titre=" + title + "&auteur=" + auteur;
+                        // le genre la date et la langue sont vide
+                        //   document.location.href = "http://localhost:8888/CMI/projet/src/books?titre=" + title + "&auteur=" + auteur;
                     }
                 }else{
-                // le genre la date la langue et le titre est vide
-                    document.location.href = "http://localhost:8888/CMI/projet/src/books?auteur=" + auteur;
+                    // le genre la date la langue et le titre est vide
+                    //  document.location.href = "http://localhost:8888/CMI/projet/src/books?auteur=" + auteur;
                 }
             }else{
                 // tout est vide
-              //  document.location.href = "http://localhost:8888/CMI/projet/src/books/find?auteur=" + keywork + "&titre=" + keyword;
+                //  document.location.href = "http://localhost:8888/CMI/projet/src/books/find?auteur=" + keywork + "&titre=" + keyword;
             }
 
 
 
 
-                                // $(this).attr('action', "http://localhost:8888/CMI/projet/src/books?titre="+title+"&auteur="+auteur);
+            // $(this).attr('action', "http://localhost:8888/CMI/projet/src/books?titre="+title+"&auteur="+auteur);
             //document.location.href="http://localhost:8888/CMI/projet/src/books?titre="+title+"&auteur="+auteur;
             //$(this).attr('action', "http://google.com");
         });
     });
 </script>
+-->
 
 
 
 <link rel="stylesheet" href="conf/css/recherche_form.css" />
 
 <div id="tfheader">
-    <form id="tfnewsearch" name ="myform" method="get" action=''>
-        <input type="text" placeholder="Titre" class="tftextinput" name="titre" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+    <form id="tfnewsearch" name ="myform" onsubmit="return valider ();" method="get" action='' >
+        <input type="text" placeholder="Titre" id="titre" class="tftextinput" name="titre" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
         <input type="button" class="more" name="plus" size="5" maxlength="15" value="+" id="plus"><input type="button" class="more" name="plus" size="5" id ="moins" maxlength="15" value="-">
         <!-- partie cachée de la recherche advance -->
         <p id="coucou" name="avance" style="visibility : hidden;">
@@ -117,6 +140,7 @@ script pour cacher / afficher recherche avancée
          <!--   Langue : <input type="text" id="langue" name="langue"> </br>
             date : <input type="text" id="date" name="date"> </br>-->
         </p>
+        <p id="erreurForm" style="visibility : hidden; color: red; text-align: center;">Vous devez renseigner au moins une catégorie</p>
     </form>
     <div class="tfclear"></div>
 </div>

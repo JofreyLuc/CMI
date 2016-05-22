@@ -135,7 +135,7 @@ class UtilisateurController extends Controller {
 	public function afficherInscription(){
 
 
-		//$this->app->render('layout/header.php', compact('app'));
+		$this->app->render('layout/header.php', compact('app'));
 
 		$this->app->render('layout/inscription.php');
 	}
@@ -153,12 +153,18 @@ class UtilisateurController extends Controller {
 		$mail = $_POST['email'];
 		$psw = $_POST['psw'];
 
+		// encodage du psw
+		$hach = md5($psw);
+		$usr = new Utilisateur();
+
+
 		echo $age."<br>";
 		echo $pseudo."<br>";
 		echo $nom."<br>";
 		echo $prenom."<br>";
 		echo $mail."<br>";
 		echo $psw."<br>";
+		echo $hach."<br>";
 
 		/*//$hach = mb_detect_encoding($psw);
 		echo $hach;
@@ -166,13 +172,7 @@ class UtilisateurController extends Controller {
 		$decode = md5($hach);
 		echo $decode;
 */
-		// encodage du psw
-		$hach = md5($psw);
 
-
-
-
-		$usr = new Utilisateur();
 
 		$usr->email = $mail;
 		$usr->nom = $nom;
@@ -184,8 +184,19 @@ class UtilisateurController extends Controller {
 
 		//$this->app->render('layout/header.php', compact('app'));
 		$this->app->render('layout/inscription_validation.php', compact('app'));
+	}
+
+
+	/**
+	 * fonction pour la consultation de son profil
+	 */
+	public function consulterSonProfil(){
 
 	}
+
+
+
+
 
 
 
@@ -228,7 +239,7 @@ class UtilisateurController extends Controller {
 
 
 
-	
+	/*
 	public function create() {
 		// MODIFIER POUR AVOIR LE BON CODE
 		$email =  json_decode($_POST['email']);
@@ -242,7 +253,7 @@ class UtilisateurController extends Controller {
 		$usr->prenom = $prenom;
 		var_dump($usr);
 		//$usr->save();
-	}
+	}*/
 
 
 

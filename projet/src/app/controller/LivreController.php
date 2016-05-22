@@ -201,6 +201,32 @@ class LivreController extends Controller {
 
 
 
+	public function afficherLivreAuteurTitreGenreJson(){
+		//récupération des param passés dans l'url
+		$tab = $this->app->request()->params();
+		$tabIndice = array_keys($tab);
+		$count = count($tab);
+		// si on passe des param dans l'url alros on fait la query correspondant
+		// sinon on affiche les livrse narmol
+		if($count == 0){
+			$livres = Livre::all()->take(20)->forpage(1,20);
+			$a = json_encode($livres);
+			$this->app->response->headers->set('Content-Type', 'application/json');
+			$this->app->response->body($a);
+		}else {
+			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get();
+			$a = json_encode($livres);
+			$this->app->response->headers->set('Content-Type', 'application/json');
+			$this->app->response->body($a);
+		}
+
+	}
+
+
+
+
+
+
 
 
 
@@ -264,7 +290,7 @@ class LivreController extends Controller {
 		$livre = Livre::where('idLivre', '=', $this->app->request()->params('idLivre'))->get();
 		$this->app->view->setData('livre', $livre);
 		$this->app->render('layout/header.php', compact('app'));
-		$this->app->render('details.php');
+		$this->app->render('details.php', compact('app'));
 	}
 
 

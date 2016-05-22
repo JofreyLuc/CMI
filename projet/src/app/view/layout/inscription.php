@@ -1,6 +1,6 @@
 
     <link rel="stylesheet" href="conf/css/form_register.css">
-    <link rel="stylesheet" href="conf/css/demo.css">
+
 
 
 <div class="main-content">
@@ -86,7 +86,7 @@
 </script>
 
 
-
+    <br>
     <form class="form-register" method="post" onsubmit="return valider ();" action="http://localhost:8888/CMI/projet/src/inscription/verification">
 
         <div class="form-register-with-email">

@@ -19,7 +19,7 @@ class BibliothequeController extends Controller {
         echo '	<section>
 				<div id="titreT"> <h3>Bibliothèque personnelle </h3> </div>
 				<div id="top10">
-				<div style="border:black solid medium">';
+				<div >';
 
         // parcours de la biblio, on recupere les livres qui correspondent aux id
 
