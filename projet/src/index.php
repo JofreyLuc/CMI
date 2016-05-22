@@ -72,8 +72,7 @@ $router->get('/books/:titre/:auteur', "app\Controller\LivreController@afficherLi
 $router->get('/api/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpeJson");
 */
 $router->get('/api/books', "app\Controller\LivreController@afficherLivreAuteurTitreJson");
-$router->get('/books', "app\Controller\LivreController@afficherLivreAuteurTitre");
-
+$router->get('/books', "app\Controller\LivreController@afficherLivreAuteurTitreGenre");
 
 
 
@@ -90,6 +89,28 @@ $router->get('/test0', "app\Controller\UtilisateurController@test0");
 
 
 $router->get('/oui', "app\Controller\UtilisateurController@oui");
+
+
+
+
+
+// cgu et faq
+$router->get('/condition_utilisation', "app\Controller\HomeController@condition");
+
+
+// affichage de la fenetre inscriptopn
+$router->get('/inscription', "app\Controller\Utilisateurcontroller@afficherInscription");
+
+// recuperation des data entrées dans inscription et verifications tout ça tout ça
+$router->post('/inscription/verification', "app\Controller\Utilisateurcontroller@inscriptionVerification");
+
+
+
+// details d'un livre
+$router->get('/books/more', "app\Controller\LivreController@consulterDetails");
+$router->get('/api/books/more', "app\Controller\LivreController@consulterDetailsJson");
+
+
 
 
 // test

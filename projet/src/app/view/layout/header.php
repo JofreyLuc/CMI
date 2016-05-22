@@ -60,15 +60,14 @@
 
 
 <header>
- <div id="titre"> <h1> CallMe Ishmael</h1> </div>
+ <div id="titre1"> <h1> CallMe Ishmael</h1> </div>
  <div id="banniere">
   <form method="post" action="accueil_connexion.php">
-   <p> <div id="login"> login : <input type="text" name="login"/> </div><br/>
-   <div id="mdp"> mot de passe : <input type="password"
-                                        mdp="mdp"/> </div> </br>
+   <p> <div id="login"><input type="text" name="login" placeholder="Login"/> </div><br/>
+   <div id="mdp"><input type="password" placeholder="Password" mdp="mdp"/> </div> </br>
    <div id="co"> <input type="submit" value="Connexion"/> </div>
    <div id="ins"> <input type="button" value="Inscription"
-                         onclick="document.location.href='inscription.php';"/> </div></p>
+                         onclick="document.location.href = 'http://localhost:8888/CMI/projet/src/inscription';"/> </div></p>
   </form>
  </div>
 

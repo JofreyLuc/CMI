@@ -129,6 +129,63 @@ class UtilisateurController extends Controller {
 	}
 
 
+	/**
+	 * fonction qui affiche le formulaire d'inscription
+	 */
+	public function afficherInscription(){
+
+
+		//$this->app->render('layout/header.php', compact('app'));
+
+		$this->app->render('layout/inscription.php');
+	}
+
+
+	/**
+	 * fonction qui est appelée lors de l'envoie de l'inscription
+	 * va effectuer des verifs puis insertion en cas de date OK
+	 */
+	public function inscriptionVerification(){
+		$pseudo = $_POST['pseudo'];
+		$nom = $_POST['nom'];
+		$prenom = $_POST['prenom'];
+		$age = $_POST['age'];
+		$mail = $_POST['email'];
+		$psw = $_POST['psw'];
+
+		echo $age."<br>";
+		echo $pseudo."<br>";
+		echo $nom."<br>";
+		echo $prenom."<br>";
+		echo $mail."<br>";
+		echo $psw."<br>";
+
+		/*//$hach = mb_detect_encoding($psw);
+		echo $hach;
+		//$decode = mcrypt_decrypt($hach);
+		$decode = md5($hach);
+		echo $decode;
+*/
+		// encodage du psw
+		$hach = md5($psw);
+
+
+
+
+		$usr = new Utilisateur();
+
+		$usr->email = $mail;
+		$usr->nom = $nom;
+		$usr->password = $hach;
+		$usr->pseudo = $pseudo;
+		$usr->prenom = $prenom;
+
+		$usr->save();
+
+		//$this->app->render('layout/header.php', compact('app'));
+		$this->app->render('layout/inscription_validation.php', compact('app'));
+
+	}
 
 
 

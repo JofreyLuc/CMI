@@ -34,4 +34,13 @@ class HomeController extends Controller {
 		//$this->app->view->setData(['app' => $this->app]);
 		//$this->app->render('home.php');
 	}
+
+
+
+
+
+	public function condition(){
+		$this->app->render('layout/header.php', compact('app'));
+		$this->app->render('layout/condition_utilisation.php');
+	}
 }	
