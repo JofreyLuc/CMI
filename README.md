@@ -23,6 +23,7 @@ Lecteur d'ePub libres.
 
 /api/users/{idUser}/library/{idLibrary}
 - GET : Recupère le livre idLibrary dans la biblio de idUser
+- DELETE : Retire le livre idLibrary de la biblio de idUser
 
 /api/users/{idUser}/library/{idLibrary}/notes
 - GET : Récupère les notes de idUser sur idLibrary
@@ -31,7 +32,7 @@ Lecteur d'ePub libres.
 
 /api/users/{idUser}/library/{idLibrary}/notes/{idNote}
 - GET : Récupère une note (idNote) de idUser sur idLibrary
-
+- DELETE : Supprime une note (idNote) de idNote sur idLibrary
 
 # Script BDD
 
