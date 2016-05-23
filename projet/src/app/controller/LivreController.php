@@ -285,9 +285,10 @@ class LivreController extends Controller {
 	/**
 	 * fonction pour consulter les details d'un livre
 	 */
-	public function consulterDetails(){
+	public function consulterDetails($id){
 		//$livre = Livre::where('idLivre', '=', $id);
-		$livre = Livre::where('idLivre', '=', $this->app->request()->params('idLivre'))->get();
+		//echo $id;
+		$livre = Livre::where('idLivre', '=', $id)->get();
 		$this->app->view->setData('livre', $livre);
 		$this->app->render('layout/header.php', compact('app'));
 		$this->app->render('details.php', compact('app'));
@@ -296,8 +297,8 @@ class LivreController extends Controller {
 
 
 
-	public function consulterDetailsJson(){
-		$livre = Livre::where('idLivre', '=', $this->app->request()->params('idLivre'))->get();
+	public function consulterDetailsJson($id){
+		$livre = Livre::where('idLivre', '=', $id)->get();
 		$a = json_encode($livre);
 		$this->app->response->headers->set('Content-Type', 'application/json');
 		$this->app->response->body($a);

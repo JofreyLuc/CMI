@@ -26,7 +26,6 @@ fac.modules.app = (function () {
 			$.ajax({
 				url: url,
 				type: "GET",
-				dataType: "json",
 				success: callback,
 				error: function (jqXHR, textStatus, errorThrown) {
 					console.log('url : ' + url);
@@ -49,7 +48,7 @@ fac.modules.users = (function(){
 		$('#btn-users').click(function(){
 			fac.modules.app.get('http://localhost:8888/CMI/projet/src/users1', function(data) {
 				console.log(data);
-			})
+			});
 		});
 
 		$('#btn-create').click(function() {
@@ -68,6 +67,42 @@ fac.modules.users = (function(){
 					console.log(data);
 				});
 		});
+
+
+
+
+		// script pour ajout d'un livre dans sa biblio perso
+		$('#boutonAdd1').click(function() {
+			var livres;
+			// on va chercher le livre 
+			fac.modules.app.get('http://localhost:8888/CMI/projet/src/api/book', function(data) {
+				console.log(data);
+			});
+			var boutonid = document.getElementById('boutonAdd1').getAttribute('id');
+			var livre = {
+				email: "Romain",
+				password: "dsfdgd",
+				nom: "dago",
+				prenom: "rom",
+				pseudo: "fdvdf"
+			};
+			// Si on veut savoir le type du json, à voir ???
+			// var json = JSON.stringify({User: user});
+			var json = JSON.stringify(user);
+			console.log(json);
+			fac.modules.app.post('http://localhost:8888/CMI/projet/src/user/new', user, function(data) {
+				console.log(data);
+			});
+		});
+
+
+
+
+
+
+
+
+
 	}
 	}
 })();
@@ -75,3 +110,10 @@ fac.modules.users = (function(){
 $(document).ready(function() {
 	fac.modules.users.init();
 });
+
+
+
+
+
+
+

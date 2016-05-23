@@ -35,19 +35,6 @@ script pour cacher / afficher recherche avancée
 
 
 
-<!-- script pour le onfocus sur les champs  -->
-<script>
-
-    var input = document.getElementById('titre');
-
-    input.onfocus = function() {
-        if ( input.getAttribute('value') == 'titre' ) {
-            this.value='';
-        }
-    }
-
-</script>
-
 
 
 
@@ -71,7 +58,6 @@ script pour cacher / afficher recherche avancée
         }
     }
 </script>
-
 
 
 
