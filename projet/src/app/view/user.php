@@ -25,7 +25,15 @@
 				<?php
 				// on recupère du json , faut donc le décoder 
 				$users = json_decode($users);
-				// CSS ne fonctionne pas
+				/*echo $count;
+				echo $page;
+				echo $parPage;
+				echo $total;*/
+
+				for($i = 1; $i <= $total; $i++){
+					echo "<input  onclick=document.location.href='/CMI/projet/src/users?page=".$i."' type='button' value='".$i."'> </>";
+				}
+
 
 				foreach($users as $user) {
 					echo "<tr>
@@ -43,11 +51,18 @@
 				</tr>
 
 				";
-				}?>
+				}
+				?>
 			</table>
 		</div>
 	</div>
 </section>
+<?php
+for($i = 1; $i <= $total; $i++){
+	echo "<input  onclick=document.location.href='/CMI/projet/src/users?page=".$i."' type='button' value='".$i."'> </>";
+}
+?>
+<!--
 <button id="btn-users"> GET USERS !!</button>
 
 <p>name</p>	
@@ -58,5 +73,5 @@
 <input type="text" id="inputNom">
 <p>name</p>	
 <input type="text" id="inputPrenom">
-<button id="btn-create"> Post ...</button>
+<button id="btn-create"> Post ...</button>-->
 

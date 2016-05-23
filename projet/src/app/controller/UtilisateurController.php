@@ -3,6 +3,8 @@ namespace app\controller;
 use app\model\Utilisateur;
 use app\model\Livre;
 use Illuminate\Contracts\Pagination;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Collection;
 
 
 class UtilisateurController extends Controller {
@@ -12,23 +14,25 @@ class UtilisateurController extends Controller {
 
 
 		$count= Utilisateur::all()->count();
-		// nombre de data total
-		$pages = 1; // nb de data par page a afficher (je veux 1 truc par page)
-		$dataParPage = 20;
-		$pageCourante = 1;
-		$total = ceil($count/$dataParPage);
+		$page = 1; // nb de data par page a afficher (je veux 1 truc par page)
+		$parPage = 2;
+		$total = ceil($count/$parPage);
+		$users = Utilisateur::all()->forPage($this->app->request()->params('page'),$parPage);
 
-	//	$a = Utilisateur::query("SELECT * from utilisateur")->find(1);
 
-		//$users = Utilisateur::all()->games()->take(3)->skip(2)->get();
+		// on envoie le compte total de data pour la preparation à la pagination
+		$this->app->view->setData('count',$count);
+		$this->app->view->setData('page',$page);
+		$this->app->view->setData('parPage',$parPage);
+		$this->app->view->setData('total',$total);
 
-		$users = Utilisateur::all();
-		//$users = Utilisateur::where('idUtilisateur', 4)->get();
+
 		$this->app->view->setData('users', $users);
 		$this->app->render('layout/header.php', compact('app'));
-
 		$this->app->render('user.php');
 	}
+
+
 
 
 

@@ -49,15 +49,15 @@
 <section>
  <div id="menu">
   <div id="test1"> <input type="button" value="Consulter sa bibliothèque"
-                          onclick="document.location.href='/CMI/projet/src/library';"/></div>
+                          onclick="document.location.href='/CMI/projet/src/library'"/></div>
   <div id="test1"> <input type="button"  value="Rechercher"
-                          onclick="document.location.href='/CMI/projet/src/books';"/> </div>
+                          onclick="document.location.href='/CMI/projet/src/books'"/> </div>
   <div id="test1"> <input type="button" value="Liste de suivi"
-                          onclick="document.location.href='/CMI/projet/src/users';"/> </div>
+                          onclick="document.location.href='/CMI/projet/src/users'"/> </div>
   <div id="test1"> <input type="button" value="Suggestion"
-                          onclick="document.location.href='/CMI/projet/src';"/> </div>
+                          onclick="document.location.href='/CMI/projet/src'"/> </div>
   <div id="test1"> <input type="button" value="Top 10"
-                          onclick="document.location.href='/CMI/projet/src/top10';"/> </div>
+                          onclick="document.location.href='/CMI/projet/src/top10'"/> </div>
  </div>
 </section>
 
