@@ -59,14 +59,27 @@ class UtilisateurController extends Controller {
 
 
 	// fonction qui afficher l'user avec une certaine user
-	public function afficherUserIds($id)
+	public function afficherUserId($id)
 	{
-		echo "id :".$id;
+		//$this->app->render('layout/header.php', compact('app'));
 		$users = Utilisateur::where('idUtilisateur', $id)->get();
 		$this->app->view->setData('users', $users);
-		$this->app->render('user.php');
+		$this->app->render('user_recherche_id.php');
 
 	}
+
+
+
+
+	public function afficherUserIdJson($id)
+	{
+		//$this->app->render('layout/header.php', compact('app'));
+		$users = Utilisateur::where('idUtilisateur', $id)->get();
+		$a = json_encode($users);
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$this->app->response->body($a);
+	}
+
 
 
 	public function test0(){

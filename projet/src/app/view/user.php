@@ -30,8 +30,10 @@
 				echo $parPage;
 				echo $total;*/
 
-				for($i = 1; $i <= $total; $i++){
-					echo "<input  onclick=document.location.href='/CMI/projet/src/users?page=".$i."' type='button' value='".$i."'> </>";
+				if(empty($total)){
+					for($i = 1; $i <= $total; $i++){
+						echo "<input  onclick=document.location.href='/CMI/projet/src/users?page=".$i."' type='button' value='".$i."'> </>";
+					}
 				}
 
 
@@ -58,8 +60,10 @@
 	</div>
 </section>
 <?php
-for($i = 1; $i <= $total; $i++){
-	echo "<input  onclick=document.location.href='/CMI/projet/src/users?page=".$i."' type='button' value='".$i."'> </>";
+if($total != null){
+	for($i = 1; $i <= $total; $i++){
+		echo "<input  onclick=document.location.href='/CMI/projet/src/users?page=".$i."' type='button' value='".$i."'> </>";
+	}
 }
 ?>
 <!--

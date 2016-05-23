@@ -23,8 +23,8 @@ class HomeController extends Controller {
 
 
 		//affichage des users
-		$affichageUser = new UtilisateurController($this->app);
-		$affichageUser->afficherUserPourAccueil();
+		//$affichageUser = new UtilisateurController($this->app);
+		//$affichageUser->afficherUserPourAccueil();
 
 
 

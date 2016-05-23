@@ -39,12 +39,17 @@ $router = new app\Router($app);
  */
 
 
-
+// page d'accueil
 $router->get('/', "app\Controller\HomeController@index");
-$router->get('/users', "app\Controller\UtilisateurController@afficherUser");
+
+
 $router->get('/users1', "app\Controller\UtilisateurController@getUsers");
 $router->get('/peupler', "app\Controller\UtilisateurController@peuplerBDD");
 
+
+
+// page pour le moment liste suivi
+$router->get('/users', "app\Controller\UtilisateurController@afficherUser");
 
 
 
@@ -53,11 +58,19 @@ $router->get('/library', "app\Controller\BibliothequeController@afficherBiblioth
 $router->get('/api/library', "app\Controller\BibliothequeController@afficherBibliothequeJson");
 
 
+// id pour afficher la bibliotheque d'un user
+$router->get('/users/:idUser/library', "app\Controller\BibliothequeController@afficherBiblioUserId");
+$router->get('/api/users/:idUser/library', "app\Controller\BibliothequeController@afficherBiblioUserIdJson");
 
+
+//affiche le libre de la biblio precise d'un user
+$router->get('/api/users/:idUser/library/:idLibrary', "app\Controller\BibliothequeController@afficherBiblioUserLivreIdJson");
 
 
 // routes pour les requetes de recherche sur user
 $router->get('/users/:id', "app\Controller\UtilisateurController@afficherUserId");
+$router->get('/api/users/:id', "app\Controller\UtilisateurController@afficherUserIdJson");
+
 
 
 
