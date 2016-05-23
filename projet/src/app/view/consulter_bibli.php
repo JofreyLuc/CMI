@@ -20,7 +20,7 @@
      			<p>Note : '.$l->noteMoyenne.'</p></br></br></br></br></br>
      		</div>
      		<div id="boutons">
-     			<input type="button"value="Consulter détails livre" onclick="document.location.href = \'http://localhost:8888/CMI/projet/src/books/more?idLivre='.$l->idLivre.'\';"></br></br></br>
+     			<input type="button"value="Consulter détails livre" onclick="document.location.href = \'http://localhost:8888/CMI/projet/src/books/'.$l->idLivre.'\';"></br></br></br>
      			</br></br></br>
   <input type="button" value="Commencer lecture">
      		</div>

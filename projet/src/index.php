@@ -41,8 +41,8 @@ $router->get('/peupler', "app\Controller\UtilisateurController@peuplerBDD");
 
 
 // routes sur la biblio
-$router->get('/bibliotheque', "app\Controller\BibliothequeController@afficherBibliotheque");
-$router->get('/api/bibliotheque', "app\Controller\BibliothequeController@afficherBibliothequeJson");
+$router->get('/library', "app\Controller\BibliothequeController@afficherBibliotheque");
+$router->get('/api/library', "app\Controller\BibliothequeController@afficherBibliothequeJson");
 
 
 
@@ -107,8 +107,8 @@ $router->post('/inscription/verification', "app\Controller\Utilisateurcontroller
 
 
 // details d'un livre
-$router->get('/books/more', "app\Controller\LivreController@consulterDetails");
-$router->get('/api/books/more', "app\Controller\LivreController@consulterDetailsJson");
+$router->get('/books/:id', "app\Controller\LivreController@consulterDetails");
+$router->get('/api/books/:id', "app\Controller\LivreController@consulterDetailsJson");
 
 
 

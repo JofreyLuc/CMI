@@ -48,7 +48,7 @@ fac.modules.users = (function(){
 		$('#btn-users').click(function(){
 			fac.modules.app.get('http://localhost:8888/CMI/projet/src/users1', function(data) {
 				console.log(data);
-			})
+			});
 		});
 
 		$('#btn-create').click(function() {
@@ -70,8 +70,14 @@ fac.modules.users = (function(){
 
 
 
+
 		// script pour ajout d'un livre dans sa biblio perso
 		$('#boutonAdd1').click(function() {
+			var livres;
+			// on va chercher le livre 
+			fac.modules.app.get('http://localhost:8888/CMI/projet/src/api/book', function(data) {
+				console.log(data);
+			});
 			var boutonid = document.getElementById('boutonAdd1').getAttribute('id');
 			var livre = {
 				email: "Romain",
