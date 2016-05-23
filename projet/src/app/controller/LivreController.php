@@ -11,7 +11,7 @@ class LivreController extends Controller {
 	// fonction qui affiche tous les livres dans la table livre
 	public function top10() { // juste pour afficher qques livres tant qu'on arrive pas la pagination
 		//$livres = Livre::all()->sortBy('noteMoyenne')->take(10);
-		$livres = Livre::all()->sortBy("noteMoyenne")->take(10);
+		$livres = Livre::orderBy('noteMoyenne', SORT_DESC)->take(10)->get();
 		$this->app->view->setData('livres', $livres);
 		$this->app->render('layout/header.php', compact('app'));
 		$this->app->render('livre.php');
@@ -20,10 +20,12 @@ class LivreController extends Controller {
 
 	public function top10Json() { // juste pour afficher qques livres tant qu'on arrive pas la pagination
 		//$livres = Livre::all()->whereInLoose('idLivre', [100,101,102,103,104,105,106,107,108,109,110,1941,156,5768,873,1235,87987,65,5468,46487,7868,7897,464,654,87,654,687]);
-		$livres = Livre::all()->sortBy('note')->take(10);
+		$livres = Livre::orderBy('noteMoyenne', SORT_DESC)->take(10)->get();
 		$a = json_encode($livres);
 		$this->app->response->headers->set('Content-Type', 'application/json');
 		$this->app->response->body($a);
+
+
 	}
 
 
