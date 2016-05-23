@@ -27,8 +27,16 @@ $app = new \Slim\Slim(array(
 //Routing system
 $router = new app\Router($app);
 
-//get
+/* RQT SUR BIBLIO A FAIREEEEEEE !!!!!!!
+ * @POST("users/{idUser}/library")
+    Call<Bibliotheque> createBibliotheque(@Path("idUser") Long idUtilisateur, @Body Bibliotheque bibliotheque);
 
+    @PUT("users/{idUser}/library")
+    Call<ResponseBody> updateBibliotheque(@Path("idUser") Long idUtilisateur, @Body Bibliotheque bibliotheque);
+
+    @DELETE("users/{idUser}/library/{idLibrary}")
+    Call<ResponseBody> deleteBibliotheque(@Path("idUser") Long idUtilisateur, @Path("idLibrary") Long idBibliotheque);
+ */
 
 
 

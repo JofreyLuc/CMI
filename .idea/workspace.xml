@@ -5,12 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43ad07f4-9c29-4a66-895e-b8a7ec949a1a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" afterPath="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/view/consulter_bibli.php" afterPath="$PROJECT_DIR$/projet/src/app/view/consulter_bibli.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/view/layout/header.php" afterPath="$PROJECT_DIR$/projet/src/app/view/layout/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/view/livre.php" afterPath="$PROJECT_DIR$/projet/src/app/view/livre.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/fac.js" afterPath="$PROJECT_DIR$/projet/src/fac.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/index.php" afterPath="$PROJECT_DIR$/projet/src/index.php" />
     </list>
     <ignored path="CMI.iws" />
@@ -43,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
+            <state relative-caret-position="345">
+              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -106,7 +100,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="consulter_bibli.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="consulter_bibli.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/app/view/consulter_bibli.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -204,10 +198,10 @@
         <option value="$PROJECT_DIR$/projet/src/app/view/layout/recherche.php" />
         <option value="$PROJECT_DIR$/projet/src/fac.js" />
         <option value="$PROJECT_DIR$/projet/src/app/view/layout/header.php" />
-        <option value="$PROJECT_DIR$/projet/src/index.php" />
         <option value="$PROJECT_DIR$/projet/src/app/view/livre.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
         <option value="$PROJECT_DIR$/projet/src/app/view/consulter_bibli.php" />
+        <option value="$PROJECT_DIR$/projet/src/index.php" />
       </list>
     </option>
   </component>
@@ -569,12 +563,12 @@
       <workItem from="1463748474205" duration="9415000" />
       <workItem from="1463835522391" duration="22183000" />
       <workItem from="1464003234947" duration="3124000" />
-      <workItem from="1464007722428" duration="1237000" />
+      <workItem from="1464007722428" duration="1967000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112471000" />
+    <option name="totallyTimeSpent" value="113201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
@@ -951,14 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
@@ -978,6 +964,14 @@
             <marker date="1464009564000" expanded="true" signature="342:423" placeholder="..." />
             <marker date="1464009564000" expanded="true" signature="449:712" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
