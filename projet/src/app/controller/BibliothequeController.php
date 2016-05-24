@@ -157,7 +157,7 @@ class BibliothequeController extends Controller {
 
         $biblio->idLivre = $a->idLivre;
         $biblio->idUtilisateur = $idUser; // param passé dans lurl
-        $biblio->numeroPage = $a->numeroPage;
+        $biblio->positionLecture = $a->positionLecture;
 
         $biblio->save();
 
