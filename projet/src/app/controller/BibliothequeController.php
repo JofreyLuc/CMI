@@ -159,6 +159,11 @@ class BibliothequeController extends Controller {
         $biblio->idUtilisateur = $idUser; // param passé dans lurl
         $biblio->positionLecture = $a->positionLecture;
 
+        // Gestion de la date de modif
+        date_default_timezone_set('Europe/Paris');
+        if ($biblio->dateModification == null)
+            $biblio->dateModification = date('Y-m-d H:i:s');
+
         $biblio->save();
 
       $b = json_encode($biblio);
