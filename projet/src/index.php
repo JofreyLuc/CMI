@@ -67,6 +67,11 @@ $router->get('/api/users/:idUser/library', "app\Controller\BibliothequeControlle
 $router->get('/api/users/:idUser/library/:idLibrary', "app\Controller\BibliothequeController@afficherBiblioUserLivreIdJson");
 
 
+// post pour la livrary
+$router->post('/api/users/:idUser/library', "app\con\Controller\BibliothequeController@ajouterLivreBiblioUserIdJson");
+
+
+
 // routes pour les requetes de recherche sur user
 $router->get('/users/:id', "app\Controller\UtilisateurController@afficherUserId");
 $router->get('/api/users/:id', "app\Controller\UtilisateurController@afficherUserIdJson");
