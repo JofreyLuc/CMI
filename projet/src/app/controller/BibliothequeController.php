@@ -153,7 +153,7 @@ class BibliothequeController extends Controller {
       //var_dump($a);
       
       
-      $b = json_encode($livres);
+      $b = json_encode($a);
         $this->app->response->headers->set('Content-Type', 'application/json');
         $this->app->response->body($b);
     }
