@@ -140,11 +140,7 @@ class BibliothequeController extends Controller {
 
 
     
-    $a = json_encode($livres);
-		$this->app->response->headers->set('Content-Type', 'application/json');
-		$this->app->response->body($a);
-
-
+ 
     /**
     *ajoute un livre à la biblio d'un user identif par id
     **/
