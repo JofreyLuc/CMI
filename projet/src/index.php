@@ -70,6 +70,11 @@ $router->get('/api/users/:idUser/library/:idLibrary', "app\Controller\Bibliotheq
 // post pour la livrary
 $router->post('/api/users/:idUser/library', "app\Controller\BibliothequeController@ajouterLivreBiblioUserIdJson");
 
+// put surt library
+$router->put('/api/users/:idUser/library/:idLibrary', "app\Controller\BibliothequeController@modifLivreBiblioUserIdJson");
+
+// delete surt library
+$router->delete('/api/users/:idUser/library/:idLibrary', "app\Controller\BibliothequeController@deleteLivreBiblioUserIdJson");
 
 
 // routes pour les requetes de recherche sur user

@@ -36,4 +36,14 @@ class Router
     {
         return $this->call('post', $url, $action);
     }
+
+    public function put($url, $action)
+    {
+        return $this->call('put', $url, $action);
+    }
+
+    public function delete($url, $action)
+    {
+        return $this->call('delete', $url, $action);
+    }
 }

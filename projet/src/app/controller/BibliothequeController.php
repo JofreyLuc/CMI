@@ -145,21 +145,66 @@ class BibliothequeController extends Controller {
     *ajoute un livre à la biblio d'un user identif par id
     **/
     public function ajouterLivreBiblioUserIdJson($idUser){
+        // recuperation des data sur la page
       $a = json_decode(file_get_contents('php://input'));
       //var_dump($a);
-      
-      
-      $b = json_encode($a);
+
+        // traitemen des data et insertion
+
+
+        $biblio = new Bibliotheque();
+
+
+        $biblio->idLivre = $a->idLivre;
+        $biblio->idUtilisateur = $idUser; // param passé dans lurl
+        $biblio->numeroPage = $a->numeroPage;
+
+        $biblio->save();
+
+
+      $b = json_encode($biblio);
         $this->app->response->headers->set('Content-Type', 'application/json');
+        $this->app->response->setStatus(201);
         $this->app->response->body($b);
     }
 
 
 
 
+/**
+ * modif une biblio d'un user
+ */
+public function modifLivreBiblioUserIdJson($idUser){
+    // recuperation des data sur la page
+    $a = json_decode(file_get_contents('php://input'));
+
+    date_default_timezone_set('Europe/Paris');
+    $date = date('Y-m-d H:i:s');
+    // recup le tuple qu'on veut modif
+    if ($a->dateModification == null){
+        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $date, 'numeroPage' => $a->numeroPage]);
+    }else {
+        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $a->dateModification, 'numeroPage' => $a->numeroPage]);
+    }
+
+    $this->app->response->headers->set('Content-Type', 'application/json');
+    $this->app->response->setStatus(204);
+}
 
 
-
+    /**
+     * supprime une biblio d'un user
+     * @param $idUser
+     * @param $idLibrary
+     */
+    public function deleteLivreBiblioUserIdJson($idUser, $idLibrary) {
+        $result = Bibliotheque::where('idBibliotheque', $idLibrary)->delete();
+        $this->app->response->headers->set('Content-Type', 'application/json');
+        if ($result)
+            $this->app->response->setStatus(204);
+        else
+            $this->app->response->setStatus(204);
+    }
 
 
     //Ajax response example
