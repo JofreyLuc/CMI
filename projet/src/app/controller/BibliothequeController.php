@@ -151,8 +151,8 @@ class BibliothequeController extends Controller {
 
         $biblio = new Bibliotheque();
 
-
-        $biblio->idLivre = $a->idLivre;
+		$test = $a->idLivre;
+        $biblio->idLivre = $test;
         $biblio->idUtilisateur = $idUser; // param passé dans lurl
         $biblio->positionLecture = $a->positionLecture;
 
