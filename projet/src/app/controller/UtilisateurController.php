@@ -89,7 +89,7 @@ class UtilisateurController extends Controller {
 
 
 
-	
+
 	/**
 	 * @param $idUser
 	 * pour le moment on peut que modifier :
@@ -113,6 +113,22 @@ class UtilisateurController extends Controller {
 	}
 
 
+	public function modifierUserId($idUser){
+		// recuperation des data sur la page
+		$a = json_decode(file_get_contents('php://input'));
+
+		// recuperation et modif de l'user
+		$user = Utilisateur::where('idUtilisateur', $idUser)->update([
+			'pseudo' => $a->pseudo,
+			'nom' => $a->nom,
+			'prenom' => $a->prenom,
+			'dateNaissance' => $a->dateNaissance
+		]);
+
+
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$this->app->response->setStatus(204);
+	}
 
 
 
