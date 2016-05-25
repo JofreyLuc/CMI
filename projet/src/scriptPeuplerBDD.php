@@ -18,15 +18,12 @@ $nbLivre = count($epub) - 3;
 
 // On instancie un dom xml
 $dom = new DOMDocument();
-for($i = 51266; $i < $nbLivre;$i++){
+for($i = 1; $i < $nbLivre;$i++){
 	// Chemin de l'epub
     $chemin = 'epub/'.$i.'/pg'.$i.'.rdf';
     $dom->load($chemin);
 		  
     echo "livre : $i</br>";
-
-    // POUR DATEPARUTION, ON PREND ISSUED
-    // NUMEROPAGE -> POSITIONLECTURE default 0 not null dans bibliotheque, annotation (position le nom) 
 
     $id = $dom->documentElement->getElementsByTagName('ebook');
     // On récupère l'id nécessaire dans le noeud concernant l'id
@@ -46,7 +43,7 @@ for($i = 51266; $i < $nbLivre;$i++){
     if($listeGenre->length != 0){
     	foreach ($listeGenre as $genre){
 
-    		$genres = $genres.$genre->nodeValue." // ";
+    		$genres = $genres.trim($genre->nodeValue)." // ";
     	}
     }
 
@@ -61,10 +58,10 @@ for($i = 51266; $i < $nbLivre;$i++){
 		    	if(stripos($lien->getAttribute('rdf:about'),'.epub.images') !== false){
 		    		$lienEpub = $lien->getAttribute('rdf:about');
 		    		$livre->idLivre = $id;
-				    if($titre->length != 0) $livre->titre = $titre->item(0)->nodeValue;
-				    if($auteur->length != 0) $livre->auteur = $auteur->item(0)->nodeValue;
-				    if($langue->length != 0) $livre->langue = $langue->item(0)->nodeValue;
-				    $livre->lienEpub = $lienEpub;		
+				    if($titre->length != 0) $livre->titre = trim($titre->item(0)->nodeValue);
+				    if($auteur->length != 0) $livre->auteur = trim($auteur->item(0)->nodeValue);
+				    if($langue->length != 0) $livre->langue = trim($langue->item(0)->nodeValue);
+				    $livre->lienEpub = trim($lienEpub);		
 				    // recupération des genres
 				    $livre->genre = $genres;
 				    $livre->save();
@@ -79,21 +76,21 @@ for($i = 51266; $i < $nbLivre;$i++){
 		    	if($bool !== false){
 		    		$lienEpub = $lien->getAttribute('rdf:about');
 				    if($titre->length != 0){
-				    	$titre = $titre->item(0)->nodeValue;
+				    	$titre = trim($titre->item(0)->nodeValue);
 				    	app\Model\Livre::where('idLivre', '=', $id)->update(['titre' => $titre]);
 				    }
 				    if($auteur->length != 0){
-				    	$auteur = $auteur->item(0)->nodeValue;
+				    	$auteur = trim($auteur->item(0)->nodeValue);
 				    	app\Model\Livre::where('idLivre', '=', $id)->update(['auteur' => $auteur]);	
 				    }
 				    if($langue->length != 0){
-				    	$langue = $langue->item(0)->nodeValue;
+				    	$langue = trim($langue->item(0)->nodeValue);
 				    	app\Model\Livre::where('idLivre', '=', $id)->update(['langue' => $langue]);
 				    }else{
 
 				    }
 				    //echo "auteur : $auteur</br>";
-				    app\Model\Livre::where('idLivre', '=', $id)->update(['lienEpub' => $lienEpub,'genre' => $genres]);
+				    app\Model\Livre::where('idLivre', '=', $id)->update(['lienEpub' => trim($lienEpub),'genre' => $genres]);
 				    //echo "deja dedans"; 	
 				    //$livre->save();
 				    break;
