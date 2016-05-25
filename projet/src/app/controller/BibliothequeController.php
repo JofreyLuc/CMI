@@ -136,16 +136,76 @@ class BibliothequeController extends Controller {
 
 
 
+    
+ 
+    /**
+    *ajoute un livre à la biblio d'un user identif par id
+    **/
+    public function ajouterLivreBiblioUserIdJson($idUser){
+        // recuperation des data sur la page
+      $a = json_decode(file_get_contents('php://input'));
+      //var_dump($a);
+
+        // traitemen des data et insertion
+
+
+        $biblio = new Bibliotheque();
+
+
+        $biblio->idLivre = $a->idLivre;
+        $biblio->idUtilisateur = $idUser; // param passé dans lurl
+        $biblio->positionLecture = $a->positionLecture;
+
+        // Gestion de la date de modif
+        date_default_timezone_set('Europe/Paris');
+        if ($biblio->dateModification == null)
+            $biblio->dateModification = date('Y-m-d H:i:s');
+
+        $biblio->save();
+
+      $b = json_encode($biblio);
+        $this->app->response->headers->set('Content-Type', 'application/json');
+        $this->app->response->setStatus(201);
+        $this->app->response->body($b);
+    }
 
 
 
 
+/**
+ * modif une biblio d'un user
+ */
+public function modifLivreBiblioUserIdJson($idUser){
+    // recuperation des data sur la page
+    $a = json_decode(file_get_contents('php://input'));
+
+    date_default_timezone_set('Europe/Paris');
+    $date = date('Y-m-d H:i:s');
+    // recup le tuple qu'on veut modif
+    if ($a->dateModification == null){
+        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $date, 'positionLecture' => $a->positionLecture]);
+    }else {
+        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $a->dateModification, 'positionLecture' => $a->positionLecture]);
+    }
+
+    $this->app->response->headers->set('Content-Type', 'application/json');
+    $this->app->response->setStatus(204);
+}
 
 
-
-
-
-
+    /**
+     * supprime une biblio d'un user
+     * @param $idUser
+     * @param $idLibrary
+     */
+    public function deleteLivreBiblioUserIdJson($idUser, $idLibrary) {
+        $result = Bibliotheque::where('idBibliotheque', $idLibrary)->delete();
+        $this->app->response->headers->set('Content-Type', 'application/json');
+        if ($result)
+            $this->app->response->setStatus(204);
+        else
+            $this->app->response->setStatus(204);
+    }
 
 
     //Ajax response example
