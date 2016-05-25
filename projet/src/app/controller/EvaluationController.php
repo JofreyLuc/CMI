@@ -70,7 +70,7 @@ class EvaluationController extends Controller {
                 $eval->dateModification = $date;
             $eval->save();
             $statut = 201;
-            $b = json_encode($eval->toArray());
+            $b = json_encode($eval);
             $this->app->response->body($b);
         }else{
             // il a deja rentré une eval
