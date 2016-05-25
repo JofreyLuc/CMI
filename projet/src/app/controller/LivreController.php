@@ -226,14 +226,6 @@ class LivreController extends Controller {
 
 
 
-
-
-
-
-
-
-
-
 /*
 	// utile pour la recherche
 	public function afficherLivreRecherche(){
