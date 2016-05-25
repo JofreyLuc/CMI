@@ -94,12 +94,12 @@ class EvaluationController extends Controller {
         $a = json_decode(file_get_contents('php://input'));
 
         date_default_timezone_set('Europe/Paris');
-        if ($a->dateModification != null)
+        if (isset($a->dateModification))
             $date = $a->dateModification;
         else
             $date = date('Y-m-d H:i:s');
 
-        $evalSiExiste = Evaluation::where('idEvaluation', $idEval)->get();
+        $evalSiExiste = Evaluation::where('idEvaluation', $idEval)->first();
         //var_dump($evalSiExiste);
         if($evalSiExiste->idUtilisateur == $idUser && $evalSiExiste->idLivre == $idLivre){
             // c'est ok pour la modif
