@@ -216,7 +216,7 @@ class LivreController extends Controller {
 			$this->app->response->headers->set('Content-Type', 'application/json');
 			$this->app->response->body($a);
 		}else {
-			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get();
+			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->orWhere('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->orWhere('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get();
 			$a = json_encode($livres);
 			$this->app->response->headers->set('Content-Type', 'application/json');
 			$this->app->response->body($a);
