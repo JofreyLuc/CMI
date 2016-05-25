@@ -80,7 +80,11 @@ $router->put('/users/:id', "app\Controller\UtilisateurController@modifierUserIdJ
 // route pour l'affichage des évaluation d'un livre
 $router->get('/api/books/:id/ratings', "app\Controller\EvaluationController@afficherEvalsLivreIdJson");
 
+// ajoute une eval
+$router->post('/api/users/:idUser/books/:idBook/ratings', "app\Controller\EvaluationController@ajouterEvaluationJson");
 
+// modifier une eval
+$router->put('/api/users/:idUser/books/:idBook/ratings/:idRating', "app\Controller\EvaluationController@modifierEvaluationJson");
 
 
 
