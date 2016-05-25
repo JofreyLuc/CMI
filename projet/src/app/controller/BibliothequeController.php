@@ -186,9 +186,9 @@ public function modifLivreBiblioUserIdJson($idUser){
     $date = date('Y-m-d H:i:s');
     // recup le tuple qu'on veut modif
     if ($a->dateModification == null){
-        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $date, 'numeroPage' => $a->numeroPage]);
+        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $date, 'positionLecture' => $a->positionLecture]);
     }else {
-        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $a->dateModification, 'numeroPage' => $a->numeroPage]);
+        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $a->dateModification, 'positionLecture' => $a->positionLecture]);
     }
 
     $this->app->response->headers->set('Content-Type', 'application/json');
