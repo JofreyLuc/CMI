@@ -103,7 +103,7 @@ class EvaluationController extends Controller {
         //var_dump($evalSiExiste);
         if($evalSiExiste->idUtilisateur == $idUser && $evalSiExiste->idLivre == $idLivre){
             // c'est ok pour la modif
-            $evalSiExiste->where('idLivre', $idLivre)->where('idUtilisateur', $idUser)->update([
+            $evaluation = Evaluation::where('idLivre', $idLivre)->where('idUtilisateur', $idUser)->update([
                 'note' => $a->note,
                 'commentaire' => $a->commentaire,
                 'dateModification' => $date
