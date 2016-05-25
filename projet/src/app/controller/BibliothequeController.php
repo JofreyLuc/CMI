@@ -86,10 +86,10 @@ class BibliothequeController extends Controller {
             //on fait passer les données une par une à la vue
             // $this->app->view->setData('livres', $livres);
             //$this->app->render('consulter_bibli.php');
-
+            $this->app->view->setData('livres', $livres);
+            $this->app->render('consulter_bibli.php');
         }
-        $this->app->view->setData('livres', $livres);
-        $this->app->render('consulter_bibli.php');
+
 
 
         echo '</div>
@@ -206,6 +206,10 @@ public function modifLivreBiblioUserIdJson($idUser){
         else
             $this->app->response->setStatus(204);
     }
+
+
+
+
 
 
     //Ajax response example
