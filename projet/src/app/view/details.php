@@ -23,7 +23,7 @@
             <div id="boutons">
                 <input type="button" class="BoutonTxt" value="Consulter détails livre"></br></br></br>
                 <input type="button" class="BoutonTxt" value="Ajouter a sa bibliothèque"></br></br></br>
-                <input type="button" class="BoutonTxt"  value="Commencer lecture"> </br>
+                <input type="button" class="BoutonTxt"  value="Commencer lecture"  onclick="document.location.href = \'http://localhost:8888/CMI/projet/src/lecture/'.$livre->idLivre.'\';"> </br>
             </div>
         </div>
 
