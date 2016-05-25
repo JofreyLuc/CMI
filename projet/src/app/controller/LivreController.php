@@ -299,6 +299,7 @@ class LivreController extends Controller {
 	}
 
 
+	
 	public function lectureLivre($id){
 		$livre = Livre::where('idLivre', '=', $id)->get();
 		$this->app->view->setData('livre', $livre);

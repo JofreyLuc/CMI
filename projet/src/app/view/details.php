@@ -1,5 +1,6 @@
 
 
+<link rel="stylesheet" href="../conf/css/file4.css" />
 
 <section>
     <div id="titreT"> <h3> Détails du livre </h3> </div>
@@ -23,7 +24,7 @@
             <div id="boutons">
                 <input type="button" class="BoutonTxt" value="Consulter détails livre"></br></br></br>
                 <input type="button" class="BoutonTxt" value="Ajouter a sa bibliothèque"></br></br></br>
-                <input type="button" class="BoutonTxt"  value="Commencer lecture"  onclick="document.location.href = \'http://localhost:8888/CMI/projet/src/lecture/'.$livre->idLivre.'\';"> </br>
+                <input type="button" class="BoutonTxt"  value="Commencer lecture"  onclick="document.location.href = \'/CMI/projet/src/lecture/'.$l->idLivre.'\';"> </br>
             </div>
         </div>
 

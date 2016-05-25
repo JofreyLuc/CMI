@@ -141,17 +141,17 @@ class BibliothequeController extends Controller {
     /**
     *ajoute un livre à la biblio d'un user identif par id
     **/
-    public function ajouterLivreBiblioUserIdJson($idUser){
+       public function ajouterLivreBiblioUserIdJson($idUser){
         // recuperation des data sur la page
-      $a = json_decode(file_get_contents('php://input'));
-      //var_dump($a);
+        $a = json_decode(file_get_contents('php://input'));
+        //var_dump($a);
 
         // traitemen des data et insertion
 
 
         $biblio = new Bibliotheque();
 
-		$test = $a->idLivre;
+        $test = $a->idLivre;
         $biblio->idLivre = $test;
         $biblio->idUtilisateur = $idUser; // param passé dans lurl
         $biblio->positionLecture = $a->positionLecture;
@@ -163,7 +163,37 @@ class BibliothequeController extends Controller {
 
         $biblio->save();
 
-      $b = json_encode($biblio);
+        $b = json_encode($biblio);
+        $this->app->response->headers->set('Content-Type', 'application/json');
+        $this->app->response->setStatus(201);
+        $this->app->response->body($b);
+    }
+
+
+
+    public function ajouterLivreBiblioUserIdWeb($idUser){
+        // recuperation des data sur la page
+        $a = json_decode(file_get_contents('php://input'));
+        var_dump($a);
+
+        // traitemen des data et insertion
+
+
+        $biblio = new Bibliotheque();
+
+        $test = $a->idLivre;
+        $biblio->idLivre = $test;
+        $biblio->idUtilisateur = $idUser; // param passé dans lurl
+        $biblio->numeroPage = $a->numeroPage;
+
+        // Gestion de la date de modif
+        date_default_timezone_set('Europe/Paris');
+        if ($biblio->dateModification == null)
+            $biblio->dateModification = date('Y-m-d H:i:s');
+
+        $biblio->save();
+
+        $b = json_encode($biblio);
         $this->app->response->headers->set('Content-Type', 'application/json');
         $this->app->response->setStatus(201);
         $this->app->response->body($b);
@@ -172,7 +202,8 @@ class BibliothequeController extends Controller {
 
 
 
-/**
+
+    /**
  * modif une biblio d'un user
  */
 public function modifLivreBiblioUserIdJson($idUser){

@@ -1,6 +1,7 @@
 
 
 
+<script src="fac.js"></script>
 
 
 <!-- Top 10 des livres, faire les cadres plus grands et les remplir -->
@@ -23,9 +24,9 @@
      			<p>Note : '.$livre->noteMoyenne.'</p></br></br></br></br></br>
      		</div>
      		<div id="boutons">
-     			<input type="button"value="Consulter détails livre" onclick="document.location.href = \'http://localhost:8888/CMI/projet/src/books/'.$livre->idLivre.'\';"></br></br></br>
+     			<input type="button"value="Consulter détails livre" onclick="document.location.href = \'/CMI/projet/src/books/'.$livre->idLivre.'\';"></br></br></br>
      			<input type="button"value="Ajouter a sa bibliothèque"id="boutonAdd'.$livre->idLivre.'" ></br></br></br>
-  <input type="button" value="Commencer lecture"  onclick="document.location.href = \'http://localhost:8888/CMI/projet/src/lecture/'.$livre->idLivre.'\';" >
+  <input type="button" value="Commencer lecture"  onclick="document.location.href = \'/CMI/projet/src/lecture/'.$livre->idLivre.'\';" >
      		</div>
 </div>' ;
 			}
