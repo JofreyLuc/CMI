@@ -99,9 +99,9 @@ class EvaluationController extends Controller {
         else
             $date = date('Y-m-d H:i:s');
 
-        $evalSiExiste = Evaluation::where('idEvaluation', $idEval);
+        $evalSiExiste = Evaluation::where('idEvaluation', $idEval)->get();
         //var_dump($evalSiExiste);
-        if($evalSiExiste != null && $evalSiExiste->idUtilisateur == $idUser && $evalSiExiste->idLivre == $idLivre){
+        if($evalSiExiste->idUtilisateur == $idUser && $evalSiExiste->idLivre == $idLivre){
             // c'est ok pour la modif
             $evalSiExiste->where('idLivre', $idLivre)->where('idUtilisateur', $idUser)->update([
                 'note' => $a->note,
