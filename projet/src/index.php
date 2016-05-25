@@ -136,6 +136,8 @@ $router->get('/books/:id', "app\Controller\LivreController@consulterDetails");
 $router->get('/api/books/:id', "app\Controller\LivreController@consulterDetailsJson");
 
 
+// lecture d'un livre
+$router->get('/lecture/:id', "app\Controller\LivreController@lectureLivre");
 
 
 // test
