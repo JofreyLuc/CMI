@@ -64,14 +64,21 @@ class EvaluationController extends Controller {
             $eval->idLivre = $idLivre;
             $eval->note = $a->note;
             $eval->commentaire = $a->commentaire;
-            $eval->dateModification = $date;
+            if ($a->dateModification == null)
+                $eval->dateModification = $date;
+            else
+                $eval->dateModification = $a->dateModification;
             $eval->save();
+            $statut = 201;
+            $b = json_encode($eval);
+            $this->app->response->body($b);
         }else{
             // il a deja rentré une eval
+            $statut = 403;
         }
 
         $this->app->response->headers->set('Content-Type', 'application/json');
-        $this->app->response->setStatus(204);
+        $this->app->response->setStatus($statut);
     }
 
 
