@@ -64,10 +64,10 @@ class EvaluationController extends Controller {
             $eval->idLivre = $idLivre;
             $eval->note = $a->note;
             $eval->commentaire = $a->commentaire;
-            if ($a->dateModification == null)
-                $eval->dateModification = $date;
-            else
+            if (isset($a->dateModification))
                 $eval->dateModification = $a->dateModification;
+            else
+                $eval->dateModification = $date;
             $eval->save();
             $statut = 201;
             $b = json_encode($eval);

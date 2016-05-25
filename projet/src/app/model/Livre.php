@@ -7,7 +7,7 @@ class Livre extends \Illuminate\Database\Eloquent\Model
 {
     //Attributs
     protected $table = 'livre';
-    protected $key = 'idLivre';
+    protected $primaryKey = 'idLivre';
     public $timestamps = false;
 
 }
