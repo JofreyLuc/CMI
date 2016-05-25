@@ -104,16 +104,13 @@ class BibliothequeController extends Controller {
         $biblio = Bibliotheque::where('idUtilisateur', $idUser)->get();
         $tab = array();
         $i = 0;
-        foreach ($biblio as $b){
+        foreach ($biblio as $b) {
 
             $livres = Livre::all()->where('idLivre', $b->idLivre);
             $tab[$i] = $livres;
             $i++;
-            /*
-            $this->app->response->headers->set('Content-Type', 'application/json');
-            $this->app->response->body($a);*/
-
         }
+        //$livres = Livre::whereIn($biblio->idLivre)->get();
 
         $a = json_encode($tab);
         $this->app->response->headers->set('Content-Type', 'application/json');
