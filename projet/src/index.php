@@ -27,16 +27,6 @@ $app = new \Slim\Slim(array(
 //Routing system
 $router = new app\Router($app);
 
-/* RQT SUR BIBLIO A FAIREEEEEEE !!!!!!!
- * @POST("users/{idUser}/library")
-    Call<Bibliotheque> createBibliotheque(@Path("idUser") Long idUtilisateur, @Body Bibliotheque bibliotheque);
-
-    @PUT("users/{idUser}/library")
-    Call<ResponseBody> updateBibliotheque(@Path("idUser") Long idUtilisateur, @Body Bibliotheque bibliotheque);
-
-    @DELETE("users/{idUser}/library/{idLibrary}")
-    Call<ResponseBody> deleteBibliotheque(@Path("idUser") Long idUtilisateur, @Path("idLibrary") Long idBibliotheque);
- */
 
 
 // page d'accueil
@@ -77,9 +67,25 @@ $router->put('/api/users/:idUser/library/:idLibrary', "app\Controller\Bibliotheq
 $router->delete('/api/users/:idUser/library/:idLibrary', "app\Controller\BibliothequeController@deleteLivreBiblioUserIdJson");
 
 
+
 // routes pour les requetes de recherche sur user
 $router->get('/users/:id', "app\Controller\UtilisateurController@afficherUserId");
 $router->get('/api/users/:id', "app\Controller\UtilisateurController@afficherUserIdJson");
+
+// modification du profil d'un user identid via id
+$router->put('/api/users/:id', "app\Controller\UtilisateurController@modifierUserIdJson");
+$router->put('/users/:id', "app\Controller\UtilisateurController@modifierUserIdJson");
+
+
+// route pour l'affichage des évaluation d'un livre
+$router->get('/api/books/:id/ratings', "app\Controller\EvaluationController@afficherEvalsLivreIdJson");
+
+// ajoute une eval
+$router->post('/api/users/:idUser/books/:idBook/ratings', "app\Controller\EvaluationController@ajouterEvaluationJson");
+
+// modifier une eval
+$router->put('/api/users/:idUser/books/:idBook/ratings/:idRating', "app\Controller\EvaluationController@modifierEvaluationJson");
+
 
 
 
@@ -88,20 +94,8 @@ $router->get('/api/users/:id', "app\Controller\UtilisateurController@afficherUse
 $router->get('/top10', "app\Controller\LivreController@top10");
 $router->get('/api/top10', "app\Controller\LivreController@top10Json");
 
-// les routes du dessous commentés ne sont pas utilisées actuellement , et pas vraiment la bonne façon de faire
-/*
-$router->get('/books/:id', "app\Controller\LivreController@afficherLivreId")->conditions(array('id' => '[0-9]*')); // faut que l'id soit un nombre
-$router->get('/api/books/:id', "app\Controller\LivreController@afficherLivreIdJson")->conditions(array('id' => '[0-9]*')); // faut que l'id soit un nombre
 
-$router->get('/books/:titre', "app\Controller\LivreController@afficherLivreTitre");
-$router->get('/api/books/:titre', "app\Controller\LivreController@afficherLivreTitreJson");
-
-$router->get('/books/:auteur', "app\Controller\LivreController@afficherLivreAuteur");
-$router->get('/api/books/:auteur', "app\Controller\LivreController@afficherLivreAuteurJson");
-
-$router->get('/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpe");
-$router->get('/api/books/:titre/:auteur', "app\Controller\LivreController@afficherLivreSpeJson");
-*/
+// routes pour la recherche sur les livres
 $router->get('/api/books', "app\Controller\LivreController@afficherLivreAuteurTitreGenreJson");
 $router->get('/books', "app\Controller\LivreController@afficherLivreAuteurTitreGenre");
 

@@ -10,9 +10,12 @@ use Illuminate\Database\Eloquent\Collection;
 class UtilisateurController extends Controller {
 
 
+	/**
+	 * affiche les utilisateurs
+	 * pagination mise en place ici
+	 *
+	 */
 	public function afficherUser() {
-
-
 		$count= Utilisateur::all()->count();
 		$page = 1; // nb de data par page a afficher (je veux 1 truc par page)
 		$parPage = 2;
@@ -58,6 +61,10 @@ class UtilisateurController extends Controller {
 
 
 
+	/**
+	 * @param $id
+	 * affiche un user identif par son id
+	 */
 	// fonction qui afficher l'user avec une certaine user
 	public function afficherUserId($id)
 	{
@@ -82,68 +89,33 @@ class UtilisateurController extends Controller {
 
 
 
-	public function test0(){
+	
+	/**
+	 * @param $idUser
+	 * pour le moment on peut que modifier :
+	 * nom, prenom, date naissance , sexe
+	 */
+	public function modifierUserIdJson($idUser){
+		// recuperation des data sur la page
+		$a = json_decode(file_get_contents('php://input'));
 
-		//$this->app->request()->params('id');
-		//$this->app->request()->params('kaka');
-
-		// on récupère le tab de param dans l'url
-		$tab = $this->app->request()->params();
-		$tabIndice = array_keys($tab);
-		$count = count($tab);
-
-		//echo "tabindice"."<br>";
-		//var_dump($tabIndice);
-
-		//echo "<br>"."tab"."<br>";
-		//var_dump($tab);
-
-
-
-
-		//echo count($tab);
-		$users = Utilisateur::all();
-		$clone = $users;
-		/*for($i=0;$i< count($tab);$i++){
-			//echo "tabindice de i :".$tabIndice[$i];
-			//echo "     ".$tab[$tabIndice[$i]];
-			$users->where($tabIndice[$i],'like',$tab[$tabIndice[$i]]);
-			//var_dump($users);
-			//echo $tabIndice[$i]." ".$tab[$i]."<br>";
-		}*/
+		// recuperation et modif de l'user
+		$user = Utilisateur::where('idUtilisateur', $idUser)->update([
+			'pseudo' => $a->pseudo,
+			'nom' => $a->nom,
+			'prenom' => $a->prenom,
+			'dateNaissance' => $a->dateNaissance
+		]);
 
 
-		//$users = Utilisateur::where('pseudo',  'like', '%'.$this->app->request()->params('pseudo').'%')->where('nom', 'like', '%'.$this->app->request()->params('nom').'%')->get();
-
-		// on encode nos données
-		// deux fonctions le font :
-		//var_dump($users);
-		$reponse = json_encode($users);
-		//$a = $users->toJson();
-		//var_dump($reponse);
-
-
-		//echo $this->getUsers();
-		//echo $this->app->request->getBody();
-
-		//echo $this->getUsers();//->getBody();//->app->response->getBody();
-
-
-		//$this->app->response->headers->set('Content-Type', 'text/html');
-
-		$caca = $this->getUsers();
-
-
-		//var_dump($caca);
-
-/*
-
-		$this->app->view->setData('users', $caca);//$this->getUsers());
-
-		$this->app->render('layout/header.php', compact('app'));
-
-		$this->app->render('user.php');*/
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$this->app->response->setStatus(204);
 	}
+
+
+
+
+
 
 
 	/**
