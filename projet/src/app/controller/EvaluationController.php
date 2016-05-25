@@ -94,23 +94,28 @@ class EvaluationController extends Controller {
         $a = json_decode(file_get_contents('php://input'));
 
         date_default_timezone_set('Europe/Paris');
-        $date = date('Y-m-d H:i:s');
+        if ($a->dateModification != null)
+            $date = $a->dateModification;
+        else
+            $date = date('Y-m-d H:i:s');
 
         $evalSiExiste = Evaluation::where('idEvaluation', $idEval);
-        if($evalSiExiste->idUtilisateur = $idUser && $evalSiExiste->idLivre == $idLivre){
+        //var_dump($evalSiExiste);
+        if($evalSiExiste != null && $evalSiExiste->idUtilisateur == $idUser && $evalSiExiste->idLivre == $idLivre){
             // c'est ok pour la modif
             $evalSiExiste->where('idLivre', $idLivre)->where('idUtilisateur', $idUser)->update([
                 'note' => $a->note,
                 'commentaire' => $a->commentaire,
                 'dateModification' => $date
             ]);
+            $statut = 204;
         }else{
             // c'est pas son eval
+            $statut = 403;
         }
 
-
-
-
+        $this->app->response->headers->set('Content-Type', 'application/json');
+        $this->app->response->setStatus($statut);
     }
 
 
