@@ -72,13 +72,15 @@ fac.modules.users = (function(){
 
 
 		// script pour ajout d'un livre dans sa biblio perso
-		$('#boutonAdd1').click(function() {
+		$('.importBiblioButton').click(function() {
 			// on va chercher le livre 
 			var livre = fac.modules.app.get('http://localhost:8888/CMI/projet/src/api/books/1', function(data) {
 				console.log(data);
 			});
 
 
+			var idLivre = livre['idLivre'];
+			console.log(idLivre);
 			var data = {idLivre:"666", numeroPage:"2"};
 
 		//	var boutonid = document.getElementById('boutonAdd1').getAttribute('id');console.log(boutonid)
@@ -88,9 +90,9 @@ fac.modules.users = (function(){
 			//var json = JSON.stringify(user);
 			//console.log(json);
 
-			fac.modules.app.post('http://localhost:8888/CMI/projet/src/api/users/1/library/web', data, function(data) {
-				console.log(data);
-			});
+			//fac.modules.app.post('http://localhost:8888/CMI/projet/src/api/users/1/library/web', data, function(data) {
+		//		console.log(data);
+			//});
 
 
 		});
