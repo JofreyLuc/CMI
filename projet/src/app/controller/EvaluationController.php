@@ -100,7 +100,7 @@ class EvaluationController extends Controller {
             $date = date('Y-m-d H:i:s');
 
         $evalSiExiste = Evaluation::where('idEvaluation', $idEval)->first();
-        //var_dump($evalSiExiste);
+
         if($evalSiExiste->idUtilisateur == $idUser && $evalSiExiste->idLivre == $idLivre){
             // c'est ok pour la modif
             $evaluation = Evaluation::where('idLivre', $idLivre)->where('idUtilisateur', $idUser)->update([
@@ -118,13 +118,27 @@ class EvaluationController extends Controller {
         $this->app->response->setStatus($statut);
     }
 
+    /**
+     * Supprime une évaluation.
+     * @param $idUser
+     * @param $idLivre
+     * @param $idEval
+     */
+    public function supprimerEvaluation($idUser, $idLivre, $idEval) {
+        $evalSiExiste = Evaluation::find($idEval);
 
+        if($evalSiExiste->idUtilisateur == $idUser && $evalSiExiste->idLivre == $idLivre){
+            // c'est ok pour la suppression
+            $evalSiExiste->destroy();
+            $statut = 204;
+        }else{
+            // c'est pas son eval
+            $statut = 403;
+        }
 
-
-
-
-
-
+        $this->app->response->headers->set('Content-Type', 'application/json');
+        $this->app->response->setStatus($statut);
+    }
 
     //Ajax response example
     public function getEvaluation() {
