@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 08 Mai 2016 à 14:08
+-- Généré le :  Jeu 26 Mai 2016 à 12:55
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.19
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `CallMeIshmael`
+-- Base de données :  `cmidb`
 --
 
 DROP DATABASE IF EXISTS cmidb;
@@ -67,6 +67,65 @@ CREATE TABLE `evaluation` (
   `dateModification` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Déclencheurs `evaluation`
+--
+DELIMITER $$
+CREATE TRIGGER `calculer_note_moyenne_delete` AFTER DELETE ON `evaluation` FOR EACH ROW BEGIN
+  DECLARE old_note_moyenne float;
+  DECLARE old_nombre_eval integer;
+  DECLARE new_note_moyenne float;
+  SET old_nombre_eval = (SELECT nombreEvaluations FROM livre WHERE idLivre = OLD.idLivre);
+  SET old_note_moyenne = (SELECT noteMoyenne FROM livre WHERE idLivre = OLD.idLivre);
+
+  IF (old_nombre_eval <= 1) THEN
+    SET new_note_moyenne = NULL;
+  ELSE
+    SET new_note_moyenne = (old_note_moyenne * old_nombre_eval - OLD.note) / (old_nombre_eval - 1);
+  END IF;
+
+  UPDATE livre SET noteMoyenne = new_note_moyenne, nombreEvaluations = nombreEvaluations-1 WHERE OLD.idLivre = idLivre;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `calculer_note_moyenne_insert` AFTER INSERT ON `evaluation` FOR EACH ROW BEGIN
+  DECLARE old_note_moyenne float;
+  DECLARE old_nombre_eval integer;
+  DECLARE new_note_moyenne float;
+  SET old_nombre_eval = (SELECT nombreEvaluations FROM livre WHERE idLivre = NEW.idLivre);
+
+  IF (old_nombre_eval <= 0 OR old_nombre_eval = NULL) THEN
+    SET new_note_moyenne = NEW.note;
+  ELSE
+    SET old_note_moyenne = (SELECT noteMoyenne FROM livre WHERE idLivre = NEW.idLivre);
+    SET new_note_moyenne = old_note_moyenne * old_nombre_eval/(old_nombre_eval+1) + NEW.note * 1/(old_nombre_eval+1);
+  END IF;
+
+  UPDATE livre SET noteMoyenne = new_note_moyenne, nombreEvaluations = nombreEvaluations+1 WHERE NEW.idLivre = idLivre;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `calculer_note_moyenne_update` AFTER UPDATE ON `evaluation` FOR EACH ROW BEGIN
+  DECLARE old_note_moyenne float;
+  DECLARE old_nombre_eval integer;
+  DECLARE new_note_moyenne float;
+  SET old_nombre_eval = (SELECT nombreEvaluations FROM livre WHERE idLivre = NEW.idLivre);
+  SET old_note_moyenne = (SELECT noteMoyenne FROM livre WHERE idLivre = NEW.idLivre);
+
+  IF (old_nombre_eval = 1) THEN
+    SET new_note_moyenne = NEW.note;
+  ELSE
+    SET new_note_moyenne = (old_note_moyenne * old_nombre_eval - OLD.note) / (old_nombre_eval - 1);						      SET old_nombre_eval = old_nombre_eval - 1;
+    SET old_note_moyenne = new_note_moyenne;
+    SET new_note_moyenne = old_note_moyenne * old_nombre_eval/(old_nombre_eval+1) + NEW.note * 1/(old_nombre_eval+1);	    END IF;
+
+  UPDATE livre SET noteMoyenne = new_note_moyenne WHERE OLD.idLivre = idLivre;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -82,7 +141,7 @@ CREATE TABLE `livre` (
   `dateParution` date DEFAULT NULL,
   `resume` varchar(1000) DEFAULT NULL,
   `noteMoyenne` float DEFAULT NULL,
-  `nombreEvaluations` int NOT NULL DEFAULT 0,
+  `nombreEvaluations` int(11) NOT NULL DEFAULT '0',
   `lienEpub` varchar(255) DEFAULT NULL,
   `lienCouverture` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -238,86 +297,3 @@ MODIFY `idUtilisateur` int(10) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-# Trigger evaluation insert
-
-DROP TRIGGER IF EXISTS calculer_note_moyenne_insert;
-DELIMITER $$
-CREATE TRIGGER calculer_note_moyenne_insert
-AFTER INSERT ON evaluation
-FOR EACH ROW
-  BEGIN
-    DECLARE old_note_moyenne float;
-    DECLARE old_nombre_eval integer;
-    DECLARE new_note_moyenne float;
-    SET old_nombre_eval = (SELECT nombreEvaluations FROM livre WHERE idLivre = NEW.idLivre);
-
-# Si il n'y avait aucune note
-    IF (old_nombre_eval <= 0 OR old_nombre_eval = NULL) THEN
-      SET new_note_moyenne = NEW.note;
-# Si il y avait déjà des notes
-    ELSE
-      SET old_note_moyenne = (SELECT noteMoyenne FROM livre WHERE idLivre = NEW.idLivre);
-      SET new_note_moyenne = old_note_moyenne * old_nombre_eval/(old_nombre_eval+1) + NEW.note * 1/(old_nombre_eval+1);
-    END IF;
-
-    UPDATE livre SET noteMoyenne = new_note_moyenne, nombreEvaluations = nombreEvaluations+1 WHERE NEW.idLivre = idLivre;
-  END$$
-
-# Trigger evaluation delete
-
-DELIMITER ;
-DROP TRIGGER IF EXISTS calculer_note_moyenne_delete;
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER calculer_note_moyenne_delete
-AFTER DELETE ON evaluation
-FOR EACH ROW
-  BEGIN
-    DECLARE old_note_moyenne float;
-    DECLARE old_nombre_eval integer;
-    DECLARE new_note_moyenne float;
-    SET old_nombre_eval = (SELECT nombreEvaluations FROM livre WHERE idLivre = OLD.idLivre);
-    SET old_note_moyenne = (SELECT noteMoyenne FROM livre WHERE idLivre = OLD.idLivre);
-
-# Si c'est la seule évaluation
-    IF (old_nombre_eval <= 1) THEN
-      SET new_note_moyenne = NULL;
-# Si il y a plusieurs évaluations
-    ELSE
-      SET new_note_moyenne = (old_note_moyenne * old_nombre_eval - OLD.note) / (old_nombre_eval - 1);
-    END IF;
-
-    UPDATE livre SET noteMoyenne = new_note_moyenne, nombreEvaluations = nombreEvaluations-1 WHERE OLD.idLivre = idLivre;
-  END$$
-
-# Trigger evaluation update
-
-DELIMITER ;
-DROP TRIGGER IF EXISTS calculer_note_moyenne_update;
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER calculer_note_moyenne_update
-AFTER UPDATE ON evaluation
-FOR EACH ROW
-  BEGIN
-    DECLARE old_note_moyenne float;
-    DECLARE old_nombre_eval integer;
-    DECLARE new_note_moyenne float;
-    SET old_nombre_eval = (SELECT nombreEvaluations FROM livre WHERE idLivre = NEW.idLivre);
-    SET old_note_moyenne = (SELECT noteMoyenne FROM livre WHERE idLivre = NEW.idLivre);
-
-# Si c'est la seule évaluation
-    IF (old_nombre_eval = 1) THEN
-      SET new_note_moyenne = NEW.note;
-# Si il y a plusieurs évaluations
-    ELSE
-      SET new_note_moyenne = (old_note_moyenne * old_nombre_eval - OLD.note) / (old_nombre_eval - 1);						# On retire l'ancienne note
-      SET old_nombre_eval = old_nombre_eval - 1;
-      SET old_note_moyenne = new_note_moyenne;
-      SET new_note_moyenne = old_note_moyenne * old_nombre_eval/(old_nombre_eval+1) + NEW.note * 1/(old_nombre_eval+1);	# On ajoute la nouvelle
-    END IF;
-
-    UPDATE livre SET noteMoyenne = new_note_moyenne WHERE OLD.idLivre = idLivre;
-  END$$
-DELIMITER ;
