@@ -239,7 +239,7 @@ MODIFY `idUtilisateur` int(10) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-# Trigger evaluation insert
+-- Trigger evaluation insert
 
 DROP TRIGGER IF EXISTS calculer_note_moyenne_insert;
 DELIMITER $$
@@ -252,10 +252,10 @@ FOR EACH ROW
     DECLARE new_note_moyenne float;
     SET old_nombre_eval = (SELECT nombreEvaluations FROM livre WHERE idLivre = NEW.idLivre);
 
-# Si il n'y avait aucune note
+-- Si il n'y avait aucune note
     IF (old_nombre_eval <= 0 OR old_nombre_eval = NULL) THEN
       SET new_note_moyenne = NEW.note;
-# Si il y avait déjà des notes
+-- Si il y avait déjà des notes
     ELSE
       SET old_note_moyenne = (SELECT noteMoyenne FROM livre WHERE idLivre = NEW.idLivre);
       SET new_note_moyenne = old_note_moyenne * old_nombre_eval/(old_nombre_eval+1) + NEW.note * 1/(old_nombre_eval+1);
@@ -264,7 +264,7 @@ FOR EACH ROW
     UPDATE livre SET noteMoyenne = new_note_moyenne, nombreEvaluations = nombreEvaluations+1 WHERE NEW.idLivre = idLivre;
   END$$
 
-# Trigger evaluation delete
+-- Trigger evaluation delete
 
 DELIMITER ;
 DROP TRIGGER IF EXISTS calculer_note_moyenne_delete;
@@ -280,10 +280,10 @@ FOR EACH ROW
     SET old_nombre_eval = (SELECT nombreEvaluations FROM livre WHERE idLivre = OLD.idLivre);
     SET old_note_moyenne = (SELECT noteMoyenne FROM livre WHERE idLivre = OLD.idLivre);
 
-# Si c'est la seule évaluation
+-- Si c'est la seule évaluation
     IF (old_nombre_eval <= 1) THEN
       SET new_note_moyenne = NULL;
-# Si il y a plusieurs évaluations
+-- il y a plusieurs évaluations
     ELSE
       SET new_note_moyenne = (old_note_moyenne * old_nombre_eval - OLD.note) / (old_nombre_eval - 1);
     END IF;
@@ -291,7 +291,7 @@ FOR EACH ROW
     UPDATE livre SET noteMoyenne = new_note_moyenne, nombreEvaluations = nombreEvaluations-1 WHERE OLD.idLivre = idLivre;
   END$$
 
-# Trigger evaluation update
+-- Trigger evaluation update
 
 DELIMITER ;
 DROP TRIGGER IF EXISTS calculer_note_moyenne_update;
@@ -307,12 +307,13 @@ FOR EACH ROW
     SET old_nombre_eval = (SELECT nombreEvaluations FROM livre WHERE idLivre = NEW.idLivre);
     SET old_note_moyenne = (SELECT noteMoyenne FROM livre WHERE idLivre = NEW.idLivre);
 
-# Si c'est la seule évaluation
+-- Si c'est la seule évaluation
     IF (old_nombre_eval = 1) THEN
       SET new_note_moyenne = NEW.note;
-# Si il y a plusieurs évaluations
+-- Si il y a plusieurs évaluations
     ELSE
-      SET new_note_moyenne = (old_note_moyenne * old_nombre_eval - OLD.note) / (old_nombre_eval - 1);						# On retire l'ancienne note
+      SET new_note_moyenne = (old_note_moyenne * old_nombre_eval - OLD.note) / (old_nombre_eval - 1);
+      	-- On retire l'ancienne note
       SET old_nombre_eval = old_nombre_eval - 1;
       SET old_note_moyenne = new_note_moyenne;
       SET new_note_moyenne = old_note_moyenne * old_nombre_eval/(old_nombre_eval+1) + NEW.note * 1/(old_nombre_eval+1);	# On ajoute la nouvelle
