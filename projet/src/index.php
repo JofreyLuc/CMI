@@ -87,9 +87,8 @@ $router->post('/api/users/:idUser/books/:idBook/ratings', "app\Controller\Evalua
 // modifier une eval
 $router->put('/api/users/:idUser/books/:idBook/ratings/:idRating', "app\Controller\EvaluationController@modifierEvaluationJson");
 
-
-
-
+// supprimer une eval
+$router->delete('/api/users/:idUser/books/:idBook/ratings/:idRating', "app\Controller\EvaluationController@supprimerEvaluation");
 
 // routes pour les requetes de recherche sur livre
 $router->get('/top10', "app\Controller\LivreController@top10");

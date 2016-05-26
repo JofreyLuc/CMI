@@ -1,3 +1,6 @@
 projet/src/vendor/*
 .idea/*
+.idea
+.idea/workspace.xml
+/projet/src/db.config.ini
 projet/src/epub/*
