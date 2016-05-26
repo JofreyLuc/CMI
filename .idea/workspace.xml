@@ -41,8 +41,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="61" column="112" selection-start-line="61" selection-start-column="112" selection-end-line="61" selection-end-column="112" />
+            <state relative-caret-position="0">
+              <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -51,33 +51,25 @@
       <file leaf-file-name="BibliothequeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="176" column="19" selection-start-line="176" selection-start-column="19" selection-end-line="176" selection-end-column="19" />
+            <state relative-caret-position="323">
+              <caret line="158" column="38" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
               <folding>
                 <element signature="e#32#59#0#PHP" expanded="true" />
-                <marker date="1464213984000" expanded="true" signature="525:621" placeholder="..." />
-                <marker date="1464213984000" expanded="true" signature="610:621" placeholder="..." />
-                <marker date="1464213984000" expanded="true" signature="2127:2223" placeholder="..." />
-                <marker date="1464213984000" expanded="true" signature="2212:2223" placeholder="..." />
+                <marker date="1464267755000" expanded="true" signature="525:621" placeholder="..." />
+                <marker date="1464267755000" expanded="true" signature="610:621" placeholder="..." />
+                <marker date="1464267755000" expanded="true" signature="2127:2223" placeholder="..." />
+                <marker date="1464267755000" expanded="true" signature="2212:2223" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="livre.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projet/src/app/view/livre.php">
+      <file leaf-file-name="file.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/file.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding>
-                <marker date="1464212019000" expanded="true" signature="214:1007" placeholder="..." />
-                <marker date="1464212019000" expanded="true" signature="319:446" placeholder="..." />
-                <marker date="1464212019000" expanded="true" signature="469:489" placeholder="..." />
-                <marker date="1464212019000" expanded="true" signature="469:554" placeholder="..." />
-                <marker date="1464212019000" expanded="true" signature="580:642" placeholder="..." />
-                <marker date="1464212019000" expanded="true" signature="580:675" placeholder="..." />
-                <marker date="1464212019000" expanded="true" signature="580:1000" placeholder="..." />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,18 +116,18 @@
       <file leaf-file-name="fac.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/fac.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="87" column="46" selection-start-line="87" selection-start-column="46" selection-end-line="87" selection-end-column="46" />
+            <state relative-caret-position="585">
+              <caret line="92" column="12" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CallMeIshmael.sql" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/doc/CallMeIshmael.sql">
+      <file leaf-file-name="CallMeIshmale.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/doc/CallMeIshmale.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="265" column="0" selection-start-line="245" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+            <state relative-caret-position="651">
+              <caret line="298" column="63" selection-start-line="298" selection-start-column="63" selection-end-line="298" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -222,10 +214,11 @@
         <option value="$PROJECT_DIR$/projet/src/app/view/user.php" />
         <option value="$PROJECT_DIR$/projet/src/app/view/livre.php" />
         <option value="$PROJECT_DIR$/projet/src/index.php" />
+        <option value="$PROJECT_DIR$/projet/src/app/view/layout/header.php" />
         <option value="$PROJECT_DIR$/projet/src/fac.js" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php" />
-        <option value="$PROJECT_DIR$/projet/src/app/view/layout/header.php" />
         <option value="$PROJECT_DIR$/doc/CallMeIshmael.sql" />
+        <option value="$PROJECT_DIR$/doc/CallMeIshmale.sql" />
       </list>
     </option>
   </component>
@@ -557,12 +550,12 @@
       <workItem from="1464070376385" duration="462000" />
       <workItem from="1464166080755" duration="482000" />
       <workItem from="1464169514545" duration="20076000" />
-      <workItem from="1464242647947" duration="1270000" />
+      <workItem from="1464242647947" duration="2250000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145544000" />
+    <option name="totallyTimeSpent" value="146524000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
@@ -608,18 +601,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projet/src/app/view/Couverture_test.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script_insert_qques_data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="281" column="75" selection-start-line="281" selection-start-column="75" selection-end-line="281" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/scriptPeuplerBDD.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -771,6 +752,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -897,28 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="61" column="112" selection-start-line="61" selection-start-column="112" selection-end-line="61" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="176" column="19" selection-start-line="176" selection-start-column="19" selection-end-line="176" selection-end-column="19" />
-          <folding>
-            <element signature="e#32#59#0#PHP" expanded="true" />
-            <marker date="1464213984000" expanded="true" signature="525:621" placeholder="..." />
-            <marker date="1464213984000" expanded="true" signature="610:621" placeholder="..." />
-            <marker date="1464213984000" expanded="true" signature="2127:2223" placeholder="..." />
-            <marker date="1464213984000" expanded="true" signature="2212:2223" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/app/view/livre.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -990,18 +950,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/fac.js">
+    <entry file="file://$PROJECT_DIR$/projet/src/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="87" column="46" selection-start-line="87" selection-start-column="46" selection-end-line="87" selection-end-column="46" />
+        <state relative-caret-position="0">
+          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="158" column="38" selection-start-line="158" selection-start-column="38" selection-end-line="158" selection-end-column="38" />
+          <folding>
+            <element signature="e#32#59#0#PHP" expanded="true" />
+            <marker date="1464267755000" expanded="true" signature="525:621" placeholder="..." />
+            <marker date="1464267755000" expanded="true" signature="610:621" placeholder="..." />
+            <marker date="1464267755000" expanded="true" signature="2127:2223" placeholder="..." />
+            <marker date="1464267755000" expanded="true" signature="2212:2223" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/doc/CallMeIshmael.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="265" column="0" selection-start-line="245" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+        <state relative-caret-position="620">
+          <caret line="284" column="26" selection-start-line="284" selection-start-column="26" selection-end-line="284" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/fac.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="92" column="12" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/CallMeIshmale.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="298" column="63" selection-start-line="298" selection-start-column="63" selection-end-line="298" selection-end-column="63" />
           <folding />
         </state>
       </provider>
