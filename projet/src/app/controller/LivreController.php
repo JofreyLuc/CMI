@@ -42,10 +42,10 @@ class LivreController extends Controller {
 	}
 
 	public function afficherLivreIdJson($id){
-		$livres = Livre::where('idLivre', $id)->get();
-		$a = json_encode($livres);
+		$livre = Livre::find($id);
 		$this->app->response->headers->set('Content-Type', 'application/json');
-		$this->app->response->body($a);
+        if (isset($livre))
+		    $this->app->response->body(json_encode($livre));
 	}
 
 
