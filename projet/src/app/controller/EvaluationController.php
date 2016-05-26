@@ -2,6 +2,7 @@
 namespace app\controller;
 use app\model\Evaluation;
 use app\model\Livre;
+use app\model\Utilisateur;
 
 class EvaluationController extends Controller {
 
@@ -24,18 +25,41 @@ class EvaluationController extends Controller {
      */
     public function afficherEvalsLivreIdJson($id){
         $comment = $this->app->request()->params('comment');
+        $tabResult = array();
+        $i = 0 ;
         // si le parametre comment est rentré
         if($comment == 'true'){
             $evals = Evaluation::where('idLivre', $id)->whereNotNull('commentaire')->get();
-            //->where('commenraire', '!=' , null)->get();
-            $a = json_encode($evals);
+            foreach($evals as $e){
+                $users = Utilisateur::find($e->idUtilisateur);
+                $users->password = "********";
+                $jsonEval = json_encode($e); // encode eval
+                $jsonUser = json_encode($users); // encore user
+                $tab = json_encode(array_merge(json_decode($jsonEval,true), json_decode($jsonUser,true)));
+                $tabResult[$i] = $tab;
+                $i++;
+            }
+            $tabResultJson = json_encode($tabResult);
             $this->app->response->headers->set('Content-Type', 'application/json');
-            $this->app->response->body($a);
+            $this->app->response->body($tabResultJson);
         }else{
             $evals = Evaluation::where('idLivre', $id)->get();
-            $a = json_encode($evals);
+            foreach($evals as $e){
+                $users = Utilisateur::find($e->idUtilisateur);
+                $users->password = "********";
+                $jsonEval = json_encode($e); // encode eval
+                $jsonUser = json_encode($users); // encore user
+                $tab = json_encode(array_merge(json_decode($jsonEval,true), json_decode($jsonUser,true)));
+                $tabResult[$i] = $tab;
+                $i++;
+            }
+            $tabResultJson = json_encode($tabResult);
+           // $b = json_encode($users);
+           // $a = json_encode($evals);
+            //$tab = json_encode(array_merge(json_decode($a,true), json_decode($b,true)));
             $this->app->response->headers->set('Content-Type', 'application/json');
-            $this->app->response->body($a);
+            $this->app->response->body($tabResultJson);
+
         }
 
     }
