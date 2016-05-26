@@ -30,37 +30,31 @@ class EvaluationController extends Controller {
         // si le parametre comment est rentré
         if($comment == 'true'){
             $evals = Evaluation::where('idLivre', $id)->whereNotNull('commentaire')->get();
-            foreach($evals as $e){
-                $users = Utilisateur::find($e->idUtilisateur);
-                $users->password = "********";
-                $jsonEval = json_encode($e); // encode eval
-                $jsonUser = json_encode($users); // encore user
-                $tab = json_encode(array_merge(json_decode($jsonEval,true), json_decode($jsonUser,true)));
-                $tabResult[$i] = $tab;
-                $i++;
-            }
-            $tabResultJson = json_encode($tabResult);
-            $this->app->response->headers->set('Content-Type', 'application/json');
-            $this->app->response->body($tabResultJson);
         }else{
             $evals = Evaluation::where('idLivre', $id)->get();
-            foreach($evals as $e){
-                $users = Utilisateur::find($e->idUtilisateur);
-                $users->password = "********";
-                $jsonEval = json_encode($e); // encode eval
-                $jsonUser = json_encode($users); // encore user
-                $tab = json_encode(array_merge(json_decode($jsonEval,true), json_decode($jsonUser,true)));
-                $tabResult[$i] = $tab;
-                $i++;
-            }
-            $tabResultJson = json_encode($tabResult);
-           // $b = json_encode($users);
-           // $a = json_encode($evals);
-            //$tab = json_encode(array_merge(json_decode($a,true), json_decode($b,true)));
-            $this->app->response->headers->set('Content-Type', 'application/json');
-            $this->app->response->body($tabResultJson);
-
         }
+
+        foreach($evals as $e){
+            $users = Utilisateur::find($e->idUtilisateur);
+            // On enlève ce dont on a pas besoin
+            unset($users->email);
+            unset($users->password);
+            unset($users->facebookId);
+            unset($users->googleId);
+            unset($users->nom);
+            unset($users->prenom);
+            unset($users->dateNaissance);
+            unset($users->sexe);
+            unset($users->inscriptionValidee);
+            unset($e->idUtilisateur);
+            $e = json_decode(json_encode($e));
+            $e = (object) array_merge( (array)$e, array( 'utilisateur' => $users ) );
+            $tabResult[$i] = $e;
+            $i++;
+        }
+        $tabResultJson = json_encode($tabResult);
+        $this->app->response->headers->set('Content-Type', 'application/json');
+        $this->app->response->body($tabResultJson);
 
     }
 
