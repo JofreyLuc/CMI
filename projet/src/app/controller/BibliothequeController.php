@@ -125,11 +125,11 @@ class BibliothequeController extends Controller {
      */
     public function afficherBiblioUserLivreIdJson($idUser, $idLibrary){
         $biblio = Bibliotheque::where('idUtilisateur', $idUser)->where('idBibliotheque' , $idLibrary)->get();
-        echo $biblio->get('idLivre');
-        $livres = Livre::where('idLivre', $biblio->idLivre)->get();
-        $a = json_encode($livres);
+        $a = json_encode($biblio);
         $this->app->response->headers->set('Content-Type', 'application/json');
         $this->app->response->body($a);
+
+      
 
     }
 
