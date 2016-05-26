@@ -32,6 +32,7 @@ class EvaluationController extends Controller {
             $evals = Evaluation::where('idLivre', $id)->whereNotNull('commentaire')->get();
             foreach($evals as $e){
                 $users = Utilisateur::find($e->idUtilisateur);
+                $users->password = "********";
                 $jsonEval = json_encode($e); // encode eval
                 $jsonUser = json_encode($users); // encore user
                 $tab = json_encode(array_merge(json_decode($jsonEval,true), json_decode($jsonUser,true)));
@@ -45,6 +46,7 @@ class EvaluationController extends Controller {
             $evals = Evaluation::where('idLivre', $id)->get();
             foreach($evals as $e){
                 $users = Utilisateur::find($e->idUtilisateur);
+                $users->password = "********";
                 $jsonEval = json_encode($e); // encode eval
                 $jsonUser = json_encode($users); // encore user
                 $tab = json_encode(array_merge(json_decode($jsonEval,true), json_decode($jsonUser,true)));
