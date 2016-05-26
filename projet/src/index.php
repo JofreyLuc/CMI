@@ -59,6 +59,7 @@ $router->get('/api/users/:idUser/library/:idLibrary', "app\Controller\Bibliotheq
 
 // post pour la livrary
 $router->post('/api/users/:idUser/library', "app\Controller\BibliothequeController@ajouterLivreBiblioUserIdJson");
+$router->post('/api/users/:idUser/library/web', "app\Controller\BibliothequeController@ajouterLivreBiblioUserIdJsonWeb");
 
 // put surt library
 $router->put('/api/users/:idUser/library/:idLibrary', "app\Controller\BibliothequeController@modifLivreBiblioUserIdJson");
