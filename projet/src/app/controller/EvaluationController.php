@@ -28,16 +28,17 @@ class EvaluationController extends Controller {
         // si le parametre comment est rentré
         if($comment == 'true'){
             $evals = Evaluation::where('idLivre', $id)->whereNotNull('commentaire')->get();
-            $users = Utilisateur::where('idUtilisateur', $evals->idUtilisateur)->get();
-            var_dump( $users);
+           // $users = Utilisateur::where('idUtilisateur', $evals->idUtilisateur)->get();
+           // var_dump( $users);
             //->where('commenraire', '!=' , null)->get();
             $a = json_encode($evals);
             $this->app->response->headers->set('Content-Type', 'application/json');
             $this->app->response->body($a);
         }else{
             $evals = Evaluation::where('idLivre', $id)->get();
-            $users = Utilisateur::where('idUtilisateur', $evals->idUtilisateur)->get();
-            var_dump( $users);
+           // var_dump($evals->idUtilisateur);
+            //$users = Utilisateur::find($evals->idUtilisateur);
+           // var_dump( $users);
             $a = json_encode($evals);
             $this->app->response->headers->set('Content-Type', 'application/json');
             $this->app->response->body($a);
