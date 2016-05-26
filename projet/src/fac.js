@@ -27,6 +27,7 @@ fac.modules.app = (function () {
 				url: url,
 				type: "GET",
 				success: callback,
+				done: function(response){return response;},
 				error: function (jqXHR, textStatus, errorThrown) {
 					console.log('url : ' + url);
 					console.log(jqXHR);
@@ -70,16 +71,19 @@ fac.modules.users = (function(){
 
 
 
-
+/*
 		// script pour ajout d'un livre dans sa biblio perso
-		$('#boutonAdd1').click(function() {
-			// on va chercher le livre 
-			var livre = fac.modules.app.get('http://localhost:8888/CMI/projet/src/api/books/1', function(data) {
+		$('.importBiblioButton').click(function() {
+			// recupération du livre
+			var livre = fac.modules.app.get('/CMI/projet/src/api/books/1', function(data) {
 				console.log(data);
 			});
+			alert(livre);
 
 
-			var data = {idLivre:"666", numeroPage:"2"};
+			//var idLivre = livre['idLivre'];
+			//console.log(idLivre);
+			//var data = {idLivre:"666", numeroPage:"2"};
 
 		//	var boutonid = document.getElementById('boutonAdd1').getAttribute('id');console.log(boutonid)
 
@@ -88,16 +92,57 @@ fac.modules.users = (function(){
 			//var json = JSON.stringify(user);
 			//console.log(json);
 
-			fac.modules.app.post('http://localhost:8888/CMI/projet/src/api/users/1/library/web', data, function(data) {
-				console.log(data);
-			});
+			//fac.modules.app.post('/CMI/projet/src/api/users/1/library/web', data, function(data) {
+		//		console.log(data);
+			//});
 
 
 		});
 
 
 
+*/
+		$('.importBiblioButton').click(function() {
+			// recuperation de l'id
+			var urlLivre = $(this).attr('id');
+			// concatenation
+			var urlLivreEntier = '/CMI/projet/src/api/books/'+urlLivre;
 
+			var livre = $.ajax({
+				type: 'GET',
+				url: urlLivreEntier,
+				async: false,
+				//dataType: 'json',
+				//data: {action: 'getHotelsList'},
+				done: function (results) {
+					JSON.parse(results);
+					return results;
+				},
+				fail: function (jqXHR, textStatus, errorThrown) {
+					console.log('Could not get posts, server response: ' + textStatus + ': ' + errorThrown);
+				}
+			}).responseJSON;
+
+
+			//console.log(livre[0].idLivre);
+			var id = livre[0].idLivre;
+			// creation des data à envoyer
+			var biblio = {
+				idLivre: id,
+				positionLecture: 0
+			};
+
+
+
+			// envoie du resultat
+
+
+			// l'id de l'user est entré en dur
+			fac.modules.app.post('/CMI/projet/src/api/users/1/library/web', biblio, function(data) {
+				console.log(data);
+			});
+
+		});
 
 
 

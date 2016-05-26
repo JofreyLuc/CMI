@@ -24,7 +24,7 @@ class BibliothequeController extends Controller {
         // parcours de la biblio, on recupere les livres qui correspondent aux id
 
         foreach ($biblio as $b){
-            $livres = Livre::all()->where('idLivre', $b->idLivre);
+            $livres = Livre::find($b->idLivre);
 
             //on fait passer les données une par une à la vue
             $this->app->view->setData('livres', $livres);
@@ -79,10 +79,9 @@ class BibliothequeController extends Controller {
 
 
         $biblio = Bibliotheque::where('idUtilisateur', $idUser)->get();
-        $livres = Livre::all();
+       // $livres = Livre::all();
         foreach ($biblio as $b){
-            $livres->where('idLivre', $b->idLivre);
-
+            $livres = Livre::find($b->idLivre);
             //on fait passer les données une par une à la vue
             // $this->app->view->setData('livres', $livres);
             //$this->app->render('consulter_bibli.php');
@@ -102,19 +101,19 @@ class BibliothequeController extends Controller {
 
     public function afficherBiblioUserIdJson($idUser){
         $biblio = Bibliotheque::where('idUtilisateur', $idUser)->get();
-        $tab = array();
-        $i = 0;
-        foreach ($biblio as $b) {
-
-            $livres = Livre::all()->where('idLivre', $b->idLivre);
-            $tab[$i] = $livres;
-            $i++;
-        }
-        //$livres = Livre::whereIn($biblio->idLivre)->get();
-
-        $a = json_encode($tab);
+        $a = json_encode($biblio);
         $this->app->response->headers->set('Content-Type', 'application/json');
         $this->app->response->body($a);
+       /* foreach ($biblio as $b) {
+
+            $livres = Livre::find($b->idLivre);
+            $a = json_encode($livres);
+            $this->app->response->headers->set('Content-Type', 'application/json');
+            $this->app->response->body($a);
+        }*/
+        //$livres = Livre::whereIn($biblio->idLivre)->get();
+
+
 
     }
 
@@ -171,20 +170,22 @@ class BibliothequeController extends Controller {
 
 
 
-    public function ajouterLivreBiblioUserIdWeb($idUser){
+    public function ajouterLivreBiblioUserIdJsonWeb($idUser){
         // recuperation des data sur la page
-        $a = json_decode(file_get_contents('php://input'));
-        var_dump($a);
+        //$a = json_decode(file_get_contents('php://input'));
+        $a = $_POST["idLivre"];
+        $b = $_POST["positionLecture"];
+        //var_dump($a);
 
         // traitemen des data et insertion
 
 
         $biblio = new Bibliotheque();
 
-        $test = $a->idLivre;
+        $test = $a;
         $biblio->idLivre = $test;
         $biblio->idUtilisateur = $idUser; // param passé dans lurl
-        $biblio->numeroPage = $a->numeroPage;
+        $biblio->positionLecture = $b;
 
         // Gestion de la date de modif
         date_default_timezone_set('Europe/Paris');
@@ -198,6 +199,8 @@ class BibliothequeController extends Controller {
         $this->app->response->setStatus(201);
         $this->app->response->body($b);
     }
+
+  
 
 
 
