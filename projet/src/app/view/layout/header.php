@@ -35,7 +35,7 @@
    <p> <div id="login"><input type="text" name="login" placeholder="Login"/> <br/>
    <input type="password" mdp="mdp" placeholder="Password"/> </div> </br>
    <div id="co"> <input type="submit" class="BoutonTxt"  value="Connexion"/>
-  <input type="button" class="BoutonTxt"  value="Inscription" onclick="document.location.href = 'http://localhost:8888/CMI/projet/src/inscription';"/> </div></p>
+  <input type="button" class="BoutonTxt"  value="Inscription" onclick="document.location.href = '/CMI/projet/src/inscription';"/> </div></p>
   </form>
  </div>
 </header>
