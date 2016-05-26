@@ -129,7 +129,7 @@ class BibliothequeController extends Controller {
         $this->app->response->headers->set('Content-Type', 'application/json');
         $this->app->response->body($a);
 
-      
+
 
     }
 

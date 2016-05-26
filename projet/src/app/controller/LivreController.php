@@ -292,7 +292,7 @@ class LivreController extends Controller {
 
 
 	public function consulterDetailsJson($id){
-		$livre = Livre::where('idLivre', '=', $id)->get();
+		$livre = Livre::find($id);
 		$a = json_encode($livre);
 		$this->app->response->headers->set('Content-Type', 'application/json');
 		$this->app->response->body($a);
