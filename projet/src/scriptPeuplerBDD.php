@@ -14,16 +14,15 @@ $dir = 'epub';
 $epub = scandir($dir);
 
 // Nombre de livre dans la base Gutemberg
-$nbLivre = count($epub) - 3;
-
+$nbLivre = count($epub) - 2;
 // On instancie un dom xml
+// il manque 51265, 52052
 $dom = new DOMDocument();
 for($i = 1; $i < $nbLivre;$i++){
 	// Chemin de l'epub
     $chemin = 'epub/'.$i.'/pg'.$i.'.rdf';
     $dom->load($chemin);
 		  
-    echo "livre : $i</br>";
 
     $id = $dom->documentElement->getElementsByTagName('ebook');
     // On récupère l'id nécessaire dans le noeud concernant l'id
