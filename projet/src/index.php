@@ -83,6 +83,9 @@ $router->get('/api/books/:id/ratings', "app\Controller\EvaluationController@affi
 
 // ajoute une eval
 $router->post('/api/users/:idUser/books/:idBook/ratings', "app\Controller\EvaluationController@ajouterEvaluationJson");
+$router->post('/api/users/:idUser/books/:idBook/ratings/web', "app\Controller\EvaluationController@ajouterEvaluationJsonWeb");
+
+
 
 // modifier une eval
 $router->put('/api/users/:idUser/books/:idBook/ratings/:idRating', "app\Controller\EvaluationController@modifierEvaluationJson");

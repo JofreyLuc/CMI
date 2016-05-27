@@ -101,7 +101,37 @@ class EvaluationController extends Controller {
 
 
 
+    public function ajouterEvaluationJsonWeb($idUser, $idLivre){
 
+        // recuperation des data sur la page
+        //$a = json_decode(file_get_contents('php://input'));
+        $com = $_POST["commentaire"];
+        $not = $_POST["note"];
+
+        date_default_timezone_set('Europe/Paris');
+        $date = date('Y-m-d H:i:s');
+
+        $evalSiExiste = Evaluation::where('idLivre', $idLivre)->where('idUtilisateur', $idUser)->count();
+        if($evalSiExiste == 0){
+            // il a pas rentré d'eval
+            $eval = new Evaluation();
+            $eval->idUtilisateur = $idUser;
+            $eval->idLivre = $idLivre;
+            $eval->note = $not;
+            $eval->commentaire = $com;
+            $eval->dateModification = $date;
+            $eval->save();
+            $statut = 201;
+            $b = json_encode($eval);
+            $this->app->response->body($b);
+        }else{
+            // il a deja rentré une eval
+            $statut = 403;
+        }
+
+        $this->app->response->headers->set('Content-Type', 'application/json');
+        $this->app->response->setStatus($statut);
+    }
 
     /**
      * @param $idUser
@@ -147,6 +177,7 @@ class EvaluationController extends Controller {
 
         if($evalSiExiste->idUtilisateur == $idUser && $evalSiExiste->idLivre == $idLivre){
             // c'est ok pour la suppression
+            // $evalSiExiste->destroy();
             Evaluation::destroy($idEval);
             $statut = 204;
         }else{

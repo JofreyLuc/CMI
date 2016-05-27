@@ -146,9 +146,51 @@ fac.modules.users = (function(){
 
 
 				// modification du style du bouton une fois la requête effectuée
-				$(this).attr('value', 'Ajoute effectué');
+				$(this).attr('value', 'Ajout effectué');
 				$(this).attr("disabled", true);
 
+			});
+
+
+
+
+
+			 // script ajax pour   ajouter une eval
+			$('#buttonSubmitEval').click( function() {
+				//var idLivre = $(this).attr('id');
+				var id = document.getElementById('idDuLivre').innerHTML;
+				//alert(id);
+				var commentaire = document.getElementById('comment').value;
+				var note = document.getElementById('noteEval').value;
+
+				var evaluation = {
+					commentaire: commentaire,
+					note: note
+				};
+
+
+				fac.modules.app.post('/CMI/projet/src/api/users/1/books/'+id+'/ratings/web', evaluation, function(data) {
+					//console.log(data);
+					//  /api/users/:idUser/books/:idBook/ratings
+				});
+				$(this).attr('value', 'Ajout effectué');
+				$(this).attr("disabled", true);
+
+			});
+
+
+
+
+			// affichage des commentaires
+			$('#afficheCommentaires').click( function() {
+				var id = document.getElementById('idDuLivre').innerHTML;
+
+				var a = fac.modules.app.get('/CMI/projet/src/api/books/'+id+'/ratings', function(data) {
+					console.log(data);
+
+				});
+				///api/books/:id/ratings
+				document.getElementById('test1').innerText(a);
 			});
 
 

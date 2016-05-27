@@ -2,6 +2,7 @@
 namespace app\controller;
 use app\model\Livre;
 use app\model\Bibliotheque;
+use app\model\Evaluation;
 class LivreController extends Controller {
 
 
@@ -291,7 +292,7 @@ class LivreController extends Controller {
 		$livre = Livre::where('idLivre', '=', $id)->get();
 		$eval = Evaluation::where('idLivre', '=', $id)->get();
 		
-		$this->app->view->setData('eval', $eval);
+		//$this->app->view->setData('eval', $eval);
 		$this->app->view->setData('livre', $livre);
 		$this->app->render('layout/header.php', compact('app'));
 		$this->app->render('details.php', compact('app'));
