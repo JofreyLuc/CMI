@@ -200,12 +200,6 @@ class BibliothequeController extends Controller {
         $this->app->response->body($b);
     }
 
-  
-
-
-
-
-
     /**
  * modif une biblio d'un user
  */
@@ -234,7 +228,7 @@ public function modifLivreBiblioUserIdJson($idUser){
      * @param $idLibrary
      */
     public function deleteLivreBiblioUserIdJson($idUser, $idLibrary) {
-        $result = Bibliotheque::where('idBibliotheque', $idLibrary)->delete();
+        $result = Bibliotheque::destroy($idLibrary);
         $this->app->response->headers->set('Content-Type', 'application/json');
         if ($result)
             $this->app->response->setStatus(204);
