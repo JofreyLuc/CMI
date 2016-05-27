@@ -178,6 +178,16 @@ input
     box-shadow: 1px 1px 3px #999;
 }
 
+.importBiblioButton{
+    border-radius:20px 0 20px 0;
+    background : white ;
+    border : none;
+    color : #39A9DC;
+    font :bold 12px Verdana;
+    box-shadow: 1px 1px 3px #999;
+}
+
+
 #note{
     display: inline-block;
     width:30%;

@@ -20,9 +20,9 @@
      			<p>Note : '.$livres->noteMoyenne.'</p></br></br></br></br></br>
      		</div>
      		<div id="boutons">
-     			<input type="button"value="Consulter détails livre" onclick="document.location.href = \'/CMI/projet/src/books/'.$livres->idLivre.'\';"></br></br></br>
+     			<input type="button" class="BoutonTxt" value="Consulter détails livre" onclick="document.location.href = \'/CMI/projet/src/books/'.$livres->idLivre.'\';"></br></br></br>
      			</br></br></br>
-  <input type="button" value="Commencer lecture">
+  <input type="button" class="BoutonTxt" value="Commencer lecture">
      		</div>
 </div>' ;
 
