@@ -201,16 +201,16 @@ class LivreController extends Controller
 			$page = 1;
 			$parPage = 10;
 			$total = ceil($count / $parPage);
-			
+
 			$livres = Livre::all()->take(10);//->forpage($this->app->request()->params('page'), $parPage);
 			// On récupère toutes les langues possibles
 			$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 
 			// On post tout sur la page pour faire la pagination
-			$this->app->view->setData('count', $count);
-			$this->app->view->setData('page', $page);
-			$this->app->view->setData('parPage', $parPage);
-			$this->app->view->setData('total', $total);
+			//$this->app->view->setData('count', $count);
+			//$this->app->view->setData('page', $page);
+			//$this->app->view->setData('parPage', $parPage);
+			//$this->app->view->setData('total', $total);
 			// on post les informations des livres
 			$this->app->view->setData('livres', $livres);
 			$this->app->view->setData('langues', $langues);
@@ -229,10 +229,10 @@ class LivreController extends Controller
 			
 			// On récupère toutes les langues possibles
 			// On post tout sur la page pour faire la pagination
-			$this->app->view->setData('count', $count);
-			$this->app->view->setData('page', $page);
-			$this->app->view->setData('parPage', $parPage);
-			$this->app->view->setData('total', $total);
+			//$this->app->view->setData('count', $count);
+		//	$this->app->view->setData('page', $page);
+			//$this->app->view->setData('parPage', $parPage);
+			//$this->app->view->setData('total', $total);
 			// on envoie le livre et les langues
 			$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 			$this->app->view->setData('livres', $livres);
