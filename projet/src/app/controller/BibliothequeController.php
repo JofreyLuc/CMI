@@ -215,8 +215,10 @@ public function modifLivreBiblioUserIdJson($idUser){
         $date = date('Y-m-d H:i:s');
 
     // recup le tuple qu'on veut modif
-    Bibliotheque::find($a->idBibliotheque)->update(['dateModification' => $a->dateModification, 'positionLecture' => $a->positionLecture]);
-
+    $bibliotheque = Bibliotheque::find($a->idBibliotheque);
+    $bibliotheque->dateModification = $date;
+    $bibliotheque->positionLecture = $a->positionLecture;
+    $bibliotheque->save();
     $this->app->response->headers->set('Content-Type', 'application/json');
     $this->app->response->setStatus(204);
 }
