@@ -200,12 +200,6 @@ class BibliothequeController extends Controller {
         $this->app->response->body($b);
     }
 
-  
-
-
-
-
-
     /**
  * modif une biblio d'un user
  */
@@ -214,14 +208,17 @@ public function modifLivreBiblioUserIdJson($idUser){
     $a = json_decode(file_get_contents('php://input'));
 
     date_default_timezone_set('Europe/Paris');
-    $date = date('Y-m-d H:i:s');
-    // recup le tuple qu'on veut modif
-    if ($a->dateModification == null){
-        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $date, 'positionLecture' => $a->positionLecture]);
-    }else {
-        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $a->dateModification, 'positionLecture' => $a->positionLecture]);
-    }
 
+    if (isset($a->dateModification))
+        $date = $a->dateModification;
+    else
+        $date = date('Y-m-d H:i:s');
+
+    // recup le tuple qu'on veut modif
+    $bibliotheque = Bibliotheque::find($a->idBibliotheque);
+    $bibliotheque->dateModification = $date;
+    $bibliotheque->positionLecture = $a->positionLecture;
+    $bibliotheque->save();
     $this->app->response->headers->set('Content-Type', 'application/json');
     $this->app->response->setStatus(204);
 }
@@ -233,7 +230,7 @@ public function modifLivreBiblioUserIdJson($idUser){
      * @param $idLibrary
      */
     public function deleteLivreBiblioUserIdJson($idUser, $idLibrary) {
-        $result = Bibliotheque::where('idBibliotheque', $idLibrary)->delete();
+        $result = Bibliotheque::destroy($idLibrary);
         $this->app->response->headers->set('Content-Type', 'application/json');
         if ($result)
             $this->app->response->setStatus(204);
