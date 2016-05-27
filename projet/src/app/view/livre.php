@@ -18,11 +18,16 @@
      		<h2>'.$livre->titre.'</h2>
      		<p>'.$livre->auteur.'</p>
      		<p>'.$livre->resume.'</p>
-     		</br>
+            <img src="/CMI/projet/src/conf/img/lang/'.$livre->langue.'.png">
+            </br>
+            </br>
      		</div>
-     		<div id="note">
-     			<p>Note : '.$livre->noteMoyenne.'</p></br></br></br></br></br>
-     		</div>
+            <div id="note">
+                </br>
+                <p>Note : '.$livre->noteMoyenne.'</p>
+                <img src="/CMI/projet/src/conf/img/rating/'.$livre->noteMoyenne.'.png">
+                </br></br></br>
+            </div>
      		<div id="boutons">
      			<input type="button"value="Consulter détails livre" class="BoutonTxt" onclick="document.location.href = \'/CMI/projet/src/books/'.$livre->idLivre.'\';"></br></br></br>
      			<input type="button"value="Ajouter a sa bibliothèque" class ="importBiblioButton" id="'.$livre->idLivre.'" ></br></br></br>
