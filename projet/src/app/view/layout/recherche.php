@@ -132,12 +132,12 @@ script pour cacher / afficher recherche avancée
                 <option disabled selected value>Sélectionner une langue</option>
                 <?php
                     foreach($langues as $langue){
-                        echo "<option>".$langue['langue']."</option>";
+                        echo '<option>'.$langue['langue'].'</option>';
                     }
                 ?>
             </select>
             </br>
-            <input type="text" id="datepicker" name="date" placeholder="Date"> </br>
+            <!--<input type="text" id="datepicker" name="date" placeholder="Date"> </br>-->
         </p>
         <p id="erreurForm" style="visibility : hidden; color: red; text-align: center;">Vous devez renseigner au moins une catégorie</p>
     </form>

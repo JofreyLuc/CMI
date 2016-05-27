@@ -18,7 +18,7 @@
      		<h2>'.$livre->titre.'</h2>
      		<p>'.$livre->auteur.'</p>
      		<p>'.$livre->resume.'</p>
-            <img src="/CMI/projet/src/conf/img/lang/'.$livre->langue.'.png">
+            <img src="/CMI/projet/src/conf/img/drapeaux/'.$livre->langue.'.png" width="50px" height="50px">
             </br>
             </br>
      		</div>
