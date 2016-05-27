@@ -139,12 +139,15 @@ fac.modules.users = (function(){
 				// envoie du resultat
 
 
-				// l'id de l'user est entré en dur
+				// l'id de l'user est entré en dur tant qu'on a pas de connexion
 				fac.modules.app.post('/CMI/projet/src/api/users/1/library/web', biblio, function(data) {
 					//console.log(data);
 				});
-				//$(this).value = "lalalala";
-				$(this).attr('value',returndata);
+
+
+				// modification du style du bouton une fois la requête effectuée
+				$(this).attr('value', 'Ajoute effectué');
+				$(this).attr("disabled", true);
 
 			});
 
