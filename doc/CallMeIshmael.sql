@@ -184,9 +184,12 @@ CREATE TABLE `suivi` (
 CREATE TABLE `utilisateur` (
   `idUtilisateur` int(10) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
+  `password` char(64) DEFAULT NULL,
+  `salt` varchar(255) DEFAULT NULL,
   `facebookId` varchar(255) DEFAULT NULL,
   `googleId` varchar(255) DEFAULT NULL,
+  `token` CHAR(16) DEFAULT NULL,
+  `tokenExpire` TIMESTAMP NULL,
   `pseudo` varchar(255) DEFAULT NULL,
   `nom` varchar(255) DEFAULT NULL,
   `prenom` varchar(255) DEFAULT NULL,

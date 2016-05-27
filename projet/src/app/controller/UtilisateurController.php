@@ -145,7 +145,6 @@ class UtilisateurController extends Controller {
 		$this->app->render('layout/inscription.php');
 	}
 
-
 	/**
 	 * fonction qui est appelée lors de l'envoie de l'inscription
 	 * va effectuer des verifs puis insertion en cas de date OK
@@ -159,7 +158,11 @@ class UtilisateurController extends Controller {
 		$psw = $_POST['psw'];
 
 		// encodage du psw
-		$hach = md5($psw);
+        $SALT_MAX_LENGHT = 8;
+        $intermediateSalt = md5(uniqid(rand(), true));
+        $salt = substr($intermediateSalt, 0, $SALT_MAX_LENGHT);
+        $hash = hash("sha256", $psw . $salt);   // creates 256 bit hash.
+
 		$usr = new Utilisateur();
 
 
@@ -169,19 +172,12 @@ class UtilisateurController extends Controller {
 		echo $prenom."<br>";
 		echo $mail."<br>";
 		echo $psw."<br>";
-		echo $hach."<br>";
-
-		/*//$hach = mb_detect_encoding($psw);
-		echo $hach;
-		//$decode = mcrypt_decrypt($hach);
-		$decode = md5($hach);
-		echo $decode;
-*/
-
+		echo $hash."<br>";
 
 		$usr->email = $mail;
 		$usr->nom = $nom;
-		$usr->password = $hach;
+		$usr->password = $hash;
+        $usr->salt = $salt;
 		$usr->pseudo = $pseudo;
 		$usr->prenom = $prenom;
 
