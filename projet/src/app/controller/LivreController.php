@@ -3,6 +3,8 @@ namespace app\controller;
 use app\model\Livre;
 use app\model\Bibliotheque;
 use app\model\Evaluation;
+use app\model\Utilisateur;
+
 class LivreController extends Controller
 {
 
@@ -323,6 +325,23 @@ class LivreController extends Controller
 		//echo $id;
 		$livre = Livre::where('idLivre', '=', $id)->get();
 		$eval = Evaluation::where('idLivre', '=', $id)->get();
+
+		foreach ($eval as $e){
+			$users = Utilisateur::find($e->idUtilisateur);
+
+			unset($users->email);
+			unset($users->password);
+			unset($users->facebookId);
+			unset($users->googleId);
+			unset($users->nom);
+			unset($users->prenom);
+			unset($users->dateNaissance);
+			unset($users->sexe);
+			unset($users->inscriptionValidee);
+			unset($e->idUtilisateur);
+			$this->app->view->setData('user', $users);
+		}
+
 		
 		$this->app->view->setData('eval', $eval);
 		$this->app->view->setData('livre', $livre);
