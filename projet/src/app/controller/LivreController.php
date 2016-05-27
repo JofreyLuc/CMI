@@ -197,10 +197,11 @@ class LivreController extends Controller
             $this->app->render('layout/header.php', compact('app'));
             $this->app->render('user.php');
             */
-			$count = Livre::all()->count();
-			$page = 1;
-			$parPage = 10;
-			$total = ceil($count / $parPage);
+
+			//$count = Livre::all()->count();
+			//$page = 1;
+			//$parPage = 10;
+			//$total = ceil($count / $parPage);
 
 			$livres = Livre::all()->take(10);//->forpage($this->app->request()->params('page'), $parPage);
 			// On récupère toutes les langues possibles
@@ -218,10 +219,10 @@ class LivreController extends Controller
 			$this->app->render('layout/recherche.php', compact('app'));
 			$this->app->render('livre.php');
 		} else {
-			$count = Livre::all()->count();
-			$page = 1;
-			$parPage = 10;
-			$total = ceil($count / $parPage);
+			//$count = Livre::all()->count();
+			//$page = 1;
+			//$parPage = 10;
+			//$total = ceil($count / $parPage);
 
 			//echo $this->app->request()->params('page')."</br>";
 
