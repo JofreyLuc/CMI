@@ -16,10 +16,14 @@
                 <div id="titreBouquin" > <h2>'.$l->titre.'</h2> </div>
                 <div id="auteur"> <p>'.$l->auteur.'</p> </div>
                 <div id="genre"> <p>'.$l->genre.'</p> </div>
+                <img src="/CMI/projet/src/conf/img/lang/'.$livre->langue.'.png">
                 </br>
             </div>
             <div id="note">
-                <p>Note :'.$l->note.'</p></br></br></br></br></br>
+                </br>
+                <p>Note : '.$livre->noteMoyenne.'</p>
+                <img src="/CMI/projet/src/conf/img/rating/'.$livre->noteMoyenne.'.png">
+                </br></br></br>
             </div>
             <div id="boutons">
                 <input type="button" class="BoutonTxt" value="Consulter détails livre"></br></br></br>
