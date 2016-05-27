@@ -49,10 +49,12 @@ script pour cacher / afficher recherche avancée
         if ( document.getElementById('titre').value.length == 0){
             if ( document.getElementById('auteur').value.length == 0){
                 if ( document.getElementById('genre').value.length == 0){
-                    valid = false;
-                    document.getElementById("titre").focus();
-                    document.getElementById("erreurForm").style.visibility = "visible";
-                    return valid;
+                    if( document.getElementById('langues').options[document.getElementById('langues').selectedIndex ].value.length == 0){
+                        valid = false;
+                        document.getElementById("titre").focus();
+                        document.getElementById("erreurForm").style.visibility = "visible";
+                        return valid;
+                    }               
                 }
             }
         }
@@ -113,6 +115,9 @@ script pour cacher / afficher recherche avancée
 
 
 <link rel="stylesheet" href="conf/css/recherche_form.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <div id="tfheader">
     <form id="tfnewsearch" name ="myform" onsubmit="return valider ();" method="get" action='' >
@@ -123,13 +128,27 @@ script pour cacher / afficher recherche avancée
             <input type="text" id="auteur" name="auteur" placeholder="Auteur"> </br>
          <!--   Titre : <input type="text" id="titre" name="titre"> </br>-->
             <input type="text" id="genre" name="genre" placeholder="Genre" ><br>
-         <!--   Langue : <input type="text" id="langue" name="langue"> </br>
-            date : <input type="text" id="date" name="date"> </br>-->
+            <select id="langues" name="langue">
+                <option disabled selected value>Sélectionner une langue</option>
+                <?php
+                    foreach($langues as $langue){
+                        echo "<option>".$langue['langue']."</option>";
+                    }
+                ?>
+            </select>
+            </br>
+            <input type="text" id="datepicker" name="date" placeholder="Date"> </br>
         </p>
         <p id="erreurForm" style="visibility : hidden; color: red; text-align: center;">Vous devez renseigner au moins une catégorie</p>
     </form>
+    
     <div class="tfclear"></div>
 </div>
 
-
+<!-- script pour datepicker -->
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
 

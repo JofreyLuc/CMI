@@ -187,13 +187,19 @@ class LivreController extends Controller {
 		// sinon on affiche les livrse narmol
 		if($count == 0){
 			$livres = Livre::all()->take(20)->forpage(1,20);
+			// On récupère toutes les langues possibles
+			$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 			$this->app->view->setData('livres', $livres);
+			$this->app->view->setData('langues', $langues);
 			$this->app->render('layout/header.php', compact('app'));
 			$this->app->render('layout/recherche.php', compact('app'));
 			$this->app->render('livre.php');
 		}else {
 			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get();
+			// On récupère toutes les langues possibles
+			$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 			$this->app->view->setData('livres', $livres);
+			$this->app->view->setData('langues', $langues);
 			$this->app->render('layout/header.php', compact('app'));
 			$this->app->render('layout/recherche.php', compact('app'));
 			$this->app->render('livre.php');
@@ -283,6 +289,9 @@ class LivreController extends Controller {
 		//$livre = Livre::where('idLivre', '=', $id);
 		//echo $id;
 		$livre = Livre::where('idLivre', '=', $id)->get();
+		$eval = Evaluation::where('idLivre', '=', $id)->get();
+		
+		$this->app->view->setData('eval', $eval);
 		$this->app->view->setData('livre', $livre);
 		$this->app->render('layout/header.php', compact('app'));
 		$this->app->render('details.php', compact('app'));

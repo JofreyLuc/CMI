@@ -45,3 +45,11 @@
 .tfclear{
     clear:both;
 }
+
+
+select option {
+    background: url(../../conf/img/drapeaux/fr.jpg) rgba(0,0,0,0);
+}
+
+
+
