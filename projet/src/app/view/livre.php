@@ -12,6 +12,7 @@
 			<?php
 			foreach($livres as $livre)
 			{
+
 				echo '<div id="test">
    	<img src="conf/img/Couverture_test.jpg" height="150px" width="100px"/>
      		<div id="description">
@@ -37,5 +38,12 @@
 			}
 			?>
 		</div>
+        <?php
+        if($total != null){
+            for($i = 1; $i <= $total; $i++){
+                echo "<input  onclick=document.location.href='/CMI/projet/src/books?page=".$i."' type='button' value='".$i."'> </>";
+            }
+        }
+        ?>
 	</div>
 </section>
