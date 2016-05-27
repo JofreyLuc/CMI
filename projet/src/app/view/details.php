@@ -46,7 +46,7 @@
             </div>
             <div id="boutons">
             <input type ="button" id="afficher_form_eval"  value="Evaluer ce livre" class="BoutonTxt" /><br><br><br>
-            <input type ="button" id="afficheCommentaires" value="Afficher les commentaires" class="BoutonTxt"/><br><br><br>
+            <input type ="button" id="afficheCommentaires" value="Afficher les évaluations" class="BoutonTxt"/><br><br><br>
                 <input type="button"value="Ajouter a sa bibliothèque" name="importerbiblioButton" class ="importBiblioButton" id="'.$l->idLivre.'" ></br></br></br>
                 <input type="button" class="BoutonTxt"  value="Commencer lecture"  onclick="document.location.href = \'/CMI/projet/src/lecture/'.$l->idLivre.'\';"> </br>
             </div>
@@ -56,7 +56,7 @@
 ';}
         ?>
 
-        <div id="afficherEvals" style="visibility : hidden;">
+        <div id="afficherEvals">
             <?php
             foreach($eval as $e){
                 echo '
