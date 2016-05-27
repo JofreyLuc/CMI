@@ -201,9 +201,8 @@ class LivreController extends Controller
 			$page = 1;
 			$parPage = 10;
 			$total = ceil($count / $parPage);
-
-
-			$livres = Livre::all()->forpage($this->app->request()->params('page'), $parPage);
+			
+			$livres = Livre::all()->take(10);//->forpage($this->app->request()->params('page'), $parPage);
 			// On récupère toutes les langues possibles
 			$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 
@@ -226,7 +225,7 @@ class LivreController extends Controller
 
 			//echo $this->app->request()->params('page')."</br>";
 
-			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->where('langue', 'like', '%' . $this->app->request()->params('langue') . '%')->get()->forpage($this->app->request()->params('page'), $parPage);
+			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->where('langue', 'like', '%' . $this->app->request()->params('langue') . '%')->get();//->forpage($this->app->request()->params('page'), $parPage);
 			
 			// On récupère toutes les langues possibles
 			// On post tout sur la page pour faire la pagination
