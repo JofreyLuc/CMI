@@ -214,13 +214,14 @@ public function modifLivreBiblioUserIdJson($idUser){
     $a = json_decode(file_get_contents('php://input'));
 
     date_default_timezone_set('Europe/Paris');
-    $date = date('Y-m-d H:i:s');
+
+    if (isset($a->dateModification))
+        $date = $a->dateModification;
+    else
+        $date = date('Y-m-d H:i:s');
+
     // recup le tuple qu'on veut modif
-    if ($a->dateModification == null){
-        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $date, 'positionLecture' => $a->positionLecture]);
-    }else {
-        Bibliotheque::where('idBibliotheque', $a->id)->update(['dateModification' => $a->dateModification, 'positionLecture' => $a->positionLecture]);
-    }
+    Bibliotheque::find($a->idBibliotheque)->update(['dateModification' => $a->dateModification, 'positionLecture' => $a->positionLecture]);
 
     $this->app->response->headers->set('Content-Type', 'application/json');
     $this->app->response->setStatus(204);
