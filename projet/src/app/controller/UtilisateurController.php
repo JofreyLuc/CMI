@@ -2,6 +2,7 @@
 namespace app\controller;
 use app\model\Utilisateur;
 use app\model\Livre;
+use DateTime;
 use Illuminate\Contracts\Pagination;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
@@ -9,6 +10,11 @@ use Illuminate\Database\Eloquent\Collection;
 
 class UtilisateurController extends Controller {
 
+    const SALT_LENGHT = 16;
+
+    const TOKEN_LENGHT = 16;
+
+    const TOKEN_DURATION = "1 week";
 
 	/**
 	 * affiche les utilisateurs
@@ -158,9 +164,7 @@ class UtilisateurController extends Controller {
 		$psw = $_POST['psw'];
 
 		// encodage du psw
-        $SALT_MAX_LENGHT = 16;
-        $intermediateSalt = str_replace('+', '.', base64_encode(md5(mt_rand(), true)));
-        $salt = substr($intermediateSalt, 0, $SALT_MAX_LENGHT);
+        $salt = bin2hex(openssl_random_pseudo_bytes(self::SALT_LENGHT));
         $hash = hash("sha256", $psw . $salt);   // creates 256 bit hash.
 
 		$usr = new Utilisateur();
@@ -202,18 +206,21 @@ class UtilisateurController extends Controller {
 		} else {
 			
 			// encodage du psw
-			$SALT_MAX_LENGHT = 16;
-			$intermediateSalt = str_replace('+', '.', base64_encode(md5(mt_rand(), true)));
-			$salt = substr($intermediateSalt, 0, $SALT_MAX_LENGHT);
+            $salt = bin2hex(openssl_random_pseudo_bytes(self::SALT_LENGHT));
 			$hash = hash("sha256", $psw . $salt);   // creates 256 bit hash.
 
-			$user = new Utilisateur();
+            // génération du token
+            $token = self::generateToken();
+
+            $user = new Utilisateur();
 			$user->pseudo = $pseudo;
 			$user->email = $email;
 			$user->salt = $salt;
 			$user->password = $hash;
-			
-			$user->save();
+            $user->token = $token['token'];
+            $user->tokenExpire = $token['expire'];
+
+            $user->save();
 			
 			$userResponse = $user;
 			unset($userResponse->salt);
@@ -246,7 +253,15 @@ class UtilisateurController extends Controller {
 			
 			if ($hash == $user->password) {
 				// Infos de connexion valides
-				unset($user->salt);
+
+                // génération du token
+                $token = self::generateToken();
+                // sauvegarde du token
+                $user->token = $token['token'];
+                $user->tokenExpire = $token['expire'];
+                $user->save();
+
+                unset($user->salt);
 				$user->password = null;
 				$r = json_encode($user);
 				$this->app->response->headers->set('Content-Type', 'application/json');
@@ -257,7 +272,34 @@ class UtilisateurController extends Controller {
 			}
 		}
 	}
-		
+
+    public static function generateToken() {
+        date_default_timezone_set('Europe/Paris');
+        return array(
+            'token' => bin2hex(openssl_random_pseudo_bytes(self::TOKEN_LENGHT)),                                   // random token
+            'expire' => date('Y-m-d H:i:s', strtotime("+".self::TOKEN_DURATION))    // durée
+        );
+    }
+
+    /**
+     * Vérifie que le token correspond bien à
+     *
+     * @param $idUser L'id de l'utilisateur.
+     * @param $token Token à vérifier.
+     * @return bool
+     */
+    public static function validateToken($idUser, $token) {
+        $user = Utilisateur::find($idUser);
+        if (!isset($user) || !isset($user->token) || !isset($user->tokenExpire))
+            return false;
+
+        date_default_timezone_set('Europe/Paris');
+        $now = DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
+        $expire = DateTime::createFromFormat('Y-m-d H:i:s', $user->tokenExpire);
+
+        return $token === $user->token && $expire >= $now;
+    }
+
 	/**
 	 * fonction pour la consultation de son profil
 	 */
