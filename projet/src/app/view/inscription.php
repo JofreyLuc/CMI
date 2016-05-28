@@ -142,7 +142,10 @@ check['email'] = function() {
         }
     });
 
-    if (re.test(email.value) && !response) {
+    if(email.value == ''){
+        tooltipStyle.display = 'none';
+        return false;
+    }else if (re.test(email.value) && !response) {
         email.className = 'correct';
         tooltipStyle.display = 'none';
         return true;
@@ -159,7 +162,10 @@ check['pseudo'] = function() {
     var login = document.getElementById('pseudo'),
         tooltipStyle = getTooltip(login).style;
 
-    if (login.value.length >= 4) {
+    if(login.value == ''){
+        tooltipStyle.display = 'none';
+        return false;
+    }else if (login.value.length >= 4) {
         login.className = 'correct';
         tooltipStyle.display = 'none';
         return true;
@@ -176,7 +182,10 @@ check['pwd1'] = function() {
     var pwd1 = document.getElementById('pwd1'),
         tooltipStyle = getTooltip(pwd1).style;
 
-    if (pwd1.value.length >= 6) {
+    if(pwd1.value == ''){
+        tooltipStyle.display = 'none';
+        return false;
+    }else if (pwd1.value.length >= 6) {
         pwd1.className = 'correct';
         tooltipStyle.display = 'none';
         return true;
@@ -194,7 +203,10 @@ check['pwd2'] = function() {
         pwd2 = document.getElementById('pwd2'),
         tooltipStyle = getTooltip(pwd2).style;
 
-    if (pwd1.value == pwd2.value && pwd2.value != '') {
+    if(pwd2.value == ''){
+        tooltipStyle.display = 'none';
+        return false;
+    }else if (pwd1.value == pwd2.value && pwd2.value != '') {
         pwd2.className = 'correct';
         tooltipStyle.display = 'none';
         return true;
