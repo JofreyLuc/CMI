@@ -149,7 +149,7 @@
                 <div class="form-row">
                     <label class="form-checkbox">
                         <input type="checkbox" name="checkbox" checked>
-                        <span>I agree to the <a href="http://localhost:8888/CMI/projet/src/condition_utilisation">terms and conditions</a></span>
+                        <span>I agree to the <a href="CMI/projet/src/condition_utilisation">terms and conditions</a></span>
                     </label>
                 </div>
 
