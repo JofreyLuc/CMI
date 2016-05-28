@@ -299,6 +299,9 @@ class UtilisateurController extends Controller {
 		$_SESSION["token"] = $token;
 		$_SESSION["email"] = $email;
 		$_SESSION["idUtilisateur"] = $idUtilisateur;
+		if(isset($_SESSION["idUtilisateur"])) {
+			header("Location:/CMI/projet/src/books");
+		}
 	}
 
 

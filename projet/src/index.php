@@ -138,6 +138,9 @@ $router->post('/api/users/signup', "app\Controller\UtilisateurController@inscrip
 // connexion
 $router->post('/api/users/login', "app\Controller\UtilisateurController@connexionJson");
 $router->post('/users/login', "app\Controller\UtilisateurController@connexion");
+$router->post('/users/login/validation', "app\Controller\UtilisateurController@validationConnexion");
+
+
 
 
 
