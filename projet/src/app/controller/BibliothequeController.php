@@ -223,6 +223,31 @@ public function modifLivreBiblioUserIdJson($idUser){
     $this->app->response->setStatus(204);
 }
 
+public function modifLivreBiblioUserIdJsonWeb($idUser){
+    // recuperation des data sur la page
+    //$a = json_decode(file_get_contents('php://input'));
+    idBibliotheque : id,
+        positionLecture : currentPage,
+        dateModification : null
+    $idBibli = $_POST['idBibliotheque'];
+    $posLecture = $_POST['positionLecture'];
+    $dateModif = $_POST['dateModification'];
+    date_default_timezone_set('Europe/Paris');
+
+    if (isset($dateModif))
+        $date = $a->dateModification;
+    else
+        $date = date('Y-m-d H:i:s');
+
+    // recup le tuple qu'on veut modif
+    $bibliotheque = Bibliotheque::find($idBibli);
+    $bibliotheque->dateModification = $date;
+    $bibliotheque->positionLecture = $posLecture;
+    $bibliotheque->save();
+    $this->app->response->headers->set('Content-Type', 'application/json');
+    $this->app->response->setStatus(204);
+}
+
 
     /**
      * supprime une biblio d'un user

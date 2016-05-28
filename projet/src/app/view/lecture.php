@@ -121,7 +121,7 @@ function get(url, callback) {
         dateModification : null
       };
       //le put qui envoi les info au server (put ok mais pas bon format)
-      put('/CMI/projet/src/api/users/1/library/1', progres,function(data,xhr) {
+      put('/CMI/projet/src/api/users/1/library/1/web', progres,function(data,xhr) {
       });
 	}
 
