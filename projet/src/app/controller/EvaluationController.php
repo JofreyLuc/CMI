@@ -39,8 +39,11 @@ class EvaluationController extends Controller {
             // On enlève ce dont on a pas besoin
             unset($users->email);
             unset($users->password);
+            unset($users->salt);
             unset($users->facebookId);
             unset($users->googleId);
+            unset($users->token);
+            unset($users->tokenExpire);
             unset($users->nom);
             unset($users->prenom);
             unset($users->dateNaissance);
