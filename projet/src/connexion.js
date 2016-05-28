@@ -51,7 +51,7 @@ fac.modules.users = (function(){
         init: function() {
 
             // ajout un livre à la biblio
-            $('.formulaireConnexion').submitclick(function() {
+          /*  $('.formulaireConnexion').submit(function() {
                 var login = document.getElementById('login').innerHTML;
                 var mdp = document.getElementById('password').innerHTML;
                 alert (login + mdp);
@@ -65,7 +65,9 @@ fac.modules.users = (function(){
                 $(this).attr('value', 'Ajout effectué');
                 $(this).attr("disabled", true);
 
-            });
+            });*/
+
+
 
 
 
@@ -77,13 +79,40 @@ fac.modules.users = (function(){
 
             // affiche les eval pour le livre dans la div associé quand la page est chargé
             $(document).ready(function(){
-                var id = document.getElementById('idDuLivre').innerHTML;
-               // var a = fac.modules.app.get('/CMI/projet/src/api/books/'+id+'/ratings', function(data) {
-                    //console.log(data);
-                   // $("#zone_de_chargement_de_base").append(JSON.stringify(data));
+
+              /*  $('formulaireConnexion').submit(function(event) {
+
+                    // get the form data
+                    // there are many ways to get this data using jQuery (you can use the class or id also)
+                    var formData = {
+                        'email'             : $('input[name=login]').val(),
+                        'password'          : $('input[name=password]').val()
+                    };
+                    console.log(formData);
+
+                    // process the form
+                  / $.ajax({
+                            type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                            url         : 'process.php', // the url where we want to POST
+                            data        : formData, // our data object
+                            dataType    : 'json', // what type of data do we expect back from the server
+                            encode          : true
+                        })
+                        // using the done promise callback
+                        .done(function(data) {
+
+                            // log data to the console so we can see
+                            console.log(data);
+
+                            // here we will handle errors and validation messages
+                        });
+
+                    // stop the form from submitting the normal way and refreshing the page
+                    event.preventDefault();
+                });*/
 
 
-                //});
+
             });
 
 

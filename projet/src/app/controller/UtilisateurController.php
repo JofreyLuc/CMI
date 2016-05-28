@@ -253,7 +253,7 @@ class UtilisateurController extends Controller {
 	 */
 	public function connexion(){
 		$email = $_POST['email'];
-		$psw = $_POST['pwd1'];
+		$psw = $_POST['password'];
 
 		$userCol = Utilisateur::where('email', '=', $email)->get();
 		if ($userCol->isEmpty()){
@@ -278,6 +278,7 @@ class UtilisateurController extends Controller {
 				unset($user->salt);
 				$user->password = null;
 				$r = json_encode($user);
+				$this->app->response->setStatus(200);
 				$this->app->response->headers->set('Content-Type', 'application/json');
 				$this->app->response->body($r);
 			} else {
@@ -286,6 +287,20 @@ class UtilisateurController extends Controller {
 			}
 		}
 	}
+
+
+	public function validationConnexion(){
+		$token = $_POST['token'];
+		$email = $_POST['email'];
+		$idUtilisateur = $_POST['idUtilisateur'];
+		$tokenExpire = $_POST['tokenExpire'];
+
+		session_start();
+		$_SESSION["token"] = $token;
+		$_SESSION["email"] = $email;
+		$_SESSION["idUtilisateur"] = $idUtilisateur;
+	}
+
 
 
 
@@ -330,6 +345,8 @@ class UtilisateurController extends Controller {
 			}
 		}
 	}
+
+
 
     public static function generateToken() {
         date_default_timezone_set('Europe/Paris');

@@ -6,11 +6,10 @@
 
  <title>Callme Ishmael </title>
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="../connexion.js"></script>
 
 <body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
 <!-- version precedente
@@ -29,15 +28,67 @@
 
 -->
 
+<script type="text/javascript"  >
+  function submit_formulaire_co(){
+
+   // get the form data
+   // there are many ways to get this data using jQuery (you can use the class or id also)
+   var formData = {
+    'email'             : $('input[name=login]').val(),
+    'password'          : $('input[name=password]').val()
+   };
+   //console.log(formData);
+
+   // process the form
+   $.ajax({
+        type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+        url         : '/CMI/projet/src/users/login', // the url where we want to POST
+        data        : formData, // our data object
+        dataType    : 'json', // what type of data do we expect back from the server
+        encode          : true,statusCode: {
+         401: function() {
+          alert('Login ou password incorrect');
+         },
+         200: function() {
+         alert('ok');
+         }
+
+        }
+       })
+       // using the done promise callback
+       .done(function(data) {
+
+        // log data to the console so we can see
+        //console.log(data);
+
+        // here we will handle errors and validation messages
+       });
+
+   // stop the form from submitting the normal way and refreshing the page
+   event.preventDefault();
+
+  }
+ </script>
+
+
+
+
+
+
+
+
+
+
 <header>
  <img src="conf/img/logo2.jpg" class="logoImg"/>
  <div id="titre1"> <h1> Call Me Ishmael</h1>
  </div>
  <div id="banniere">
-  <form method="post" action="" id="formulaireConnexion">
+
+  <form  method="post" id="formulaireConnexion">
    <p> <div id="login"><input type="text" name="login" placeholder="Email" id="login"/> <br/>
-   <input type="password" id="password" placeholder="Password"/> </div> </br>
-   <div id="co"> <input type="submit" class="BoutonTxt"  value="Connexion" id ="boutonConnexion"/>
+   <input type="password" name="password" id="password" placeholder="Password"/> </div> </br>
+   <div id="co"> <input type="submit" class="BoutonTxt"  value="Connexion" id ="boutonConnexion" onclick="submit_formulaire_co();return false;"/>
   <input type="button" class="BoutonTxt"  value="Inscription" onclick="document.location.href = '/CMI/projet/src/inscription';"/> </div></p>
   </form>
 
