@@ -135,6 +135,9 @@ $router->get('/inscription', "app\Controller\Utilisateurcontroller@afficherInscr
 $router->post('/inscription/verification', "app\Controller\Utilisateurcontroller@inscriptionVerification");
 $router->post('/api/users/signup', "app\Controller\UtilisateurController@inscriptionVerificationJson");
 
+// connexion
+$router->post('/api/users/login', "app\Controller\UtilisateurController@connexionJson");
+
 
 // details d'un livre
 $router->get('/books/:id', "app\Controller\LivreController@consulterDetails");
