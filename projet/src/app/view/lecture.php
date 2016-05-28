@@ -20,11 +20,11 @@
 	"use strict";
 
 
-function  put(url, data, callback) {
+function  post(url, data, callback) {
   $.ajax({
           url: url,
           data: data,
-          type: "PUT",
+          type: "POST",
           success: callback,
           async: false,
           statusCode: {
@@ -118,10 +118,10 @@ function get(url, callback) {
       var progres = {
         idBibliotheque : id,
         positionLecture : currentPage,
-        dateModification : null
       };
       //le put qui envoi les info au server (put ok mais pas bon format)
-      put('/CMI/projet/src/api/users/1/library/1/web', progres,function(data,xhr) {
+      post('/CMI/projet/src/api/users/1/library/1/web', progres,function(data,xhr) {
+        console.log(data);
       });
 	}
 

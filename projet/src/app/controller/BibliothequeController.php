@@ -226,18 +226,10 @@ public function modifLivreBiblioUserIdJson($idUser){
 public function modifLivreBiblioUserIdJsonWeb($idUser){
     // recuperation des data sur la page
     //$a = json_decode(file_get_contents('php://input'));
-    idBibliotheque : id,
-        positionLecture : currentPage,
-        dateModification : null
     $idBibli = $_POST['idBibliotheque'];
     $posLecture = $_POST['positionLecture'];
-    $dateModif = $_POST['dateModification'];
     date_default_timezone_set('Europe/Paris');
-
-    if (isset($dateModif))
-        $date = $a->dateModification;
-    else
-        $date = date('Y-m-d H:i:s');
+    $date = date('Y-m-d H:i:s');
 
     // recup le tuple qu'on veut modif
     $bibliotheque = Bibliotheque::find($idBibli);

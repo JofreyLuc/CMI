@@ -63,7 +63,7 @@ $router->post('/api/users/:idUser/library/web', "app\Controller\BibliothequeCont
 
 // put surt library
 $router->put('/api/users/:idUser/library/:idLibrary', "app\Controller\BibliothequeController@modifLivreBiblioUserIdJson");
-$router->put('/api/users/:idUser/library/:idLibrary/web', "app\Controller\BibliothequeController@modifLivreBiblioUserIdJsonWeb");
+$router->post('/api/users/:idUser/library/:idLibrary/web', "app\Controller\BibliothequeController@modifLivreBiblioUserIdJsonWeb");
 // delete surt library
 $router->delete('/api/users/:idUser/library/:idLibrary', "app\Controller\BibliothequeController@deleteLivreBiblioUserIdJson");
 
