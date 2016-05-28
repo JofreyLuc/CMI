@@ -31,7 +31,7 @@ class UtilisateurController extends Controller {
 
 
 		$this->app->view->setData('users', $users);
-		$this->app->render('layout/header.php', compact('app'));
+		$this->app->render('header.php', compact('app'));
 		$this->app->render('user.php');
 	}
 
@@ -140,9 +140,9 @@ class UtilisateurController extends Controller {
 	public function afficherInscription(){
 
 
-		$this->app->render('layout/header.php', compact('app'));
+		$this->app->render('header.php', compact('app'));
 
-		$this->app->render('layout/inscription.php');
+		$this->app->render('inscription.php');
 	}
 
 	/**
@@ -184,7 +184,7 @@ class UtilisateurController extends Controller {
 		$usr->save();
 
 		//$this->app->render('layout/header.php', compact('app'));
-		$this->app->render('layout/inscription_validation.php', compact('app'));
+		$this->app->render('inscription_validation.php', compact('app'));
 	}
 
 	/**

@@ -9,7 +9,7 @@ class BibliothequeController extends Controller {
 
     // fonction qui affiche tous les livres presents dans notre biblio perso
     public function afficherBibliotheque() {
-        $this->app->render('layout/header.php', compact('app'));
+        $this->app->render('header.php', compact('app'));
 
 
         // on récupère tous les livres de la biblio -----> c'est des ID
@@ -69,7 +69,7 @@ class BibliothequeController extends Controller {
      * affiche la biblio d'un user
      */
     public function afficherBiblioUserId($idUser){
-        $this->app->render('layout/header.php', compact('app'));
+        $this->app->render('header.php', compact('app'));
         // partie du code qui n'esdt pas a répété pour l'html
         echo '	
 	            <section>

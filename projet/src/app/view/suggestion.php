@@ -23,7 +23,7 @@
 <section>
 <div id="menu">
 <div id="bibli"> <input type="button" value="Consulter sa bibliothèque"
- onclick="document.location.href='../consulter_bibli.php';"/></div>
+ onclick="document.location.href='consulter_bibli.php';"/></div>
 <div id="rechercher"> <input type="button"  value="Rechercher" 
 onclick="document.location.href='rechercher.php';"/> </div>
 <div id="liste"> <input type="button" value="Liste de suivi"
@@ -31,7 +31,7 @@ onclick="document.location.href='liste_suivi.php';"/> </div>
 <div id="suggestion"> <input type="button" value="Suggestion"
 onclick="document.location.href='suggestion.php';"/> </div>
 <div id="top"> <input type="button" value="Top 10"
-onclick="document.location.href='accueil.php';"/> </div>
+onclick="document.location.href='../../../../accueil.php';"/> </div>
  </div>
 </section>
 
