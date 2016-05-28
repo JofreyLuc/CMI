@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43ad07f4-9c29-4a66-895e-b8a7ec949a1a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" afterPath="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/view/recherche.php" afterPath="$PROJECT_DIR$/projet/src/app/view/recherche.php" />
     </list>
     <ignored path="CMI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,17 +97,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LivreController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LivreController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="518">
-              <caret line="270" column="257" selection-start-line="270" selection-start-column="257" selection-end-line="270" selection-end-column="257" />
+              <caret line="270" column="267" selection-start-line="270" selection-start-column="267" selection-end-line="270" selection-end-column="267" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recherche.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="recherche.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/app/view/recherche.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="413">
@@ -196,8 +196,8 @@
         <option value="$PROJECT_DIR$/projet/src/evaluation.js" />
         <option value="$PROJECT_DIR$/projet/src/app/view/inscription.php" />
         <option value="$PROJECT_DIR$/projet/src/index.php" />
-        <option value="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
         <option value="$PROJECT_DIR$/projet/src/app/view/recherche.php" />
+        <option value="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
       </list>
     </option>
   </component>
@@ -515,12 +515,12 @@
       <workItem from="1464242647947" duration="30986000" />
       <workItem from="1464359246628" duration="4574000" />
       <workItem from="1464383526822" duration="6608000" />
-      <workItem from="1464434601193" duration="4803000" />
+      <workItem from="1464434601193" duration="5131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191245000" />
+    <option name="totallyTimeSpent" value="191573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
@@ -894,18 +894,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="270" column="257" selection-start-line="270" selection-start-column="257" selection-end-line="270" selection-end-column="257" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/app/view/recherche.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
           <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="270" column="267" selection-start-line="270" selection-start-column="267" selection-end-line="270" selection-end-column="267" />
           <folding />
         </state>
       </provider>
