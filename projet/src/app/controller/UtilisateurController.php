@@ -247,7 +247,7 @@ class UtilisateurController extends Controller {
 			if ($hash == $user->password) {
 				// Infos de connexion valides
 				unset($user->salt);
-				unset($user->password);
+				$user->password = null;
 				$r = json_encode($user);
 				$this->app->response->headers->set('Content-Type', 'application/json');
 				$this->app->response->body($r);
