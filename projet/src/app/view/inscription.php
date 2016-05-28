@@ -229,7 +229,6 @@ check['pwd2'] = function() {
         }
 
         if (result) {
-            alert('Le formulaire est bien rempli.');
             myForm.submit();
         }
 
