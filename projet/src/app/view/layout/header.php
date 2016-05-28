@@ -3,8 +3,7 @@
 <head>
  <meta charset="utf-8" />
  <link rel="stylesheet" href="conf/css/file4.css" />
- <link href="conf/css/bootstrap.css" rel='stylesheet' type='text/css' />
- <link href="conf/css/style.css" rel='stylesheet' type='text/css' />
+
  <title>Callme Ishmael </title>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

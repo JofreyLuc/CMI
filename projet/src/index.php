@@ -131,7 +131,7 @@ $router->get('/inscription', "app\Controller\Utilisateurcontroller@afficherInscr
 
 // recuperation des data entrées dans inscription et verifications tout ça tout ça
 $router->post('/inscription/verification', "app\Controller\Utilisateurcontroller@inscriptionVerification");
-
+$router->post('/api/users/signup', "app\Controller\UtilisateurController@inscriptionVerificationJson");
 
 
 // details d'un livre

@@ -158,8 +158,8 @@ class UtilisateurController extends Controller {
 		$psw = $_POST['psw'];
 
 		// encodage du psw
-        $SALT_MAX_LENGHT = 8;
-        $intermediateSalt = md5(uniqid(rand(), true));
+        $SALT_MAX_LENGHT = 16;
+        $intermediateSalt = str_replace('+', '.', base64_encode(md5(mt_rand(), true)));
         $salt = substr($intermediateSalt, 0, $SALT_MAX_LENGHT);
         $hash = hash("sha256", $psw . $salt);   // creates 256 bit hash.
 
@@ -187,6 +187,43 @@ class UtilisateurController extends Controller {
 		$this->app->render('layout/inscription_validation.php', compact('app'));
 	}
 
+	/**
+	 * Inscription en Json
+	 */
+	public function inscriptionVerificationJson(){
+		$a = json_decode(file_get_contents('php://input'));
+		$pseudo = $a->pseudo;
+		$email = $a->email;
+		$psw = $a->password;
+		
+		// Si conflit d'email -> 409
+		if (Utilisateur::where('email', '=', $email)->exists()){
+			$this->app->response->setStatus(409);
+		} else {
+			
+			// encodage du psw
+			$SALT_MAX_LENGHT = 16;
+			$intermediateSalt = str_replace('+', '.', base64_encode(md5(mt_rand(), true)));
+			$salt = substr($intermediateSalt, 0, $SALT_MAX_LENGHT);
+			$hash = hash("sha256", $psw . $salt);   // creates 256 bit hash.
+
+			$user = new Utilisateur();
+			$user->pseudo = $pseudo;
+			$user->email = $email;
+			$user->salt = $salt;
+			$user->password = $hash;
+			
+			$user->save();
+			
+			$userResponse = $user;
+			unset($userResponse->salt);
+			$r = json_encode($userResponse);
+			
+			$this->app->response->headers->set('Content-Type', 'application/json');
+			$this->app->response->body($r);
+			$this->app->response->setStatus(201);
+		}
+	}
 
 	/**
 	 * fonction pour la consultation de son profil

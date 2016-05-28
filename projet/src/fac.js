@@ -178,39 +178,41 @@ fac.modules.users = (function(){
 				};
 
 
-				fac.modules.app.post('/CMI/projet/src/api/users/1/books/'+id+'/ratings/web', evaluation, function(data,xhr) {
+				fac.modules.app.post('/CMI/projet/src/api/users/1666666/books/'+id+'/ratings/web', evaluation, function(data,xhr) {
 					//console.log(data);
 					//  /api/users/:idUser/books/:idBook/ratings
 					
 				});
+				// une fois l'envoie du commentaire fait, on peut cacher la partie formulaire
 				$(this).attr('value', 'Ajout effectué');
 				$(this).attr("disabled", true);
+				$("#comment_form").empty().hide();
 
-			});
-
-
-
-
-			// affichage des commentaires
-			$('#afficheCommentaires').click( function() {
-				var id = document.getElementById('idDuLivre').innerHTML;
-
+				// affiche les eval quand on en ajoute une autre
 				var a = fac.modules.app.get('/CMI/projet/src/api/books/'+id+'/ratings', function(data) {
 					console.log(data);
-
+					$("#zone_de_chargement_de_base").hide();
+					$("#zone_de_chargement_de_base").innerHTML = "";
+					//on affecte les resultats au div
+					$("#zone_de_rechargement").append(JSON.stringify(data));
+					//on affiche les resultats avec la transition
+					$('#zone_de_rechargement').fadeIn(2000);
 				});
-				///api/books/:id/ratings
-				document.getElementById('test1').innerText(a);
+
 			});
 
 
 
+			// affiche les eval pour le livre dans la div associé quand la page est chargé
+			$(document).ready(function(){
+				var id = document.getElementById('idDuLivre').innerHTML;
+				var a = fac.modules.app.get('/CMI/projet/src/api/books/'+id+'/ratings', function(data) {
+					//console.log(data);
+					$("#zone_de_chargement_de_base").append(JSON.stringify(data));
 
 
-
-
-
-
+				});
+			});
 
 
 		}
