@@ -217,6 +217,7 @@ class UtilisateurController extends Controller {
 			
 			$userResponse = $user;
 			unset($userResponse->salt);
+			unset($userResponse->password);
 			$r = json_encode($userResponse);
 			
 			$this->app->response->headers->set('Content-Type', 'application/json');
@@ -224,7 +225,39 @@ class UtilisateurController extends Controller {
 			$this->app->response->setStatus(201);
 		}
 	}
-
+	
+	/**
+	 * Connexion Json
+	 */
+	public function connexionJson(){
+		$a = json_decode(file_get_contents('php://input'));
+		$email = $a->email;
+		$psw = $a->password;
+	
+		$userCol = Utilisateur::where('email', '=', $email)->get();
+		if ($userCol->isEmpty()){
+			// Utilisateur inconnu
+			$this->app->response->setStatus(401);
+		} else {
+			$user = $userCol->first();
+			
+			// encodage du psw
+			$hash = hash("sha256", $psw . $user->salt);   // creates 256 bit hash.
+			
+			if ($hash == $user->password) {
+				// Infos de connexion valides
+				unset($user->salt);
+				unset($user->password);
+				$r = json_encode($user);
+				$this->app->response->headers->set('Content-Type', 'application/json');
+				$this->app->response->body($r);
+			} else {
+				// Mauvais password
+				$this->app->response->setStatus(401);
+			}
+		}
+	}
+		
 	/**
 	 * fonction pour la consultation de son profil
 	 */
