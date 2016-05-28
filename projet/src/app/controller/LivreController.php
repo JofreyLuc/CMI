@@ -257,22 +257,36 @@ class LivreController extends Controller
 		$count = count($tab);
 
 		if ($count == 0) {
-			$livres = Livre::all()->take(10);
-			$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
+			$countPage = Livre::all()->count();
+			$page = 1;
+			$parPage = 10;
+			$total = ceil($countPage / $parPage);
+
+			$livres = Livre::all()->forpage($this->app->request()->params('page'), $parPage);
+			//$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 
 			$this->app->view->setData('livres', $livres);
-			$this->app->view->setData('langues', $langues);
+			//$this->app->view->setData('langues', $langues);
+			$this->app->view->setData('total', $total);
+
 
 			$this->app->render('header.php', compact('app'));
 			$this->app->render('recherche.php', compact('app'));
 			$this->app->render('livre.php');
 		}else{
-			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->where('langue', 'like', '%' . $this->app->request()->params('langue') . '%')->get();//->forpage($this->app->request()->params('page'), $parPage);
+			$countPage = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get()->count();
 
-			$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
+			$page = 1;
+			$parPage = 10;
+			$total = ceil($countPage / $parPage);
+			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get()->forpage($this->app->request()->params('page'), $parPage);//->where('langue', 'like', '%' . $this->app->request()->params('langue') . '%')->get();//->forpage($this->app->request()->params('page'), $parPage);
+
+		//	$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 
 			$this->app->view->setData('livres', $livres);
-			$this->app->view->setData('langues', $langues);
+			//$this->app->view->setData('langues', $langues);
+			$this->app->view->setData('total', $total);
+
 
 			$this->app->render('header.php', compact('app'));
 			$this->app->render('recherche.php', compact('app'));

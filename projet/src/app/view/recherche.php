@@ -128,14 +128,8 @@ script pour cacher / afficher recherche avancée
             <input type="text" id="auteur" name="auteur" placeholder="Auteur"> </br>
          <!--   Titre : <input type="text" id="titre" name="titre"> </br>-->
             <input type="text" id="genre" name="genre" placeholder="Genre" ><br>
-            <select id="langues" name="langue">
-                <option disabled selected value>Sélectionner une langue</option>
-                <?php
-                    foreach($langues as $langue){
-                        echo '<option>'.$langue['langue'].'</option>';
-                    }
-                ?>
-            </select>
+
+         
             </br>
             <!--<input type="text" id="datepicker" name="date" placeholder="Date"> </br>-->
         </p>

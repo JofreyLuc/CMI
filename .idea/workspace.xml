@@ -7,6 +7,9 @@
     <list default="true" id="43ad07f4-9c29-4a66-895e-b8a7ec949a1a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" afterPath="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/view/header.php" afterPath="$PROJECT_DIR$/projet/src/app/view/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/view/livre.php" afterPath="$PROJECT_DIR$/projet/src/app/view/livre.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projet/src/app/view/recherche.php" afterPath="$PROJECT_DIR$/projet/src/app/view/recherche.php" />
     </list>
     <ignored path="CMI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,14 +31,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="evaluation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projet/src/app/view/evaluation.php">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projet/src/app/view/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1463135228000" expanded="true" signature="661:854" placeholder="..." />
-              </folding>
+            <state relative-caret-position="525">
+              <caret line="51" column="88" selection-start-line="51" selection-start-column="88" selection-end-line="51" selection-end-column="88" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LivreController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LivreController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="269" column="257" selection-start-line="269" selection-start-column="257" selection-end-line="269" selection-end-column="257" />
+            <state relative-caret-position="451">
+              <caret line="281" column="323" selection-start-line="281" selection-start-column="323" selection-end-line="281" selection-end-column="323" />
               <folding />
             </state>
           </provider>
@@ -110,9 +111,26 @@
       <file leaf-file-name="recherche.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/app/view/recherche.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="473">
+              <caret line="131" column="9" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#p#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="livre.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projet/src/app/view/livre.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+              <folding>
+                <marker date="1464450741000" expanded="true" signature="215:1330" placeholder="..." />
+                <marker date="1464450741000" expanded="true" signature="320:578" placeholder="..." />
+                <marker date="1464450741000" expanded="true" signature="606:821" placeholder="..." />
+                <marker date="1464450741000" expanded="true" signature="847:1323" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -178,7 +196,6 @@
         <option value="$PROJECT_DIR$/projet/src/conf/css/evaluation.css" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/EvaluationController.php" />
         <option value="$PROJECT_DIR$/projet/src/app/view/layout/recherche.php" />
-        <option value="$PROJECT_DIR$/projet/src/app/view/livre.php" />
         <option value="$PROJECT_DIR$/projet/src/quarantie/css/style.css" />
         <option value="$PROJECT_DIR$/projet/src/quarantie/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/projet/src/quarantie/index.html" />
@@ -189,15 +206,16 @@
         <option value="$PROJECT_DIR$/projet/src/app/view/layout/header.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/BibliothequeController.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/projet/src/app/view/header.php" />
         <option value="$PROJECT_DIR$/projet/src/fac.js" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php" />
         <option value="$PROJECT_DIR$/projet/src/app/view/details.php" />
         <option value="$PROJECT_DIR$/projet/src/evaluation.js" />
         <option value="$PROJECT_DIR$/projet/src/app/view/inscription.php" />
         <option value="$PROJECT_DIR$/projet/src/index.php" />
-        <option value="$PROJECT_DIR$/projet/src/app/view/recherche.php" />
+        <option value="$PROJECT_DIR$/projet/src/app/view/livre.php" />
         <option value="$PROJECT_DIR$/projet/src/app/controller/LivreController.php" />
+        <option value="$PROJECT_DIR$/projet/src/app/view/recherche.php" />
+        <option value="$PROJECT_DIR$/projet/src/app/view/header.php" />
       </list>
     </option>
   </component>
@@ -515,12 +533,12 @@
       <workItem from="1464242647947" duration="30986000" />
       <workItem from="1464359246628" duration="4574000" />
       <workItem from="1464383526822" duration="6608000" />
-      <workItem from="1464434601193" duration="5962000" />
+      <workItem from="1464434601193" duration="7380000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192404000" />
+    <option name="totallyTimeSpent" value="193822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
@@ -687,20 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/view/livre.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding>
-            <element signature="e#1374#1602#0#PHP" expanded="false" />
-            <marker date="1464367074000" expanded="true" signature="215:1330" placeholder="..." />
-            <marker date="1464367074000" expanded="true" signature="320:578" placeholder="..." />
-            <marker date="1464367074000" expanded="true" signature="606:821" placeholder="..." />
-            <marker date="1464367074000" expanded="true" signature="847:1323" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/quarantie/css/bootstrap1.css" />
     <entry file="file://$PROJECT_DIR$/projet/src/conf/css/menu.css" />
     <entry file="file://$PROJECT_DIR$/projet/src/conf/css/bootstrapMenu.css" />
@@ -766,14 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="564">
           <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/view/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -894,18 +890,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/view/recherche.php">
+    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
+        <state relative-caret-position="451">
+          <caret line="281" column="323" selection-start-line="281" selection-start-column="323" selection-end-line="281" selection-end-column="323" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
+    <entry file="file://$PROJECT_DIR$/projet/src/app/view/livre.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="269" column="257" selection-start-line="269" selection-start-column="257" selection-end-line="269" selection-end-column="257" />
+        <state relative-caret-position="368">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+          <folding>
+            <marker date="1464450741000" expanded="true" signature="215:1330" placeholder="..." />
+            <marker date="1464450741000" expanded="true" signature="320:578" placeholder="..." />
+            <marker date="1464450741000" expanded="true" signature="606:821" placeholder="..." />
+            <marker date="1464450741000" expanded="true" signature="847:1323" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/app/view/recherche.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="131" column="9" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#p#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/app/view/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="51" column="88" selection-start-line="51" selection-start-column="88" selection-end-line="51" selection-end-column="88" />
           <folding />
         </state>
       </provider>
