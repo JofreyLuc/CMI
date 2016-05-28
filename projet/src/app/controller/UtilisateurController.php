@@ -16,6 +16,7 @@ class UtilisateurController extends Controller {
 
     const TOKEN_DURATION = "1 week";
 
+
 	/**
 	 * affiche les utilisateurs
 	 * pagination mise en place ici
@@ -138,7 +139,18 @@ class UtilisateurController extends Controller {
 
 
 
-
+	public function verifEmailAjax(){
+		$email = $_POST['email'];
+		if(Utilisateur::where('email', '=', $email)->exists()){
+			$a = json_encode(true);
+			$this->app->response->headers->set('Content-Type', 'application/json');
+			$this->app->response->body($a);
+		}else{
+			$a = json_encode(false);
+			$this->app->response->headers->set('Content-Type', 'application/json');
+			$this->app->response->body($a);
+		}
+	}
 
 	/**
 	 * fonction qui affiche le formulaire d'inscription
@@ -159,9 +171,8 @@ class UtilisateurController extends Controller {
 		$pseudo = $_POST['pseudo'];
 		$nom = $_POST['nom'];
 		$prenom = $_POST['prenom'];
-		$age = $_POST['age'];
 		$mail = $_POST['email'];
-		$psw = $_POST['psw'];
+		$psw = $_POST['pwd1'];
 
 		// encodage du psw
         $salt = bin2hex(openssl_random_pseudo_bytes(self::SALT_LENGHT));
@@ -170,13 +181,13 @@ class UtilisateurController extends Controller {
 		$usr = new Utilisateur();
 
 
-		echo $age."<br>";
+		/*echo $age."<br>";
 		echo $pseudo."<br>";
 		echo $nom."<br>";
 		echo $prenom."<br>";
 		echo $mail."<br>";
 		echo $psw."<br>";
-		echo $hash."<br>";
+		echo $hash."<br>";*/
 
 		$usr->email = $mail;
 		$usr->nom = $nom;
@@ -232,7 +243,54 @@ class UtilisateurController extends Controller {
 			$this->app->response->setStatus(201);
 		}
 	}
-	
+
+
+
+	/**
+	 * connexion web
+	 * 
+	 *  une fct ajax du header vient poster ces infos 
+	 */
+	public function connexion(){
+		$email = $_POST['email'];
+		$psw = $_POST['pwd1'];
+
+		$userCol = Utilisateur::where('email', '=', $email)->get();
+		if ($userCol->isEmpty()){
+			// Utilisateur inconnu
+			$this->app->response->setStatus(401);
+		} else {
+			$user = $userCol->first();
+
+			// encodage du psw
+			$hash = hash("sha256", $psw . $user->salt);   // creates 256 bit hash.
+
+			if ($hash == $user->password) {
+				// Infos de connexion valides
+
+				// génération du token
+				$token = self::generateToken();
+				// sauvegarde du token
+				$user->token = $token['token'];
+				$user->tokenExpire = $token['expire'];
+				$user->save();
+
+				unset($user->salt);
+				$user->password = null;
+				$r = json_encode($user);
+				$this->app->response->headers->set('Content-Type', 'application/json');
+				$this->app->response->body($r);
+			} else {
+				// Mauvais password
+				$this->app->response->setStatus(401);
+			}
+		}
+	}
+
+
+
+
+
 	/**
 	 * Connexion Json
 	 */

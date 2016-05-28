@@ -137,6 +137,8 @@ $router->post('/api/users/signup', "app\Controller\UtilisateurController@inscrip
 
 // connexion
 $router->post('/api/users/login', "app\Controller\UtilisateurController@connexionJson");
+$router->post('/users/login', "app\Controller\UtilisateurController@connexion");
+
 
 
 // details d'un livre
@@ -146,6 +148,11 @@ $router->get('/api/books/:id', "app\Controller\LivreController@consulterDetailsJ
 
 // lecture d'un livre
 $router->get('/lecture/:id', "app\Controller\LivreController@lectureLivre");
+
+
+// verification email
+$router->post('/api/verifEmail', "app\Controller\UtilisateurController@verifEmailAjax");
+
 
 
 // test
