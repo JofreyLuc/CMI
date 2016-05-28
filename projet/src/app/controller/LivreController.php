@@ -257,35 +257,35 @@ class LivreController extends Controller
 		$count = count($tab);
 
 		if ($count == 0) {
-			$countPage = Livre::all()->count();
-			$page = 1;
-			$parPage = 10;
-			$total = ceil($countPage / $parPage);
+		//	$countPage = Livre::all()->count();
+		//	$page = 1;
+		//	$parPage = 10;
+			//$total = ceil($countPage / $parPage);
 
-			$livres = Livre::all()->forpage($this->app->request()->params('page'), $parPage);
+			$livres = Livre::all()->take(15);//forpage($this->app->request()->params('page'), $parPage);
 			//$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 
 			$this->app->view->setData('livres', $livres);
 			//$this->app->view->setData('langues', $langues);
-			$this->app->view->setData('total', $total);
+			//$this->app->view->setData('total', $total);
 
 
 			$this->app->render('header.php', compact('app'));
 			$this->app->render('recherche.php', compact('app'));
 			$this->app->render('livre.php');
 		}else{
-			$countPage = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get()->count();
+			//$countPage = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get()->count();
 
-			$page = 1;
-			$parPage = 10;
-			$total = ceil($countPage / $parPage);
-			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get()->forpage($this->app->request()->params('page'), $parPage);//->where('langue', 'like', '%' . $this->app->request()->params('langue') . '%')->get();//->forpage($this->app->request()->params('page'), $parPage);
+			//$page = 1;
+		//	$parPage = 10;
+		//	$total = ceil($countPage / $parPage);
+			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get();//->forpage($this->app->request()->params('page'), $parPage);//->where('langue', 'like', '%' . $this->app->request()->params('langue') . '%')->get();//->forpage($this->app->request()->params('page'), $parPage);
 
 		//	$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 
 			$this->app->view->setData('livres', $livres);
 			//$this->app->view->setData('langues', $langues);
-			$this->app->view->setData('total', $total);
+			//$this->app->view->setData('total', $total);
 
 
 			$this->app->render('header.php', compact('app'));
