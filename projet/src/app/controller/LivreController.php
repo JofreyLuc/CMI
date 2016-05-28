@@ -229,7 +229,7 @@ class LivreController extends Controller
 			//echo $this->app->request()->params('page')."</br>";
 
 			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->where('langue', 'like', '%' . $this->app->request()->params('langue') . '%')->get();//->forpage($this->app->request()->params('page'), $parPage);
-			
+
 			// On récupère toutes les langues possibles
 			// On post tout sur la page pour faire la pagination
 			//$this->app->view->setData('count', $count);
@@ -258,14 +258,22 @@ class LivreController extends Controller
 
 		if ($count == 0) {
 			$livres = Livre::all()->take(10);
+			$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
+
 			$this->app->view->setData('livres', $livres);
+			$this->app->view->setData('langues', $langues);
+
 			$this->app->render('header.php', compact('app'));
 			$this->app->render('recherche.php', compact('app'));
 			$this->app->render('livre.php');
 		}else{
 
-			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get();//->where('langue', 'like', '%' . $this->app->request()->params('langue') . '%')->get();//->forpage($this->app->request()->params('page'), $parPage);
+			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->where('langue', 'like', '%' . $this->app->request()->params('langue') . '%')->get();//->forpage($this->app->request()->params('page'), $parPage);
+			$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
+
 			$this->app->view->setData('livres', $livres);
+			$this->app->view->setData('langues', $langues);
+
 			$this->app->render('header.php', compact('app'));
 			$this->app->render('recherche.php', compact('app'));
 			$this->app->render('livre.php');
