@@ -131,9 +131,9 @@ script pour cacher / afficher recherche avancée
             <select id="langues" name="langue">
                 <option disabled selected value>Sélectionner une langue</option>
                 <?php
-                  /*  foreach($langues as $langue){
+                    foreach($langues as $langue){
                         echo '<option>'.$langue['langue'].'</option>';
-                    }*/
+                    }
                 ?>
             </select>
             </br>
