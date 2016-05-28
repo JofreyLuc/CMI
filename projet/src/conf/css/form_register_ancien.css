@@ -107,7 +107,7 @@ html{
     color: #7b9d62;
     background-color: #d6f0c3;
 }
-
+/*
 .form-register-with-email:after{
     content: 'OR';
     position: absolute;
@@ -185,7 +185,7 @@ html{
     margin: 8px auto;
     text-decoration: none;
 }
-
+*/
 /*	Making the form responsive. Remove these media queries
     if you don't need the form to work on mobile devices. */
 

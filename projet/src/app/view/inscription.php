@@ -4,45 +4,58 @@
 
 
 
-    <form id="myForm" method="post" action="http://localhost:8888/CMI/projet/src/inscription/verification">
+    <form class="form-register" id="myForm" method="post" action="http://localhost:8888/CMI/projet/src/inscription/verification">
 
-        <label class="form_col" for="lastName">Nom :</label>
-        <input name="nom" id="lastName" type="text" />
-        <br /><br />
+        <div class="form-register-with-email">
 
-        <label class="form_col" for="firstName">Prénom :</label>
-        <input name="prenom" id="firstName" type="text" />
-        <br /><br />
+            <div class="form-white-background">
 
-        <label class="form_col" for="email">E-mail :</label>
-        <input name="email" id="email" type="text" />
-        <span class="tooltip">L'adresse e-mail est incorrect</span>
-        <br /><br />
+                <div class="form-title-row">
+                    <h1>Création de compte</h1>
+                </div>
 
-        <label class="form_col" for="pseudo">Login :</label>
-        <input name="pseudo" id="pseudo" type="text" />
-        <span class="tooltip">Le login ne peut pas faire moins de 4 caractères</span>
-        <br /><br />
+                <label class="form_col" for="lastName">Nom :</label>
+                <input name="nom" id="lastName" type="text" />
+                <br /><br />
 
-        <label class="form_col" for="pwd1">Mot de passe :</label>
-        <input name="pwd1" id="pwd1" type="password" />
-        <span class="tooltip">Le mot de passe ne doit pas faire moins de 6 caractères</span>
+                <label class="form_col" for="firstName">Prénom :</label>
+                <input name="prenom" id="firstName" type="text" />
+                <br /><br />
 
-        <br /><br />
+                <label class="form_col" for="email">E-mail :</label>
+                <input name="email" id="email" type="text" />
+                <span class="tooltip">L'adresse e-mail est incorrect ou est déjà utilisé</span>
+                <br /><br />
 
-        <label class="form_col" for="pwd2">Mot de passe (confirmation) :</label>
-        <input name="pwd2" id="pwd2" type="password" />
-        <span class="tooltip">Le mot de passe de confirmation doit être identique à celui d'origine</span>
-        <br /><br />
+                <label class="form_col" for="pseudo">Login :</label>
+                <input name="pseudo" id="pseudo" type="text" />
+                <span class="tooltip">Le login ne peut pas faire moins de 4 caractères</span>
+                <br /><br />
 
-        <span class="form_col" for="conditions"></span>
-        <label><input name="conditions" id="conditions" type="checkbox" /> J'accepte les <a href="http://localhost:8888/CMI/projet/src/condition_utilisation">conditions générales d'utilisation</a></label>
-        <span class="tooltip">Vous devez accepter les conditions générales</span>
-        <br /><br />
+                <label class="form_col" for="pwd1">Mot de passe :</label>
+                <input name="pwd1" id="pwd1" type="password" />
+                <span class="tooltip">Le mot de passe ne doit pas faire moins de 6 caractères</span>
 
-        <span class="form_col"></span>
-        <input type="submit" value="M'inscrire" /> <input type="reset" value="Réinitialiser le formulaire" />
+                <br /><br />
 
+                <label class="form_col" for="pwd2">Mot de passe (confirmation) :</label>
+                <input name="pwd2" id="pwd2" type="password" />
+                <span class="tooltip">Le mot de passe de confirmation doit être identique à celui d'origine</span>
+                <br /><br />
+
+                <span class="form_col" for="conditions"></span>
+                <label class="form-checkbox">
+                    <input class="form-checkbox" name="conditions" id="conditions" type="checkbox"/>
+                    <span>J'accepte les <a href="http://localhost:8888/CMI/projet/src/condition_utilisation">conditions générales d'utilisation</a></span>
+                </label>
+                <span class="tooltip">Vous devez accepter les conditions générales</span>
+                <br /><br />
+
+                <div class="valider-reset">
+                    <input type="submit" value="Inscription" /> <input type="reset" value="Réinitialiser le formulaire" />
+                </div>
+            </div>
+        </div>
     </form>
 
 
@@ -113,7 +126,23 @@ check['email'] = function() {
     
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (re.test(email.value)) {
+    var mail = {
+        email: email.value
+    };
+
+    var response;
+    $.ajax({
+        url: '/CMI/projet/src/api/verifEmail',
+        data: mail,
+        type: 
+        "POST",
+        async: false,
+        success: function(data){
+            response = data;
+        }
+    });
+
+    if (re.test(email.value) && !response) {
         email.className = 'correct';
         tooltipStyle.display = 'none';
         return true;
