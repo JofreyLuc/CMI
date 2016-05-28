@@ -158,8 +158,8 @@ class UtilisateurController extends Controller {
 		$psw = $_POST['psw'];
 
 		// encodage du psw
-        $SALT_MAX_LENGHT = 8;
-        $intermediateSalt = md5(uniqid(rand(), true));
+        $SALT_MAX_LENGHT = 16;
+        $intermediateSalt = str_replace('+', '.', base64_encode(md5(mt_rand(), true)));
         $salt = substr($intermediateSalt, 0, $SALT_MAX_LENGHT);
         $hash = hash("sha256", $psw . $salt);   // creates 256 bit hash.
 
