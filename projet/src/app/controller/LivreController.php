@@ -247,6 +247,42 @@ class LivreController extends Controller
 
 	}
 
+
+
+	/**
+	 * fonction de test de la recherche
+	 */
+	public function recherche(){
+		$tab = $this->app->request()->params();
+		$count = count($tab);
+
+		if ($count == 0) {
+			$livres = Livre::all()->take(10);
+			$this->app->view->setData('livres', $livres);
+			$this->app->render('header.php', compact('app'));
+			$this->app->render('recherche.php', compact('app'));
+			$this->app->render('livre.php');
+		}else{
+
+			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get();//->where('langue', 'like', '%' . $this->app->request()->params('langue') . '%')->get();//->forpage($this->app->request()->params('page'), $parPage);
+			$this->app->view->setData('livres', $livres);
+			$this->app->render('header.php', compact('app'));
+			$this->app->render('recherche.php', compact('app'));
+			$this->app->render('livre.php');
+		}
+
+
+
+	}
+
+
+
+
+
+
+
+
+
 	public function afficherLivreAuteurTitreGenreJson()
 	{
 		//récupération des param passés dans l'url
@@ -266,17 +302,6 @@ class LivreController extends Controller
 	}
 
 
-
-/*
-	// utile pour la recherche
-	public function afficherLivreRecherche(){
-		$livres = Livre::where('titre',  'like', '%'.$this->app->request()->params('titre').'%')->where('auteur', 'like', '%'.$this->app->request()->params('auteur').'%')->get();
-		$this->app->view->setData('livres', $livres);
-		$this->app->render('layout/header.php', compact('app'));
-		$this->app->render('layout/recherche.php', compact('app'));
-		$this->app->render('livre.php');
-	}
-*/
 
 
 
@@ -302,16 +327,6 @@ class LivreController extends Controller
 	}
 
 
-	/**
-	 * affiche le livre recherché via le mot clé (pas la recherche avancée)
-	 */
-	public function afficherLivreMotCle(){
-		$livres = Livre::where('auteur', 'like', $this->app->request()->params('auteur'))->orWhere('titre', 'like', $this->app->request()->params('titre'));
-		$this->app->view->setData('livres', $livres);
-		$this->app->render('header.php', compact('app'));
-		$this->app->render('recherche.php', compact('app'));
-		$this->app->render('livre.php');
-	}
 
 
 	
@@ -325,12 +340,6 @@ class LivreController extends Controller
 		//echo $id;
 		$livre = Livre::where('idLivre', '=', $id)->get();
 
-
-
-
-
-		
-	
 		$this->app->view->setData('livre', $livre);
 		$this->app->render('header.php', compact('app'));
 		$this->app->render('details.php', compact('app'));
@@ -360,34 +369,6 @@ class LivreController extends Controller
 
 
 
-	public function test0(){
-
-		//$this->app->request()->params('id');
-		//$this->app->request()->params('kaka');
-
-		// on récupère le tab de param dans l'url
-		$tab = $this->app->request()->params();
-		$tabIndice = array_keys($tab);
-
-		echo "tabindice"."<br>";
-		var_dump($tabIndice);
-
-		echo "<br>"."tab"."<br>";
-		var_dump($tab);
-
-
-
-
-		//echo count($tab);
-		$livres = Livre::all();
-		for($i=0;$i< count($tab);$i++){
-			$livres->where($tabIndice[$i],'=',$tab[$tabIndice[$i]]);
-			//echo $tabIndice[$i]." ".$tab[$i]."<br>";
-		}
-		
-		$this->app->view->setData('livres', $livres);
-		$this->app->render('livre.php');
-	}
 
 
 

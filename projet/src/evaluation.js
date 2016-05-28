@@ -74,7 +74,7 @@ fac.modules.users = (function(){
                 };
 
 
-                fac.modules.app.post('/CMI/projet/src/api/users/1666666/books/'+id+'/ratings/web', evaluation, function(data,xhr) {
+                fac.modules.app.post('/CMI/projet/src/api/users/1/books/'+id+'/ratings/web', evaluation, function(data,xhr) {
                     //console.log(data);
                     //  /api/users/:idUser/books/:idBook/ratings
 

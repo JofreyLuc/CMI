@@ -100,7 +100,9 @@ $router->get('/api/top10', "app\Controller\LivreController@top10Json");
 
 // routes pour la recherche sur les livres
 $router->get('/api/books', "app\Controller\LivreController@afficherLivreAuteurTitreGenreJson");
-$router->get('/books', "app\Controller\LivreController@afficherLivreAuteurTitreGenre");
+//$router->get('/books', "app\Controller\LivreController@afficherLivreAuteurTitreGenre");
+$router->get('/books', "app\Controller\LivreController@recherche");
+
 
 
 
