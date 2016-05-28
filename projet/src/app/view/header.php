@@ -7,6 +7,7 @@
  <title>Callme Ishmael </title>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../connexion.js"></script>
 
 <body>
 
@@ -33,10 +34,10 @@
  <div id="titre1"> <h1> Call Me Ishmael</h1>
  </div>
  <div id="banniere">
-  <form method="post" action="accueil_connexion.php">
-   <p> <div id="login"><input type="text" name="login" placeholder="Login"/> <br/>
-   <input type="password" mdp="mdp" placeholder="Password"/> </div> </br>
-   <div id="co"> <input type="submit" class="BoutonTxt"  value="Connexion"/>
+  <form method="post" action="" id="formulaireConnexion">
+   <p> <div id="login"><input type="text" name="login" placeholder="Email" id="login"/> <br/>
+   <input type="password" id="password" placeholder="Password"/> </div> </br>
+   <div id="co"> <input type="submit" class="BoutonTxt"  value="Connexion" id ="boutonConnexion"/>
   <input type="button" class="BoutonTxt"  value="Inscription" onclick="document.location.href = '/CMI/projet/src/inscription';"/> </div></p>
   </form>
 
@@ -49,7 +50,7 @@
    <div id="test1"> <input type="button" value="Consulter sa bibliothèque"
                            onclick="document.location.href='/CMI/projet/src/library'"/></div>
    <div id="test1"> <input type="button"  value="Rechercher"
-                           onclick="document.location.href='/CMI/projet/src/books?page=1'"/> </div>
+                           onclick="document.location.href='/CMI/projet/src/books'"/> </div>
    <div id="test1"> <input type="button" value="Liste de suivi"
                            onclick="document.location.href='/CMI/projet/src/users'"/> </div>
    <div id="test1"> <input type="button" value="Suggestion"

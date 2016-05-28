@@ -1,93 +1,10 @@
 
-    <link rel="stylesheet" href="conf/css/form_register.css">
+<link rel="stylesheet" href="conf/css/form_register.css">
 
 
 
-<div class="main-content">
 
-<script type="text/javascript">
-
-
-    function valider ( )
-    {
-
-      /*  if ( document.getElementById('nom').value == "" )
-        {
-            valid = false;
-            document.getElementById("erreurNom").style.visibility = "visible";
-            document.getElementById("nom").focus();
-            return valid;
-        }*/
-
-      /*  if ( document.getElementById('prenom').value == "" )
-        {
-            valid = false;
-            document.getElementById("erreurPrenom").style.visibility = "visible";
-            return valid;
-        }
-
-        if ( typeof document.getElementById('age').value == 'number' )
-        {
-            valid = false;
-            document.getElementById("erreurAge").style.visibility = "visible";
-            return valid;
-        }else{
-
-        }*/
-
-        if ( document.getElementById('pseudo').value == "" )
-        {
-            valid = false;
-            document.getElementById("erreurPseudo").style.visibility = "visible";
-            document.getElementById("erreurEmail").style.visibility = "hidden";
-            document.getElementById("erreurPsw").style.visibility = "hidden";
-            document.getElementById("erreurPswTaille").style.visibility = "hidden";
-            document.getElementById("pseudo").focus();
-            return valid;
-        }
-
-
-       if ( document.getElementById('email').value == "" )
-        {
-            valid = false;
-            document.getElementById("erreurEmail").style.visibility = "visible";
-            document.getElementById("erreurPseudo").style.visibility = "hidden";
-            document.getElementById("erreurPsw").style.visibility = "hidden";
-            document.getElementById("erreurPswTaille").style.visibility = "hidden";
-            document.getElementById("email").focus();
-            return valid;
-        }
-
-
-        if ( document.getElementById('psw').value == "" )
-        {
-            valid = false;
-            document.getElementById("erreurPsw").style.visibility = "visible";
-            document.getElementById("erreurPseudo").style.visibility = "hidden";
-            document.getElementById("erreurEmail").style.visibility = "hidden";
-            document.getElementById("erreurPswTaille").style.visibility = "hidden";
-            document.getElementById("psw").focus();
-            return valid;
-        }else{
-            if(document.getElementById('psw').value.length < 5){
-                valid = false;
-                document.getElementById("erreurPsw").style.visibility = "hidden";
-                document.getElementById("erreurPseudo").style.visibility = "hidden";
-                document.getElementById("erreurEmail").style.visibility = "hidden";
-                document.getElementById("erreurPswTaille").style.visibility = "visible";
-                document.getElementById("psw").focus();
-                return valid;
-            }
-        }
-
-    }
-
-
-</script>
-
-
-    <br>
-    <form class="form-register" method="post" onsubmit="return valider ();" action="http://localhost:8888/CMI/projet/src/inscription/verification">
+    <form class="form-register" id="myForm" method="post" action="http://localhost:8888/CMI/projet/src/inscription/verification">
 
         <div class="form-register-with-email">
 
@@ -97,87 +14,258 @@
                     <h1>Création de compte</h1>
                 </div>
 
-                <div class="form-row">
-                    <label>
-                        <span>Nom</span>
-                        <input type="text" name="nom" id="nom">
-                        <p id="erreurNom" style="visibility : hidden; color: red; text-align: center;">Vous devez renseigner votre nom</p>
-                    </label>
-                </div>
+                <label class="form_col" for="lastName">Nom :</label>
+                <input name="nom" id="lastName" type="text" />
+                <br /><br />
 
-                <div class="form-row">
-                    <label>
-                        <span>Prenom</span>
-                        <input type="text" name="prenom" id="prenom">
-                        <p id="erreurPrenom" style="visibility : hidden;color: red;">Vous devez renseigner votre prenom</p>
-                    </label>
-                </div>
+                <label class="form_col" for="firstName">Prénom :</label>
+                <input name="prenom" id="firstName" type="text" />
+                <br /><br />
 
-                <div class="form-row">
-                    <label>
-                        <span>Age</span>
-                        <input type="text" name="age" id="age">
-                        <p id="erreurAge" style="visibility : hidden;color: red;">Vous devez renseigner votre age</p>
-                    </label>
-                </div>
+                <label class="form_col" for="email">E-mail :</label>
+                <input name="email" id="email" type="text" />
+                <span class="tooltip">L'adresse e-mail est incorrect ou est déjà utilisé</span>
+                <br /><br />
 
-                <div class="form-row">
-                    <label>
-                        <span>Email <span style="color : red;">*</span></span>
-                        <input type="email" name="email" id="email">
-                        <p id="erreurEmail" style="visibility : hidden;color: red;text-align: center;">Vous devez renseigner votre email</p>
-                    </label>
-                </div>
+                <label class="form_col" for="pseudo">Login :</label>
+                <input name="pseudo" id="pseudo" type="text" />
+                <span class="tooltip">Le login ne peut pas faire moins de 4 caractères</span>
+                <br /><br />
 
-                <div class="form-row">
-                    <label>
-                        <span>Pseudo <span style="color : red;">*</span></span>
-                        <input type="text" name="pseudo" id="pseudo">
-                        <p id="erreurPseudo" style="visibility : hidden;color: red;text-align: center;">Vous devez renseigner votre Pseudo</p>
-                    </label>
-                </div>
+                <label class="form_col" for="pwd1">Mot de passe :</label>
+                <input name="pwd1" id="pwd1" type="password" />
+                <span class="tooltip">Le mot de passe ne doit pas faire moins de 6 caractères</span>
 
-                <div class="form-row">
-                    <label>
-                        <span>Mot de passe <span style="color : red;">*</span> </span>
-                        <input type="password" name="psw" id="psw">
-                        <p id="erreurPsw" style="visibility : hidden;color: red;text-align: center;">Vous devez renseigner votre mot de passe</p>
-                        <p id="erreurPswTaille" style="visibility : hidden;color: red;text-align: center;">la taille du mot de passe doit être de 5 au moins</p>
-                    </label>
-                </div>
+                <br /><br />
 
-                <div class="form-row">
-                    <label class="form-checkbox">
-                        <input type="checkbox" name="checkbox" checked>
-                        <span>I agree to the <a href="CMI/projet/src/condition_utilisation">terms and conditions</a></span>
-                    </label>
-                </div>
+                <label class="form_col" for="pwd2">Mot de passe (confirmation) :</label>
+                <input name="pwd2" id="pwd2" type="password" />
+                <span class="tooltip">Le mot de passe de confirmation doit être identique à celui d'origine</span>
+                <br /><br />
 
-                <div class="form-row">
-                    <button type="submit">Inscription</button>
-                </div>
+                <span class="form_col" for="conditions"></span>
+                <label class="form-checkbox">
+                    <input class="form-checkbox" name="conditions" id="conditions" type="checkbox"/>
+                    <span>J'accepte les <a href="http://localhost:8888/CMI/projet/src/condition_utilisation">conditions générales d'utilisation</a></span>
+                </label>
+                <span class="tooltip">Vous devez accepter les conditions générales</span>
+                <br /><br />
 
+                <div class="valider-reset">
+                    <input type="submit" value="Inscription" /> <input type="reset" value="Réinitialiser le formulaire" />
+                </div>
             </div>
-
-            <a href="#" class="form-log-in-with-existing">Déjà membre ? Connectez vous ici &rarr;</a>
-
         </div>
-
-        <div class="form-sign-in-with-social">
-
-            <div class="form-row form-title-row">
-                <span class="form-title">Sign in with</span>
-            </div>
-
-            <a href="#" class="form-google-button">Google</a>
-            <a href="#" class="form-facebook-button">Facebook</a>
-
-        </div>
-
     </form>
 
-</div>
 
-</body>
+<script type="text/javascript">
 
-</html>
+// Fonction de désactivation de l'affichage des "tooltips"
+function deactivateTooltips() {
+
+    var tooltips = document.querySelectorAll('.tooltip'),
+        tooltipsLength = tooltips.length;
+
+    for (var i = 0; i < tooltipsLength; i++) {
+        tooltips[i].style.display = 'none';
+    }
+
+}
+
+
+// La fonction ci-dessous permet de récupérer la "tooltip" qui correspond à notre input
+
+function getTooltip(elements) {
+
+    while (elements = elements.nextSibling) {
+        if (elements.className === 'tooltip') {
+            return elements;
+        }
+    }
+
+    return false;
+
+}
+
+function isEmail(myVar){
+    // La 1ère étape consiste à définir l'expression régulière d'une adresse email
+    var regEmail = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
+
+    return regEmail.test(myVar);
+}
+
+
+// Fonctions de vérification du formulaire, elles renvoient "true" si tout est ok
+
+var check = {}; // On met toutes nos fonctions dans un objet littéral
+
+/*check['lastName'] = function(id) {
+
+    var name = document.getElementById(id),
+        tooltipStyle = getTooltip(name).style;
+
+    if (name.value.length >= 2) {
+        name.className = 'correct';
+        tooltipStyle.display = 'none';
+        return true;
+    } else {
+        name.className = 'incorrect';
+        tooltipStyle.display = 'inline-block';
+        return false;
+    }
+
+};
+
+check['firstName'] = check['lastName'];*/ // La fonction pour le prénom est la même que celle du nom
+
+check['email'] = function() {
+
+    var email = document.getElementById('email'),
+        tooltipStyle = getTooltip(email).style;
+    
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    var mail = {
+        email: email.value
+    };
+
+    var response;
+    $.ajax({
+        url: '/CMI/projet/src/api/verifEmail',
+        data: mail,
+        type: 
+        "POST",
+        async: false,
+        success: function(data){
+            response = data;
+        }
+    });
+
+    if(email.value == ''){
+        tooltipStyle.display = 'none';
+        return false;
+    }else if (re.test(email.value) && !response) {
+        email.className = 'correct';
+        tooltipStyle.display = 'none';
+        return true;
+    } else {
+        email.className = 'incorrect';
+        tooltipStyle.display = 'inline-block';
+        return false;
+    }
+
+};
+
+check['pseudo'] = function() {
+
+    var login = document.getElementById('pseudo'),
+        tooltipStyle = getTooltip(login).style;
+
+    if(login.value == ''){
+        tooltipStyle.display = 'none';
+        return false;
+    }else if (login.value.length >= 4) {
+        login.className = 'correct';
+        tooltipStyle.display = 'none';
+        return true;
+    } else {
+        login.className = 'incorrect';
+        tooltipStyle.display = 'inline-block';
+        return false;
+    }
+
+};
+
+check['pwd1'] = function() {
+
+    var pwd1 = document.getElementById('pwd1'),
+        tooltipStyle = getTooltip(pwd1).style;
+
+    if(pwd1.value == ''){
+        tooltipStyle.display = 'none';
+        return false;
+    }else if (pwd1.value.length >= 6) {
+        pwd1.className = 'correct';
+        tooltipStyle.display = 'none';
+        return true;
+    } else {
+        pwd1.className = 'incorrect';
+        tooltipStyle.display = 'inline-block';
+        return false;
+    }
+
+};
+
+check['pwd2'] = function() {
+
+    var pwd1 = document.getElementById('pwd1'),
+        pwd2 = document.getElementById('pwd2'),
+        tooltipStyle = getTooltip(pwd2).style;
+
+    if(pwd2.value == ''){
+        tooltipStyle.display = 'none';
+        return false;
+    }else if (pwd1.value == pwd2.value && pwd2.value != '') {
+        pwd2.className = 'correct';
+        tooltipStyle.display = 'none';
+        return true;
+    } else {
+        pwd2.className = 'incorrect';
+        tooltipStyle.display = 'inline-block';
+        return false;
+    }
+
+};
+
+
+// Mise en place des événements
+
+(function() { // Utilisation d'une IIFE pour éviter les variables globales.
+
+    var myForm = document.getElementById('myForm'),
+        inputs = document.querySelectorAll('input[type=text], input[type=password]'),
+        inputsLength = inputs.length;
+
+    for (var i = 0; i < inputsLength; i++) {
+        inputs[i].addEventListener('keyup', function(e) {
+            check[e.target.id](e.target.id); // "e.target" représente l'input actuellement modifié
+        });
+    }
+
+    myForm.addEventListener('submit', function(e) {
+
+        var result = true;
+        for (var i in check) {
+            result = check[i](i) && result;
+        }
+
+        if (result) {
+            myForm.submit();
+        }
+
+        e.preventDefault();
+
+    });
+
+    myForm.addEventListener('reset', function() {
+
+        for (var i = 0; i < inputsLength; i++) {
+            inputs[i].className = '';
+        }
+
+        deactivateTooltips();
+
+    });
+
+})();
+
+
+// Maintenant que tout est initialisé, on peut désactiver les "tooltips"
+
+deactivateTooltips();
+
+
+</script>
+
+
