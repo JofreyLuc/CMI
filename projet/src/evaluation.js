@@ -58,6 +58,33 @@ fac.modules.users = (function(){
     return {
         init: function() {
 
+            // ajout un livre à la biblio
+            $('.importBiblioButton').click(function() {
+                // recuperation de l'id
+                var idLivre = $(this).attr('id');
+                // concatenation
+                var urlLivreEntier = '/CMI/projet/src/api/books/'+idLivre;
+
+
+                //var id = livre[0].idLivre;
+                // creation des data à envoyer
+                var biblio = {
+                    idLivre: idLivre,
+                    positionLecture: 0
+                };
+
+                // l'id de l'user est entré en dur tant qu'on a pas de connexion
+                fac.modules.app.post('/CMI/projet/src/api/users/1/library/web', biblio, function(data) {
+                    //console.log(data);
+                });
+
+
+                // modification du style du bouton une fois la requête effectuée
+                $(this).attr('value', 'Ajout effectué');
+                $(this).attr("disabled", true);
+
+            });
+
 
 
             // script ajax pour   ajouter une eval
