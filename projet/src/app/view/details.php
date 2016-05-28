@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="../conf/css/evaluation.css" />
 
 
-
+<script src="../evaluation.js"></script>
 <script>
     $(document).ready(function(){
 
@@ -22,7 +22,7 @@
 
 
 
-<script src="../fac.js"></script>
+
 <section>
     <div id="titreT"> <h3> Détails du livre </h3> </div>
     <div id="detail">

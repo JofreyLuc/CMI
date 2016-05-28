@@ -15,7 +15,7 @@ class LivreController extends Controller
 		//$livres = Livre::all()->sortBy('noteMoyenne')->take(10);
 		$livres = Livre::orderBy('noteMoyenne', SORT_DESC)->take(10)->get();
 		$this->app->view->setData('livres', $livres);
-		$this->app->render('layout/header.php', compact('app'));
+		$this->app->render('header.php', compact('app'));
 		$this->app->render('livre.php');
 	}
 
@@ -153,14 +153,14 @@ class LivreController extends Controller
 		if ($count == 0) {
 			$livres = Livre::all()->take(20)->forpage(1, 20);
 			$this->app->view->setData('livres', $livres);
-			$this->app->render('layout/header.php', compact('app'));
-			$this->app->render('layout/recherche.php', compact('app'));
+			$this->app->render('header.php', compact('app'));
+			$this->app->render('recherche.php', compact('app'));
 			$this->app->render('livre.php');
 		} else {
 			$livres = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->get();
 			$this->app->view->setData('livres', $livres);
-			$this->app->render('layout/header.php', compact('app'));
-			$this->app->render('layout/recherche.php', compact('app'));
+			$this->app->render('header.php', compact('app'));
+			$this->app->render('recherche.php', compact('app'));
 			$this->app->render('livre.php');
 		}
 
@@ -217,8 +217,8 @@ class LivreController extends Controller
 			// on post les informations des livres
 			$this->app->view->setData('livres', $livres);
 			$this->app->view->setData('langues', $langues);
-			$this->app->render('layout/header.php', compact('app'));
-			$this->app->render('layout/recherche.php', compact('app'));
+			$this->app->render('header.php', compact('app'));
+			$this->app->render('recherche.php', compact('app'));
 			$this->app->render('livre.php');
 		} else {
 			//$count = Livre::all()->count();
@@ -240,8 +240,8 @@ class LivreController extends Controller
 			$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 			$this->app->view->setData('livres', $livres);
 			$this->app->view->setData('langues', $langues);
-			$this->app->render('layout/header.php', compact('app'));
-			$this->app->render('layout/recherche.php', compact('app'));
+			$this->app->render('header.php', compact('app'));
+			$this->app->render('recherche.php', compact('app'));
 			$this->app->render('livre.php');
 		}
 
@@ -308,8 +308,8 @@ class LivreController extends Controller
 	public function afficherLivreMotCle(){
 		$livres = Livre::where('auteur', 'like', $this->app->request()->params('auteur'))->orWhere('titre', 'like', $this->app->request()->params('titre'));
 		$this->app->view->setData('livres', $livres);
-		$this->app->render('layout/header.php', compact('app'));
-		$this->app->render('layout/recherche.php', compact('app'));
+		$this->app->render('header.php', compact('app'));
+		$this->app->render('recherche.php', compact('app'));
 		$this->app->render('livre.php');
 	}
 
@@ -332,7 +332,7 @@ class LivreController extends Controller
 		
 	
 		$this->app->view->setData('livre', $livre);
-		$this->app->render('layout/header.php', compact('app'));
+		$this->app->render('header.php', compact('app'));
 		$this->app->render('details.php', compact('app'));
 	}
 
@@ -351,7 +351,7 @@ class LivreController extends Controller
 	public function lectureLivre($id){
 		$livre = Livre::where('idLivre', '=', $id)->get();
 		$this->app->view->setData('livre', $livre);
-		$this->app->render('layout/header.php', compact('app'));
+		$this->app->render('header.php', compact('app'));
 		$this->app->render('lecture.php', compact('app'));
 	}
 

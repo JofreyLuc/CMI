@@ -40,7 +40,7 @@ class HomeController extends Controller {
 
 
 	public function condition(){
-		$this->app->render('layout/header.php', compact('app'));
-		$this->app->render('layout/condition_utilisation.php');
+		$this->app->render('header.php', compact('app'));
+		$this->app->render('condition_utilisation.php');
 	}
 }	

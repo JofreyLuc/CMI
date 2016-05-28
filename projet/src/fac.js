@@ -163,7 +163,7 @@ fac.modules.users = (function(){
 
 
 
-
+/*
 			 // script ajax pour   ajouter une eval
 			$('#buttonSubmitEval').click( function() {
 				//var idLivre = $(this).attr('id');
@@ -214,7 +214,7 @@ fac.modules.users = (function(){
 				});
 			});
 
-
+*/
 		}
 	}
 })();
