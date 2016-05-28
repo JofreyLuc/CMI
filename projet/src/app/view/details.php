@@ -68,7 +68,7 @@
             }
             ?>
         </div>
-        <p id="test1"></p>
+        <p id="test1" style="visibility : hidden;"> blabla</p>
 
 
 

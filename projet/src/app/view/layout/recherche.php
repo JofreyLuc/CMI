@@ -144,11 +144,3 @@ script pour cacher / afficher recherche avancée
     
     <div class="tfclear"></div>
 </div>
-
-<!-- script pour datepicker -->
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-  </script>
-

@@ -15,7 +15,16 @@ fac.modules.app = (function () {
 				type: "POST",
 				success: callback,
 				async: false,
-				error: function (jqXHR, textStatus, errorThrown) {
+				statusCode: {
+					403: function() {
+						alert('Vous avez déjà entré un commenraire pour ce livre');
+					},
+					200: function() {
+
+					}
+
+				},
+					error: function (jqXHR, textStatus, errorThrown) {
 					console.log('URL : ' + url);
 					console.log(jqXHR);
 					console.log(textStatus);
@@ -169,9 +178,10 @@ fac.modules.users = (function(){
 				};
 
 
-				fac.modules.app.post('/CMI/projet/src/api/users/1/books/'+id+'/ratings/web', evaluation, function(data) {
+				fac.modules.app.post('/CMI/projet/src/api/users/1/books/'+id+'/ratings/web', evaluation, function(data,xhr) {
 					//console.log(data);
 					//  /api/users/:idUser/books/:idBook/ratings
+					
 				});
 				$(this).attr('value', 'Ajout effectué');
 				$(this).attr("disabled", true);

@@ -3,6 +3,8 @@ namespace app\controller;
 use app\model\Livre;
 use app\model\Bibliotheque;
 use app\model\Evaluation;
+use app\model\Utilisateur;
+
 class LivreController extends Controller
 {
 
@@ -197,10 +199,11 @@ class LivreController extends Controller
             $this->app->render('layout/header.php', compact('app'));
             $this->app->render('user.php');
             */
-			$count = Livre::all()->count();
-			$page = 1;
-			$parPage = 10;
-			$total = ceil($count / $parPage);
+
+			//$count = Livre::all()->count();
+			//$page = 1;
+			//$parPage = 10;
+			//$total = ceil($count / $parPage);
 
 			$livres = Livre::all()->take(10);//->forpage($this->app->request()->params('page'), $parPage);
 			// On récupère toutes les langues possibles
@@ -218,10 +221,10 @@ class LivreController extends Controller
 			$this->app->render('layout/recherche.php', compact('app'));
 			$this->app->render('livre.php');
 		} else {
-			$count = Livre::all()->count();
-			$page = 1;
-			$parPage = 10;
-			$total = ceil($count / $parPage);
+			//$count = Livre::all()->count();
+			//$page = 1;
+			//$parPage = 10;
+			//$total = ceil($count / $parPage);
 
 			//echo $this->app->request()->params('page')."</br>";
 
@@ -322,6 +325,23 @@ class LivreController extends Controller
 		//echo $id;
 		$livre = Livre::where('idLivre', '=', $id)->get();
 		$eval = Evaluation::where('idLivre', '=', $id)->get();
+
+		foreach ($eval as $e){
+			$users = Utilisateur::find($e->idUtilisateur);
+
+			unset($users->email);
+			unset($users->password);
+			unset($users->facebookId);
+			unset($users->googleId);
+			unset($users->nom);
+			unset($users->prenom);
+			unset($users->dateNaissance);
+			unset($users->sexe);
+			unset($users->inscriptionValidee);
+			unset($e->idUtilisateur);
+			$this->app->view->setData('user', $users);
+		}
+
 		
 		$this->app->view->setData('eval', $eval);
 		$this->app->view->setData('livre', $livre);
