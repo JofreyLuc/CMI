@@ -2,7 +2,7 @@
 <html>
 <head>
  <meta charset="utf-8" />
- <link rel="stylesheet" href="conf/css/file4.css" />
+ <link rel="stylesheet" href="/CMI/projet/src/conf/css/file4.css" />
 
  <title>Callme Ishmael </title>
 </head>
@@ -124,7 +124,7 @@
 
 
 <header>
- <img src="conf/img/logo2.jpg" class="logoImg"/>
+ <img src="/CMI/projet/src/conf/img/logo2.jpg" class="logoImg"/>
  <div id="titre1"> <h1> Call Me Ishmael</h1>
  </div>
  <div id="banniere">
