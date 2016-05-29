@@ -142,8 +142,16 @@
  <!-- Menu des différents boutons qui doivent être alignés et entourés -->
  <section>
   <div id="menu">
-   <div id="test1"> <input type="button" value="Consulter sa bibliothèque"
-                           onclick="document.location.href='/CMI/projet/src/library'"/></div>
+      <?php
+
+      if(isset($_SESSION['idUtilisateur'])){
+          echo ' <div id="test1"> <input type="button" value="Consulter sa bibliothèque"
+                           onclick="document.location.href=\'/CMI/projet/src/users/'.$_SESSION['idUtilisateur'].'/library\'"/></div>';
+      }else{
+
+      }
+      ?>
+
    <div id="test1"> <input type="button"  value="Rechercher"
                            onclick="document.location.href='/CMI/projet/src/books'"/> </div>
    <div id="test1"> <input type="button" value="Liste de suivi"
