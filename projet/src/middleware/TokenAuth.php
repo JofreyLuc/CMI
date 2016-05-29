@@ -5,7 +5,7 @@ class TokenAuth extends \Slim\Middleware {
     public function __construct() {
         // Les urls qu'on veut protéger
         $this->protectedUrls = array(
-            '\/api\/users\/[0-9]*'      // .../api/users/{idUser}(...)
+            '\/api\/users\/[0-9]+'      // .../api/users/{idUser}(...)
         );
     }
 
@@ -25,7 +25,6 @@ class TokenAuth extends \Slim\Middleware {
      * @return bool
      */
     public function authenticate($idUser, $token) {
-        return false;
         if (!isset($idUser) || !isset($token))
             return false;
         return \app\controller\UtilisateurController::validateToken($idUser, $token);
@@ -53,11 +52,11 @@ class TokenAuth extends \Slim\Middleware {
         // On regarde si l'url est protégé ou non
         if ($this->isProtectedUrl($path)) {
             // On récupère le token
-            $tokenAuth = $this->app->request->headers->get('Authorization');
+            $tokenAuth = $this->app->request->headers->get('Authorizatio');
+            echo("token = ".$tokenAuth);
             // On récupère l'idUser
             preg_match('/\/([0-9]*)\//s', $path, $matches);
             $idUser = $matches[1];
-            echo($idUser);
             // Si l'url est protégé, on vérifie le token
             if ($this->authenticate($idUser, $tokenAuth)) {
                 //Continue with execution
