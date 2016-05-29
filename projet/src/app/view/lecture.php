@@ -72,6 +72,7 @@ function get(url, callback) {
 
   var rendered=book.renderTo("area");
 
+  var dernier_progres=null;
 
 	book.ready.all.then(function(){
         // Load in stored locations from json or local storage
@@ -96,11 +97,13 @@ function get(url, callback) {
 
   function init_lecture(){
     //le get
-    get('/CMI/projet/src/api/library',function(data,xhr) {});
+    get('/CMI/projet/src/api/users/1/library/',function(data) {
+      dernier_progres=data[0].positionLecture;
+    });
     //pourcentage a iserer a la place du 0.3
-    book.goto(book.locations.cfiFromPercentage(0.3));
+    book.goto(book.locations.cfiFromPercentage(dernier_progres));
     //toutes les 5 secs, on envoi la progression au serveur
-    setInterval(recup_progres, 5000);
+    setInterval(recup_progres, 1000);
     //quand on quite la page aussi
     window.onbeforeunload=recup_progres;
   }
@@ -114,15 +117,16 @@ function get(url, callback) {
     	if(currentPage>1){
     		currentPage=1;
     	}
-      var id = 1;
-      var progres = {
-        idBibliotheque : id,
-        positionLecture : currentPage,
-      };
-      //le put qui envoi les info au server (put ok mais pas bon format)
-      post('/CMI/projet/src/api/users/1/library/1/web', progres,function(data,xhr) {
-        console.log(data);
-      });
+      if(dernier_progres!=currentPage){
+        var id = 1;
+        var progres = {
+          idBibliotheque : id,
+          positionLecture : currentPage,
+        };
+        //le put qui envoi les info au server (put ok mais pas bon format)
+        post('/CMI/projet/src/api/users/1/library/1/web', progres,function(data,xhr) {});
+      }
+      dernier_progres=currentPage;
 	}
 
   setTimeout(init_lecture, 1000);
