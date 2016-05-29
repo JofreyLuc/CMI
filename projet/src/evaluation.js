@@ -173,6 +173,14 @@ fac.modules.users = (function(){
 
 
 
+
+
+
+
+
+
+
+
             // affiche les eval pour le livre dans la div associé quand la page est chargé
             $(document).ready(function(){
                 var id = document.getElementById('idDuLivre').innerHTML;
@@ -182,8 +190,55 @@ fac.modules.users = (function(){
 
 
                 });
+
+
+
+                $('.supprimerEval').click( function() {
+                    // /api/users/:idUser/books/:idBook/ratings/:idRating
+                    // id du livre
+                    var idLivre = document.getElementById('idDuLivre').innerHTML;
+                    // id de leval à delete
+                    var idEval = $(this).attr('id');
+
+                    var deleteOK;
+                    var deleteLivre = $.ajax({
+                            type        : 'DELETE', // define the type of HTTP verb we want to use (POST for our form)
+                            url         : '/CMI/projet/src/api/users/'+userOK+'/books/'+idLivre+'/ratings/'+idEval+'',
+                            dataType    : 'json', // what type of data do we expect back from the server
+                            encode          : true,
+                            beforeSend: function (request)
+                            {
+                                request.setRequestHeader("Auth",tokenOK);
+                            },
+                            statusCode: {
+                                403: function() {
+                                    alert('Ce n est pas votre éval');
+                                },
+                                204: function() {
+                                    alert('Evaluation supprimée');
+                                }
+
+                            }
+
+                        })
+                        // using the done promise callback
+                        .done(function(data) {
+                            //console.log(data);
+                            deleteOK = data;
+
+                        });
+
+                });
+
+
             });
         },
+
+
+
+
+
+
 
         afficher_evaluation: function(data) {
             var modif=$("#zone_de_chargement_de_base").empty();
@@ -195,10 +250,18 @@ fac.modules.users = (function(){
                             '<h2>'+data[evaluation].utilisateur.pseudo+'</h2>'+
                             '<img src="/CMI/projet/src/conf/img/rating/'+data[evaluation].note+'.png">'+
                             '<p>'+data[evaluation].commentaire+'</p>'+
+                            '<input type="button" class="supprimerEval" id="'+data[evaluation].idEvaluation+'" value="Supprimer l\'évaluation"/>'+
                         '</div>'+
                     '</div>');
             }
         }
+
+
+
+
+
+
+
     }
 })();
 

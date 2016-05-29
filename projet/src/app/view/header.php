@@ -137,11 +137,7 @@
 
 
 <div id="zone_de_log_de_base"><?php
-    session_start();
-    if(!$_SESSION['idUtilisateur']) {
-        header('location: http://localhost:8888/CMI/projet/src/books');
-        exit;
- }
+
     if(isset($_SESSION["token"])){
         echo "vous etes log";
         echo $_SESSION["email"];
