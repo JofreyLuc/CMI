@@ -6,6 +6,25 @@ var fac = (function() {
 	}
 })();
 
+
+
+var tokenOK;
+var tokenRecup = $.ajax({
+		type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+		url         : '/CMI/projet/src/session', // the url where we want to POST
+		dataType    : 'json', // what type of data do we expect back from the server
+		encode          : true
+
+	})
+	// using the done promise callback
+	.done(function(data) {
+		console.log(data);
+		tokenOK = data;
+	});
+
+
+
+
 fac.modules.app = (function () {
 	return {
 		post: function(url, data, callback) {
@@ -15,6 +34,10 @@ fac.modules.app = (function () {
 				type: "POST",
 				success: callback,
 				async: false,
+				beforeSend: function (request)
+				{
+					request.setRequestHeader("Authorizatio",tokenOK);
+				},
 				statusCode: {
 					403: function() {
 						alert('Vous avez déjà entré un commenraire pour ce livre');
@@ -38,6 +61,10 @@ fac.modules.app = (function () {
 				type: "GET",
 				success: callback,
 				async: false,
+				beforeSend: function (request)
+				{
+					request.setRequestHeader("Authorizatio",tokenOK);
+				},
 				done: function(response){return response;},
 				error: function (jqXHR, textStatus, errorThrown) {
 					console.log('url : ' + url);

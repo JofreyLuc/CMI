@@ -307,10 +307,12 @@ class UtilisateurController extends Controller {
 		if(isset($_SESSION["idUtilisateur"])) {
 			$this->app->response->setStatus(200);
 			$this->app->response->headers->set('Content-Type', 'application/json');
-			$this->app->response->body(json_encode($_SESSION["email"]));
-			//$this->app->response->body($_SESSION["tokenExpire"]);
-			//$this->app->response->body($_SESSION["idUtilisateur"]);
-			//$this->app->response->body($_SESSION["token"]);
+			//$this->app->response->body(json_encode($_SESSION["email"]));
+			//$this->app->response->body(json_encode($_SESSION["tokenExpire"]));
+			//$this->app->response->body(json_encode($_SESSION["idUtilisateur"]));
+		//	$this->app->response->body(json_encode($_SESSION["token"]));
+			$this->app->response->body(json_encode($_SESSION));
+
 		}
 	}
 
@@ -321,8 +323,19 @@ class UtilisateurController extends Controller {
 	public function deconnexion(){
 		session_start();
 		session_destroy();
+		$this->app->render('header.php', compact('app'));
+		$this->app->render('recherche.php', compact('app'));
+		$this->app->render('livre.php');
 	}
 
+
+	public function getSessionVar(){
+		session_start();
+		$this->app->response->setStatus(200);
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$a = '[{"token": ' +$_SESSION["token"] +'}]';
+		$this->app->response->body(json_encode($_SESSION["token"]));
+	}
 
 
 
