@@ -214,11 +214,11 @@ fac.modules.users = (function(){
                                 403: function() {
                                     alert('Ce n est pas votre éval');
                                 },
-                                204: function() {
+                                203: function() {
                                     alert('Evaluation supprimée');
                                 },
                                 500: function(){
-                                    
+
                                 }
 
                             }
