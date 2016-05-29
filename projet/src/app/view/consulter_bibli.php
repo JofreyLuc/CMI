@@ -17,9 +17,13 @@
      		<p>Résumé : '.$livres->resume.'</p>
      		</div>
      		<div id="note">
-     			<p>Note : '.$livres->noteMoyenne.'</p>';
-                if($livres->noteMoyenne!=null) 
+     			<p>Note : '.$livres->noteMoyenne.'</p>';                
+                if($livres->noteMoyenne==null){
+                    echo '<img src="/CMI/projet/src/conf/img/rating/0.png">';
+
+                }else{
                     echo '<img src="/CMI/projet/src/conf/img/rating/'.$livres->noteMoyenne.'.png">';
+                }
                 echo '</br></br></br></br></br>
      		</div>
      		<div id="boutons">
