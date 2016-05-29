@@ -322,10 +322,30 @@ class UtilisateurController extends Controller {
 	 */
 	public function deconnexion(){
 		session_start();
-		session_destroy();
-		$this->app->render('header.php', compact('app'));
+		//session_unset();
+		//session_destroy();
+
+		unset($_SESSION["token"] );
+		unset($_SESSION["tokenExpire"] );
+		unset($_SESSION["email"] );
+		unset($_SESSION["idUtilisateur"] );
+
+		/*$this->app->render('header.php', compact('app'));
 		$this->app->render('recherche.php', compact('app'));
-		$this->app->render('livre.php');
+		$this->app->render('livre.php');*/
+		$this->app->response->setStatus(200);
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		//$this->app->response->body(json_encode($_SESSION["email"]));
+		//$this->app->response->body(json_encode($_SESSION["tokenExpire"]));
+		//$this->app->response->body(json_encode($_SESSION["idUtilisateur"]));
+		//	$this->app->response->body(json_encode($_SESSION["token"]));
+		//$this->app->response->body(json_encode($_SESSION));
+//		header("Location: /CMI/projet/src/inscription");
+		$host  = $_SERVER['HTTP_HOST'];
+		$link = "http://$host/";
+		echo $link;
+
+		//echo "/CMI/projet/src/books";
 	}
 
 

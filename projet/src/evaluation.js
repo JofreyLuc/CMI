@@ -21,7 +21,7 @@ var tokenRecup = $.ajax({
     })
     // using the done promise callback
     .done(function(data) {
-        console.log(data);
+       // console.log(data);
         tokenOK = data;
     });
 
@@ -38,7 +38,7 @@ var userRecup = $.ajax({
     })
     // using the done promise callback
     .done(function(data) {
-        console.log(data);
+        //console.log(data);
         userOK = data;
     });
 
@@ -128,7 +128,7 @@ fac.modules.users = (function(){
 
                 // l'id de l'user est entré en dur tant qu'on a pas de connexion
                 fac.modules.app.post('/CMI/projet/src/api/users/'+userOK+'/library/web', biblio, function(data) {
-                    console.log(data);
+                   // console.log(data);
                 })
 
 

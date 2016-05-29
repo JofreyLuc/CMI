@@ -12,22 +12,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
-<!-- version precedente
-<header>
- <div id="titre1"> <h1> CallMe Ishmael</h1> </div>
- <div id="banniere">
-  <form method="post" action="accueil_connexion.php">
-   <p> <div id="login"><input type="text" name="login" placeholder="Login"/> </div><br/>
-   <div id="mdp"><input type="password" placeholder="Password" mdp="mdp"/> </div> </br>
-   <div id="co"> <input type="submit" value="Connexion"/> </div>
-   <div id="ins"> <input type="button" value="Inscription"
-                         onclick="document.location.href = 'http://localhost:8888/CMI/projet/src/inscription';"/> </div></p>
-  </form>
- </div>
-</header>
 
--->
-
+<!-- script pour  la validation de la connexion -->
 <script type="text/javascript"  >
   function submit_formulaire_co(){
 
@@ -76,16 +62,30 @@
                .done(function(data) {
 
                    // log data to the console so we can see
-                   console.log(data);
+                  console.log(data);
                    // alert("coucou");
-                   $("#zone_de_log_de_base").hide();
-                   $("#zone_de_log_de_base").innerHTML = "";
+                   $("#zone_de_log_de_base").empty();
+
 
 
                    //on affecte les resultats au div
-                   $("#zone_de_log_rechargement").append(JSON.stringify(data));
+                   $("#zone_de_log_de_base").append(JSON.stringify(data));
                    //on affiche les resultats avec la transition
                    $('#zone_de_log_rechargement').fadeIn(2000);
+                   //$("#reloadBiblio").load(location.href + " #reloadBiblio");
+
+              /*     var modif=$("#zone_de_log_de_base").empty();
+                   for(var e in data){
+                       modif.append(
+                           '<div id="test">'+
+                           '<img src="/CMI/projet/src/conf/img/user.jpg" height="150px" width="150px"/>'+
+                           '<div id="description">'+
+                           '<h2>'+data[e].utilisateur.pseudo+'</h2>'+
+                           '<img src="/CMI/projet/src/conf/img/rating/'+data[e].note+'.png">'+
+                           '<p>'+data[e].commentaire+'</p>'+
+                           '</div>'+
+                           '</div>');
+                   }*/
 
 
                });
@@ -101,11 +101,47 @@
 
 
 
+<!-- script pour la déconnexion -->
+<script>
+    function logout(){
+       /* $.ajax({
+                type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+                url         : '/CMI/projet/src/users/logout', // the url where we want to POST
+                dataType    : 'json', // what type of data do we expect back from the server
+                encode          : true,
+
+            })
+            // using the done promise callback
+            .done(function(data) {
+                console.log(data);
+
+
+            });*/
+
+        $.ajax({
+            type: 'get',
+            url: '/CMI/projet/src/users/logout',
+            success: function(data){
+                location.href ="/CMI/projet/src/";
+                alert(data);
+            }
+        });
+
+        event.preventDefault();
+    }
+</script>
+
+
+
 
 
 
 <div id="zone_de_log_de_base"><?php
     session_start();
+    if(!$_SESSION['idUtilisateur']) {
+        header('location: http://localhost:8888/CMI/projet/src/books');
+        exit;
+ }
     if(isset($_SESSION["token"])){
         echo "vous etes log";
         echo $_SESSION["email"];
@@ -115,7 +151,7 @@
     ?></div>
 
 <div id="zone_de_log_rechargement"></div>
-
+<input id="logout" type="button" value="logout" onclick="logout();return false;">
 
 
 

@@ -19,7 +19,7 @@ var tokenRecup = $.ajax({
 	})
 	// using the done promise callback
 	.done(function(data) {
-		console.log(data);
+		//console.log(data);
 		tokenOK = data;
 	});
 
@@ -36,7 +36,7 @@ var userRecup = $.ajax({
 	})
 	// using the done promise callback
 	.done(function(data) {
-		console.log(data);
+		//console.log(data);
 		userOK = data;
 	});
 
@@ -120,9 +120,9 @@ fac.modules.users = (function(){
 				// Si on veut savoir le type du json, à voir ???
 				// var json = JSON.stringify({User: user});
 				var json = JSON.stringify(user);
-				console.log(json);
+				//console.log(json);
 				fac.modules.app.post('http://localhost:8888/CMI/projet/src/user/new', user, function(data) {
-					console.log(data);
+					//console.log(data);
 				});
 			});
 
