@@ -216,6 +216,9 @@ fac.modules.users = (function(){
                                 },
                                 204: function() {
                                     alert('Evaluation supprimée');
+                                },
+                                500: function(){
+                                    
                                 }
 
                             }

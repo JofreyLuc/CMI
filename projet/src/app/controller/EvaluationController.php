@@ -182,6 +182,9 @@ class EvaluationController extends Controller {
             // c'est ok pour la suppression
             // $evalSiExiste->destroy();
             Evaluation::destroy($idEval);
+            $statut = 204;
+
+
         }else{
             // c'est pas son eval
             $statut = 403;

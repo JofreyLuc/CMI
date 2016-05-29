@@ -37,7 +37,7 @@
           alert('Login ou password incorrect');
          },
          200: function() {
-         alert('Welcome ' +  $('input[name=login]').val());
+         //alert('Welcome ' +  $('input[name=login]').val());
          }
 
         }
@@ -61,13 +61,7 @@
                // using the done promise callback
                .done(function(data) {
 
-                   // log data to the console so we can see
-                  console.log(data);
-                   // alert("coucou");
                    $("#zone_de_log_de_base").empty();
-
-
-
                    //on affecte les resultats au div
                    $("#zone_de_log_de_base").append(JSON.stringify(data));
                    //on affiche les resultats avec la transition
@@ -104,26 +98,12 @@
 <!-- script pour la déconnexion -->
 <script>
     function logout(){
-       /* $.ajax({
-                type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
-                url         : '/CMI/projet/src/users/logout', // the url where we want to POST
-                dataType    : 'json', // what type of data do we expect back from the server
-                encode          : true,
-
-            })
-            // using the done promise callback
-            .done(function(data) {
-                console.log(data);
-
-
-            });*/
-
         $.ajax({
             type: 'get',
             url: '/CMI/projet/src/users/logout',
             success: function(data){
                 location.href ="/CMI/projet/src/";
-                alert(data);
+               // alert(data);
             }
         });
 
@@ -132,23 +112,21 @@
 </script>
 
 
+<!--
+<div id="profil_header">
+   <img src="/CMI/projet/src/conf/img/user.jpg" height="150px" width="150px"/>
+   <div id="description">
+        <h2>pseudo</h2>
+        <p>coucou</p>
+    </div>
+</div>
+-->
 
 
 
 
-<div id="zone_de_log_de_base"><?php
-
-    if(isset($_SESSION["token"])){
-        session_start();
-        echo "vous etes log";
-        echo $_SESSION["email"];
-    }else{
-        echo "vous êtes pas log";
-    }
-    ?></div>
 
 <div id="zone_de_log_rechargement"></div>
-<input id="logout" type="button" value="logout" onclick="logout();return false;">
 
 
 
@@ -160,17 +138,35 @@
  <img src="/CMI/projet/src/conf/img/logo2.jpg" class="logoImg"/>
  <div id="titre1"> <h1> Call Me Ishmael</h1>
  </div>
+
  <div id="banniere">
 
-  <form  method="post" id="formulaireConnexion">
+
+     <div id="zone_de_log_de_base"><?php
+         session_start();
+         if(isset($_SESSION["token"])){
+             echo '
+             <div id="profil_header">
+             <img src="/CMI/projet/src/conf/img/user.jpg" height="100px" width="100px"/><input id="logout" type="button" value="logout" onclick="logout();return false;"><br>
+             <h3>'.$_SESSION["email"].'</h3>
+             </div>
+        ';
+         }else{
+             echo '
+               <form  method="post" id="formulaireConnexion">
    <p> <div id="login"><input type="text" name="login" placeholder="Email" id="login"/> <br/>
    <input type="password" name="password" id="password" placeholder="Password"/> </div> </br>
    <div id="co"> <input type="submit" class="BoutonTxt"  value="Connexion" id ="boutonConnexion" onclick="submit_formulaire_co();return false;"/>
-  <input type="button" class="BoutonTxt"  value="Inscription" onclick="document.location.href = '/CMI/projet/src/inscription';"/> </div></p>
+  <input type="button" class="BoutonTxt"  value="Inscription" onclick="document.location.href = \'/CMI/projet/src/inscription\';"/> </div></p>
   </form>
+             ';
+
+         }
+         ?></div>
+
 
  </div>
-
+<br><br>
 
  <!-- Menu des différents boutons qui doivent être alignés et entourés -->
  <section>
