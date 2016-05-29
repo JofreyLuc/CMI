@@ -40,9 +40,10 @@
      		</div>
             <div id="note">
                 </br>
-                <p>Note : '.$livre->noteMoyenne.'</p>
-                <img src="/CMI/projet/src/conf/img/rating/'.$livre->noteMoyenne.'.png">
-                </br></br></br>
+                <p>Note : '.$livre->noteMoyenne.'</p>';
+				if($livre->noteMoyenne!=null) 
+					echo '<img src="/CMI/projet/src/conf/img/rating/'.$livre->noteMoyenne.'.png">';
+                echo '</br></br></br>
             </div>
      		<div id="boutons">
      			<input type="button"value="Consulter détails livre" class="BoutonTxt" onclick="document.location.href = \'/CMI/projet/src/books/'.$livre->idLivre.'\';"></br></br></br>
