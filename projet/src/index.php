@@ -147,7 +147,8 @@ $router->post('/users/login/validation', "app\Controller\UtilisateurController@v
 // disconect
 $router->post('/users/logout', "app\Controller\UtilisateurController@deconnexion");
 
-$router->get('/session', "app\Controller\UtilisateurController@getSessionVar");
+$router->get('/session/token', "app\Controller\UtilisateurController@getSessionVarToken");
+$router->get('/session/user', "app\Controller\UtilisateurController@getSessionVarUser");
 
 
 

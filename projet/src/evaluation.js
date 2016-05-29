@@ -8,19 +8,45 @@ var fac = (function() {
 
 
 
+
+
+// recuperation du token
 var tokenOK;
-var recupToken= $.ajax({
+var tokenRecup = $.ajax({
         type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
-        url         : '/CMI/projet/src/session', // the url where we want to POST
-        encode          : true,
-        dataType : 'JSON'
+        url         : '/CMI/projet/src/session/token', // the url where we want to POST
+        dataType    : 'json', // what type of data do we expect back from the server
+        encode          : true
 
     })
     // using the done promise callback
     .done(function(data) {
-        console.log("var recup dedans : " +data);
+        console.log(data);
         tokenOK = data;
     });
+
+
+
+// recuperation de l'id de l'user
+var userOK;
+var userRecup = $.ajax({
+        type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+        url         : '/CMI/projet/src/session/user', // the url where we want to POST
+        dataType    : 'json', // what type of data do we expect back from the server
+        encode          : true
+
+    })
+    // using the done promise callback
+    .done(function(data) {
+        console.log(data);
+        userOK = data;
+    });
+
+
+
+
+
+
 
 
 
@@ -101,7 +127,7 @@ fac.modules.users = (function(){
                 };
 
                 // l'id de l'user est entré en dur tant qu'on a pas de connexion
-                fac.modules.app.post('/CMI/projet/src/api/users/1/library/web', biblio, function(data) {
+                fac.modules.app.post('/CMI/projet/src/api/users/'+userOK+'/library/web', biblio, function(data) {
                     console.log(data);
                 })
 
@@ -127,8 +153,8 @@ fac.modules.users = (function(){
                     note: note
                 };
 
-
-                fac.modules.app.post('/CMI/projet/src/api/users/1/books/'+id+'/ratings/web', evaluation, function(data,xhr) {
+                // ajout du commentaire
+                fac.modules.app.post('/CMI/projet/src/api/users/'+userOK+'/books/'+id+'/ratings/web', evaluation, function(data,xhr) {
                     //console.log(data);
                     //  /api/users/:idUser/books/:idBook/ratings
 

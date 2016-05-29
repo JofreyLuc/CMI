@@ -8,10 +8,11 @@ var fac = (function() {
 
 
 
+// recuperation du token
 var tokenOK;
 var tokenRecup = $.ajax({
 		type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
-		url         : '/CMI/projet/src/session', // the url where we want to POST
+		url         : '/CMI/projet/src/session/token', // the url where we want to POST
 		dataType    : 'json', // what type of data do we expect back from the server
 		encode          : true
 
@@ -21,6 +22,24 @@ var tokenRecup = $.ajax({
 		console.log(data);
 		tokenOK = data;
 	});
+
+
+
+// recuperation de l'id de l'user
+var userOK;
+var userRecup = $.ajax({
+		type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+		url         : '/CMI/projet/src/session/user', // the url where we want to POST
+		dataType    : 'json', // what type of data do we expect back from the server
+		encode          : true
+
+	})
+	// using the done promise callback
+	.done(function(data) {
+		console.log(data);
+		userOK = data;
+	});
+
 
 
 
@@ -175,8 +194,8 @@ fac.modules.users = (function(){
 				// envoie du resultat
 
 
-				// l'id de l'user est entré en dur tant qu'on a pas de connexion
-				fac.modules.app.post('/CMI/projet/src/api/users/1/library/web', biblio, function(data) {
+				// ajout d'un livre dans la biblio d'un user 
+				fac.modules.app.post('/CMI/projet/src/api/users/'+userOK+'/library/web', biblio, function(data) {
 					//console.log(data);
 				});
 

@@ -329,13 +329,21 @@ class UtilisateurController extends Controller {
 	}
 
 
-	public function getSessionVar(){
+	public function getSessionVartoken(){
 		session_start();
 		$this->app->response->setStatus(200);
 		$this->app->response->headers->set('Content-Type', 'application/json');
-		$a = '[{"token": ' +$_SESSION["token"] +'}]';
 		$this->app->response->body(json_encode($_SESSION["token"]));
 	}
+
+
+	public function getSessionVarUser(){
+		session_start();
+		$this->app->response->setStatus(200);
+		$this->app->response->headers->set('Content-Type', 'application/json');
+		$this->app->response->body(json_encode($_SESSION["idUtilisateur"]));
+	}
+
 
 
 
