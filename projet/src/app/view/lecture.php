@@ -39,7 +39,26 @@ var userRecup = $.ajax({
  });
 
 
-function  post(url, data, callback) {
+
+    // recuperation du token
+    var tokenOK;
+    var tokenRecup = $.ajax({
+            type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+            url         : '/CMI/projet/src/session/token', // the url where we want to POST
+            dataType    : 'json', // what type of data do we expect back from the server
+            encode          : true
+
+        })
+        // using the done promise callback
+        .done(function(data) {
+            //console.log(data);
+            tokenOK = data;
+        });
+
+
+    
+
+    function  post(url, data, callback) {
   $.ajax({
           url: url,
           data: data,
@@ -55,6 +74,10 @@ function  post(url, data, callback) {
               }
 
           },
+      beforeSend: function (request)
+      {
+          request.setRequestHeader("Auth",tokenOK);
+      },
           error: function (jqXHR, textStatus, errorThrown) {
           console.log('URL : ' + url);
           console.log(jqXHR);
@@ -71,6 +94,10 @@ function get(url, callback) {
         type: "GET",
         success: callback,
         async: false,
+        beforeSend: function (request)
+        {
+            request.setRequestHeader("Auth",tokenOK);
+        },
         done: function(response){return response;},
         error: function (jqXHR, textStatus, errorThrown) {
             console.log('url : ' + url);
