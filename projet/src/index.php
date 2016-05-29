@@ -2,6 +2,8 @@
 
 require 'vendor/autoload.php';
 
+require_once('Middleware/TokenAuth.php');
+
 /**
  * Connection on database with the Eloquent ORM
  */
@@ -23,6 +25,8 @@ $app = new \Slim\Slim(array(
 	'templates.path' => 'app/view',
 	'mode' => 'development'
 ));
+
+$app->add(new TokenAuth());
 
 //Routing system
 $router = new app\Router($app);
