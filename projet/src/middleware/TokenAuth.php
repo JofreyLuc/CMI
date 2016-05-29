@@ -53,7 +53,7 @@ class TokenAuth extends \Slim\Middleware {
         // On regarde si l'url est protégé ou non
         if ($this->isProtectedUrl($path)) {
             // On récupère le token
-            $tokenAuth = $this->app->request->headers->get('Authorizatio'); /* 'Authorizatio' */
+            $tokenAuth = $this->app->request->headers->get('Auth'); /* 'Auth' */
             echo("token = ".$tokenAuth);
             // On récupère l'idUser
             preg_match('/\/([0-9]*)\//s', $path, $matches);

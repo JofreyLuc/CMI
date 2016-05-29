@@ -55,7 +55,7 @@ fac.modules.app = (function () {
 				async: false,
 				beforeSend: function (request)
 				{
-					request.setRequestHeader("Authorizatio",tokenOK);
+					request.setRequestHeader("Auth",tokenOK);
 				},
 				statusCode: {
 					403: function() {
@@ -82,7 +82,7 @@ fac.modules.app = (function () {
 				async: false,
 				beforeSend: function (request)
 				{
-					request.setRequestHeader("Authorizatio",tokenOK);
+					request.setRequestHeader("Auth",tokenOK);
 				},
 				done: function(response){return response;},
 				error: function (jqXHR, textStatus, errorThrown) {

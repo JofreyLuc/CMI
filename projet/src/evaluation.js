@@ -61,7 +61,7 @@ fac.modules.app = (function () {
                 async: false,
                 beforeSend: function (request)
                 {
-                    request.setRequestHeader("Authorizatio",tokenOK);
+                    request.setRequestHeader("Auth",tokenOK);
                 },
 
                 statusCode: {
@@ -88,7 +88,7 @@ fac.modules.app = (function () {
                 success: callback,
                 beforeSend: function (request)
                 {
-                    request.setRequestHeader("Authorizatio", tokenOK);
+                    request.setRequestHeader("Auth", tokenOK);
                 },
                 async: false,
                 done: function(response){return response;},
