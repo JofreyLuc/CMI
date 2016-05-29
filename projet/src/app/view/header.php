@@ -77,7 +77,13 @@
 
                    // log data to the console so we can see
                    console.log(data);
-
+                   // alert("coucou");
+                   $("#zone_de_log_de_base").hide();
+                   $("#zone_de_log_de_base").innerHTML = "";
+                   //on affecte les resultats au div
+                   $("#zone_de_log_rechargement").append(JSON.stringify(data));
+                   //on affiche les resultats avec la transition
+                   $('#zone_de_log_rechargement').fadeIn(2000);
 
 
                });
@@ -91,6 +97,22 @@
  </script>
 
 
+
+
+
+
+
+<div id="zone_de_log_de_base"><?php
+    session_start();
+    if(isset($_SESSION["token"])){
+        echo "vous etes log";
+        echo $_SESSION["email"];
+    }else{
+        echo "vous êtes pas log";
+    }
+    ?></div>
+
+<div id="zone_de_log_rechargement"></div>
 
 
 
