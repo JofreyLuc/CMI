@@ -193,7 +193,6 @@ fac.modules.users = (function(){
                         '<img src="/CMI/projet/src/conf/img/user.jpg" height="150px" width="150px"/>'+
                         '<div id="description">'+
                             '<h2>'+data[evaluation].utilisateur.pseudo+'</h2>'+
-                            '<h3>Note : '+data[evaluation].note+'</p>'+
                             '<img src="/CMI/projet/src/conf/img/rating/'+data[evaluation].note+'.png">'+
                             '<p>'+data[evaluation].commentaire+'</p>'+
                         '</div>'+

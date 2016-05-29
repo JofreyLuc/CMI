@@ -27,7 +27,7 @@
                 <span class="tooltip">L'adresse e-mail est incorrect ou est déjà utilisé</span>
                 <br /><br />
 
-                <label class="form_col" for="pseudo">Pseudo :</label>
+                <label class="form_col" for="pseudo">Login :</label>
                 <input name="pseudo" id="pseudo" type="text" />
                 <span class="tooltip">Le login ne peut pas faire moins de 4 caractères</span>
                 <br /><br />
