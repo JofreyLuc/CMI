@@ -139,6 +139,7 @@
 <div id="zone_de_log_de_base"><?php
 
     if(isset($_SESSION["token"])){
+        session_start();
         echo "vous etes log";
         echo $_SESSION["email"];
     }else{
@@ -174,17 +175,13 @@
  <!-- Menu des différents boutons qui doivent être alignés et entourés -->
  <section>
   <div id="menu">
-      <?php
-
-      if(isset($_SESSION['idUtilisateur'])){
-          echo ' <div id="test1"> <input type="button" value="Consulter sa bibliothèque"
-                           onclick="document.location.href=\'/CMI/projet/src/users/'.$_SESSION['idUtilisateur'].'/library\'"/></div>';
-      }else{
-
-      }
-      ?>
-
-   <div id="test1"> <input type="button"  value="Rechercher"
+     <?php /*echo ' <div id="test1"> <input type="button" value="Consulter sa bibliothèque"
+                              href="/CMI/projet/src/users/".$_SESSION[\'idUtilisateur\'] ."/library"/></div>';*/
+     echo '  <div id="test1"> <input type="button" value="Consulter sa bibliothèque"
+           href="/CMI/projet/src/users/".$_SESSION[\'idUtilisateur\']."/library"/></div> ';
+?>
+      
+      <div id="test1"> <input type="button"  value="Rechercher"
                            onclick="document.location.href='/CMI/projet/src/books'"/> </div>
    <div id="test1"> <input type="button" value="Liste de suivi"
                            onclick="document.location.href='/CMI/projet/src/users'"/> </div>
