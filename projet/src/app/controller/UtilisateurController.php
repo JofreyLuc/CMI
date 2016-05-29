@@ -315,6 +315,9 @@ class UtilisateurController extends Controller {
 	}
 
 
+	/**
+	 * fonction pour la déco
+	 */
 	public function deconnexion(){
 		session_start();
 		session_destroy();
