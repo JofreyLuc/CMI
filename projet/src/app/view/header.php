@@ -50,7 +50,7 @@
           alert('Login ou password incorrect');
          },
          200: function() {
-         alert('ok');
+         alert('Welcome ' +  $('input[name=login]').val());
          }
 
         }
@@ -61,7 +61,6 @@
         // log data to the console so we can see
         console.log(data);
 
-        // here we will handle errors and validation messages
 
        });
 

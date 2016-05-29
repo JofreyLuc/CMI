@@ -297,10 +297,14 @@ class UtilisateurController extends Controller {
 
 		session_start();
 		$_SESSION["token"] = $token;
+		$_SESSION["tokenExpire"] = $tokenExpire;
 		$_SESSION["email"] = $email;
 		$_SESSION["idUtilisateur"] = $idUtilisateur;
 		if(isset($_SESSION["idUtilisateur"])) {
-			header("Location:/CMI/projet/src/books");
+			$this->app->view->setData('sessionVar', $_SESSION);
+			$this->app->render('header.php', compact('app'));
+			$this->app->render('recherche.php', compact('app'));
+			$this->app->render('livre.php');
 		}
 	}
 
