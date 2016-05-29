@@ -1,4 +1,8 @@
-
+<?php
+foreach ($livre as $l) {
+  $idlivre=$l->idLivre;
+}
+?>
 <link rel="stylesheet" href="../conf/css/file4.css" />
 
 <script src="/CMI/projet/src/epub.js-master/build/epub.js"></script>
@@ -18,6 +22,21 @@
 
 <script>
 	"use strict";
+
+// recuperation de l'id de l'user
+var userOK;
+var userRecup = $.ajax({
+  type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+  url         : '/CMI/projet/src/session/user', // the url where we want to POST
+  dataType    : 'json', // what type of data do we expect back from the server
+  encode          : true
+
+ })
+ // using the done promise callback
+ .done(function(data) {
+  //console.log(data);
+  userOK = data;
+ });
 
 
 function  post(url, data, callback) {
@@ -68,7 +87,7 @@ function get(url, callback) {
 
 
 
-	var book = ePub("/CMI/projet/src/pg76.epub");
+	var book = ePub("/CMI/projet/src/pg"+<?php echo $idlivre?>+".epub");
 
   var rendered=book.renderTo("area");
 
@@ -97,7 +116,7 @@ function get(url, callback) {
 
   function init_lecture(){
     //le get
-    get('/CMI/projet/src/api/users/1/library/',function(data) {
+    get('/CMI/projet/src/api/users/'+userOK+'/library/',function(data) {
       dernier_progres=data[0].positionLecture;
     });
     //pourcentage a iserer a la place du 0.3
@@ -124,7 +143,7 @@ function get(url, callback) {
           positionLecture : currentPage,
         };
         //le put qui envoi les info au server (put ok mais pas bon format)
-        post('/CMI/projet/src/api/users/1/library/1/web', progres,function(data,xhr) {});
+        post('/CMI/projet/src/api/users/'+userOK+'/library/'+<?php echo $idlivre?>+'/web', progres,function(data,xhr) {});
       }
       dernier_progres=currentPage;
 	}
