@@ -61,11 +61,11 @@
                // using the done promise callback
                .done(function(data) {
 
-                   $("#zone_de_log_de_base").empty();
+                  // $("#zone_de_log_de_base").empty();
                    //on affecte les resultats au div
-                   $("#zone_de_log_de_base").append(JSON.stringify(data));
+                 //  $("#zone_de_log_de_base").append(JSON.stringify(data));
                    //on affiche les resultats avec la transition
-                   $('#zone_de_log_rechargement').fadeIn(2000);
+                 //  $('#zone_de_log_rechargement').fadeIn(2000);
                    //$("#reloadBiblio").load(location.href + " #reloadBiblio");
 
               /*     var modif=$("#zone_de_log_de_base").empty();
@@ -110,6 +110,20 @@
         event.preventDefault();
     }
 </script>
+
+
+<!-- script pour affichage de la biblio selon l'état de connexion : log ou pas  -->
+<script>
+
+    $(document).ready(function() {
+        $('#vous_devez_vous_co').click(function() {
+           alert("Vous devez être co pour ça");
+
+        });
+    });
+
+</script>
+
 
 
 <!--
@@ -193,8 +207,18 @@
     <!-- Menu des différents boutons qui doivent être alignés et entourés -->
     <section>
         <div id="menu">
+            <?php
+                if(isset($_SESSION["token"])) {
+                    $idUserSession = $_SESSION["idUtilisateur"];
+                   /* echo '
+                      <div id="test1"> <a href="/CMI/projet/src/users/1/library"/>Consulter sa bibliothèque</a></div>
+                    ';*/
+                    echo "<div id='test1'><a href='/CMI/projet/src/users/".$idUserSession."/library' >Consulter sa bibliothèque <a/></div>";
+                }else{
+                   echo ' <div id="test1"> <a id="vous_devez_vous_co"/>Consulter sa bibliothèque</a></div>';
+                }
+            ?>
 
-            <div id="test1"> <a href="/CMI/projet/src/users/1/library"/>Consulter sa bibliothèque</a></div>
 
             <div id="test1"> <a href='/CMI/projet/src/books'> Rechercher</a> </div>
             <div id="test1"> <a href='/CMI/projet/src/users'>Liste de suivi</a> </div>
