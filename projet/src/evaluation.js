@@ -6,6 +6,24 @@ var fac = (function() {
     }
 })();
 
+
+
+var tokenOK;
+var recupToken= $.ajax({
+        type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+        url         : '/CMI/projet/src/session', // the url where we want to POST
+        encode          : true,
+        dataType : 'JSON'
+
+    })
+    // using the done promise callback
+    .done(function(data) {
+        console.log("var recup dedans : " +data);
+        tokenOK = data;
+    });
+
+
+
 fac.modules.app = (function () {
     return {
         post: function(url, data, callback) {
@@ -15,6 +33,11 @@ fac.modules.app = (function () {
                 type: "POST",
                 success: callback,
                 async: false,
+                beforeSend: function (request)
+                {
+                    request.setRequestHeader("Authorizatio",tokenOK);
+                },
+
                 statusCode: {
                     403: function() {
                         alert('Vous avez déjà entré un commenraire pour ce livre');
@@ -37,6 +60,10 @@ fac.modules.app = (function () {
                 url: url,
                 type: "GET",
                 success: callback,
+                beforeSend: function (request)
+                {
+                    request.setRequestHeader("Authorizatio", tokenOK);
+                },
                 async: false,
                 done: function(response){return response;},
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -75,8 +102,8 @@ fac.modules.users = (function(){
 
                 // l'id de l'user est entré en dur tant qu'on a pas de connexion
                 fac.modules.app.post('/CMI/projet/src/api/users/1/library/web', biblio, function(data) {
-                    //console.log(data);
-                });
+                    console.log(data);
+                })
 
 
                 // modification du style du bouton une fois la requête effectuée
@@ -130,7 +157,7 @@ fac.modules.users = (function(){
             $(document).ready(function(){
                 var id = document.getElementById('idDuLivre').innerHTML;
                 var a = fac.modules.app.get('/CMI/projet/src/api/books/'+id+'/ratings', function(data) {
-                    //console.log(data);
+                    console.log(data);
                     $("#zone_de_chargement_de_base").append(JSON.stringify(data));
 
 
