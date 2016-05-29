@@ -169,14 +169,15 @@
 <br><br>
 
  <!-- Menu des différents boutons qui doivent être alignés et entourés -->
+    <!--
  <section>
   <div id="menu">
      <?php /*echo ' <div id="test1"> <input type="button" value="Consulter sa bibliothèque"
-                              href="/CMI/projet/src/users/".$_SESSION[\'idUtilisateur\'] ."/library"/></div>';*/
+                              href="/CMI/projet/src/users/".$_SESSION[\'idUtilisateur\'] ."/library"/></div>';
      echo '  <div id="test1"> <input type="button" value="Consulter sa bibliothèque"
-           href="/CMI/projet/src/users/".$_SESSION[\'idUtilisateur\']."/library"/></div> ';
+           href="/CMI/projet/src/users/".$_SESSION[\'idUtilisateur\']."/library"/></div> ';*/
 ?>
-      
+
       <div id="test1"> <input type="button"  value="Rechercher"
                            onclick="document.location.href='/CMI/projet/src/books'"/> </div>
    <div id="test1"> <input type="button" value="Liste de suivi"
@@ -187,6 +188,20 @@
                            onclick="document.location.href='/CMI/projet/src/top10'"/> </div>
   </div>
  </section>
+-->
+
+    <!-- Menu des différents boutons qui doivent être alignés et entourés -->
+    <section>
+        <div id="menu">
+
+            <div id="test1"> <a href="/CMI/projet/src/users/1/library"/>Consulter sa bibliothèque</a></div>
+
+            <div id="test1"> <a href='/CMI/projet/src/books'> Rechercher</a> </div>
+            <div id="test1"> <a href='/CMI/projet/src/users'>Liste de suivi</a> </div>
+            <div id="test1"> <a href='/CMI/projet/src'>Suggestion</a></div>
+            <div id="test1"> <a href='/CMI/projet/src/top10'>Top 10</a> </div>
+        </div>
+    </section>
 </header>
 
 
