@@ -56,12 +56,11 @@
 ';}
         ?>
 
-        <br/>
+        <h2>Evaluations :</h2>
 
         <!-- zone prevu pour les evaluation -->
         <div id="zone_de_chargement_de_base"></div>
 
-        <div id="zone_de_rechargement"></div>
 
         <br/>
 

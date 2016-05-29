@@ -128,7 +128,7 @@ fac.modules.users = (function(){
                 };
 
 
-                fac.modules.app.post('/CMI/projet/src/api/users/1/books/'+id+'/ratings/web', evaluation, function(data,xhr) {
+                fac.modules.app.post('/CMI/projet/src/api/users/2/books/'+id+'/ratings/web', evaluation, function(data,xhr) {
                     //console.log(data);
                     //  /api/users/:idUser/books/:idBook/ratings
 
@@ -140,13 +140,7 @@ fac.modules.users = (function(){
 
                 // affiche les eval quand on en ajoute une autre
                 var a = fac.modules.app.get('/CMI/projet/src/api/books/'+id+'/ratings', function(data) {
-                    console.log(data);
-                    $("#zone_de_chargement_de_base").hide();
-                    $("#zone_de_chargement_de_base").innerHTML = "";
-                    //on affecte les resultats au div
-                    $("#zone_de_rechargement").append(JSON.stringify(data));
-                    //on affiche les resultats avec la transition
-                    $('#zone_de_rechargement').fadeIn(2000);
+                    fac.modules.users.afficher_evaluation(data);
                 });
 
             });
@@ -157,14 +151,28 @@ fac.modules.users = (function(){
             $(document).ready(function(){
                 var id = document.getElementById('idDuLivre').innerHTML;
                 var a = fac.modules.app.get('/CMI/projet/src/api/books/'+id+'/ratings', function(data) {
-                    console.log(data);
-                    $("#zone_de_chargement_de_base").append(JSON.stringify(data));
+                    fac.modules.users.afficher_evaluation(data);
+                    //$("#zone_de_chargement_de_base").append(JSON.stringify(data));
 
 
                 });
             });
+        },
 
-
+        afficher_evaluation: function(data) {
+            var modif=$("#zone_de_chargement_de_base").empty();
+            for(var evaluation in data){
+                modif.append(
+                    '<div id="test">'+
+                        '<img src="/CMI/projet/src/conf/img/Couverture_test.jpg" height="150px" width="100px"/>'+
+                        '<div id="description">'+
+                            '<h2>'+data[evaluation].utilisateur.pseudo+'</h2>'+
+                            '<h3>Note : '+data[evaluation].note+'</p>'+
+                            '<img src="/CMI/projet/src/conf/img/rating/'+data[evaluation].note+'.png">'+
+                            '<p>'+data[evaluation].commentaire+'</p>'+
+                        '</div>'+
+                    '</div>');
+            }
         }
     }
 })();
