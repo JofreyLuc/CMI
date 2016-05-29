@@ -45,7 +45,8 @@
         url         : '/CMI/projet/src/users/login', // the url where we want to POST
         data        : formData, // our data object
         dataType    : 'json', // what type of data do we expect back from the server
-        encode          : true,statusCode: {
+        encode          : true,
+        statusCode: {
          401: function() {
           alert('Login ou password incorrect');
          },
@@ -61,6 +62,25 @@
         // log data to the console so we can see
         console.log(data);
 
+
+           // j'envoie les infos retournés à un controller pour demarer la session et stocker les var dans $_SESSION
+           $.ajax({
+                   type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                   url         : '/CMI/projet/src/users/login/validation', // the url where we want to POST
+                   data        : data, // our data object
+                   dataType    : 'json', // what type of data do we expect back from the server
+                   encode          : true
+
+               })
+               // using the done promise callback
+               .done(function(data) {
+
+                   // log data to the console so we can see
+                   console.log(data);
+
+
+
+               });
 
        });
 
@@ -111,8 +131,6 @@
   </div>
  </section>
 </header>
-
-
 
 
 

@@ -290,6 +290,9 @@ class UtilisateurController extends Controller {
 	}
 
 
+	/**
+	 * fonction qui est censé initialiser la cession si la connexion se passe bien
+	 */
 	public function validationConnexion(){
 		$token = $_POST['token'];
 		$email = $_POST['email'];
@@ -302,10 +305,9 @@ class UtilisateurController extends Controller {
 		$_SESSION["email"] = $email;
 		$_SESSION["idUtilisateur"] = $idUtilisateur;
 		if(isset($_SESSION["idUtilisateur"])) {
-			$this->app->view->setData('sessionVar', $_SESSION);
-			$this->app->render('header.php', compact('app'));
-			$this->app->render('recherche.php', compact('app'));
-			$this->app->render('livre.php');
+			$this->app->response->setStatus(200);
+			$this->app->response->headers->set('Content-Type', 'application/json');
+			$this->app->response->body($_SESSION);
 		}
 	}
 
