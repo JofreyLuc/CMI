@@ -268,11 +268,12 @@ class UtilisateurController extends Controller {
 			if ($hash == $user->password) {
 				// Infos de connexion valides
 
-				// génération du token
-				$token = self::generateToken();
-				// sauvegarde du token
-				$user->token = $token['token'];
-				$user->tokenExpire = $token['expire'];
+				// génération du token si expiré
+				if ($user->tokenExpire >= DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'))){
+					$token = self::generateToken();
+					$user->token = $token['token'];
+					$user->tokenExpire = $token['expire'];
+				}
 				$user->save();
 
 				unset($user->salt);
@@ -334,11 +335,13 @@ class UtilisateurController extends Controller {
 			if ($hash == $user->password) {
 				// Infos de connexion valides
 
-                // génération du token
-                $token = self::generateToken();
+                // génération du token si expiré
+				if ($user->tokenExpire >= DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'))){
+					$token = self::generateToken();
+					$user->token = $token['token'];
+					$user->tokenExpire = $token['expire'];
+				}
                 // sauvegarde du token
-                $user->token = $token['token'];
-                $user->tokenExpire = $token['expire'];
                 $user->save();
 
                 unset($user->salt);
