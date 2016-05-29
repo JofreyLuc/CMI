@@ -180,9 +180,10 @@ class EvaluationController extends Controller {
 
         if($evalSiExiste->idUtilisateur == $idUser && $evalSiExiste->idLivre == $idLivre){
             // c'est ok pour la suppression
-            // $evalSiExiste->destroy();
             Evaluation::destroy($idEval);
-        }else{
+            $statut = 203;
+        }
+        else {
             // c'est pas son eval
             $statut = 403;
         }
