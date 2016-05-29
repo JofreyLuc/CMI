@@ -103,16 +103,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LivreController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projet/src/app/controller/LivreController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="381" column="58" selection-start-line="381" selection-start-column="58" selection-end-line="381" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UtilisateurController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -136,9 +126,29 @@
       <file leaf-file-name="lecture.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projet/src/app/view/lecture.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="58" column="4" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
-              <folding />
+            <state relative-caret-position="321">
+              <caret line="163" column="37" selection-start-line="163" selection-start-column="37" selection-end-line="163" selection-end-column="37" />
+              <folding>
+                <marker date="1464562160000" expanded="true" signature="475:494" placeholder="..." />
+                <marker date="1464562160000" expanded="true" signature="542:785" placeholder="..." />
+                <marker date="1464562160000" expanded="true" signature="562:738" placeholder="..." />
+                <marker date="1464562160000" expanded="true" signature="748:785" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="livre.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projet/src/app/view/livre.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="49" column="123" selection-start-line="49" selection-start-column="98" selection-end-line="49" selection-end-column="123" />
+              <folding>
+                <marker date="1464536666000" expanded="true" signature="566:1033" placeholder="..." />
+                <marker date="1464536666000" expanded="true" signature="671:929" placeholder="..." />
+                <marker date="1464536666000" expanded="true" signature="957:1033" placeholder="..." />
+                <marker date="1464536666000" expanded="true" signature="1238:1714" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,8 +156,8 @@
       <file leaf-file-name="evaluation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projet/src/evaluation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="64" column="18" selection-start-line="61" selection-start-column="15" selection-end-line="64" selection-end-column="18" />
+            <state relative-caret-position="167">
+              <caret line="198" column="81" selection-start-line="198" selection-start-column="20" selection-end-line="198" selection-end-column="81" />
               <folding>
                 <marker date="1464558248000" expanded="true" signature="7802:8422" placeholder="..." />
                 <marker date="1464558248000" expanded="true" signature="7955:8392" placeholder="..." />
@@ -557,12 +567,12 @@
       <workItem from="1464359246628" duration="4574000" />
       <workItem from="1464383526822" duration="6608000" />
       <workItem from="1464434601193" duration="18573000" />
-      <workItem from="1464507736369" duration="36876000" />
+      <workItem from="1464507736369" duration="37352000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="241891000" />
+    <option name="totallyTimeSpent" value="242367000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
@@ -723,21 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/app/view/livre.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-          <folding>
-            <marker date="1464536666000" expanded="true" signature="494:550" placeholder="..." />
-            <marker date="1464536666000" expanded="true" signature="494:559" placeholder="..." />
-            <marker date="1464536666000" expanded="true" signature="566:1721" placeholder="..." />
-            <marker date="1464536666000" expanded="true" signature="671:929" placeholder="..." />
-            <marker date="1464536666000" expanded="true" signature="957:1212" placeholder="..." />
-            <marker date="1464536666000" expanded="true" signature="1238:1714" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -894,14 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="97" column="67" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/app/controller/UtilisateurController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -935,17 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projet/src/evaluation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="64" column="18" selection-start-line="61" selection-start-column="15" selection-end-line="64" selection-end-column="18" />
-          <folding>
-            <marker date="1464558248000" expanded="true" signature="7802:8422" placeholder="..." />
-            <marker date="1464558248000" expanded="true" signature="7955:8392" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/fac.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -954,11 +930,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/app/view/livre.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="49" column="123" selection-start-line="49" selection-start-column="98" selection-end-line="49" selection-end-column="123" />
+          <folding>
+            <marker date="1464536666000" expanded="true" signature="566:1033" placeholder="..." />
+            <marker date="1464536666000" expanded="true" signature="671:929" placeholder="..." />
+            <marker date="1464536666000" expanded="true" signature="957:1033" placeholder="..." />
+            <marker date="1464536666000" expanded="true" signature="1238:1714" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="97" column="67" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projet/src/evaluation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="198" column="81" selection-start-line="198" selection-start-column="20" selection-end-line="198" selection-end-column="81" />
+          <folding>
+            <marker date="1464558248000" expanded="true" signature="7802:8422" placeholder="..." />
+            <marker date="1464558248000" expanded="true" signature="7955:8392" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projet/src/app/view/lecture.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="58" column="4" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="321">
+          <caret line="163" column="37" selection-start-line="163" selection-start-column="37" selection-end-line="163" selection-end-column="37" />
+          <folding>
+            <marker date="1464562160000" expanded="true" signature="475:494" placeholder="..." />
+            <marker date="1464562160000" expanded="true" signature="542:785" placeholder="..." />
+            <marker date="1464562160000" expanded="true" signature="562:738" placeholder="..." />
+            <marker date="1464562160000" expanded="true" signature="748:785" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

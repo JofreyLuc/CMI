@@ -12,8 +12,11 @@ foreach ($livre as $l) {
 
 <div id="titreT"> <h3> Lecture </h3> </div>
 
-	
-<div id="lecture">
+    <!-- je te met ici l'id du livre en caché , tu peux la récup facilement comme ça -->
+    <?php foreach ($livre as $l) {
+echo '<p id="idDuLivre"  style="visibility: hidden;">$l->idLivre</p> '; } ?>
+
+    <div id="lecture">
     <div id="main">
         <div id="prev" onclick="book.prevPage();" class="arrow">‹</div>
     	<div id="area"></div>
@@ -56,7 +59,7 @@ var userRecup = $.ajax({
         });
 
 
-    
+
 
     function  post(url, data, callback) {
   $.ajax({
@@ -113,8 +116,9 @@ function get(url, callback) {
 }
 
 
-
-	var book = ePub("/CMI/projet/src/pg"+<?php echo $idlivre?>+".epub");
+    var idLivre = document.getElementById('idDuLivre').innerHTML;
+	//var book = ePub("/CMI/projet/src/pg"+<?php echo $idlivre?>+".epub");
+    var book = ePub("/CMI/projet/src/pg"+idLivre+".epub");
 
   var rendered=book.renderTo("area");
 
@@ -170,7 +174,10 @@ function get(url, callback) {
           positionLecture : currentPage,
         };
         //le put qui envoi les info au server (put ok mais pas bon format)
-        post('/CMI/projet/src/api/users/'+userOK+'/library/'+<?php echo $idlivre?>+'/web', progres,function(data,xhr) {});
+          var idLivre = document.getElementById('idDuLivre').innerHTML;
+       // post('/CMI/projet/src/api/users/'+userOK+'/library/'+<?php echo $idlivre?>+'/web', progres,function(data,xhr) {});
+          post('/CMI/projet/src/api/users/'+userOK+'/library/'+idLivre+'/web', progres,function(data,xhr) {});
+
       }
       dernier_progres=currentPage;
 	}
