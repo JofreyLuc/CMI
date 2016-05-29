@@ -262,17 +262,17 @@ class LivreController extends Controller
 			//$parPage = 10;
 			//$total = ceil($countPage / $parPage);
 
-			$livres = Livre::all()->take(10);//->forpage($this->app->request()->params('page'), $parPage);
+			//$livres = Livre::all()->take(10);//->forpage($this->app->request()->params('page'), $parPage);
 			//$langues = Livre::select('langue')->distinct('langue')->get()->toArray();
 
-			$this->app->view->setData('livres', $livres);
+			//$this->app->view->setData('livres', $livres);
 			//$this->app->view->setData('langues', $langues);
 			//$this->app->view->setData('total', $total);
 
 
 			$this->app->render('header.php', compact('app'));
 			$this->app->render('recherche.php', compact('app'));
-			$this->app->render('livre.php');
+			//$this->app->render('livre.php');
 		}else{
 			//$countPage = Livre::where('titre', 'like', '%' . $this->app->request()->params('titre') . '%')->where('auteur', 'like', '%' . $this->app->request()->params('auteur') . '%')->where('genre', 'like', '%' . $this->app->request()->params('genre') . '%')->get()->count();
 		//	$page = 1;
