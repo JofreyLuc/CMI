@@ -140,6 +140,11 @@ $router->post('/api/users/login', "app\Controller\UtilisateurController@connexio
 $router->post('/users/login', "app\Controller\UtilisateurController@connexion");
 $router->post('/users/login/validation', "app\Controller\UtilisateurController@validationConnexion");
 
+// disconect
+$router->post('/users/logout', "app\Controller\UtilisateurController@deconnexion");
+
+
+
 
 
 

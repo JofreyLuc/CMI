@@ -307,11 +307,18 @@ class UtilisateurController extends Controller {
 		if(isset($_SESSION["idUtilisateur"])) {
 			$this->app->response->setStatus(200);
 			$this->app->response->headers->set('Content-Type', 'application/json');
-			$this->app->response->body($_SESSION);
+			$this->app->response->body(json_encode($_SESSION["email"]));
+			//$this->app->response->body($_SESSION["tokenExpire"]);
+			//$this->app->response->body($_SESSION["idUtilisateur"]);
+			//$this->app->response->body($_SESSION["token"]);
 		}
 	}
 
 
+	public function deconnexion(){
+		session_start();
+		session_destroy();
+	}
 
 
 
