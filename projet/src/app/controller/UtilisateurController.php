@@ -269,7 +269,7 @@ class UtilisateurController extends Controller {
 				// Infos de connexion valides
 
 				// génération du token si expiré
-				if ($user->tokenExpire >= DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'))){
+				if (DateTime::createFromFormat('Y-m-d H:i:s', $user->tokenExpire) >= DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'))){
 					$token = self::generateToken();
 					$user->token = $token['token'];
 					$user->tokenExpire = $token['expire'];
@@ -348,7 +348,7 @@ class UtilisateurController extends Controller {
 				// Infos de connexion valides
 
                 // génération du token si expiré
-				if ($user->tokenExpire >= DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'))){
+				if (DateTime::createFromFormat('Y-m-d H:i:s', $user->tokenExpire) >= DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'))){
 					$token = self::generateToken();
 					$user->token = $token['token'];
 					$user->tokenExpire = $token['expire'];
