@@ -315,8 +315,11 @@ class UtilisateurController extends Controller {
 	}
 
 
+	public function deconnexion(){
+		session_start();
+		session_destroy();
+	}
 
-	
 
 
 

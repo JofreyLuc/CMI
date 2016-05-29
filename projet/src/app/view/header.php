@@ -80,6 +80,8 @@
                    // alert("coucou");
                    $("#zone_de_log_de_base").hide();
                    $("#zone_de_log_de_base").innerHTML = "";
+
+
                    //on affecte les resultats au div
                    $("#zone_de_log_rechargement").append(JSON.stringify(data));
                    //on affiche les resultats avec la transition
