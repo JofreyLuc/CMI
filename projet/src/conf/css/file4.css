@@ -126,7 +126,7 @@ a,a:visited,a:hover,a:active{
     transition:0.5s color ease;
     text-decoration:none;
     color:#81b3d2;
-    font-size:2em;
+    font-size:1.5em;
 }
 a:hover{
     color:#d73444;
