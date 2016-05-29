@@ -49,12 +49,12 @@ script pour cacher / afficher recherche avancée
         if ( document.getElementById('titre').value.length == 0){
             if ( document.getElementById('auteur').value.length == 0){
                 if ( document.getElementById('genre').value.length == 0){
-                    if( document.getElementById('langues').options[document.getElementById('langues').selectedIndex ].value.length == 0){
+                 /*   if( document.getElementById('langues').options[document.getElementById('langues').selectedIndex ].value.length == 0){
                         valid = false;
                         document.getElementById("titre").focus();
                         document.getElementById("erreurForm").style.visibility = "visible";
                         return valid;
-                    }               
+                    }   */
                 }
             }
         }

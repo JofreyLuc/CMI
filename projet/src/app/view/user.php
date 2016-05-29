@@ -6,6 +6,15 @@
 
 <section>
 	<div id="titreT"> <h3> requete sur users </h3> </div>
+	<?php
+	if($total != null){
+
+		for($i = 1; $i <= $total; $i++){
+			echo "<input  onclick=document.location.href='/CMI/projet/src/users?page=".$i."' type='button' value='".$i."'> </>";
+		}
+	}
+
+	?>
 	<div id="top10">
 		<div style="border:black solid medium">
 			<table border ="2">
@@ -30,11 +39,6 @@
 				echo $parPage;
 				echo $total;*/
 
-				if(empty($total)){
-					for($i = 1; $i <= $total; $i++){
-						echo "<input  onclick=document.location.href='/CMI/projet/src/users?page=".$i."' type='button' value='".$i."'> </>";
-					}
-				}
 
 
 				foreach($users as $user) {
@@ -61,6 +65,11 @@
 </section>
 <?php
 if($total != null){
+	$adresse = $_SERVER["REQUEST_URI"];
+	$chop = substr($adresse,0,-1);
+	var_dump($adresse);
+	echo "<br>";
+	var_dump($chop);
 	for($i = 1; $i <= $total; $i++){
 		echo "<input  onclick=document.location.href='/CMI/projet/src/users?page=".$i."' type='button' value='".$i."'> </>";
 	}

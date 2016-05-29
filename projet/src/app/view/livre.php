@@ -8,6 +8,21 @@
 <section>
 
 	<div id="top10">
+
+		<?php
+		/*if($total != null){
+			$adresse = $_SERVER["REQUEST_URI"];
+			$chop = substr($adresse,0,-1);
+			var_dump($adresse);
+			echo "<br>";
+			var_dump($chop);
+
+			for($i = 1; $i <= $total; $i++){
+				$adressePage = $chop.$i;
+				echo '<input  onclick=document.location.href="'.$adressePage.'" type="button" value="'.$i.'"> </>';
+			}
+		}
+		*/?>
 		<div >
 			<?php
 			foreach($livres as $livre)
@@ -38,13 +53,6 @@
 			}
 			?>
 		</div>
-        <?php
-		/*
-        if($total != null){
-            for($i = 1; $i <= $total; $i++){
-                echo "<input  onclick=document.location.href='/CMI/projet/src/books?page=".$i."' type='button' value='".$i."'> </>";
-            }
-        }
-        */?>
+
 	</div>
 </section>
