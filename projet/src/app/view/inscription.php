@@ -4,7 +4,7 @@
 
 
 
-    <form class="form-register" id="myForm" method="post" action="http://localhost:8888/CMI/projet/src/inscription/verification">
+    <form class="form-register" id="myForm" method="post" action="/CMI/projet/src/inscription/verification">
 
         <div class="form-register-with-email">
 
@@ -46,7 +46,7 @@
                 <span class="form_col" for="conditions"></span>
                 <label class="form-checkbox">
                     <input class="form-checkbox" name="conditions" id="conditions" type="checkbox"/>
-                    <span>J'accepte les <a href="http://localhost:8888/CMI/projet/src/condition_utilisation">conditions générales d'utilisation</a></span>
+                    <span>J'accepte les <a href="/CMI/projet/src/condition_utilisation">conditions générales d'utilisation</a></span>
                 </label>
                 <span class="tooltip">Vous devez accepter les conditions générales</span>
                 <br /><br />
