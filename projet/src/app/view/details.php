@@ -38,9 +38,13 @@
             </div>
             <div id="note">
                 </br></br>
-                <p>Note : '.$l->noteMoyenne.'</p>';
-                if($l->noteMoyenne!=null) 
+                <p>Note : '.$l->noteMoyenne.'</p>';             
+                if($l->noteMoyenne==null){
+                    echo '<img src="/CMI/projet/src/conf/img/rating/0.png">';
+
+                }else{
                     echo '<img src="/CMI/projet/src/conf/img/rating/'.$l->noteMoyenne.'.png">';
+                }
                 echo '
                 <p id="idDuLivre" style="visibility : hidden;">'.$l->idLivre.'</p>
                 </br></br>
