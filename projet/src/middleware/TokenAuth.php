@@ -25,7 +25,6 @@ class TokenAuth extends \Slim\Middleware {
      * @return bool
      */
     public function authenticate($idUser, $token) {
-        return true;
         if (!isset($idUser) || !isset($token))
             return false;
         return \app\controller\UtilisateurController::validateToken($idUser, $token);
