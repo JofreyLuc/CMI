@@ -14,7 +14,7 @@ foreach ($livre as $l) {
 
     <!-- je te met ici l'id du livre en caché , tu peux la récup facilement comme ça -->
     <?php foreach ($livre as $l) {
-echo '<p id="idDuLivre"  style="visibility: hidden;">$l->idLivre</p> '; } ?>
+echo '<p id="idDuLivre"  style="visibility: hidden;">'.$l->idLivre.'</p> '; } ?>
 
     <div id="lecture">
     <div id="main">
@@ -116,13 +116,13 @@ function get(url, callback) {
 }
 
 
-    var idLivre = document.getElementById('idDuLivre').innerHTML;
-	//var book = ePub("/CMI/projet/src/pg"+<?php echo $idlivre?>+".epub");
-    var book = ePub("/CMI/projet/src/pg"+idLivre+".epub");
+	var book = ePub("/CMI/projet/src/pg"+<?php echo $idlivre?>+".epub");
 
   var rendered=book.renderTo("area");
 
   var dernier_progres=null;
+
+  var idBiblio=null;
 
 	book.ready.all.then(function(){
         // Load in stored locations from json or local storage
@@ -147,8 +147,15 @@ function get(url, callback) {
 
   function init_lecture(){
     //le get
-    get('/CMI/projet/src/api/users/'+userOK+'/library/',function(data) {
-      dernier_progres=data[0].positionLecture;
+    get('/CMI/projet/src/api/users/'+userOK+'/library',function(data) {
+      var idLivre = document.getElementById('idDuLivre').innerHTML;
+      var position;
+      for(var i = 0; i < data.length; i++) {
+          if (data[i].idLivre == idLivre)
+                position = i;
+      }
+      dernier_progres=data[position].positionLecture;
+      idBiblio = data[position].idBibliotheque;
     });
     //pourcentage a iserer a la place du 0.3
     book.goto(book.locations.cfiFromPercentage(dernier_progres));
@@ -168,22 +175,20 @@ function get(url, callback) {
     		currentPage=1;
     	}
       if(dernier_progres!=currentPage){
-        var id = 1;
         var progres = {
-          idBibliotheque : id,
-          positionLecture : currentPage,
+          idBibliotheque : idBiblio,
+          positionLecture : currentPage
         };
         //le put qui envoi les info au server (put ok mais pas bon format)
           var idLivre = document.getElementById('idDuLivre').innerHTML;
        // post('/CMI/projet/src/api/users/'+userOK+'/library/'+<?php echo $idlivre?>+'/web', progres,function(data,xhr) {});
-          post('/CMI/projet/src/api/users/'+userOK+'/library/'+idLivre+'/web', progres,function(data,xhr) {});
+          post('/CMI/projet/src/api/users/'+userOK+'/library/'+idBiblio+'/web', progres,function(data,xhr) {});
 
       }
       dernier_progres=currentPage;
 	}
 
-  setTimeout(init_lecture, 1000);
+  setTimeout(init_lecture, 2000);
 </script>
 
-<button onclick="test()" >try </button>
 </section>
