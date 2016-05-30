@@ -248,7 +248,7 @@ fac.modules.users = (function(){
             for(var evaluation in data){
                 modif.append(
                     '<div id="test">'+
-                        '<img src="/CMI/projet/src/conf/img/user.jpg" height="150px" width="150px"/>'+
+                        '<a href="/CMI/projet/src/users/'+JSON.stringify(data[evaluation].idUtilisateur)+'"><img src="/CMI/projet/src/conf/img/user.jpg" height="150px" width="150px"/></a>'+
                         '<div id="description">'+
                             '<h2>'+data[evaluation].utilisateur.pseudo+'</h2>'+
                             '<img src="/CMI/projet/src/conf/img/rating/'+data[evaluation].note+'.png">'+

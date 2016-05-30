@@ -49,7 +49,6 @@ class EvaluationController extends Controller {
             unset($users->dateNaissance);
             unset($users->sexe);
             unset($users->inscriptionValidee);
-            unset($e->idUtilisateur);
             $e = json_decode(json_encode($e));
             $e = (object) array_merge( (array)$e, array( 'utilisateur' => $users ) );
             $tabResult[$i] = $e;

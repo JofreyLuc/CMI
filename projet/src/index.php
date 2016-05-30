@@ -108,6 +108,8 @@ $router->get('/api/books', "app\Controller\LivreController@afficherLivreAuteurTi
 $router->get('/books', "app\Controller\LivreController@recherche");
 
 
+// consulter profil de quelqu'un
+//$router->get('/api/books', "app\Controller\LivreController@afficherLivreAuteurTitreGenreJson");
 
 
 

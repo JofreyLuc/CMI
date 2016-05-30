@@ -45,54 +45,50 @@
        // using the done promise callback
        .done(function(data) {
 
-        // log data to the console so we can see
-        console.log(data);
+           // log data to the console so we can see
+           console.log(data);
 
 
            // j'envoie les infos retournés à un controller pour demarer la session et stocker les var dans $_SESSION
            $.ajax({
-                   type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-                   url         : '/CMI/projet/src/users/login/validation', // the url where we want to POST
-                   data        : data, // our data object
-                   dataType    : 'json', // what type of data do we expect back from the server
-                   encode          : true
+                   type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                   url: '/CMI/projet/src/users/login/validation', // the url where we want to POST
+                   data: data, // our data object
+                   dataType: 'json', // what type of data do we expect back from the server
+                   encode: true
 
                })
                // using the done promise callback
-               .done(function(data) {
-
-                  // $("#zone_de_log_de_base").empty();
+               .done(function (data) {
+                   //alert(data[0].idUtilisateur);
+                   // $("#zone_de_log_de_base").empty();
                    //on affecte les resultats au div
-                 //  $("#zone_de_log_de_base").append(JSON.stringify(data));
+                   //  $("#zone_de_log_de_base").append(JSON.stringify(data));
                    //on affiche les resultats avec la transition
-                 //  $('#zone_de_log_rechargement').fadeIn(2000);
+                   //  $('#zone_de_log_rechargement').fadeIn(2000);
                    //$("#reloadBiblio").load(location.href + " #reloadBiblio");
 
-              /*     var modif=$("#zone_de_log_de_base").empty();
-                   for(var e in data){
-                       modif.append(
-                           '<div id="test">'+
-                           '<img src="/CMI/projet/src/conf/img/user.jpg" height="150px" width="150px"/>'+
-                           '<div id="description">'+
-                           '<h2>'+data[e].utilisateur.pseudo+'</h2>'+
-                           '<img src="/CMI/projet/src/conf/img/rating/'+data[e].note+'.png">'+
-                           '<p>'+data[e].commentaire+'</p>'+
-                           '</div>'+
-                           '</div>');
-                   }*/
+
+                   // $('#zone_de_log_de_base').empty();
+                   // $('#zone_de_log_de_base').append('coucou');
+                   // $('#zone_de_log_rechargement').load(test1.php);
 
 
                });
+           window.location = "/CMI/projet/src/";
 
        });
-
+      
+      
+      
+      
+      
+      
    // stop the form from submitting the normal way and refreshing the page
    event.preventDefault();
 
   }
  </script>
-
-
 
 
 <!-- script pour la déconnexion -->
@@ -101,6 +97,7 @@
         $.ajax({
             type: 'get',
             url: '/CMI/projet/src/users/logout',
+            cache: false,
             success: function(data){
                 location.href ="/CMI/projet/src/";
                // alert(data);
@@ -139,7 +136,6 @@
 
 
 
-
 <div id="zone_de_log_rechargement"></div>
 
 
@@ -159,6 +155,7 @@
      <div id="zone_de_log_de_base"><?php
          session_start();
          if(isset($_SESSION["token"])){
+            // session_start();
              echo '
              <div id="profil_header">
              <img src="/CMI/projet/src/conf/img/user.jpg" height="100px" width="100px"/><input id="logout" type="button" value="logout" onclick="logout();return false;"><br>
@@ -177,6 +174,9 @@
 
          }
          ?></div>
+
+
+     <div id="zone_de_log_apres" "></div>
 
 
  </div>

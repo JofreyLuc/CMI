@@ -77,8 +77,12 @@ class UtilisateurController extends Controller {
 	{
 		//$this->app->render('layout/header.php', compact('app'));
 		$users = Utilisateur::where('idUtilisateur', $id)->get();
+		unset($users->salt);
+		unset($users->password);
+		unset($users->token);
 		$this->app->view->setData('users', $users);
-		$this->app->render('user_recherche_id.php');
+		$this->app->render('header.php', compact('app'));
+		$this->app->render('profil.php', compact('app'));
 
 	}
 
@@ -311,8 +315,9 @@ class UtilisateurController extends Controller {
 			//$this->app->response->body(json_encode($_SESSION["tokenExpire"]));
 			//$this->app->response->body(json_encode($_SESSION["idUtilisateur"]));
 		//	$this->app->response->body(json_encode($_SESSION["token"]));
-			$this->app->response->body(json_encode($_SESSION));
-
+			//$this->app->response->body(json_encode($_SESSION));
+			header("Location: http://localhost:8888/CMI/projet/src/top10");
+			exit;
 		}
 	}
 
@@ -322,14 +327,16 @@ class UtilisateurController extends Controller {
 	 */
 	public function deconnexion(){
 		session_start();
-		//session_unset();
-		//session_destroy();
+
 
 		unset($_SESSION["token"] );
 		unset($_SESSION["tokenExpire"] );
 		unset($_SESSION["email"] );
 		unset($_SESSION["idUtilisateur"] );
 
+		session_unset();
+		session_destroy();
+		
 		/*$this->app->render('header.php', compact('app'));
 		$this->app->render('recherche.php', compact('app'));
 		$this->app->render('livre.php');*/
