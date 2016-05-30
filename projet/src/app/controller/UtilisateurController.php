@@ -85,6 +85,27 @@ class UtilisateurController extends Controller {
 		$this->app->render('profil.php', compact('app'));
 
 	}
+	
+	
+	public function afficherUserLogProfil()
+	{
+		session_start();
+		if(isset($_SESSION["idUtilisateur"])){
+			$id = $_SESSION["idUtilisateur"]; // marche pas
+		
+		}else{
+
+		}
+		//$this->app->render('layout/header.php', compact('app'));
+		$users = Utilisateur::where('idUtilisateur', $id)->get();
+		unset($users->salt);
+		unset($users->password);
+		unset($users->token);
+		$this->app->view->setData('users', $users);
+		$this->app->render('header.php', compact('app'));
+		$this->app->render('mon_profil.php', compact('app'));
+
+	}
 
 
 

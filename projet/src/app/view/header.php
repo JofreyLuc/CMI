@@ -158,7 +158,7 @@
             // session_start();
              echo '
              <div id="profil_header">
-             <img src="/CMI/projet/src/conf/img/user.jpg" height="100px" width="100px"/><input id="logout" type="button" value="logout" onclick="logout();return false;"><br>
+             <a href="/CMI/projet/src/users/my"><img src="/CMI/projet/src/conf/img/user.jpg" height="100px" width="100px"/></a><input id="logout" type="button" value="logout" onclick="logout();return false;"><br>
              <h3>'.$_SESSION["email"].'</h3>
              </div>
         ';

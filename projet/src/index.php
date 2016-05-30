@@ -77,6 +77,11 @@ $router->delete('/api/users/:idUser/library/:idLibrary', "app\Controller\Bibliot
 $router->get('/users/:id', "app\Controller\UtilisateurController@afficherUserId");
 $router->get('/api/users/:id', "app\Controller\UtilisateurController@afficherUserIdJson");
 
+// affiche le profil de l'user co (identifié via var session)
+$router->get('/users/my', "app\Controller\UtilisateurController@afficherUserLogProfil");
+
+
+
 // modification du profil d'un user identid via id
 $router->put('/api/users/:id', "app\Controller\UtilisateurController@modifierUserIdJson");
 $router->put('/users/:id', "app\Controller\UtilisateurController@modifierUserIdJson");
