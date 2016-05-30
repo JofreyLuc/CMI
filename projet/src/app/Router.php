@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Ysee
- * Date: 06/01/15
- * Time: 14:17
- */
 namespace app;
 class Router
 {

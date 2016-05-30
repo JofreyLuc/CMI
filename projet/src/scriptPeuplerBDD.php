@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mulhauser
- * Date: 12/05/2016
- * Time: 13:59
- */
 
 //require 'app/model/Livre.php';
 
